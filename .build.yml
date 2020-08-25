@@ -41,6 +41,7 @@ requires:
     - desktop-file-utils
     - gcc
     - gcc-c++
+    - gettext-devel
     - git
     - gobject-introspection-devel
     - gsettings-desktop-schemas-devel
