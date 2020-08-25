@@ -8,6 +8,7 @@ requires:
     - automake
     - clang
     - gcc
+    - gettext
     - git
     - gobject-introspection
     - gtk3
