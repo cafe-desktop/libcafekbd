@@ -30,6 +30,7 @@ requires:
     - libgirepository1.0-dev
     - libglib2.0-dev
     - libgtk-3-dev
+    - libtool
     - libxklavier-dev
     - libxml2-utils
     - make
@@ -63,6 +64,7 @@ requires:
     - libgirepository1.0-dev
     - libglib2.0-dev
     - libgtk-3-dev
+    - libtool
     - libxklavier-dev
     - libxml2-utils
     - make
