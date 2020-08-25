@@ -17,18 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __MATEKBD_DESKTOP_CONFIG_H__
-#define __MATEKBD_DESKTOP_CONFIG_H__
+#ifndef __CAFEKBD_DESKTOP_CONFIG_H__
+#define __CAFEKBD_DESKTOP_CONFIG_H__
 
 #include <X11/Xlib.h>
 #include <glib.h>
 #include <gio/gio.h>
 #include <libxklavier/xklavier.h>
 
-extern const gchar MATEKBD_DESKTOP_CONFIG_KEY_DEFAULT_GROUP[];
-extern const gchar MATEKBD_DESKTOP_CONFIG_KEY_GROUP_PER_WINDOW[];
-extern const gchar MATEKBD_DESKTOP_CONFIG_KEY_HANDLE_INDICATORS[];
-extern const gchar MATEKBD_DESKTOP_CONFIG_KEY_LAYOUT_NAMES_AS_GROUP_NAMES[];
+extern const gchar CAFEKBD_DESKTOP_CONFIG_KEY_DEFAULT_GROUP[];
+extern const gchar CAFEKBD_DESKTOP_CONFIG_KEY_GROUP_PER_WINDOW[];
+extern const gchar CAFEKBD_DESKTOP_CONFIG_KEY_HANDLE_INDICATORS[];
+extern const gchar CAFEKBD_DESKTOP_CONFIG_KEY_LAYOUT_NAMES_AS_GROUP_NAMES[];
 
 /*
  * General configuration

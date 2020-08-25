@@ -17,18 +17,18 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __MATEKBD_CONFIG_PRIVATE_H__
-#define __MATEKBD_CONFIG_PRIVATE_H__
+#ifndef __CAFEKBD_CONFIG_PRIVATE_H__
+#define __CAFEKBD_CONFIG_PRIVATE_H__
 
 #include "libmatekbd/matekbd-desktop-config.h"
 #include "libmatekbd/matekbd-keyboard-config.h"
 
-#define MATEKBD_CONFIG_SCHEMA "org.mate.peripherals-keyboard-xkb"
+#define CAFEKBD_CONFIG_SCHEMA "org.mate.peripherals-keyboard-xkb"
 
-extern const gchar MATEKBD_PREVIEW_CONFIG_KEY_X[];
-extern const gchar MATEKBD_PREVIEW_CONFIG_KEY_Y[];
-extern const gchar MATEKBD_PREVIEW_CONFIG_KEY_WIDTH[];
-extern const gchar MATEKBD_PREVIEW_CONFIG_KEY_HEIGHT[];
+extern const gchar CAFEKBD_PREVIEW_CONFIG_KEY_X[];
+extern const gchar CAFEKBD_PREVIEW_CONFIG_KEY_Y[];
+extern const gchar CAFEKBD_PREVIEW_CONFIG_KEY_WIDTH[];
+extern const gchar CAFEKBD_PREVIEW_CONFIG_KEY_HEIGHT[];
 
 /**
  * General config functions (private)

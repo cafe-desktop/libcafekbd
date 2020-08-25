@@ -4,7 +4,7 @@ libdir=@libdir@
 includedir=@includedir@
 
 Name: libmatekbd
-Description: MATE keyboard shared library
+Description: CAFE keyboard shared library
 Version: @VERSION@
 Requires: libmatekbd = @VERSION@
 Libs: -L${libdir} -lmatekbdui

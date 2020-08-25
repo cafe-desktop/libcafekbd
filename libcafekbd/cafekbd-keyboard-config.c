@@ -33,19 +33,19 @@
 /*
  * MatekbdKeyboardConfig
  */
-#define MATEKBD_KEYBOARD_CONFIG_SCHEMA MATEKBD_CONFIG_SCHEMA ".kbd"
+#define CAFEKBD_KEYBOARD_CONFIG_SCHEMA CAFEKBD_CONFIG_SCHEMA ".kbd"
 
 #define GROUP_SWITCHERS_GROUP "grp"
 #define DEFAULT_GROUP_SWITCH "grp:shift_caps_toggle"
 
-const gchar MATEKBD_KEYBOARD_CONFIG_KEY_MODEL[] = "model";
-const gchar MATEKBD_KEYBOARD_CONFIG_KEY_LAYOUTS[] = "layouts";
-const gchar MATEKBD_KEYBOARD_CONFIG_KEY_OPTIONS[] = "options";
+const gchar CAFEKBD_KEYBOARD_CONFIG_KEY_MODEL[] = "model";
+const gchar CAFEKBD_KEYBOARD_CONFIG_KEY_LAYOUTS[] = "layouts";
+const gchar CAFEKBD_KEYBOARD_CONFIG_KEY_OPTIONS[] = "options";
 
-const gchar *MATEKBD_KEYBOARD_CONFIG_ACTIVE[] = {
-	MATEKBD_KEYBOARD_CONFIG_KEY_MODEL,
-	MATEKBD_KEYBOARD_CONFIG_KEY_LAYOUTS,
-	MATEKBD_KEYBOARD_CONFIG_KEY_OPTIONS
+const gchar *CAFEKBD_KEYBOARD_CONFIG_ACTIVE[] = {
+	CAFEKBD_KEYBOARD_CONFIG_KEY_MODEL,
+	CAFEKBD_KEYBOARD_CONFIG_KEY_LAYOUTS,
+	CAFEKBD_KEYBOARD_CONFIG_KEY_OPTIONS
 };
 
 /*
@@ -409,7 +409,7 @@ matekbd_keyboard_config_init (MatekbdKeyboardConfig * kbd_config,
 			      XklEngine * engine)
 {
 	memset (kbd_config, 0, sizeof (*kbd_config));
-	kbd_config->settings = g_settings_new (MATEKBD_KEYBOARD_CONFIG_SCHEMA);
+	kbd_config->settings = g_settings_new (CAFEKBD_KEYBOARD_CONFIG_SCHEMA);
 	kbd_config->engine = engine;
 }
 
@@ -433,7 +433,7 @@ matekbd_keyboard_config_load_from_gsettings (MatekbdKeyboardConfig * kbd_config,
 				      kbd_config_default)
 {
 	matekbd_keyboard_config_load_params (kbd_config,
-					  MATEKBD_KEYBOARD_CONFIG_ACTIVE);
+					  CAFEKBD_KEYBOARD_CONFIG_ACTIVE);
 
 	if (kbd_config_default != NULL) {
 
@@ -570,7 +570,7 @@ matekbd_keyboard_config_save_to_gsettings (MatekbdKeyboardConfig * kbd_config)
 	g_settings_delay (kbd_config->settings);
 
 	matekbd_keyboard_config_save_params (kbd_config,
-					     MATEKBD_KEYBOARD_CONFIG_ACTIVE);
+					     CAFEKBD_KEYBOARD_CONFIG_ACTIVE);
 
 	g_settings_apply (kbd_config->settings);
 }

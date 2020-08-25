@@ -680,7 +680,7 @@ static void
 matekbd_status_finalize (GObject * obj)
 {
 	int i;
-	MatekbdStatus *gki = MATEKBD_STATUS (obj);
+	MatekbdStatus *gki = CAFEKBD_STATUS (obj);
 	xkl_debug (100,
 		   "Starting the mate-kbd-status widget shutdown process for %p\n",
 		   gki);

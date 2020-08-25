@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __MATEKBD_INDICATOR_CONFIG_H__
-#define __MATEKBD_INDICATOR_CONFIG_H__
+#ifndef __CAFEKBD_INDICATOR_CONFIG_H__
+#define __CAFEKBD_INDICATOR_CONFIG_H__
 
 #include <gtk/gtk.h>
 

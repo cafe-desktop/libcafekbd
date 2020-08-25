@@ -32,13 +32,13 @@
 /**
  * MatekbdDesktopConfig:
  */
-#define MATEKBD_DESKTOP_CONFIG_SCHEMA  MATEKBD_CONFIG_SCHEMA ".general"
+#define CAFEKBD_DESKTOP_CONFIG_SCHEMA  CAFEKBD_CONFIG_SCHEMA ".general"
 
-const gchar MATEKBD_DESKTOP_CONFIG_KEY_DEFAULT_GROUP[] = "default-group";
-const gchar MATEKBD_DESKTOP_CONFIG_KEY_GROUP_PER_WINDOW[] = "group-per-window";
-const gchar MATEKBD_DESKTOP_CONFIG_KEY_HANDLE_INDICATORS[] = "handle-indicators";
-const gchar MATEKBD_DESKTOP_CONFIG_KEY_LAYOUT_NAMES_AS_GROUP_NAMES[] = "layout-names-as-group-names";
-const gchar MATEKBD_DESKTOP_CONFIG_KEY_LOAD_EXTRA_ITEMS[] = "load-extra-items";
+const gchar CAFEKBD_DESKTOP_CONFIG_KEY_DEFAULT_GROUP[] = "default-group";
+const gchar CAFEKBD_DESKTOP_CONFIG_KEY_GROUP_PER_WINDOW[] = "group-per-window";
+const gchar CAFEKBD_DESKTOP_CONFIG_KEY_HANDLE_INDICATORS[] = "handle-indicators";
+const gchar CAFEKBD_DESKTOP_CONFIG_KEY_LAYOUT_NAMES_AS_GROUP_NAMES[] = "layout-names-as-group-names";
+const gchar CAFEKBD_DESKTOP_CONFIG_KEY_LOAD_EXTRA_ITEMS[] = "load-extra-items";
 
 /*
  * static common functions
@@ -131,7 +131,7 @@ matekbd_desktop_config_init (MatekbdDesktopConfig * config,
 			  XklEngine * engine)
 {
 	memset (config, 0, sizeof (*config));
-	config->settings = g_settings_new (MATEKBD_DESKTOP_CONFIG_SCHEMA);
+	config->settings = g_settings_new (CAFEKBD_DESKTOP_CONFIG_SCHEMA);
 	config->engine = engine;
 }
 
@@ -147,30 +147,30 @@ matekbd_desktop_config_load_from_gsettings (MatekbdDesktopConfig * config)
 {
 	config->group_per_app =
 	    g_settings_get_boolean (config->settings,
-				 MATEKBD_DESKTOP_CONFIG_KEY_GROUP_PER_WINDOW);
+				 CAFEKBD_DESKTOP_CONFIG_KEY_GROUP_PER_WINDOW);
 	xkl_debug (150, "group_per_app: %d\n", config->group_per_app);
 
 	config->handle_indicators =
 	    g_settings_get_boolean (config->settings,
-				 MATEKBD_DESKTOP_CONFIG_KEY_HANDLE_INDICATORS);
+				 CAFEKBD_DESKTOP_CONFIG_KEY_HANDLE_INDICATORS);
 	xkl_debug (150, "handle_indicators: %d\n",
 		   config->handle_indicators);
 
 	config->layout_names_as_group_names =
 	    g_settings_get_boolean (config->settings,
-				   MATEKBD_DESKTOP_CONFIG_KEY_LAYOUT_NAMES_AS_GROUP_NAMES);
+				   CAFEKBD_DESKTOP_CONFIG_KEY_LAYOUT_NAMES_AS_GROUP_NAMES);
 	xkl_debug (150, "layout_names_as_group_names: %d\n",
 		   config->layout_names_as_group_names);
 
 	config->load_extra_items =
 	    g_settings_get_boolean (config->settings,
-				   MATEKBD_DESKTOP_CONFIG_KEY_LOAD_EXTRA_ITEMS);
+				   CAFEKBD_DESKTOP_CONFIG_KEY_LOAD_EXTRA_ITEMS);
 	xkl_debug (150, "load_extra_items: %d\n",
 		   config->load_extra_items);
 
 	config->default_group =
 	    g_settings_get_int (config->settings,
-				  MATEKBD_DESKTOP_CONFIG_KEY_DEFAULT_GROUP);
+				  CAFEKBD_DESKTOP_CONFIG_KEY_DEFAULT_GROUP);
 
 	if (config->default_group < -1
 	    || config->default_group >=
@@ -185,19 +185,19 @@ matekbd_desktop_config_save_to_gsettings (MatekbdDesktopConfig * config)
 	g_settings_delay (config->settings);
 
 	g_settings_set_boolean (config->settings,
-			     MATEKBD_DESKTOP_CONFIG_KEY_GROUP_PER_WINDOW,
+			     CAFEKBD_DESKTOP_CONFIG_KEY_GROUP_PER_WINDOW,
 			     config->group_per_app);
 	g_settings_set_boolean (config->settings,
-			     MATEKBD_DESKTOP_CONFIG_KEY_HANDLE_INDICATORS,
+			     CAFEKBD_DESKTOP_CONFIG_KEY_HANDLE_INDICATORS,
 			     config->handle_indicators);
 	g_settings_set_boolean (config->settings,
-			     MATEKBD_DESKTOP_CONFIG_KEY_LAYOUT_NAMES_AS_GROUP_NAMES,
+			     CAFEKBD_DESKTOP_CONFIG_KEY_LAYOUT_NAMES_AS_GROUP_NAMES,
 			     config->layout_names_as_group_names);
 	g_settings_set_boolean (config->settings,
-			     MATEKBD_DESKTOP_CONFIG_KEY_LOAD_EXTRA_ITEMS,
+			     CAFEKBD_DESKTOP_CONFIG_KEY_LOAD_EXTRA_ITEMS,
 			     config->load_extra_items);
 	g_settings_set_int (config->settings,
-			    MATEKBD_DESKTOP_CONFIG_KEY_DEFAULT_GROUP,
+			    CAFEKBD_DESKTOP_CONFIG_KEY_DEFAULT_GROUP,
 			    config->default_group);
 
 	g_settings_apply (config->settings);

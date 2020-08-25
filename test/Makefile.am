@@ -5,7 +5,7 @@ noinst_PROGRAMS = matekbd-indicator-test \
 common_CFLAGS = $(WARN_CFLAGS) -I$(top_srcdir) -Wall \
 	$(GTK_CFLAGS) \
 	$(LIBXKLAVIER_CFLAGS) \
-	-DMATELOCALEDIR="\"$(datadir)/locale\""
+	-DCAFELOCALEDIR="\"$(datadir)/locale\""
 	
 common_LDFLAGS = $(GTK_LIBS) \
 	$(LIBXKLAVIER_LIBS) \

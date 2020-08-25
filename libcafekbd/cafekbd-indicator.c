@@ -447,7 +447,7 @@ matekbd_indicator_update_tooltips (MatekbdIndicator * gki)
 static void
 matekbd_indicator_parent_set (GtkWidget * gki, GtkWidget * previous_parent)
 {
-	matekbd_indicator_update_tooltips (MATEKBD_INDICATOR (gki));
+	matekbd_indicator_update_tooltips (CAFEKBD_INDICATOR (gki));
 }
 
 
@@ -710,7 +710,7 @@ static void matekbd_indicator_init(MatekbdIndicator* gki)
 static void
 matekbd_indicator_finalize (GObject * obj)
 {
-	MatekbdIndicator *gki = MATEKBD_INDICATOR (obj);
+	MatekbdIndicator *gki = CAFEKBD_INDICATOR (obj);
 	xkl_debug (100,
 		   "Starting the mate-kbd-indicator widget shutdown process for %p\n",
 		   gki);
@@ -772,7 +772,7 @@ matekbd_indicator_class_init (MatekbdIndicatorClass * klass)
 	widget_class->parent_set = matekbd_indicator_parent_set;
 
 	/* Signals */
-	g_signal_new ("reinit-ui", MATEKBD_TYPE_INDICATOR,
+	g_signal_new ("reinit-ui", CAFEKBD_TYPE_INDICATOR,
 		      G_SIGNAL_RUN_LAST,
 		      G_STRUCT_OFFSET (MatekbdIndicatorClass, reinit_ui),
 		      NULL, NULL, matekbd_indicator_VOID__VOID,

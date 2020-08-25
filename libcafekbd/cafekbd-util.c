@@ -49,12 +49,12 @@ matekbd_install_glib_log_appender (void)
 	xkl_set_log_appender (matekbd_log_appender);
 }
 
-#define MATEKBD_PREVIEW_CONFIG_SCHEMA  MATEKBD_CONFIG_SCHEMA ".preview"
+#define CAFEKBD_PREVIEW_CONFIG_SCHEMA  CAFEKBD_CONFIG_SCHEMA ".preview"
 
-const gchar MATEKBD_PREVIEW_CONFIG_KEY_X[] = "x";
-const gchar MATEKBD_PREVIEW_CONFIG_KEY_Y[] = "y";
-const gchar MATEKBD_PREVIEW_CONFIG_KEY_WIDTH[] = "width";
-const gchar MATEKBD_PREVIEW_CONFIG_KEY_HEIGHT[] = "height";
+const gchar CAFEKBD_PREVIEW_CONFIG_KEY_X[] = "x";
+const gchar CAFEKBD_PREVIEW_CONFIG_KEY_Y[] = "y";
+const gchar CAFEKBD_PREVIEW_CONFIG_KEY_WIDTH[] = "width";
+const gchar CAFEKBD_PREVIEW_CONFIG_KEY_HEIGHT[] = "height";
 
 /**
  * matekbd_preview_load_position:
@@ -66,12 +66,12 @@ matekbd_preview_load_position (void)
 {
 	GdkRectangle *rv = NULL;
 	gint x, y, w, h;
-	GSettings* settings = g_settings_new (MATEKBD_PREVIEW_CONFIG_SCHEMA);
+	GSettings* settings = g_settings_new (CAFEKBD_PREVIEW_CONFIG_SCHEMA);
 
-	x = g_settings_get_int (settings, MATEKBD_PREVIEW_CONFIG_KEY_X);
-	y = g_settings_get_int (settings, MATEKBD_PREVIEW_CONFIG_KEY_Y);
-	w = g_settings_get_int (settings, MATEKBD_PREVIEW_CONFIG_KEY_WIDTH);
-	h = g_settings_get_int (settings, MATEKBD_PREVIEW_CONFIG_KEY_HEIGHT);
+	x = g_settings_get_int (settings, CAFEKBD_PREVIEW_CONFIG_KEY_X);
+	y = g_settings_get_int (settings, CAFEKBD_PREVIEW_CONFIG_KEY_Y);
+	w = g_settings_get_int (settings, CAFEKBD_PREVIEW_CONFIG_KEY_WIDTH);
+	h = g_settings_get_int (settings, CAFEKBD_PREVIEW_CONFIG_KEY_HEIGHT);
 
 	g_object_unref (settings);
 
@@ -98,14 +98,14 @@ matekbd_preview_load_position (void)
 void
 matekbd_preview_save_position (GdkRectangle * rect)
 {
-	GSettings* settings = g_settings_new (MATEKBD_PREVIEW_CONFIG_SCHEMA);
+	GSettings* settings = g_settings_new (CAFEKBD_PREVIEW_CONFIG_SCHEMA);
 
 	g_settings_delay (settings);
 
-	g_settings_set_int (settings, MATEKBD_PREVIEW_CONFIG_KEY_X, rect->x);
-	g_settings_set_int (settings, MATEKBD_PREVIEW_CONFIG_KEY_Y, rect->y);
-	g_settings_set_int (settings, MATEKBD_PREVIEW_CONFIG_KEY_WIDTH, rect->width);
-	g_settings_set_int (settings, MATEKBD_PREVIEW_CONFIG_KEY_HEIGHT, rect->height);
+	g_settings_set_int (settings, CAFEKBD_PREVIEW_CONFIG_KEY_X, rect->x);
+	g_settings_set_int (settings, CAFEKBD_PREVIEW_CONFIG_KEY_Y, rect->y);
+	g_settings_set_int (settings, CAFEKBD_PREVIEW_CONFIG_KEY_WIDTH, rect->width);
+	g_settings_set_int (settings, CAFEKBD_PREVIEW_CONFIG_KEY_HEIGHT, rect->height);
 
 	g_settings_apply (settings);
 

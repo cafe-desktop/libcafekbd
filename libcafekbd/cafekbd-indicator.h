@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __MATEKBD_INDICATOR_H__
-#define __MATEKBD_INDICATOR_H__
+#ifndef __CAFEKBD_INDICATOR_H__
+#define __CAFEKBD_INDICATOR_H__
 
 #include <gtk/gtk.h>
 
@@ -32,12 +32,12 @@ extern "C" {
 	typedef struct _MatekbdIndicatorPrivate MatekbdIndicatorPrivate;
 	typedef struct _MatekbdIndicatorClass MatekbdIndicatorClass;
 
-#define MATEKBD_TYPE_INDICATOR             (matekbd_indicator_get_type ())
-#define MATEKBD_INDICATOR(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), MATEKBD_TYPE_INDICATOR, MatekbdIndicator))
-#define MATEKBD_INDICATOR_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), MATEKBD_TYPE_INDICATOR,  MatekbdIndicatorClass))
-#define MATEKBD_IS_INDICATOR(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MATEKBD_TYPE_INDICATOR))
-#define MATEKBD_IS_INDICATOR_CLASS(obj)    (G_TYPE_CHECK_CLASS_TYPE ((obj), MATEKBD_TYPE_INDICATOR))
-#define MATEKBD_INDICATOR_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), MATEKBD_TYPE_INDICATOR, MatekbdIndicatorClass))
+#define CAFEKBD_TYPE_INDICATOR             (matekbd_indicator_get_type ())
+#define CAFEKBD_INDICATOR(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFEKBD_TYPE_INDICATOR, MatekbdIndicator))
+#define CAFEKBD_INDICATOR_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), CAFEKBD_TYPE_INDICATOR,  MatekbdIndicatorClass))
+#define CAFEKBD_IS_INDICATOR(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFEKBD_TYPE_INDICATOR))
+#define CAFEKBD_IS_INDICATOR_CLASS(obj)    (G_TYPE_CHECK_CLASS_TYPE ((obj), CAFEKBD_TYPE_INDICATOR))
+#define CAFEKBD_INDICATOR_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAFEKBD_TYPE_INDICATOR, MatekbdIndicatorClass))
 
 	struct _MatekbdIndicator {
 		GtkNotebook parent;

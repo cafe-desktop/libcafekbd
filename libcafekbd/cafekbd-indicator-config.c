@@ -37,13 +37,13 @@
 /**
  * MatekbdIndicatorConfig:
  */
-#define MATEKBD_INDICATOR_CONFIG_SCHEMA  MATEKBD_CONFIG_SCHEMA ".indicator"
+#define CAFEKBD_INDICATOR_CONFIG_SCHEMA  CAFEKBD_CONFIG_SCHEMA ".indicator"
 
-const gchar MATEKBD_INDICATOR_CONFIG_KEY_SHOW_FLAGS[] = "show-flags";
-const gchar MATEKBD_INDICATOR_CONFIG_KEY_SECONDARIES[] = "secondary";
-const gchar MATEKBD_INDICATOR_CONFIG_KEY_FONT_FAMILY[] = "font-family";
-const gchar MATEKBD_INDICATOR_CONFIG_KEY_FOREGROUND_COLOR[] = "foreground-color";
-const gchar MATEKBD_INDICATOR_CONFIG_KEY_BACKGROUND_COLOR[] = "background-color";
+const gchar CAFEKBD_INDICATOR_CONFIG_KEY_SHOW_FLAGS[] = "show-flags";
+const gchar CAFEKBD_INDICATOR_CONFIG_KEY_SECONDARIES[] = "secondary";
+const gchar CAFEKBD_INDICATOR_CONFIG_KEY_FONT_FAMILY[] = "font-family";
+const gchar CAFEKBD_INDICATOR_CONFIG_KEY_FOREGROUND_COLOR[] = "foreground-color";
+const gchar CAFEKBD_INDICATOR_CONFIG_KEY_BACKGROUND_COLOR[] = "background-color";
 
 #define SYSTEM_FONT_SCHEMA "org.mate.interface"
 #define SYSTEM_FONT_KEY "font-name"
@@ -56,7 +56,7 @@ matekbd_indicator_config_load_font (MatekbdIndicatorConfig * ind_config)
 {
 	ind_config->font_family =
 	    g_settings_get_string (ind_config->settings,
-				   MATEKBD_INDICATOR_CONFIG_KEY_FONT_FAMILY);
+				   CAFEKBD_INDICATOR_CONFIG_KEY_FONT_FAMILY);
 
 	if (ind_config->font_family == NULL ||
 	    ind_config->font_family[0] == '\0') {
@@ -94,7 +94,7 @@ matekbd_indicator_config_load_colors (MatekbdIndicatorConfig * ind_config)
 {
 	ind_config->foreground_color =
 	    g_settings_get_string (ind_config->settings,
-	                           MATEKBD_INDICATOR_CONFIG_KEY_FOREGROUND_COLOR);
+	                           CAFEKBD_INDICATOR_CONFIG_KEY_FOREGROUND_COLOR);
 
 	if (ind_config->foreground_color == NULL ||
 	    ind_config->foreground_color[0] == '\0') {
@@ -126,7 +126,7 @@ matekbd_indicator_config_load_colors (MatekbdIndicatorConfig * ind_config)
 
 	ind_config->background_color =
 	    g_settings_get_string (ind_config->settings,
-				     MATEKBD_INDICATOR_CONFIG_KEY_BACKGROUND_COLOR);
+				     CAFEKBD_INDICATOR_CONFIG_KEY_BACKGROUND_COLOR);
 }
 
 void
@@ -232,7 +232,7 @@ matekbd_indicator_config_init (MatekbdIndicatorConfig * ind_config,
 	gchar *sp;
 
 	memset (ind_config, 0, sizeof (*ind_config));
-	ind_config->settings = g_settings_new (MATEKBD_INDICATOR_CONFIG_SCHEMA);
+	ind_config->settings = g_settings_new (CAFEKBD_INDICATOR_CONFIG_SCHEMA);
 	ind_config->engine = engine;
 
 	ind_config->icon_theme = gtk_icon_theme_get_default ();
@@ -284,11 +284,11 @@ matekbd_indicator_config_load_from_gsettings (MatekbdIndicatorConfig * ind_confi
 {
 	ind_config->secondary_groups_mask =
 	    g_settings_get_int (ind_config->settings,
-				MATEKBD_INDICATOR_CONFIG_KEY_SECONDARIES);
+				CAFEKBD_INDICATOR_CONFIG_KEY_SECONDARIES);
 
 	ind_config->show_flags =
 	    g_settings_get_boolean (ind_config->settings,
-				 MATEKBD_INDICATOR_CONFIG_KEY_SHOW_FLAGS);
+				 CAFEKBD_INDICATOR_CONFIG_KEY_SHOW_FLAGS);
 
 	matekbd_indicator_config_load_font (ind_config);
 	matekbd_indicator_config_load_colors (ind_config);
@@ -301,10 +301,10 @@ matekbd_indicator_config_save_to_gsettings (MatekbdIndicatorConfig * ind_config)
 	g_settings_delay (ind_config->settings);
 
 	g_settings_set_int (ind_config->settings,
-				  MATEKBD_INDICATOR_CONFIG_KEY_SECONDARIES,
+				  CAFEKBD_INDICATOR_CONFIG_KEY_SECONDARIES,
 				  ind_config->secondary_groups_mask);
 	g_settings_set_boolean (ind_config->settings,
-				   MATEKBD_INDICATOR_CONFIG_KEY_SHOW_FLAGS,
+				   CAFEKBD_INDICATOR_CONFIG_KEY_SHOW_FLAGS,
 				   ind_config->show_flags);
 
 	g_settings_apply (ind_config->settings);

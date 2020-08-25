@@ -1074,11 +1074,11 @@ draw_key_label_helper (MatekbdKeyboardDrawingRenderContext * context,
 #endif
 
 	switch (glp) {
-	case MATEKBD_KEYBOARD_DRAWING_POS_TOPLEFT:
-	case MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT:
+	case CAFEKBD_KEYBOARD_DRAWING_POS_TOPLEFT:
+	case CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT:
 		{
 			ycell =
-			    glp == MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT;
+			    glp == CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT;
 
 			rotate_coordinate (x, y, x + padding,
 					   y + padding + (height -
@@ -1089,11 +1089,11 @@ draw_key_label_helper (MatekbdKeyboardDrawingRenderContext * context,
 			    PANGO_SCALE * (width - 2 * padding);
 			break;
 		}
-	case MATEKBD_KEYBOARD_DRAWING_POS_TOPRIGHT:
-	case MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT:
+	case CAFEKBD_KEYBOARD_DRAWING_POS_TOPRIGHT:
+	case CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT:
 		{
 			ycell =
-			    glp == MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT;
+			    glp == CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT;
 
 			rotate_coordinate (x, y,
 					   x + padding + (width -
@@ -1148,8 +1148,8 @@ draw_key_label (MatekbdKeyboardDrawingRenderContext * context,
 	height =
 	    xkb_to_pixmap_coord (context, xkb_origin_y + xkb_height) - y;
 
-	for (glp = MATEKBD_KEYBOARD_DRAWING_POS_TOPLEFT;
-	     glp < MATEKBD_KEYBOARD_DRAWING_POS_TOTAL; glp++) {
+	for (glp = CAFEKBD_KEYBOARD_DRAWING_POS_TOPLEFT;
+	     glp < CAFEKBD_KEYBOARD_DRAWING_POS_TOTAL; glp++) {
 		if (drawing->groupLevels[glp] == NULL)
 			continue;
 		g = drawing->groupLevels[glp]->group;
@@ -1499,7 +1499,7 @@ redraw_overlapping_doodads (MatekbdKeyboardDrawingRenderContext * context,
 
 		if (do_draw
 		    && item->type ==
-		    MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD)
+		    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD)
 			draw_doodad (context, drawing,
 				     (MatekbdKeyboardDrawingDoodad *) item);
 
@@ -1519,16 +1519,16 @@ draw_keyboard_item (MatekbdKeyboardDrawingItem * item,
 		return;
 
 	switch (item->type) {
-	case MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID:
+	case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID:
 		break;
 
-	case MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY:
-	case MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA:
+	case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY:
+	case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA:
 		draw_key (context, drawing,
 			  (MatekbdKeyboardDrawingKey *) item);
 		break;
 
-	case MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD:
+	case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD:
 		draw_doodad (context, drawing,
 			     (MatekbdKeyboardDrawingDoodad *) item);
 		break;
@@ -1907,7 +1907,7 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 		MatekbdKeyboardDrawingDoodad *doodad =
 		    g_new (MatekbdKeyboardDrawingDoodad, 1);
 
-		doodad->type = MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD;
+		doodad->type = CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD;
 		doodad->origin_x = 0;
 		doodad->origin_y = 0;
 		doodad->angle = 0;
@@ -1969,19 +1969,19 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 				    drawing->xkb->max_key_code) {
 					key = drawing->keys + keycode;
 					if (key->type ==
-					    MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID)
+					    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID)
 					{
 						key->type =
-						    MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY;
+						    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY;
 					} else {
 						/* duplicate key for the same keycode,
-						   already defined as MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY */
+						   already defined as CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY */
 						key =
 						    g_new0
 						    (MatekbdKeyboardDrawingKey,
 						     1);
 						key->type =
-						    MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA;
+						    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA;
 					}
 				} else {
 					g_warning
@@ -1994,7 +1994,7 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 					    g_new0 (MatekbdKeyboardDrawingKey,
 						    1);
 					key->type =
-					    MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA;
+					    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA;
 				}
 
 				key->xkbkey = xkbkey;
@@ -2026,7 +2026,7 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 			    g_new (MatekbdKeyboardDrawingDoodad, 1);
 
 			doodad->type =
-			    MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD;
+			    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD;
 			doodad->origin_x = x;
 			doodad->origin_y = y;
 			doodad->angle = section->angle;
@@ -2084,12 +2084,12 @@ free_cdik (			/*colors doodads indicators keys */
 		MatekbdKeyboardDrawingItem *item = itemp->data;
 
 		switch (item->type) {
-		case MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID:
-		case MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY:
+		case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID:
+		case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY:
 			break;
 
-		case MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA:
-		case MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD:
+		case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA:
+		case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD:
 			g_free (item);
 			break;
 		}
@@ -2632,17 +2632,17 @@ matekbd_keyboard_drawing_set_groups_levels (MatekbdKeyboardDrawing * drawing,
 {
 #ifdef KBDRAW_DEBUG
 	printf ("set_group_levels [topLeft]: %d %d \n",
-		groupLevels[MATEKBD_KEYBOARD_DRAWING_POS_TOPLEFT]->group,
-		groupLevels[MATEKBD_KEYBOARD_DRAWING_POS_TOPLEFT]->level);
+		groupLevels[CAFEKBD_KEYBOARD_DRAWING_POS_TOPLEFT]->group,
+		groupLevels[CAFEKBD_KEYBOARD_DRAWING_POS_TOPLEFT]->level);
 	printf ("set_group_levels [topRight]: %d %d \n",
-		groupLevels[MATEKBD_KEYBOARD_DRAWING_POS_TOPRIGHT]->group,
-		groupLevels[MATEKBD_KEYBOARD_DRAWING_POS_TOPRIGHT]->level);
+		groupLevels[CAFEKBD_KEYBOARD_DRAWING_POS_TOPRIGHT]->group,
+		groupLevels[CAFEKBD_KEYBOARD_DRAWING_POS_TOPRIGHT]->level);
 	printf ("set_group_levels [bottomLeft]: %d %d \n",
-		groupLevels[MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT]->group,
-		groupLevels[MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT]->level);
+		groupLevels[CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT]->group,
+		groupLevels[CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT]->level);
 	printf ("set_group_levels [bottomRight]: %d %d \n",
-		groupLevels[MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT]->group,
-		groupLevels[MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT]->level);
+		groupLevels[CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT]->group,
+		groupLevels[CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT]->level);
 #endif
 	drawing->groupLevels = groupLevels;
 
@@ -2702,7 +2702,7 @@ matekbd_keyboard_drawing_draw_page (GtkPrintOperation * operation,
 	cairo_move_to (cr, 0, 0);
 	pango_cairo_show_layout (cr, layout);
 
-	matekbd_keyboard_drawing_render (MATEKBD_KEYBOARD_DRAWING
+	matekbd_keyboard_drawing_render (CAFEKBD_KEYBOARD_DRAWING
 				      (data->drawing), cr, layout, 0.0,
 				      0.0, width, height, dpi_x, dpi_y);
 
@@ -2768,7 +2768,7 @@ show_layout_response (GtkWidget * dialog, gint resp)
 		groupName =
 		    (const gchar *) g_object_get_data (G_OBJECT (dialog),
 						       "groupName");
-		matekbd_keyboard_drawing_print (MATEKBD_KEYBOARD_DRAWING
+		matekbd_keyboard_drawing_print (CAFEKBD_KEYBOARD_DRAWING
 					     (kbdraw), GTK_WINDOW (dialog),
 					     groupName ? groupName :
 					     _("Unknown"));
@@ -2823,7 +2823,7 @@ matekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 	g_object_set_data_full (G_OBJECT (dialog), "group_name",
 				g_strdup (group_name), g_free);
 
-	matekbd_keyboard_drawing_set_groups_levels (MATEKBD_KEYBOARD_DRAWING
+	matekbd_keyboard_drawing_set_groups_levels (CAFEKBD_KEYBOARD_DRAWING
 						 (kbdraw), pGroupsLevels);
 
 	xkl_data = xkl_config_rec_new ();
@@ -2860,7 +2860,7 @@ matekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 		if (xkl_xkb_config_native_prepare(engine, xkl_data, &component_names))
 		{
 			matekbd_keyboard_drawing_set_keyboard
-			    (MATEKBD_KEYBOARD_DRAWING (kbdraw),
+			    (CAFEKBD_KEYBOARD_DRAWING (kbdraw),
 			     &component_names);
 			xkl_xkb_config_native_cleanup (engine,
 						       &component_names);

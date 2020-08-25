@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef MATEKBD_KEYBOARD_DRAWING_H
-#define MATEKBD_KEYBOARD_DRAWING_H 1
+#ifndef CAFEKBD_KEYBOARD_DRAWING_H
+#define CAFEKBD_KEYBOARD_DRAWING_H 1
 
 #include <gtk/gtk.h>
 #include <X11/XKBlib.h>
@@ -27,11 +27,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define MATEKBD_KEYBOARD_DRAWING(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), matekbd_keyboard_drawing_get_type (), \
+#define CAFEKBD_KEYBOARD_DRAWING(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), matekbd_keyboard_drawing_get_type (), \
                                MatekbdKeyboardDrawing))
-#define MATEKBD_KEYBOARD_DRAWING_CLASS(clazz) (G_TYPE_CHECK_CLASS_CAST ((clazz), matekbd_keyboard_drawing_get_type () \
+#define CAFEKBD_KEYBOARD_DRAWING_CLASS(clazz) (G_TYPE_CHECK_CLASS_CAST ((clazz), matekbd_keyboard_drawing_get_type () \
                                        MatekbdKeyboardDrawingClass))
-#define MATEKBD_IS_KEYBOARD_DRAWING(obj) G_TYPE_CHECK_INSTANCE_TYPE ((obj), matekbd_keyboard_drawing_get_type ())
+#define CAFEKBD_IS_KEYBOARD_DRAWING(obj) G_TYPE_CHECK_INSTANCE_TYPE ((obj), matekbd_keyboard_drawing_get_type ())
 typedef struct _MatekbdKeyboardDrawing MatekbdKeyboardDrawing;
 typedef struct _MatekbdKeyboardDrawingClass MatekbdKeyboardDrawingClass;
 
@@ -44,22 +44,22 @@ typedef struct _MatekbdKeyboardDrawingRenderContext
  MatekbdKeyboardDrawingRenderContext;
 
 typedef enum {
-	MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID = 0,
-	MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY,
-	MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA,
-	MATEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD
+	CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID = 0,
+	CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY,
+	CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA,
+	CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD
 } MatekbdKeyboardDrawingItemType;
 
 typedef enum {
-	MATEKBD_KEYBOARD_DRAWING_POS_TOPLEFT,
-	MATEKBD_KEYBOARD_DRAWING_POS_TOPRIGHT,
-	MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT,
-	MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT,
-	MATEKBD_KEYBOARD_DRAWING_POS_TOTAL,
-	MATEKBD_KEYBOARD_DRAWING_POS_FIRST =
-	    MATEKBD_KEYBOARD_DRAWING_POS_TOPLEFT,
-	MATEKBD_KEYBOARD_DRAWING_POS_LAST =
-	    MATEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT
+	CAFEKBD_KEYBOARD_DRAWING_POS_TOPLEFT,
+	CAFEKBD_KEYBOARD_DRAWING_POS_TOPRIGHT,
+	CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMLEFT,
+	CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT,
+	CAFEKBD_KEYBOARD_DRAWING_POS_TOTAL,
+	CAFEKBD_KEYBOARD_DRAWING_POS_FIRST =
+	    CAFEKBD_KEYBOARD_DRAWING_POS_TOPLEFT,
+	CAFEKBD_KEYBOARD_DRAWING_POS_LAST =
+	    CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT
 } MatekbdKeyboardDrawingGroupLevelPosition;
 
 /* units are in xkb form */
@@ -209,4 +209,4 @@ GtkWidget* matekbd_keyboard_drawing_new_dialog (gint group, gchar* group_name);
 #ifdef __cplusplus
 }
 #endif
-#endif				/* #ifndef MATEKBD_KEYBOARD_DRAWING_H */
+#endif				/* #ifndef CAFEKBD_KEYBOARD_DRAWING_H */

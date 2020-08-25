@@ -216,16 +216,16 @@ main (gint argc, gchar ** argv)
 	gtk_widget_show (matekbd_keyboard_drawing);
 	gtk_container_add (GTK_CONTAINER (window), matekbd_keyboard_drawing);
 
-	matekbd_keyboard_drawing_set_groups_levels (MATEKBD_KEYBOARD_DRAWING
+	matekbd_keyboard_drawing_set_groups_levels (CAFEKBD_KEYBOARD_DRAWING
 						 (matekbd_keyboard_drawing),
 						 pgroupLevels);
 
 	if (track_modifiers)
 		matekbd_keyboard_drawing_set_track_modifiers
-		    (MATEKBD_KEYBOARD_DRAWING (matekbd_keyboard_drawing), TRUE);
+		    (CAFEKBD_KEYBOARD_DRAWING (matekbd_keyboard_drawing), TRUE);
 	if (track_config)
 		matekbd_keyboard_drawing_set_track_config
-		    (MATEKBD_KEYBOARD_DRAWING (matekbd_keyboard_drawing), TRUE);
+		    (CAFEKBD_KEYBOARD_DRAWING (matekbd_keyboard_drawing), TRUE);
 	g_signal_connect (G_OBJECT (matekbd_keyboard_drawing), "bad-keycode",
 			  G_CALLBACK (bad_keycode), NULL);
 
@@ -240,7 +240,7 @@ main (gint argc, gchar ** argv)
 		else
 			names.symbols = (gchar *)
 			    matekbd_keyboard_drawing_get_symbols
-			    (MATEKBD_KEYBOARD_DRAWING
+			    (CAFEKBD_KEYBOARD_DRAWING
 			     (matekbd_keyboard_drawing));
 
 		if (keycodes)
@@ -248,7 +248,7 @@ main (gint argc, gchar ** argv)
 		else
 			names.keycodes = (gchar *)
 			    matekbd_keyboard_drawing_get_keycodes
-			    (MATEKBD_KEYBOARD_DRAWING
+			    (CAFEKBD_KEYBOARD_DRAWING
 			     (matekbd_keyboard_drawing));
 
 		if (geometry)
@@ -256,12 +256,12 @@ main (gint argc, gchar ** argv)
 		else
 			names.geometry = (gchar *)
 			    matekbd_keyboard_drawing_get_geometry
-			    (MATEKBD_KEYBOARD_DRAWING
+			    (CAFEKBD_KEYBOARD_DRAWING
 			     (matekbd_keyboard_drawing));
 
 		success =
 		    matekbd_keyboard_drawing_set_keyboard
-		    (MATEKBD_KEYBOARD_DRAWING (matekbd_keyboard_drawing),
+		    (CAFEKBD_KEYBOARD_DRAWING (matekbd_keyboard_drawing),
 		     &names);
 		if (!success) {
 			g_printerr

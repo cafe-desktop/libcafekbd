@@ -17,17 +17,17 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __MATEKBD_KEYBOARD_CONFIG_H__
-#define __MATEKBD_KEYBOARD_CONFIG_H__
+#ifndef __CAFEKBD_KEYBOARD_CONFIG_H__
+#define __CAFEKBD_KEYBOARD_CONFIG_H__
 
 #include <X11/Xlib.h>
 #include <glib.h>
 #include <gio/gio.h>
 #include <libxklavier/xklavier.h>
 
-extern const gchar MATEKBD_KEYBOARD_CONFIG_KEY_MODEL[];
-extern const gchar MATEKBD_KEYBOARD_CONFIG_KEY_LAYOUTS[];
-extern const gchar MATEKBD_KEYBOARD_CONFIG_KEY_OPTIONS[];
+extern const gchar CAFEKBD_KEYBOARD_CONFIG_KEY_MODEL[];
+extern const gchar CAFEKBD_KEYBOARD_CONFIG_KEY_LAYOUTS[];
+extern const gchar CAFEKBD_KEYBOARD_CONFIG_KEY_OPTIONS[];
 
 /*
  * Keyboard Configuration

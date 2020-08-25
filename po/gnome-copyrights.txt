@@ -195,10 +195,10 @@
 
 
 ========== et.po ==========
-# MATE klaviatuuriteegi eesti keele tõlge.
+# CAFE klaviatuuriteegi eesti keele tõlge.
 # Estonian translation of libmatekbd.
 #
-# Copyright (C) 2007, 2009, 2010 The MATE Project
+# Copyright (C) 2007, 2009, 2010 The CAFE Project
 # This file is distributed under the same license as the libmatekbd package.
 #
 # Ivar Smolin <okul linux ee>, 2007, 2009, 2010.

@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __MATEKBD_STATUS_H__
-#define __MATEKBD_STATUS_H__
+#ifndef __CAFEKBD_STATUS_H__
+#define __CAFEKBD_STATUS_H__
 
 #include <gtk/gtk.h>
 
@@ -32,12 +32,12 @@ extern "C" {
 	typedef struct _MatekbdStatusPrivate MatekbdStatusPrivate;
 	typedef struct _MatekbdStatusClass MatekbdStatusClass;
 
-	#define MATEKBD_TYPE_STATUS             (matekbd_status_get_type ())
-	#define MATEKBD_STATUS(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), MATEKBD_TYPE_STATUS, MatekbdStatus))
-	#define MATEKBD_STATUS_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), MATEKBD_TYPE_STATUS,  MatekbdStatusClass))
-	#define MATEKBD_IS_STATUS(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MATEKBD_TYPE_STATUS))
-	#define MATEKBD_IS_STATUS_CLASS(obj)    (G_TYPE_CHECK_CLASS_TYPE ((obj), MATEKBD_TYPE_STATUS))
-	#define MATEKBD_STATUS_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), MATEKBD_TYPE_STATUS, MatekbdStatusClass))
+	#define CAFEKBD_TYPE_STATUS             (matekbd_status_get_type ())
+	#define CAFEKBD_STATUS(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFEKBD_TYPE_STATUS, MatekbdStatus))
+	#define CAFEKBD_STATUS_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), CAFEKBD_TYPE_STATUS,  MatekbdStatusClass))
+	#define CAFEKBD_IS_STATUS(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFEKBD_TYPE_STATUS))
+	#define CAFEKBD_IS_STATUS_CLASS(obj)    (G_TYPE_CHECK_CLASS_TYPE ((obj), CAFEKBD_TYPE_STATUS))
+	#define CAFEKBD_STATUS_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAFEKBD_TYPE_STATUS, MatekbdStatusClass))
 
 	struct _MatekbdStatus {
 		GtkStatusIcon parent;
