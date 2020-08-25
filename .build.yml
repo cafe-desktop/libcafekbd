@@ -13,6 +13,7 @@ requires:
     - gtk3
     - libxklavier
     - make
+    - pkgconf
     - which
 
   debian:
