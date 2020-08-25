@@ -8,7 +8,7 @@ common_CFLAGS =					\
 	$(LIBXKLAVIER_CFLAGS)			\
 	$(XLIB_CFLAGS)				\
 	-I$(top_srcdir)/intl			\
-	-DG_LOG_DOMAIN=\"MateKbdIndicator\"	\
+	-DG_LOG_DOMAIN=\"CafeKbdIndicator\"	\
 	-DDATADIR=\"$(datadir)\"		\
 	-DSYSCONFDIR=\"$(sysconfdir)\"		\
 	-DLIBDIR=\"$(libdir)\"			\
@@ -128,7 +128,7 @@ cafekbd-keyboard-drawing-resources.h cafekbd-keyboard-drawing-resources.c: org.c
 	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(srcdir) --generate --c-name cafekbd $<
 
 -include $(INTROSPECTION_MAKEFILE)
-INTROSPECTION_GIRS = Matekbd-1.0.gir
+INTROSPECTION_GIRS = Cafekbd-1.0.gir
 INTROSPECTION_SCANNER_ARGS = --add-include-path=$(srcdir) --warn-all
 INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
 
@@ -137,11 +137,11 @@ introspection_sources = $(cafekbdinc_HEADERS) \
         $(libcafekbd_la_SOURCES) \
         $(libcafekbdui_la_SOURCES)
 
-Matekbd-1.0.gir: libcafekbd.la libcafekbdui.la
-Matekbd_1_0_gir_INCLUDES = GObject-2.0 Gtk-3.0 xlib-2.0 Xkl-1.0
-Matekbd_1_0_gir_CFLAGS = $(libcafekbdui_la_CFLAGS)
-Matekbd_1_0_gir_LIBS = libcafekbd.la libcafekbdui.la
-Matekbd_1_0_gir_FILES = $(introspection_sources)
+Cafekbd-1.0.gir: libcafekbd.la libcafekbdui.la
+Cafekbd_1_0_gir_INCLUDES = GObject-2.0 Gtk-3.0 xlib-2.0 Xkl-1.0
+Cafekbd_1_0_gir_CFLAGS = $(libcafekbdui_la_CFLAGS)
+Cafekbd_1_0_gir_LIBS = libcafekbd.la libcafekbdui.la
+Cafekbd_1_0_gir_FILES = $(introspection_sources)
 
 girdir = $(datadir)/gir-1.0
 gir_DATA = $(INTROSPECTION_GIRS)

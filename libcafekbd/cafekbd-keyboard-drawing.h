@@ -28,27 +28,27 @@
 extern "C" {
 #endif
 #define CAFEKBD_KEYBOARD_DRAWING(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), cafekbd_keyboard_drawing_get_type (), \
-                               MatekbdKeyboardDrawing))
+                               CafekbdKeyboardDrawing))
 #define CAFEKBD_KEYBOARD_DRAWING_CLASS(clazz) (G_TYPE_CHECK_CLASS_CAST ((clazz), cafekbd_keyboard_drawing_get_type () \
-                                       MatekbdKeyboardDrawingClass))
+                                       CafekbdKeyboardDrawingClass))
 #define CAFEKBD_IS_KEYBOARD_DRAWING(obj) G_TYPE_CHECK_INSTANCE_TYPE ((obj), cafekbd_keyboard_drawing_get_type ())
-typedef struct _MatekbdKeyboardDrawing MatekbdKeyboardDrawing;
-typedef struct _MatekbdKeyboardDrawingClass MatekbdKeyboardDrawingClass;
+typedef struct _CafekbdKeyboardDrawing CafekbdKeyboardDrawing;
+typedef struct _CafekbdKeyboardDrawingClass CafekbdKeyboardDrawingClass;
 
-typedef struct _MatekbdKeyboardDrawingItem MatekbdKeyboardDrawingItem;
-typedef struct _MatekbdKeyboardDrawingKey MatekbdKeyboardDrawingKey;
-typedef struct _MatekbdKeyboardDrawingDoodad MatekbdKeyboardDrawingDoodad;
-typedef struct _MatekbdKeyboardDrawingGroupLevel
- MatekbdKeyboardDrawingGroupLevel;
-typedef struct _MatekbdKeyboardDrawingRenderContext
- MatekbdKeyboardDrawingRenderContext;
+typedef struct _CafekbdKeyboardDrawingItem CafekbdKeyboardDrawingItem;
+typedef struct _CafekbdKeyboardDrawingKey CafekbdKeyboardDrawingKey;
+typedef struct _CafekbdKeyboardDrawingDoodad CafekbdKeyboardDrawingDoodad;
+typedef struct _CafekbdKeyboardDrawingGroupLevel
+ CafekbdKeyboardDrawingGroupLevel;
+typedef struct _CafekbdKeyboardDrawingRenderContext
+ CafekbdKeyboardDrawingRenderContext;
 
 typedef enum {
 	CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID = 0,
 	CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY,
 	CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA,
 	CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD
-} MatekbdKeyboardDrawingItemType;
+} CafekbdKeyboardDrawingItemType;
 
 typedef enum {
 	CAFEKBD_KEYBOARD_DRAWING_POS_TOPLEFT,
@@ -60,13 +60,13 @@ typedef enum {
 	    CAFEKBD_KEYBOARD_DRAWING_POS_TOPLEFT,
 	CAFEKBD_KEYBOARD_DRAWING_POS_LAST =
 	    CAFEKBD_KEYBOARD_DRAWING_POS_BOTTOMRIGHT
-} MatekbdKeyboardDrawingGroupLevelPosition;
+} CafekbdKeyboardDrawingGroupLevelPosition;
 
 /* units are in xkb form */
-struct _MatekbdKeyboardDrawingItem {
+struct _CafekbdKeyboardDrawingItem {
 	/*< private > */
 
-	MatekbdKeyboardDrawingItemType type;
+	CafekbdKeyboardDrawingItemType type;
 	gint origin_x;
 	gint origin_y;
 	gint angle;
@@ -74,10 +74,10 @@ struct _MatekbdKeyboardDrawingItem {
 };
 
 /* units are in xkb form */
-struct _MatekbdKeyboardDrawingKey {
+struct _CafekbdKeyboardDrawingKey {
 	/*< private > */
 
-	MatekbdKeyboardDrawingItemType type;
+	CafekbdKeyboardDrawingItemType type;
 	gint origin_x;
 	gint origin_y;
 	gint angle;
@@ -89,10 +89,10 @@ struct _MatekbdKeyboardDrawingKey {
 };
 
 /* units are in xkb form */
-struct _MatekbdKeyboardDrawingDoodad {
+struct _CafekbdKeyboardDrawingDoodad {
 	/*< private > */
 
-	MatekbdKeyboardDrawingItemType type;
+	CafekbdKeyboardDrawingItemType type;
 	gint origin_x;
 	gint origin_y;
 	gint angle;
@@ -102,12 +102,12 @@ struct _MatekbdKeyboardDrawingDoodad {
 	gboolean on;		/* for indicator doodads */
 };
 
-struct _MatekbdKeyboardDrawingGroupLevel {
+struct _CafekbdKeyboardDrawingGroupLevel {
 	gint group;
 	gint level;
 };
 
-struct _MatekbdKeyboardDrawingRenderContext {
+struct _CafekbdKeyboardDrawingRenderContext {
 	cairo_t *cr;
 
 	gint angle;		/* current angle pango is set to draw at, in tenths of a degree */
@@ -120,7 +120,7 @@ struct _MatekbdKeyboardDrawingRenderContext {
 	GdkRGBA dark_color;
 };
 
-struct _MatekbdKeyboardDrawing {
+struct _CafekbdKeyboardDrawing {
 	/*< private > */
 
 	GtkDrawingArea parent;
@@ -130,10 +130,10 @@ struct _MatekbdKeyboardDrawing {
 	gboolean xkbOnDisplay;
 	guint l3mod;
 
-	MatekbdKeyboardDrawingRenderContext *renderContext;
+	CafekbdKeyboardDrawingRenderContext *renderContext;
 
 	/* Indexed by keycode */
-	MatekbdKeyboardDrawingKey *keys;
+	CafekbdKeyboardDrawingKey *keys;
 
 	/* list of stuff to draw in priority order */
 	GList *keyboard_items;
@@ -143,7 +143,7 @@ struct _MatekbdKeyboardDrawing {
 	guint timeout;
 	guint idle_redraw;
 
-	MatekbdKeyboardDrawingGroupLevel **groupLevels;
+	CafekbdKeyboardDrawingGroupLevel **groupLevels;
 
 	guint mods;
 
@@ -152,54 +152,54 @@ struct _MatekbdKeyboardDrawing {
 
 	gint xkb_event_type;
 
-	MatekbdKeyboardDrawingDoodad **physical_indicators;
+	CafekbdKeyboardDrawingDoodad **physical_indicators;
 	gint physical_indicators_size;
 
 	guint track_config:1;
 	guint track_modifiers:1;
 };
 
-struct _MatekbdKeyboardDrawingClass {
+struct _CafekbdKeyboardDrawingClass {
 	GtkDrawingAreaClass parent_class;
 
 	/* we send this signal when the user presses a key that "doesn't exist"
 	 * according to the keyboard geometry; it probably means their xkb
 	 * configuration is incorrect */
-	void (*bad_keycode) (MatekbdKeyboardDrawing * drawing, guint keycode);
+	void (*bad_keycode) (CafekbdKeyboardDrawing * drawing, guint keycode);
 };
 
 GType cafekbd_keyboard_drawing_get_type (void);
 GtkWidget *cafekbd_keyboard_drawing_new (void);
 
-gboolean cafekbd_keyboard_drawing_render (MatekbdKeyboardDrawing * kbdrawing,
+gboolean cafekbd_keyboard_drawing_render (CafekbdKeyboardDrawing * kbdrawing,
 				       cairo_t * cr,
 				       PangoLayout * layout,
 				       double x, double y,
 				       double width, double height,
 				       gdouble dpi_x, gdouble dpi_y);
-gboolean cafekbd_keyboard_drawing_set_keyboard (MatekbdKeyboardDrawing *
+gboolean cafekbd_keyboard_drawing_set_keyboard (CafekbdKeyboardDrawing *
 					     kbdrawing,
 					     XkbComponentNamesRec * names);
 
-const gchar* cafekbd_keyboard_drawing_get_keycodes(MatekbdKeyboardDrawing* kbdrawing);
-const gchar* cafekbd_keyboard_drawing_get_geometry(MatekbdKeyboardDrawing* kbdrawing);
-const gchar* cafekbd_keyboard_drawing_get_symbols(MatekbdKeyboardDrawing* kbdrawing);
-const gchar* cafekbd_keyboard_drawing_get_types(MatekbdKeyboardDrawing* kbdrawing);
-const gchar* cafekbd_keyboard_drawing_get_compat(MatekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_keycodes(CafekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_geometry(CafekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_symbols(CafekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_types(CafekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_compat(CafekbdKeyboardDrawing* kbdrawing);
 
-void cafekbd_keyboard_drawing_set_track_modifiers (MatekbdKeyboardDrawing *
+void cafekbd_keyboard_drawing_set_track_modifiers (CafekbdKeyboardDrawing *
 						kbdrawing,
 						gboolean enable);
-void cafekbd_keyboard_drawing_set_track_config (MatekbdKeyboardDrawing *
+void cafekbd_keyboard_drawing_set_track_config (CafekbdKeyboardDrawing *
 					     kbdrawing, gboolean enable);
 
-void cafekbd_keyboard_drawing_set_groups_levels (MatekbdKeyboardDrawing *
+void cafekbd_keyboard_drawing_set_groups_levels (CafekbdKeyboardDrawing *
 					      kbdrawing,
-					      MatekbdKeyboardDrawingGroupLevel
+					      CafekbdKeyboardDrawingGroupLevel
 					      * groupLevels[]);
 
 
-void cafekbd_keyboard_drawing_print (MatekbdKeyboardDrawing * drawing,
+void cafekbd_keyboard_drawing_print (CafekbdKeyboardDrawing * drawing,
 				  GtkWindow * parent_window,
 				  const gchar * description);
 

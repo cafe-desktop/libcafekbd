@@ -48,7 +48,7 @@ enum {
 
 static guint cafekbd_keyboard_drawing_signals[NUM_SIGNALS] = { 0 };
 
-static void cafekbd_keyboard_drawing_set_mods (MatekbdKeyboardDrawing * drawing,
+static void cafekbd_keyboard_drawing_set_mods (CafekbdKeyboardDrawing * drawing,
 					    guint mods);
 
 extern gboolean xkl_xkb_config_native_prepare (XklEngine * engine,
@@ -60,13 +60,13 @@ extern void xkl_xkb_config_native_cleanup (XklEngine * engine,
 
 
 static gint
-xkb_to_pixmap_coord (MatekbdKeyboardDrawingRenderContext * context, gint n)
+xkb_to_pixmap_coord (CafekbdKeyboardDrawingRenderContext * context, gint n)
 {
 	return n * context->scale_numerator / context->scale_denominator;
 }
 
 static gdouble
-xkb_to_pixmap_double (MatekbdKeyboardDrawingRenderContext * context,
+xkb_to_pixmap_double (CafekbdKeyboardDrawingRenderContext * context,
 		      gdouble d)
 {
 	return d * context->scale_numerator / context->scale_denominator;
@@ -297,7 +297,7 @@ rounded_polygon (cairo_t * cr,
 }
 
 static void
-draw_polygon (MatekbdKeyboardDrawingRenderContext * context,
+draw_polygon (CafekbdKeyboardDrawingRenderContext * context,
 	      GdkRGBA * fill_color,
 	      gint xkb_x,
 	      gint xkb_y, XkbPointRec * xkb_points, guint num_points,
@@ -385,7 +385,7 @@ draw_curve_rectangle (cairo_t * cr,
 
 /* x, y, width, height are in the xkb coordinate system */
 static void
-draw_rectangle (MatekbdKeyboardDrawingRenderContext * context,
+draw_rectangle (CafekbdKeyboardDrawingRenderContext * context,
 		GdkRGBA * fill_color,
 		gint angle,
 		gint xkb_x, gint xkb_y, gint xkb_width, gint xkb_height,
@@ -439,7 +439,7 @@ draw_rectangle (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-draw_outline (MatekbdKeyboardDrawingRenderContext * context,
+draw_outline (CafekbdKeyboardDrawingRenderContext * context,
 	      XkbOutlineRec * outline,
 	      GdkRGBA * color,
 	      gint angle, gint origin_x, gint origin_y)
@@ -555,7 +555,7 @@ parse_xkb_color_spec (gchar * colorspec, GdkRGBA * color)
 
 
 static guint
-find_keycode (MatekbdKeyboardDrawing * drawing, gchar * key_name)
+find_keycode (CafekbdKeyboardDrawing * drawing, gchar * key_name)
 {
 #define KEYSYM_NAME_MAX_LENGTH 4
 	guint keycode;
@@ -624,7 +624,7 @@ find_keycode (MatekbdKeyboardDrawing * drawing, gchar * key_name)
 }
 
 static void
-set_markup (MatekbdKeyboardDrawingRenderContext * context, gchar *txt)
+set_markup (CafekbdKeyboardDrawingRenderContext * context, gchar *txt)
 {
 	PangoLayout *layout = context->layout;
 	txt = strcmp ("<", txt) ? txt : "&lt;";
@@ -640,7 +640,7 @@ set_markup (MatekbdKeyboardDrawingRenderContext * context, gchar *txt)
 }
 
 static void
-set_key_label_in_layout (MatekbdKeyboardDrawingRenderContext * context,
+set_key_label_in_layout (CafekbdKeyboardDrawingRenderContext * context,
 			 guint keyval)
 {
 	gchar buf[5];
@@ -998,8 +998,8 @@ set_key_label_in_layout (MatekbdKeyboardDrawingRenderContext * context,
 
 
 static void
-draw_pango_layout (MatekbdKeyboardDrawingRenderContext * context,
-		   MatekbdKeyboardDrawing * drawing,
+draw_pango_layout (CafekbdKeyboardDrawingRenderContext * context,
+		   CafekbdKeyboardDrawing * drawing,
 		   gint angle, gint x, gint y)
 {
 	PangoLayout *layout = context->layout;
@@ -1056,11 +1056,11 @@ draw_pango_layout (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-draw_key_label_helper (MatekbdKeyboardDrawingRenderContext * context,
-		       MatekbdKeyboardDrawing * drawing,
+draw_key_label_helper (CafekbdKeyboardDrawingRenderContext * context,
+		       CafekbdKeyboardDrawing * drawing,
 		       KeySym keysym,
 		       gint angle,
-		       MatekbdKeyboardDrawingGroupLevelPosition glp,
+		       CafekbdKeyboardDrawingGroupLevelPosition glp,
 		       gint x,
 		       gint y, gint width, gint height, gint padding)
 {
@@ -1125,8 +1125,8 @@ draw_key_label_helper (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-draw_key_label (MatekbdKeyboardDrawingRenderContext * context,
-		MatekbdKeyboardDrawing * drawing,
+draw_key_label (CafekbdKeyboardDrawingRenderContext * context,
+		CafekbdKeyboardDrawing * drawing,
 		guint keycode,
 		gint angle,
 		gint xkb_origin_x,
@@ -1224,8 +1224,8 @@ calc_origin_offset_x (XkbOutlineRec * outline)
 
 /* groups are from 0-3 */
 static void
-draw_key (MatekbdKeyboardDrawingRenderContext * context,
-	  MatekbdKeyboardDrawing * drawing, MatekbdKeyboardDrawingKey * key)
+draw_key (CafekbdKeyboardDrawingRenderContext * context,
+	  CafekbdKeyboardDrawing * drawing, CafekbdKeyboardDrawingKey * key)
 {
 	XkbShapeRec *shape;
 	GtkStyleContext *style_context;
@@ -1287,7 +1287,7 @@ draw_key (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-invalidate_region (MatekbdKeyboardDrawing * drawing,
+invalidate_region (CafekbdKeyboardDrawing * drawing,
 		   gdouble angle,
 		   gint origin_x, gint origin_y, XkbShapeRec * shape)
 {
@@ -1339,8 +1339,8 @@ invalidate_region (MatekbdKeyboardDrawing * drawing,
 }
 
 static void
-invalidate_indicator_doodad_region (MatekbdKeyboardDrawing * drawing,
-				    MatekbdKeyboardDrawingDoodad * doodad)
+invalidate_indicator_doodad_region (CafekbdKeyboardDrawing * drawing,
+				    CafekbdKeyboardDrawingDoodad * doodad)
 {
 	if (!drawing->xkb)
 		return;
@@ -1356,8 +1356,8 @@ invalidate_indicator_doodad_region (MatekbdKeyboardDrawing * drawing,
 }
 
 static void
-invalidate_key_region (MatekbdKeyboardDrawing * drawing,
-		       MatekbdKeyboardDrawingKey * key)
+invalidate_key_region (CafekbdKeyboardDrawing * drawing,
+		       CafekbdKeyboardDrawingKey * key)
 {
 	if (!drawing->xkb)
 		return;
@@ -1371,9 +1371,9 @@ invalidate_key_region (MatekbdKeyboardDrawing * drawing,
 }
 
 static void
-draw_text_doodad (MatekbdKeyboardDrawingRenderContext * context,
-		  MatekbdKeyboardDrawing * drawing,
-		  MatekbdKeyboardDrawingDoodad * doodad,
+draw_text_doodad (CafekbdKeyboardDrawingRenderContext * context,
+		  CafekbdKeyboardDrawing * drawing,
+		  CafekbdKeyboardDrawingDoodad * doodad,
 		  XkbTextDoodadRec * text_doodad)
 {
 	gint x, y;
@@ -1390,9 +1390,9 @@ draw_text_doodad (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-draw_indicator_doodad (MatekbdKeyboardDrawingRenderContext * context,
-		       MatekbdKeyboardDrawing * drawing,
-		       MatekbdKeyboardDrawingDoodad * doodad,
+draw_indicator_doodad (CafekbdKeyboardDrawingRenderContext * context,
+		       CafekbdKeyboardDrawing * drawing,
+		       CafekbdKeyboardDrawingDoodad * doodad,
 		       XkbIndicatorDoodadRec * indicator_doodad)
 {
 	GdkRGBA *color;
@@ -1416,9 +1416,9 @@ draw_indicator_doodad (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-draw_shape_doodad (MatekbdKeyboardDrawingRenderContext * context,
-		   MatekbdKeyboardDrawing * drawing,
-		   MatekbdKeyboardDrawingDoodad * doodad,
+draw_shape_doodad (CafekbdKeyboardDrawingRenderContext * context,
+		   CafekbdKeyboardDrawing * drawing,
+		   CafekbdKeyboardDrawingDoodad * doodad,
 		   XkbShapeDoodadRec * shape_doodad)
 {
 	XkbShapeRec *shape;
@@ -1451,9 +1451,9 @@ draw_shape_doodad (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-draw_doodad (MatekbdKeyboardDrawingRenderContext * context,
-	     MatekbdKeyboardDrawing * drawing,
-	     MatekbdKeyboardDrawingDoodad * doodad)
+draw_doodad (CafekbdKeyboardDrawingRenderContext * context,
+	     CafekbdKeyboardDrawing * drawing,
+	     CafekbdKeyboardDrawingDoodad * doodad)
 {
 	switch (doodad->doodad->any.type) {
 	case XkbOutlineDoodad:
@@ -1482,26 +1482,26 @@ draw_doodad (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 typedef struct {
-	MatekbdKeyboardDrawing *drawing;
-	MatekbdKeyboardDrawingRenderContext *context;
+	CafekbdKeyboardDrawing *drawing;
+	CafekbdKeyboardDrawingRenderContext *context;
 } DrawKeyboardItemData;
 
 static void
-redraw_overlapping_doodads (MatekbdKeyboardDrawingRenderContext * context,
-			    MatekbdKeyboardDrawing * drawing,
-			    MatekbdKeyboardDrawingKey * key)
+redraw_overlapping_doodads (CafekbdKeyboardDrawingRenderContext * context,
+			    CafekbdKeyboardDrawing * drawing,
+			    CafekbdKeyboardDrawingKey * key)
 {
 	GList *list;
 	gboolean do_draw = FALSE;
 
 	for (list = drawing->keyboard_items; list; list = list->next) {
-		MatekbdKeyboardDrawingItem *item = list->data;
+		CafekbdKeyboardDrawingItem *item = list->data;
 
 		if (do_draw
 		    && item->type ==
 		    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD)
 			draw_doodad (context, drawing,
-				     (MatekbdKeyboardDrawingDoodad *) item);
+				     (CafekbdKeyboardDrawingDoodad *) item);
 
 		if (list->data == key)
 			do_draw = TRUE;
@@ -1509,11 +1509,11 @@ redraw_overlapping_doodads (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-draw_keyboard_item (MatekbdKeyboardDrawingItem * item,
+draw_keyboard_item (CafekbdKeyboardDrawingItem * item,
 		    DrawKeyboardItemData * data)
 {
-	MatekbdKeyboardDrawing *drawing = data->drawing;
-	MatekbdKeyboardDrawingRenderContext *context = data->context;
+	CafekbdKeyboardDrawing *drawing = data->drawing;
+	CafekbdKeyboardDrawingRenderContext *context = data->context;
 
 	if (!drawing->xkb)
 		return;
@@ -1525,19 +1525,19 @@ draw_keyboard_item (MatekbdKeyboardDrawingItem * item,
 	case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY:
 	case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA:
 		draw_key (context, drawing,
-			  (MatekbdKeyboardDrawingKey *) item);
+			  (CafekbdKeyboardDrawingKey *) item);
 		break;
 
 	case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD:
 		draw_doodad (context, drawing,
-			     (MatekbdKeyboardDrawingDoodad *) item);
+			     (CafekbdKeyboardDrawingDoodad *) item);
 		break;
 	}
 }
 
 static void
-draw_keyboard_to_context (MatekbdKeyboardDrawingRenderContext * context,
-			  MatekbdKeyboardDrawing * drawing)
+draw_keyboard_to_context (CafekbdKeyboardDrawingRenderContext * context,
+			  CafekbdKeyboardDrawing * drawing)
 {
 	DrawKeyboardItemData data = { drawing, context };
 #ifdef KBDRAW_DEBUG
@@ -1548,7 +1548,7 @@ draw_keyboard_to_context (MatekbdKeyboardDrawingRenderContext * context,
 }
 
 static gboolean
-create_cairo (MatekbdKeyboardDrawing * drawing)
+create_cairo (CafekbdKeyboardDrawing * drawing)
 {
 	GtkStyleContext *style_context = NULL;
 	GtkStateFlags state;
@@ -1578,14 +1578,14 @@ create_cairo (MatekbdKeyboardDrawing * drawing)
 }
 
 static void
-destroy_cairo (MatekbdKeyboardDrawing * drawing)
+destroy_cairo (CafekbdKeyboardDrawing * drawing)
 {
 	cairo_destroy (drawing->renderContext->cr);
 	drawing->renderContext->cr = NULL;
 }
 
 static void
-draw_keyboard (MatekbdKeyboardDrawing * drawing)
+draw_keyboard (CafekbdKeyboardDrawing * drawing)
 {
         GtkStyleContext *context =
 	    gtk_widget_get_style_context (GTK_WIDGET (drawing));
@@ -1620,11 +1620,11 @@ draw_keyboard (MatekbdKeyboardDrawing * drawing)
 }
 
 static void
-alloc_render_context (MatekbdKeyboardDrawing * drawing)
+alloc_render_context (CafekbdKeyboardDrawing * drawing)
 {
-	MatekbdKeyboardDrawingRenderContext *context =
+	CafekbdKeyboardDrawingRenderContext *context =
 	    drawing->renderContext =
-	    g_new0 (MatekbdKeyboardDrawingRenderContext, 1);
+	    g_new0 (CafekbdKeyboardDrawingRenderContext, 1);
 
 	PangoContext *pangoContext =
 	    gtk_widget_get_pango_context (GTK_WIDGET (drawing));
@@ -1647,9 +1647,9 @@ alloc_render_context (MatekbdKeyboardDrawing * drawing)
 }
 
 static void
-free_render_context (MatekbdKeyboardDrawing * drawing)
+free_render_context (CafekbdKeyboardDrawing * drawing)
 {
-	MatekbdKeyboardDrawingRenderContext *context = drawing->renderContext;
+	CafekbdKeyboardDrawingRenderContext *context = drawing->renderContext;
 	g_object_unref (G_OBJECT (context->layout));
 	pango_font_description_free (context->font_desc);
 
@@ -1660,7 +1660,7 @@ free_render_context (MatekbdKeyboardDrawing * drawing)
 static gboolean
 draw (GtkWidget *widget,
       cairo_t *cr,
-      MatekbdKeyboardDrawing *drawing)
+      CafekbdKeyboardDrawing *drawing)
 {
 	if (!drawing->xkb)
 		return FALSE;
@@ -1677,7 +1677,7 @@ draw (GtkWidget *widget,
 static gboolean
 idle_redraw (gpointer user_data)
 {
-	MatekbdKeyboardDrawing *drawing = user_data;
+	CafekbdKeyboardDrawing *drawing = user_data;
 
 	drawing->idle_redraw = 0;
 	draw_keyboard (drawing);
@@ -1686,8 +1686,8 @@ idle_redraw (gpointer user_data)
 }
 
 static gboolean
-context_setup_scaling (MatekbdKeyboardDrawingRenderContext * context,
-		       MatekbdKeyboardDrawing * drawing,
+context_setup_scaling (CafekbdKeyboardDrawingRenderContext * context,
+		       CafekbdKeyboardDrawing * drawing,
 		       gdouble width, gdouble height,
 		       gdouble dpi_x, gdouble dpi_y)
 {
@@ -1725,9 +1725,9 @@ context_setup_scaling (MatekbdKeyboardDrawingRenderContext * context,
 
 static void
 size_allocate (GtkWidget * widget,
-	       GtkAllocation * allocation, MatekbdKeyboardDrawing * drawing)
+	       GtkAllocation * allocation, CafekbdKeyboardDrawing * drawing)
 {
-	MatekbdKeyboardDrawingRenderContext *context = drawing->renderContext;
+	CafekbdKeyboardDrawingRenderContext *context = drawing->renderContext;
 
 	if (drawing->surface) {
 		cairo_surface_destroy (drawing->surface);
@@ -1745,9 +1745,9 @@ size_allocate (GtkWidget * widget,
 
 static gint
 key_event (GtkWidget * widget,
-	   GdkEventKey * event, MatekbdKeyboardDrawing * drawing)
+	   GdkEventKey * event, CafekbdKeyboardDrawing * drawing)
 {
-	MatekbdKeyboardDrawingKey *key;
+	CafekbdKeyboardDrawingKey *key;
 	if (!drawing->xkb)
 		return FALSE;
 
@@ -1782,7 +1782,7 @@ key_event (GtkWidget * widget,
 
 static gint
 button_press_event (GtkWidget * widget,
-		    GdkEventButton * event, MatekbdKeyboardDrawing * drawing)
+		    GdkEventButton * event, CafekbdKeyboardDrawing * drawing)
 {
 	if (!drawing->xkb)
 		return FALSE;
@@ -1792,7 +1792,7 @@ button_press_event (GtkWidget * widget,
 }
 
 static gboolean
-unpress_keys (MatekbdKeyboardDrawing * drawing)
+unpress_keys (CafekbdKeyboardDrawing * drawing)
 {
 	gint i;
 
@@ -1819,7 +1819,7 @@ unpress_keys (MatekbdKeyboardDrawing * drawing)
 
 static gint
 focus_event (GtkWidget * widget,
-	     GdkEventFocus * event, MatekbdKeyboardDrawing * drawing)
+	     GdkEventFocus * event, CafekbdKeyboardDrawing * drawing)
 {
 	if (event->in && drawing->timeout > 0) {
 		g_source_remove (drawing->timeout);
@@ -1833,8 +1833,8 @@ focus_event (GtkWidget * widget,
 }
 
 static gint
-compare_keyboard_item_priorities (MatekbdKeyboardDrawingItem * a,
-				  MatekbdKeyboardDrawingItem * b)
+compare_keyboard_item_priorities (CafekbdKeyboardDrawingItem * a,
+				  CafekbdKeyboardDrawingItem * b)
 {
 	if (a->priority > b->priority)
 		return 1;
@@ -1845,9 +1845,9 @@ compare_keyboard_item_priorities (MatekbdKeyboardDrawingItem * a,
 }
 
 static void
-init_indicator_doodad (MatekbdKeyboardDrawing * drawing,
+init_indicator_doodad (CafekbdKeyboardDrawing * drawing,
 		       XkbDoodadRec * xkbdoodad,
-		       MatekbdKeyboardDrawingDoodad * doodad)
+		       CafekbdKeyboardDrawingDoodad * doodad)
 {
 	if (!drawing->xkb)
 		return;
@@ -1894,7 +1894,7 @@ init_indicator_doodad (MatekbdKeyboardDrawing * drawing,
 }
 
 static void
-init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
+init_keys_and_doodads (CafekbdKeyboardDrawing * drawing)
 {
 	gint i, j, k;
 	gint x, y;
@@ -1904,8 +1904,8 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 
 	for (i = 0; i < drawing->xkb->geom->num_doodads; i++) {
 		XkbDoodadRec *xkbdoodad = drawing->xkb->geom->doodads + i;
-		MatekbdKeyboardDrawingDoodad *doodad =
-		    g_new (MatekbdKeyboardDrawingDoodad, 1);
+		CafekbdKeyboardDrawingDoodad *doodad =
+		    g_new (CafekbdKeyboardDrawingDoodad, 1);
 
 		doodad->type = CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD;
 		doodad->origin_x = 0;
@@ -1943,7 +1943,7 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 
 			for (k = 0; k < row->num_keys; k++) {
 				XkbKeyRec *xkbkey = row->keys + k;
-				MatekbdKeyboardDrawingKey *key;
+				CafekbdKeyboardDrawingKey *key;
 				XkbShapeRec *shape =
 				    drawing->xkb->geom->shapes +
 				    xkbkey->shape_ndx;
@@ -1978,7 +1978,7 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 						   already defined as CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY */
 						key =
 						    g_new0
-						    (MatekbdKeyboardDrawingKey,
+						    (CafekbdKeyboardDrawingKey,
 						     1);
 						key->type =
 						    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA;
@@ -1991,7 +1991,7 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 					     drawing->xkb->max_key_code);
 
 					key =
-					    g_new0 (MatekbdKeyboardDrawingKey,
+					    g_new0 (CafekbdKeyboardDrawingKey,
 						    1);
 					key->type =
 					    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_KEY_EXTRA;
@@ -2022,8 +2022,8 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 
 		for (j = 0; j < section->num_doodads; j++) {
 			XkbDoodadRec *xkbdoodad = section->doodads + j;
-			MatekbdKeyboardDrawingDoodad *doodad =
-			    g_new (MatekbdKeyboardDrawingDoodad, 1);
+			CafekbdKeyboardDrawingDoodad *doodad =
+			    g_new (CafekbdKeyboardDrawingDoodad, 1);
 
 			doodad->type =
 			    CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_DOODAD;
@@ -2048,7 +2048,7 @@ init_keys_and_doodads (MatekbdKeyboardDrawing * drawing)
 }
 
 static void
-init_colors (MatekbdKeyboardDrawing * drawing)
+init_colors (CafekbdKeyboardDrawing * drawing)
 {
 	gboolean result;
 	gint i;
@@ -2073,7 +2073,7 @@ init_colors (MatekbdKeyboardDrawing * drawing)
 
 static void
 free_cdik (			/*colors doodads indicators keys */
-		  MatekbdKeyboardDrawing * drawing)
+		  CafekbdKeyboardDrawing * drawing)
 {
 	GList *itemp;
 
@@ -2081,7 +2081,7 @@ free_cdik (			/*colors doodads indicators keys */
 		return;
 
 	for (itemp = drawing->keyboard_items; itemp; itemp = itemp->next) {
-		MatekbdKeyboardDrawingItem *item = itemp->data;
+		CafekbdKeyboardDrawingItem *item = itemp->data;
 
 		switch (item->type) {
 		case CAFEKBD_KEYBOARD_DRAWING_ITEM_TYPE_INVALID:
@@ -2103,7 +2103,7 @@ free_cdik (			/*colors doodads indicators keys */
 }
 
 static void
-alloc_cdik (MatekbdKeyboardDrawing * drawing)
+alloc_cdik (CafekbdKeyboardDrawing * drawing)
 {
 	if (!drawing->xkb)
 		return;
@@ -2111,16 +2111,16 @@ alloc_cdik (MatekbdKeyboardDrawing * drawing)
 	drawing->physical_indicators_size =
 	    drawing->xkb->indicators->phys_indicators + 1;
 	drawing->physical_indicators =
-	    g_new0 (MatekbdKeyboardDrawingDoodad *,
+	    g_new0 (CafekbdKeyboardDrawingDoodad *,
 		    drawing->physical_indicators_size);
 	drawing->keys =
-	    g_new0 (MatekbdKeyboardDrawingKey,
+	    g_new0 (CafekbdKeyboardDrawingKey,
 		    drawing->xkb->max_key_code + 1);
 }
 
 static void
 process_indicators_state_notify (XkbIndicatorNotifyEvent * iev,
-				 MatekbdKeyboardDrawing * drawing)
+				 CafekbdKeyboardDrawing * drawing)
 {
 	/* Good question: should we track indicators when the keyboard is
 	   NOT really taken from the screen */
@@ -2154,7 +2154,7 @@ process_indicators_state_notify (XkbIndicatorNotifyEvent * iev,
 static GdkFilterReturn
 xkb_state_notify_event_filter (GdkXEvent * gdkxev,
 			       GdkEvent * event,
-			       MatekbdKeyboardDrawing * drawing)
+			       CafekbdKeyboardDrawing * drawing)
 {
 #define group_change_mask (XkbGroupStateMask | XkbGroupBaseMask | XkbGroupLatchMask | XkbGroupLockMask)
 #define modifier_change_mask (XkbModifierStateMask | XkbModifierBaseMask | XkbModifierLatchMask | XkbModifierLockMask)
@@ -2175,7 +2175,7 @@ xkb_state_notify_event_filter (GdkXEvent * gdkxev,
 					    (drawing,
 					     kev->state.compat_state);
 				drawing->keys =
-				    g_new0 (MatekbdKeyboardDrawingKey,
+				    g_new0 (CafekbdKeyboardDrawingKey,
 					    drawing->xkb->max_key_code +
 					    1);
 
@@ -2224,7 +2224,7 @@ drawing);
 }
 
 static void
-destroy (MatekbdKeyboardDrawing * drawing)
+destroy (CafekbdKeyboardDrawing * drawing)
 {
 	free_render_context (drawing);
 	gdk_window_remove_filter (NULL, (GdkFilterFunc)
@@ -2244,13 +2244,13 @@ destroy (MatekbdKeyboardDrawing * drawing)
 }
 
 static void
-style_changed (MatekbdKeyboardDrawing * drawing)
+style_changed (CafekbdKeyboardDrawing * drawing)
 {
 	pango_layout_context_changed (drawing->renderContext->layout);
 }
 
 static void
-cafekbd_keyboard_drawing_init (MatekbdKeyboardDrawing * drawing)
+cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 {
 	gint opcode = 0, error = 0, major = 1, minor = 0;
 	gint mask;
@@ -2364,7 +2364,7 @@ cafekbd_keyboard_drawing_new (void)
 }
 
 static void
-cafekbd_keyboard_drawing_class_init (MatekbdKeyboardDrawingClass * klass)
+cafekbd_keyboard_drawing_class_init (CafekbdKeyboardDrawingClass * klass)
 {
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 	gtk_widget_class_set_css_name (widget_class, "cafekbd-keyboard-drawing");
@@ -2374,7 +2374,7 @@ cafekbd_keyboard_drawing_class_init (MatekbdKeyboardDrawingClass * klass)
 	cafekbd_keyboard_drawing_signals[BAD_KEYCODE] =
 	    g_signal_new ("bad-keycode", cafekbd_keyboard_drawing_get_type (),
 			  G_SIGNAL_RUN_FIRST,
-			  G_STRUCT_OFFSET (MatekbdKeyboardDrawingClass,
+			  G_STRUCT_OFFSET (CafekbdKeyboardDrawingClass,
 					   bad_keycode), NULL, NULL,
 			  cafekbd_keyboard_drawing_VOID__UINT, G_TYPE_NONE, 1,
 			  G_TYPE_UINT);
@@ -2387,13 +2387,13 @@ cafekbd_keyboard_drawing_get_type (void)
 
 	if (!cafekbd_keyboard_drawing_type) {
 		static const GTypeInfo cafekbd_keyboard_drawing_info = {
-			sizeof (MatekbdKeyboardDrawingClass),
+			sizeof (CafekbdKeyboardDrawingClass),
 			NULL,	/* base_init */
 			NULL,	/* base_finalize */
 			(GClassInitFunc) cafekbd_keyboard_drawing_class_init,
 			NULL,	/* class_finalize */
 			NULL,	/* class_data */
-			sizeof (MatekbdKeyboardDrawing),
+			sizeof (CafekbdKeyboardDrawing),
 			0,	/* n_preallocs */
 			(GInstanceInitFunc) cafekbd_keyboard_drawing_init,
 			NULL	/* *value_table */
@@ -2401,7 +2401,7 @@ cafekbd_keyboard_drawing_get_type (void)
 
 		cafekbd_keyboard_drawing_type =
 		    g_type_register_static (GTK_TYPE_DRAWING_AREA,
-					    "MatekbdKeyboardDrawing",
+					    "CafekbdKeyboardDrawing",
 					    &cafekbd_keyboard_drawing_info,
 					    0);
 	}
@@ -2410,7 +2410,7 @@ cafekbd_keyboard_drawing_get_type (void)
 }
 
 void
-cafekbd_keyboard_drawing_set_mods (MatekbdKeyboardDrawing * drawing, guint mods)
+cafekbd_keyboard_drawing_set_mods (CafekbdKeyboardDrawing * drawing, guint mods)
 {
 #ifdef KBDRAW_DEBUG
 	printf ("set_mods: %d\n", mods);
@@ -2438,7 +2438,7 @@ cafekbd_keyboard_drawing_set_mods (MatekbdKeyboardDrawing * drawing, guint mods)
  * Returns: %TRUE on success, %FALSE on failure
  */
 gboolean
-cafekbd_keyboard_drawing_render (MatekbdKeyboardDrawing * kbdrawing,
+cafekbd_keyboard_drawing_render (CafekbdKeyboardDrawing * kbdrawing,
 			      cairo_t * cr,
 			      PangoLayout * layout,
 			      double x, double y,
@@ -2463,7 +2463,7 @@ cafekbd_keyboard_drawing_render (MatekbdKeyboardDrawing * kbdrawing,
 	                       GTK_STYLE_PROPERTY_FONT, &fd, NULL);
 	fd = pango_font_description_copy (fd);
 
-	MatekbdKeyboardDrawingRenderContext context = {
+	CafekbdKeyboardDrawingRenderContext context = {
 		cr,
 		kbdrawing->renderContext->angle,
 		layout,
@@ -2488,7 +2488,7 @@ cafekbd_keyboard_drawing_render (MatekbdKeyboardDrawing * kbdrawing,
  * cafekbd_keyboard_drawing_set_keyboard: (skip)
  */
 gboolean
-cafekbd_keyboard_drawing_set_keyboard (MatekbdKeyboardDrawing * drawing,
+cafekbd_keyboard_drawing_set_keyboard (CafekbdKeyboardDrawing * drawing,
 				    XkbComponentNamesRec * names)
 {
 	GtkAllocation allocation;
@@ -2540,7 +2540,7 @@ cafekbd_keyboard_drawing_set_keyboard (MatekbdKeyboardDrawing * drawing,
 	return TRUE;
 }
 
-const gchar* cafekbd_keyboard_drawing_get_keycodes(MatekbdKeyboardDrawing* drawing)
+const gchar* cafekbd_keyboard_drawing_get_keycodes(CafekbdKeyboardDrawing* drawing)
 {
 	if (!drawing->xkb || drawing->xkb->names->keycodes <= 0)
 	{
@@ -2552,7 +2552,7 @@ const gchar* cafekbd_keyboard_drawing_get_keycodes(MatekbdKeyboardDrawing* drawi
 	}
 }
 
-const gchar* cafekbd_keyboard_drawing_get_geometry(MatekbdKeyboardDrawing* drawing)
+const gchar* cafekbd_keyboard_drawing_get_geometry(CafekbdKeyboardDrawing* drawing)
 {
 	if (!drawing->xkb || drawing->xkb->names->geometry <= 0)
 	{
@@ -2564,7 +2564,7 @@ const gchar* cafekbd_keyboard_drawing_get_geometry(MatekbdKeyboardDrawing* drawi
 	}
 }
 
-const gchar* cafekbd_keyboard_drawing_get_symbols(MatekbdKeyboardDrawing* drawing)
+const gchar* cafekbd_keyboard_drawing_get_symbols(CafekbdKeyboardDrawing* drawing)
 {
 	if (!drawing->xkb || drawing->xkb->names->symbols <= 0)
 	{
@@ -2576,7 +2576,7 @@ const gchar* cafekbd_keyboard_drawing_get_symbols(MatekbdKeyboardDrawing* drawin
 	}
 }
 
-const gchar* cafekbd_keyboard_drawing_get_types(MatekbdKeyboardDrawing* drawing)
+const gchar* cafekbd_keyboard_drawing_get_types(CafekbdKeyboardDrawing* drawing)
 {
 	if (!drawing->xkb || drawing->xkb->names->types <= 0)
 	{
@@ -2588,7 +2588,7 @@ const gchar* cafekbd_keyboard_drawing_get_types(MatekbdKeyboardDrawing* drawing)
 	}
 }
 
-const gchar* cafekbd_keyboard_drawing_get_compat(MatekbdKeyboardDrawing* drawing)
+const gchar* cafekbd_keyboard_drawing_get_compat(CafekbdKeyboardDrawing* drawing)
 {
 	if (!drawing->xkb || drawing->xkb->names->compat <= 0)
 	{
@@ -2601,7 +2601,7 @@ const gchar* cafekbd_keyboard_drawing_get_compat(MatekbdKeyboardDrawing* drawing
 }
 
 void
-cafekbd_keyboard_drawing_set_track_modifiers (MatekbdKeyboardDrawing * drawing,
+cafekbd_keyboard_drawing_set_track_modifiers (CafekbdKeyboardDrawing * drawing,
 					   gboolean enable)
 {
 	if (enable) {
@@ -2616,7 +2616,7 @@ cafekbd_keyboard_drawing_set_track_modifiers (MatekbdKeyboardDrawing * drawing,
 }
 
 void
-cafekbd_keyboard_drawing_set_track_config (MatekbdKeyboardDrawing * drawing,
+cafekbd_keyboard_drawing_set_track_config (CafekbdKeyboardDrawing * drawing,
 					gboolean enable)
 {
 	if (enable)
@@ -2626,8 +2626,8 @@ cafekbd_keyboard_drawing_set_track_config (MatekbdKeyboardDrawing * drawing,
 }
 
 void
-cafekbd_keyboard_drawing_set_groups_levels (MatekbdKeyboardDrawing * drawing,
-					 MatekbdKeyboardDrawingGroupLevel *
+cafekbd_keyboard_drawing_set_groups_levels (CafekbdKeyboardDrawing * drawing,
+					 CafekbdKeyboardDrawingGroupLevel *
 					 groupLevels[])
 {
 #ifdef KBDRAW_DEBUG
@@ -2650,7 +2650,7 @@ cafekbd_keyboard_drawing_set_groups_levels (MatekbdKeyboardDrawing * drawing,
 }
 
 typedef struct {
-	MatekbdKeyboardDrawing *drawing;
+	CafekbdKeyboardDrawing *drawing;
 	const gchar *description;
 } XkbLayoutPreviewPrintData;
 
@@ -2710,7 +2710,7 @@ cafekbd_keyboard_drawing_draw_page (GtkPrintOperation * operation,
 }
 
 void
-cafekbd_keyboard_drawing_print (MatekbdKeyboardDrawing * drawing,
+cafekbd_keyboard_drawing_print (CafekbdKeyboardDrawing * drawing,
 			     GtkWindow * parent_window,
 			     const gchar * description)
 {
@@ -2778,7 +2778,7 @@ show_layout_response (GtkWidget * dialog, gint resp)
 GtkWidget *
 cafekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 {
-	static MatekbdKeyboardDrawingGroupLevel groupsLevels[] = { {
+	static CafekbdKeyboardDrawingGroupLevel groupsLevels[] = { {
 								 0, 1}, {
 									 0,
 									 3},
@@ -2786,7 +2786,7 @@ cafekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 	 0, 0}, {
 		 0, 2}
 	};
-	static MatekbdKeyboardDrawingGroupLevel *pGroupsLevels[] = {
+	static CafekbdKeyboardDrawingGroupLevel *pGroupsLevels[] = {
 		groupsLevels, groupsLevels + 1, groupsLevels + 2,
 		groupsLevels + 3
 	};

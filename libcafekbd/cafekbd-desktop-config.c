@@ -30,7 +30,7 @@
 #include <cafekbd-config-private.h>
 
 /**
- * MatekbdDesktopConfig:
+ * CafekbdDesktopConfig:
  */
 #define CAFEKBD_DESKTOP_CONFIG_SCHEMA  CAFEKBD_CONFIG_SCHEMA ".general"
 
@@ -46,7 +46,7 @@ const gchar CAFEKBD_DESKTOP_CONFIG_KEY_LOAD_EXTRA_ITEMS[] = "load-extra-items";
 
 static gboolean
     cafekbd_desktop_config_get_lv_descriptions
-    (MatekbdDesktopConfig * config,
+    (CafekbdDesktopConfig * config,
      XklConfigRegistry * registry,
      const gchar ** layout_ids,
      const gchar ** variant_ids,
@@ -124,10 +124,10 @@ static gboolean
 }
 
 /*
- * extern MatekbdDesktopConfig config functions
+ * extern CafekbdDesktopConfig config functions
  */
 void
-cafekbd_desktop_config_init (MatekbdDesktopConfig * config,
+cafekbd_desktop_config_init (CafekbdDesktopConfig * config,
 			  XklEngine * engine)
 {
 	memset (config, 0, sizeof (*config));
@@ -136,14 +136,14 @@ cafekbd_desktop_config_init (MatekbdDesktopConfig * config,
 }
 
 void
-cafekbd_desktop_config_term (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_term (CafekbdDesktopConfig * config)
 {
 	g_object_unref (config->settings);
 	config->settings = NULL;
 }
 
 void
-cafekbd_desktop_config_load_from_gsettings (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_load_from_gsettings (CafekbdDesktopConfig * config)
 {
 	config->group_per_app =
 	    g_settings_get_boolean (config->settings,
@@ -180,7 +180,7 @@ cafekbd_desktop_config_load_from_gsettings (MatekbdDesktopConfig * config)
 }
 
 void
-cafekbd_desktop_config_save_to_gsettings (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_save_to_gsettings (CafekbdDesktopConfig * config)
 {
 	g_settings_delay (config->settings);
 
@@ -204,7 +204,7 @@ cafekbd_desktop_config_save_to_gsettings (MatekbdDesktopConfig * config)
 }
 
 gboolean
-cafekbd_desktop_config_activate (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_activate (CafekbdDesktopConfig * config)
 {
 	gboolean rv = TRUE;
 
@@ -219,21 +219,21 @@ cafekbd_desktop_config_activate (MatekbdDesktopConfig * config)
 }
 
 void
-cafekbd_desktop_config_lock_next_group (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_lock_next_group (CafekbdDesktopConfig * config)
 {
 	int group = xkl_engine_get_next_group (config->engine);
 	xkl_engine_lock_group (config->engine, group);
 }
 
 void
-cafekbd_desktop_config_lock_prev_group (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_lock_prev_group (CafekbdDesktopConfig * config)
 {
 	int group = xkl_engine_get_prev_group (config->engine);
 	xkl_engine_lock_group (config->engine, group);
 }
 
 void
-cafekbd_desktop_config_restore_group (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_restore_group (CafekbdDesktopConfig * config)
 {
 	int group = xkl_engine_get_current_window_group (config->engine);
 	xkl_engine_lock_group (config->engine, group);
@@ -244,7 +244,7 @@ cafekbd_desktop_config_restore_group (MatekbdDesktopConfig * config)
  * @func: (scope notified): a function to call when settings are changed
  */
 void
-cafekbd_desktop_config_start_listen (MatekbdDesktopConfig * config,
+cafekbd_desktop_config_start_listen (CafekbdDesktopConfig * config,
 				  GCallback func,
 				  gpointer user_data)
 {
@@ -254,7 +254,7 @@ cafekbd_desktop_config_start_listen (MatekbdDesktopConfig * config,
 }
 
 void
-cafekbd_desktop_config_stop_listen (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_stop_listen (CafekbdDesktopConfig * config)
 {
 	g_signal_handler_disconnect (config->settings,
 				    config->config_listener_id);
@@ -262,7 +262,7 @@ cafekbd_desktop_config_stop_listen (MatekbdDesktopConfig * config)
 }
 
 gboolean
-cafekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
+cafekbd_desktop_config_load_group_descriptions (CafekbdDesktopConfig
 					     * config,
 					     XklConfigRegistry *
 					     registry,

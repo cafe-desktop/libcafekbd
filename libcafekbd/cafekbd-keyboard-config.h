@@ -32,8 +32,8 @@ extern const gchar CAFEKBD_KEYBOARD_CONFIG_KEY_OPTIONS[];
 /*
  * Keyboard Configuration
  */
-typedef struct _MatekbdKeyboardConfig MatekbdKeyboardConfig;
-struct _MatekbdKeyboardConfig {
+typedef struct _CafekbdKeyboardConfig CafekbdKeyboardConfig;
+struct _CafekbdKeyboardConfig {
 	gchar *model;
 	gchar **layouts_variants;
 	gchar **options;
@@ -45,42 +45,42 @@ struct _MatekbdKeyboardConfig {
 };
 
 /*
- * MatekbdKeyboardConfig functions
+ * CafekbdKeyboardConfig functions
  */
-extern void cafekbd_keyboard_config_init (MatekbdKeyboardConfig * kbd_config,
+extern void cafekbd_keyboard_config_init (CafekbdKeyboardConfig * kbd_config,
 				       XklEngine * engine);
-extern void cafekbd_keyboard_config_term (MatekbdKeyboardConfig * kbd_config);
+extern void cafekbd_keyboard_config_term (CafekbdKeyboardConfig * kbd_config);
 
-extern void cafekbd_keyboard_config_load_from_gsettings (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_load_from_gsettings (CafekbdKeyboardConfig *
 						  kbd_config,
-						  MatekbdKeyboardConfig *
+						  CafekbdKeyboardConfig *
 						  kbd_config_default);
 
-extern void cafekbd_keyboard_config_save_to_gsettings (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_save_to_gsettings (CafekbdKeyboardConfig *
 						kbd_config);
 
-extern void cafekbd_keyboard_config_load_from_x_initial (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_load_from_x_initial (CafekbdKeyboardConfig *
 						      kbd_config,
 						      XklConfigRec * buf);
 
-extern void cafekbd_keyboard_config_load_from_x_current (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_load_from_x_current (CafekbdKeyboardConfig *
 						      kbd_config,
 						      XklConfigRec * buf);
 
-extern void cafekbd_keyboard_config_start_listen (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_start_listen (CafekbdKeyboardConfig *
 					       kbd_config,
 					       GCallback func,
 					       gpointer user_data);
 
-extern void cafekbd_keyboard_config_stop_listen (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_stop_listen (CafekbdKeyboardConfig *
 					      kbd_config);
 
-extern gboolean cafekbd_keyboard_config_equals (MatekbdKeyboardConfig *
+extern gboolean cafekbd_keyboard_config_equals (CafekbdKeyboardConfig *
 					     kbd_config1,
-					     MatekbdKeyboardConfig *
+					     CafekbdKeyboardConfig *
 					     kbd_config2);
 
-extern gboolean cafekbd_keyboard_config_activate (MatekbdKeyboardConfig *
+extern gboolean cafekbd_keyboard_config_activate (CafekbdKeyboardConfig *
 					       kbd_config);
 
 extern const gchar *cafekbd_keyboard_config_merge_items (const gchar * parent,
@@ -108,7 +108,7 @@ extern const gchar *cafekbd_keyboard_config_format_full_layout (const gchar
 							     const gchar *
 							     variant_descr);
 
-extern gchar *cafekbd_keyboard_config_to_string (const MatekbdKeyboardConfig *
+extern gchar *cafekbd_keyboard_config_to_string (const CafekbdKeyboardConfig *
 					      config);
 
 extern gchar

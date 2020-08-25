@@ -28,23 +28,23 @@
 extern "C" {
 #endif
 
-	typedef struct _MatekbdStatus MatekbdStatus;
-	typedef struct _MatekbdStatusPrivate MatekbdStatusPrivate;
-	typedef struct _MatekbdStatusClass MatekbdStatusClass;
+	typedef struct _CafekbdStatus CafekbdStatus;
+	typedef struct _CafekbdStatusPrivate CafekbdStatusPrivate;
+	typedef struct _CafekbdStatusClass CafekbdStatusClass;
 
 	#define CAFEKBD_TYPE_STATUS             (cafekbd_status_get_type ())
-	#define CAFEKBD_STATUS(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFEKBD_TYPE_STATUS, MatekbdStatus))
-	#define CAFEKBD_STATUS_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), CAFEKBD_TYPE_STATUS,  MatekbdStatusClass))
+	#define CAFEKBD_STATUS(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFEKBD_TYPE_STATUS, CafekbdStatus))
+	#define CAFEKBD_STATUS_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), CAFEKBD_TYPE_STATUS,  CafekbdStatusClass))
 	#define CAFEKBD_IS_STATUS(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFEKBD_TYPE_STATUS))
 	#define CAFEKBD_IS_STATUS_CLASS(obj)    (G_TYPE_CHECK_CLASS_TYPE ((obj), CAFEKBD_TYPE_STATUS))
-	#define CAFEKBD_STATUS_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAFEKBD_TYPE_STATUS, MatekbdStatusClass))
+	#define CAFEKBD_STATUS_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAFEKBD_TYPE_STATUS, CafekbdStatusClass))
 
-	struct _MatekbdStatus {
+	struct _CafekbdStatus {
 		GtkStatusIcon parent;
-		MatekbdStatusPrivate *priv;
+		CafekbdStatusPrivate *priv;
 	};
 
-	struct _MatekbdStatusClass {
+	struct _CafekbdStatusClass {
 		GtkNotebookClass parent_class;
 	};
 
@@ -52,9 +52,9 @@ extern "C" {
 
 	extern GtkStatusIcon *cafekbd_status_new (void);
 
-	extern void cafekbd_status_reinit_ui (MatekbdStatus * gki);
+	extern void cafekbd_status_reinit_ui (CafekbdStatus * gki);
 
-	extern void cafekbd_status_set_angle (MatekbdStatus * gki,
+	extern void cafekbd_status_set_angle (CafekbdStatus * gki,
 					   gdouble angle);
 
 	extern XklEngine *cafekbd_status_get_xkl_engine (void);

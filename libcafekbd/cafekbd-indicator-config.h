@@ -27,8 +27,8 @@
 /*
  * Indicator configuration
  */
-typedef struct _MatekbdIndicatorConfig MatekbdIndicatorConfig;
-struct _MatekbdIndicatorConfig {
+typedef struct _CafekbdIndicatorConfig CafekbdIndicatorConfig;
+struct _CafekbdIndicatorConfig {
 	int secondary_groups_mask;
 	gboolean show_flags;
 
@@ -45,47 +45,47 @@ struct _MatekbdIndicatorConfig {
 };
 
 /*
- * MatekbdIndicatorConfig functions -
- * some of them require MatekbdKeyboardConfig as well -
+ * CafekbdIndicatorConfig functions -
+ * some of them require CafekbdKeyboardConfig as well -
  * for loading approptiate images
  */
-extern void cafekbd_indicator_config_init (MatekbdIndicatorConfig *
+extern void cafekbd_indicator_config_init (CafekbdIndicatorConfig *
 					applet_config,
 					XklEngine * engine);
-extern void cafekbd_indicator_config_term (MatekbdIndicatorConfig *
+extern void cafekbd_indicator_config_term (CafekbdIndicatorConfig *
 					applet_config);
 
-extern void cafekbd_indicator_config_load_from_gsettings (MatekbdIndicatorConfig
+extern void cafekbd_indicator_config_load_from_gsettings (CafekbdIndicatorConfig
 						   * applet_config);
-extern void cafekbd_indicator_config_save_to_gsettings (MatekbdIndicatorConfig *
+extern void cafekbd_indicator_config_save_to_gsettings (CafekbdIndicatorConfig *
 						 applet_config);
 
-extern void cafekbd_indicator_config_refresh_style (MatekbdIndicatorConfig *
+extern void cafekbd_indicator_config_refresh_style (CafekbdIndicatorConfig *
 						 applet_config);
 
 extern gchar
-    * cafekbd_indicator_config_get_images_file (MatekbdIndicatorConfig *
+    * cafekbd_indicator_config_get_images_file (CafekbdIndicatorConfig *
 					     applet_config,
-					     MatekbdKeyboardConfig *
+					     CafekbdKeyboardConfig *
 					     kbd_config, int group);
 
-extern void cafekbd_indicator_config_load_image_filenames (MatekbdIndicatorConfig
+extern void cafekbd_indicator_config_load_image_filenames (CafekbdIndicatorConfig
 							* applet_config,
-							MatekbdKeyboardConfig
+							CafekbdKeyboardConfig
 							* kbd_config);
-extern void cafekbd_indicator_config_free_image_filenames (MatekbdIndicatorConfig
+extern void cafekbd_indicator_config_free_image_filenames (CafekbdIndicatorConfig
 							* applet_config);
 
 /* Should be updated on Indicator/GSettings configuration change */
-extern void cafekbd_indicator_config_activate (MatekbdIndicatorConfig *
+extern void cafekbd_indicator_config_activate (CafekbdIndicatorConfig *
 					    applet_config);
 
-extern void cafekbd_indicator_config_start_listen (MatekbdIndicatorConfig *
+extern void cafekbd_indicator_config_start_listen (CafekbdIndicatorConfig *
 						applet_config,
 						GCallback
 						func, gpointer user_data);
 
-extern void cafekbd_indicator_config_stop_listen (MatekbdIndicatorConfig *
+extern void cafekbd_indicator_config_stop_listen (CafekbdIndicatorConfig *
 					       applet_config);
 
 #endif

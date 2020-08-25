@@ -33,23 +33,23 @@ extern const gchar CAFEKBD_PREVIEW_CONFIG_KEY_HEIGHT[];
 /**
  * General config functions (private)
  */
-extern void cafekbd_keyboard_config_model_set (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_model_set (CafekbdKeyboardConfig *
 					    kbd_config,
 					    const gchar * model_name);
 
-extern void cafekbd_keyboard_config_options_set (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_options_set (CafekbdKeyboardConfig *
 					      kbd_config,
 					      gint idx,
 					      const gchar * group_name,
 					      const gchar * option_name);
-extern gboolean cafekbd_keyboard_config_options_is_set (MatekbdKeyboardConfig *
+extern gboolean cafekbd_keyboard_config_options_is_set (CafekbdKeyboardConfig *
 						     kbd_config,
 						     const gchar *
 						     group_name,
 						     const gchar *
 						     option_name);
 
-extern gboolean cafekbd_keyboard_config_dump_settings (MatekbdKeyboardConfig *
+extern gboolean cafekbd_keyboard_config_dump_settings (CafekbdKeyboardConfig *
 						    kbd_config,
 						    const char *file_name);
 

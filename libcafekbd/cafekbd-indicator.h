@@ -28,35 +28,35 @@
 extern "C" {
 #endif
 
-	typedef struct _MatekbdIndicator MatekbdIndicator;
-	typedef struct _MatekbdIndicatorPrivate MatekbdIndicatorPrivate;
-	typedef struct _MatekbdIndicatorClass MatekbdIndicatorClass;
+	typedef struct _CafekbdIndicator CafekbdIndicator;
+	typedef struct _CafekbdIndicatorPrivate CafekbdIndicatorPrivate;
+	typedef struct _CafekbdIndicatorClass CafekbdIndicatorClass;
 
 #define CAFEKBD_TYPE_INDICATOR             (cafekbd_indicator_get_type ())
-#define CAFEKBD_INDICATOR(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFEKBD_TYPE_INDICATOR, MatekbdIndicator))
-#define CAFEKBD_INDICATOR_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), CAFEKBD_TYPE_INDICATOR,  MatekbdIndicatorClass))
+#define CAFEKBD_INDICATOR(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFEKBD_TYPE_INDICATOR, CafekbdIndicator))
+#define CAFEKBD_INDICATOR_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), CAFEKBD_TYPE_INDICATOR,  CafekbdIndicatorClass))
 #define CAFEKBD_IS_INDICATOR(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFEKBD_TYPE_INDICATOR))
 #define CAFEKBD_IS_INDICATOR_CLASS(obj)    (G_TYPE_CHECK_CLASS_TYPE ((obj), CAFEKBD_TYPE_INDICATOR))
-#define CAFEKBD_INDICATOR_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAFEKBD_TYPE_INDICATOR, MatekbdIndicatorClass))
+#define CAFEKBD_INDICATOR_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAFEKBD_TYPE_INDICATOR, CafekbdIndicatorClass))
 
-	struct _MatekbdIndicator {
+	struct _CafekbdIndicator {
 		GtkNotebook parent;
-		MatekbdIndicatorPrivate *priv;
+		CafekbdIndicatorPrivate *priv;
 	};
 
-	struct _MatekbdIndicatorClass {
+	struct _CafekbdIndicatorClass {
 		GtkNotebookClass parent_class;
 
-		void (*reinit_ui) (MatekbdIndicator * gki);
+		void (*reinit_ui) (CafekbdIndicator * gki);
 	};
 
 	extern GType cafekbd_indicator_get_type (void);
 
 	extern GtkWidget *cafekbd_indicator_new (void);
 
-	extern void cafekbd_indicator_reinit_ui (MatekbdIndicator * gki);
+	extern void cafekbd_indicator_reinit_ui (CafekbdIndicator * gki);
 
-	extern void cafekbd_indicator_set_angle (MatekbdIndicator * gki,
+	extern void cafekbd_indicator_set_angle (CafekbdIndicator * gki,
 					      gdouble angle);
 
 	extern XklEngine *cafekbd_indicator_get_xkl_engine (void);
@@ -68,7 +68,7 @@ extern "C" {
 	extern gdouble cafekbd_indicator_get_max_width_height_ratio (void);
 
 	extern void
-	 cafekbd_indicator_set_parent_tooltips (MatekbdIndicator *
+	 cafekbd_indicator_set_parent_tooltips (CafekbdIndicator *
 					     gki, gboolean ifset);
 
 	extern void

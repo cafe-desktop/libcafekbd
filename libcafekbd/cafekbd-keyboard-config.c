@@ -31,7 +31,7 @@
 #include <cafekbd-util.h>
 
 /*
- * MatekbdKeyboardConfig
+ * CafekbdKeyboardConfig
  */
 #define CAFEKBD_KEYBOARD_CONFIG_SCHEMA CAFEKBD_CONFIG_SCHEMA ".kbd"
 
@@ -177,10 +177,10 @@ cafekbd_keyboard_config_split_items (const gchar * merged, gchar ** parent,
 }
 
 /*
- * static MatekbdKeyboardConfig functions
+ * static CafekbdKeyboardConfig functions
  */
 static void
-cafekbd_keyboard_config_copy_from_xkl_config (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_copy_from_xkl_config (CafekbdKeyboardConfig * kbd_config,
 					   XklConfigRec * pdata)
 {
 	char **p, **p1;
@@ -243,7 +243,7 @@ cafekbd_keyboard_config_copy_from_xkl_config (MatekbdKeyboardConfig * kbd_config
 }
 
 static void
-cafekbd_keyboard_config_copy_to_xkl_config (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_copy_to_xkl_config (CafekbdKeyboardConfig * kbd_config,
 					 XklConfigRec * pdata)
 {
 	int i;
@@ -316,7 +316,7 @@ cafekbd_keyboard_config_copy_to_xkl_config (MatekbdKeyboardConfig * kbd_config,
 }
 
 static void
-cafekbd_keyboard_config_load_params (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_load_params (CafekbdKeyboardConfig * kbd_config,
 				  const gchar * param_names[])
 {
 	gchar *pc;
@@ -354,7 +354,7 @@ cafekbd_keyboard_config_load_params (MatekbdKeyboardConfig * kbd_config,
 }
 
 static void
-cafekbd_keyboard_config_save_params (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_save_params (CafekbdKeyboardConfig * kbd_config,
 				  const gchar * param_names[])
 {
 	gchar **pl;
@@ -402,10 +402,10 @@ cafekbd_keyboard_config_save_params (MatekbdKeyboardConfig * kbd_config,
 }
 
 /*
- * extern MatekbdKeyboardConfig config functions
+ * extern CafekbdKeyboardConfig config functions
  */
 void
-cafekbd_keyboard_config_init (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_init (CafekbdKeyboardConfig * kbd_config,
 			      XklEngine * engine)
 {
 	memset (kbd_config, 0, sizeof (*kbd_config));
@@ -414,7 +414,7 @@ cafekbd_keyboard_config_init (MatekbdKeyboardConfig * kbd_config,
 }
 
 void
-cafekbd_keyboard_config_term (MatekbdKeyboardConfig * kbd_config)
+cafekbd_keyboard_config_term (CafekbdKeyboardConfig * kbd_config)
 {
 	cafekbd_keyboard_config_model_set (kbd_config, NULL);
 
@@ -428,8 +428,8 @@ cafekbd_keyboard_config_term (MatekbdKeyboardConfig * kbd_config)
 }
 
 void
-cafekbd_keyboard_config_load_from_gsettings (MatekbdKeyboardConfig * kbd_config,
-				      MatekbdKeyboardConfig *
+cafekbd_keyboard_config_load_from_gsettings (CafekbdKeyboardConfig * kbd_config,
+				      CafekbdKeyboardConfig *
 				      kbd_config_default)
 {
 	cafekbd_keyboard_config_load_params (kbd_config,
@@ -455,7 +455,7 @@ cafekbd_keyboard_config_load_from_gsettings (MatekbdKeyboardConfig * kbd_config,
 }
 
 void
-cafekbd_keyboard_config_load_from_x_current (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_load_from_x_current (CafekbdKeyboardConfig * kbd_config,
 					  XklConfigRec * data)
 {
 	gboolean own_data = data == NULL;
@@ -474,7 +474,7 @@ cafekbd_keyboard_config_load_from_x_current (MatekbdKeyboardConfig * kbd_config,
 }
 
 void
-cafekbd_keyboard_config_load_from_x_initial (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_load_from_x_initial (CafekbdKeyboardConfig * kbd_config,
 					  XklConfigRec * data)
 {
 	gboolean own_data = data == NULL;
@@ -493,8 +493,8 @@ cafekbd_keyboard_config_load_from_x_initial (MatekbdKeyboardConfig * kbd_config,
 }
 
 static gboolean
-cafekbd_keyboard_config_options_equals (MatekbdKeyboardConfig * kbd_config1,
-				     MatekbdKeyboardConfig * kbd_config2)
+cafekbd_keyboard_config_options_equals (CafekbdKeyboardConfig * kbd_config1,
+				     CafekbdKeyboardConfig * kbd_config2)
 {
 	int num_options, num_options2;
 
@@ -543,8 +543,8 @@ cafekbd_keyboard_config_options_equals (MatekbdKeyboardConfig * kbd_config1,
 }
 
 gboolean
-cafekbd_keyboard_config_equals (MatekbdKeyboardConfig * kbd_config1,
-			     MatekbdKeyboardConfig * kbd_config2)
+cafekbd_keyboard_config_equals (CafekbdKeyboardConfig * kbd_config1,
+			     CafekbdKeyboardConfig * kbd_config2)
 {
 	if (kbd_config1 == kbd_config2)
 		return True;
@@ -565,7 +565,7 @@ cafekbd_keyboard_config_equals (MatekbdKeyboardConfig * kbd_config1,
 }
 
 void
-cafekbd_keyboard_config_save_to_gsettings (MatekbdKeyboardConfig * kbd_config)
+cafekbd_keyboard_config_save_to_gsettings (CafekbdKeyboardConfig * kbd_config)
 {
 	g_settings_delay (kbd_config->settings);
 
@@ -576,7 +576,7 @@ cafekbd_keyboard_config_save_to_gsettings (MatekbdKeyboardConfig * kbd_config)
 }
 
 void
-cafekbd_keyboard_config_model_set (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_model_set (CafekbdKeyboardConfig * kbd_config,
 				const gchar * model_name)
 {
 	if (kbd_config->model != NULL)
@@ -587,7 +587,7 @@ cafekbd_keyboard_config_model_set (MatekbdKeyboardConfig * kbd_config,
 }
 
 void
-cafekbd_keyboard_config_options_set (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_options_set (CafekbdKeyboardConfig * kbd_config,
 				  gint idx,
 				  const gchar * group_name,
 				  const gchar * option_name)
@@ -603,7 +603,7 @@ cafekbd_keyboard_config_options_set (MatekbdKeyboardConfig * kbd_config,
 }
 
 gboolean
-cafekbd_keyboard_config_options_is_set (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_options_is_set (CafekbdKeyboardConfig * kbd_config,
 				     const gchar * group_name,
 				     const gchar * option_name)
 {
@@ -621,7 +621,7 @@ cafekbd_keyboard_config_options_is_set (MatekbdKeyboardConfig * kbd_config,
 }
 
 gboolean
-cafekbd_keyboard_config_activate (MatekbdKeyboardConfig * kbd_config)
+cafekbd_keyboard_config_activate (CafekbdKeyboardConfig * kbd_config)
 {
 	gboolean rv;
 	XklConfigRec *data = xkl_config_rec_new ();
@@ -638,7 +638,7 @@ cafekbd_keyboard_config_activate (MatekbdKeyboardConfig * kbd_config)
  * @func: (scope notified): a function to call when settings are changed
  */
 void
-cafekbd_keyboard_config_start_listen (MatekbdKeyboardConfig * kbd_config,
+cafekbd_keyboard_config_start_listen (CafekbdKeyboardConfig * kbd_config,
 				   GCallback func,
 				   gpointer user_data)
 {
@@ -648,7 +648,7 @@ cafekbd_keyboard_config_start_listen (MatekbdKeyboardConfig * kbd_config,
 }
 
 void
-cafekbd_keyboard_config_stop_listen (MatekbdKeyboardConfig * kbd_config)
+cafekbd_keyboard_config_stop_listen (CafekbdKeyboardConfig * kbd_config)
 {
 	g_signal_handler_disconnect (kbd_config->settings,
 				     kbd_config->config_listener_id);
@@ -691,7 +691,7 @@ cafekbd_keyboard_config_format_full_layout (const gchar * layout_descr,
 }
 
 gchar *
-cafekbd_keyboard_config_to_string (const MatekbdKeyboardConfig * config)
+cafekbd_keyboard_config_to_string (const CafekbdKeyboardConfig * config)
 {
 	gchar *layouts = NULL, *options = NULL;
 	GString *buffer = g_string_new (NULL);

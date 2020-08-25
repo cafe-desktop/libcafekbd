@@ -155,7 +155,7 @@
 
 ========== en@shaw.po ==========
 # Shavian translation for libcafekbd.
-# Copyright (C) 2009 The Mate Foundation.
+# Copyright (C) 2009 The Cafe Foundation.
 # Thomas Thurman <tthurman@gnome.org>, 2009.
 
 
@@ -595,7 +595,7 @@
 # Copyright (C) 2005-2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libcafekbd package.
 #
-# Matej Urbančič <cafeju@svn.gnome.org>, 2007 - 2010.
+# Cafej Urbančič <cafeju@svn.gnome.org>, 2007 - 2010.
 #
 
 
@@ -697,8 +697,8 @@
 
 
 ========== vi.po ==========
-# Vietnamese translation for LibMateKBD.
-# Copyright © 2008 Mate i18n Project for Vietnamese.
+# Vietnamese translation for LibCafeKBD.
+# Copyright © 2008 Cafe i18n Project for Vietnamese.
 # Clytie Siddall <clytie@riverland.net.au>, 2007-2008.
 #
 

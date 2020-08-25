@@ -33,8 +33,8 @@ extern const gchar CAFEKBD_DESKTOP_CONFIG_KEY_LAYOUT_NAMES_AS_GROUP_NAMES[];
 /*
  * General configuration
  */
-typedef struct _MatekbdDesktopConfig MatekbdDesktopConfig;
-struct _MatekbdDesktopConfig {
+typedef struct _CafekbdDesktopConfig CafekbdDesktopConfig;
+struct _CafekbdDesktopConfig {
 	gint default_group;
 	gboolean group_per_app;
 	gboolean handle_indicators;
@@ -48,21 +48,21 @@ struct _MatekbdDesktopConfig {
 };
 
 /*
- * MatekbdDesktopConfig functions
+ * CafekbdDesktopConfig functions
  */
-extern void cafekbd_desktop_config_init (MatekbdDesktopConfig * config,
+extern void cafekbd_desktop_config_init (CafekbdDesktopConfig * config,
 				      XklEngine * engine);
-extern void cafekbd_desktop_config_term (MatekbdDesktopConfig * config);
+extern void cafekbd_desktop_config_term (CafekbdDesktopConfig * config);
 
-extern void cafekbd_desktop_config_load_from_gsettings (MatekbdDesktopConfig *
+extern void cafekbd_desktop_config_load_from_gsettings (CafekbdDesktopConfig *
 						 config);
 
-extern void cafekbd_desktop_config_save_to_gsettings (MatekbdDesktopConfig * config);
+extern void cafekbd_desktop_config_save_to_gsettings (CafekbdDesktopConfig * config);
 
-extern gboolean cafekbd_desktop_config_activate (MatekbdDesktopConfig * config);
+extern gboolean cafekbd_desktop_config_activate (CafekbdDesktopConfig * config);
 
 extern gboolean
-cafekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
+cafekbd_desktop_config_load_group_descriptions (CafekbdDesktopConfig
 					     * config,
 					     XklConfigRegistry *
 					     registry,
@@ -74,18 +74,18 @@ cafekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
 					     short_group_names,
 					     gchar *** full_group_names);
 
-extern void cafekbd_desktop_config_lock_next_group (MatekbdDesktopConfig *
+extern void cafekbd_desktop_config_lock_next_group (CafekbdDesktopConfig *
 						 config);
 
-extern void cafekbd_desktop_config_lock_prev_group (MatekbdDesktopConfig *
+extern void cafekbd_desktop_config_lock_prev_group (CafekbdDesktopConfig *
 						 config);
 
-extern void cafekbd_desktop_config_restore_group (MatekbdDesktopConfig * config);
+extern void cafekbd_desktop_config_restore_group (CafekbdDesktopConfig * config);
 
-extern void cafekbd_desktop_config_start_listen (MatekbdDesktopConfig * config,
+extern void cafekbd_desktop_config_start_listen (CafekbdDesktopConfig * config,
 					      GCallback func,
 					      gpointer user_data);
 
-extern void cafekbd_desktop_config_stop_listen (MatekbdDesktopConfig * config);
+extern void cafekbd_desktop_config_stop_listen (CafekbdDesktopConfig * config);
 
 #endif

@@ -35,7 +35,7 @@
 #include <cafekbd-config-private.h>
 
 /**
- * MatekbdIndicatorConfig:
+ * CafekbdIndicatorConfig:
  */
 #define CAFEKBD_INDICATOR_CONFIG_SCHEMA  CAFEKBD_CONFIG_SCHEMA ".indicator"
 
@@ -52,7 +52,7 @@ const gchar CAFEKBD_INDICATOR_CONFIG_KEY_BACKGROUND_COLOR[] = "background-color"
  * static applet config functions
  */
 static void
-cafekbd_indicator_config_load_font (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_load_font (CafekbdIndicatorConfig * ind_config)
 {
 	ind_config->font_family =
 	    g_settings_get_string (ind_config->settings,
@@ -90,7 +90,7 @@ cafekbd_indicator_config_load_font (MatekbdIndicatorConfig * ind_config)
 }
 
 static void
-cafekbd_indicator_config_load_colors (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_load_colors (CafekbdIndicatorConfig * ind_config)
 {
 	ind_config->foreground_color =
 	    g_settings_get_string (ind_config->settings,
@@ -130,7 +130,7 @@ cafekbd_indicator_config_load_colors (MatekbdIndicatorConfig * ind_config)
 }
 
 void
-cafekbd_indicator_config_refresh_style (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_refresh_style (CafekbdIndicatorConfig * ind_config)
 {
 	g_free (ind_config->font_family);
 	g_free (ind_config->foreground_color);
@@ -140,9 +140,9 @@ cafekbd_indicator_config_refresh_style (MatekbdIndicatorConfig * ind_config)
 }
 
 gchar *
-cafekbd_indicator_config_get_images_file (MatekbdIndicatorConfig *
+cafekbd_indicator_config_get_images_file (CafekbdIndicatorConfig *
 				       ind_config,
-				       MatekbdKeyboardConfig *
+				       CafekbdKeyboardConfig *
 				       kbd_config, int group)
 {
 	char *image_file = NULL;
@@ -189,9 +189,9 @@ cafekbd_indicator_config_get_images_file (MatekbdIndicatorConfig *
 }
 
 void
-cafekbd_indicator_config_load_image_filenames (MatekbdIndicatorConfig *
+cafekbd_indicator_config_load_image_filenames (CafekbdIndicatorConfig *
 					    ind_config,
-					    MatekbdKeyboardConfig *
+					    CafekbdKeyboardConfig *
 					    kbd_config)
 {
 	int i;
@@ -213,7 +213,7 @@ cafekbd_indicator_config_load_image_filenames (MatekbdIndicatorConfig *
 }
 
 void
-cafekbd_indicator_config_free_image_filenames (MatekbdIndicatorConfig *
+cafekbd_indicator_config_free_image_filenames (CafekbdIndicatorConfig *
 					    ind_config)
 {
 	while (ind_config->image_filenames) {
@@ -226,7 +226,7 @@ cafekbd_indicator_config_free_image_filenames (MatekbdIndicatorConfig *
 }
 
 void
-cafekbd_indicator_config_init (MatekbdIndicatorConfig * ind_config,
+cafekbd_indicator_config_init (CafekbdIndicatorConfig * ind_config,
 			       XklEngine * engine)
 {
 	gchar *sp;
@@ -260,7 +260,7 @@ cafekbd_indicator_config_init (MatekbdIndicatorConfig * ind_config,
 }
 
 void
-cafekbd_indicator_config_term (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_term (CafekbdIndicatorConfig * ind_config)
 {
 	g_free (ind_config->font_family);
 	ind_config->font_family = NULL;
@@ -280,7 +280,7 @@ cafekbd_indicator_config_term (MatekbdIndicatorConfig * ind_config)
 }
 
 void
-cafekbd_indicator_config_load_from_gsettings (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_load_from_gsettings (CafekbdIndicatorConfig * ind_config)
 {
 	ind_config->secondary_groups_mask =
 	    g_settings_get_int (ind_config->settings,
@@ -296,7 +296,7 @@ cafekbd_indicator_config_load_from_gsettings (MatekbdIndicatorConfig * ind_confi
 }
 
 void
-cafekbd_indicator_config_save_to_gsettings (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_save_to_gsettings (CafekbdIndicatorConfig * ind_config)
 {
 	g_settings_delay (ind_config->settings);
 
@@ -311,7 +311,7 @@ cafekbd_indicator_config_save_to_gsettings (MatekbdIndicatorConfig * ind_config)
 }
 
 void
-cafekbd_indicator_config_activate (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_activate (CafekbdIndicatorConfig * ind_config)
 {
 	xkl_engine_set_secondary_groups_mask (ind_config->engine,
 					      ind_config->secondary_groups_mask);
@@ -322,7 +322,7 @@ cafekbd_indicator_config_activate (MatekbdIndicatorConfig * ind_config)
  * @func: (scope notified): a function to call when settings are changed
  */
 void
-cafekbd_indicator_config_start_listen (MatekbdIndicatorConfig *
+cafekbd_indicator_config_start_listen (CafekbdIndicatorConfig *
 				    ind_config,
 				    GCallback func,
 				    gpointer user_data)
@@ -333,7 +333,7 @@ cafekbd_indicator_config_start_listen (MatekbdIndicatorConfig *
 }
 
 void
-cafekbd_indicator_config_stop_listen (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_stop_listen (CafekbdIndicatorConfig * ind_config)
 {
 	g_signal_handler_disconnect (ind_config->settings,
 				     ind_config->config_listener_id);

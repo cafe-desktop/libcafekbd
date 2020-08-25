@@ -72,9 +72,9 @@ static const GOptionEntry options[] = {
 
 static gboolean
 set_groups (gchar * groups_option,
-	    MatekbdKeyboardDrawingGroupLevel * groupLevels)
+	    CafekbdKeyboardDrawingGroupLevel * groupLevels)
 {
-	MatekbdKeyboardDrawingGroupLevel *pgl = groupLevels;
+	CafekbdKeyboardDrawingGroupLevel *pgl = groupLevels;
 	gint cntr, g;
 
 	groupLevels[0].group =
@@ -110,9 +110,9 @@ set_groups (gchar * groups_option,
 
 static gboolean
 set_levels (gchar * levels_option,
-	    MatekbdKeyboardDrawingGroupLevel * groupLevels)
+	    CafekbdKeyboardDrawingGroupLevel * groupLevels)
 {
-	MatekbdKeyboardDrawingGroupLevel *pgl = groupLevels;
+	CafekbdKeyboardDrawingGroupLevel *pgl = groupLevels;
 	gint cntr, l;
 	gchar *p;
 
@@ -148,7 +148,7 @@ set_levels (gchar * levels_option,
 }
 
 static void
-bad_keycode (MatekbdKeyboardDrawing * drawing, guint keycode)
+bad_keycode (CafekbdKeyboardDrawing * drawing, guint keycode)
 {
 	g_warning
 	    ("got keycode %u, which is not on your keyboard according to your configuration",
@@ -166,9 +166,9 @@ main (gint argc, gchar ** argv)
 	GOptionContext *context;
 	GError *error = NULL;
 
-	MatekbdKeyboardDrawingGroupLevel groupLevels[4] =
+	CafekbdKeyboardDrawingGroupLevel groupLevels[4] =
 	    { {0, 0}, {1, 0}, {0, 1}, {1, 1} };
-	MatekbdKeyboardDrawingGroupLevel *pgroupLevels[4] =
+	CafekbdKeyboardDrawingGroupLevel *pgroupLevels[4] =
 	    { &groupLevels[0], &groupLevels[1], &groupLevels[2],
 		&groupLevels[3]
 	};

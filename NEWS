@@ -90,7 +90,7 @@
 
 ### libcafekbd 1.14.0
 
-  * Drop MateConf migration script
+  * Drop CafeConf migration script
   * Reduce introspection build warnings
   * Fix some GTK+3 deprecations
   * Some more fixes and cleanups
