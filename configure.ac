@@ -1,12 +1,12 @@
 dnl ***************************************************************************
-dnl *** configure.in for libmatekbd                                        ***
+dnl *** configure.in for libcafekbd                                        ***
 dnl ***************************************************************************
-m4_define([libmatekbd_major_version], [1])
-m4_define([libmatekbd_minor_version], [24])
-m4_define([libmatekbd_micro_version], [1])
-m4_define([libmatekbd_version],[libmatekbd_major_version.libmatekbd_minor_version.libmatekbd_micro_version])
+m4_define([libcafekbd_major_version], [1])
+m4_define([libcafekbd_minor_version], [24])
+m4_define([libcafekbd_micro_version], [1])
+m4_define([libcafekbd_version],[libcafekbd_major_version.libcafekbd_minor_version.libcafekbd_micro_version])
 
-AC_INIT([libmatekbd], [libmatekbd_version], [https://github.com/mate-desktop/libmatekbd])
+AC_INIT([libcafekbd], [libcafekbd_version], [https://github.com/cafe-desktop/libcafekbd])
 AC_PREREQ(2.59)
 
 VERSION_INFO=6:0:2
@@ -38,7 +38,7 @@ AM_PROG_LIBTOOL
 # i18n
 # ****
 
-GETTEXT_PACKAGE=libmatekbd
+GETTEXT_PACKAGE=libcafekbd
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Gettext package])
 
@@ -116,11 +116,11 @@ GOBJECT_INTROSPECTION_CHECK([0.6.7])
 
 AC_OUTPUT([
 Makefile
-libmatekbd.pc
-libmatekbdui.pc
+libcafekbd.pc
+libcafekbdui.pc
 po/Makefile.in
-libmatekbd/Makefile
-libmatekbd/org.mate.peripherals-keyboard-xkb.gschema.xml
+libcafekbd/Makefile
+libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml
 test/Makefile
 ])
 

@@ -20,7 +20,7 @@
 #include "config.h"
 
 #include "libxklavier/xklavier.h"
-#include "libmatekbd/matekbd-indicator.h"
+#include "libcafekbd/cafekbd-indicator.h"
 
 #include <string.h>
 #include <sys/types.h>
@@ -51,9 +51,9 @@ int main(int argc, char** argv)
 
 	mainwin = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
-	gki = matekbd_indicator_new();
-	matekbd_indicator_set_tooltips_format(_("Keyboard Indicator Test (%s)"));
-	matekbd_indicator_set_parent_tooltips(CAFEKBD_INDICATOR (gki), TRUE);
+	gki = cafekbd_indicator_new();
+	cafekbd_indicator_set_tooltips_format(_("Keyboard Indicator Test (%s)"));
+	cafekbd_indicator_set_parent_tooltips(CAFEKBD_INDICATOR (gki), TRUE);
 
 	gtk_window_resize(GTK_WINDOW(mainwin), 250, 250);
 	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);

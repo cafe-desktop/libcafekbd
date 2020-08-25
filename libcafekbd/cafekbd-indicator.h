@@ -32,7 +32,7 @@ extern "C" {
 	typedef struct _MatekbdIndicatorPrivate MatekbdIndicatorPrivate;
 	typedef struct _MatekbdIndicatorClass MatekbdIndicatorClass;
 
-#define CAFEKBD_TYPE_INDICATOR             (matekbd_indicator_get_type ())
+#define CAFEKBD_TYPE_INDICATOR             (cafekbd_indicator_get_type ())
 #define CAFEKBD_INDICATOR(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFEKBD_TYPE_INDICATOR, MatekbdIndicator))
 #define CAFEKBD_INDICATOR_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), CAFEKBD_TYPE_INDICATOR,  MatekbdIndicatorClass))
 #define CAFEKBD_IS_INDICATOR(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFEKBD_TYPE_INDICATOR))
@@ -50,29 +50,29 @@ extern "C" {
 		void (*reinit_ui) (MatekbdIndicator * gki);
 	};
 
-	extern GType matekbd_indicator_get_type (void);
+	extern GType cafekbd_indicator_get_type (void);
 
-	extern GtkWidget *matekbd_indicator_new (void);
+	extern GtkWidget *cafekbd_indicator_new (void);
 
-	extern void matekbd_indicator_reinit_ui (MatekbdIndicator * gki);
+	extern void cafekbd_indicator_reinit_ui (MatekbdIndicator * gki);
 
-	extern void matekbd_indicator_set_angle (MatekbdIndicator * gki,
+	extern void cafekbd_indicator_set_angle (MatekbdIndicator * gki,
 					      gdouble angle);
 
-	extern XklEngine *matekbd_indicator_get_xkl_engine (void);
+	extern XklEngine *cafekbd_indicator_get_xkl_engine (void);
 
-	extern gchar **matekbd_indicator_get_group_names (void);
+	extern gchar **cafekbd_indicator_get_group_names (void);
 
-	extern gchar *matekbd_indicator_get_image_filename (guint group);
+	extern gchar *cafekbd_indicator_get_image_filename (guint group);
 
-	extern gdouble matekbd_indicator_get_max_width_height_ratio (void);
+	extern gdouble cafekbd_indicator_get_max_width_height_ratio (void);
 
 	extern void
-	 matekbd_indicator_set_parent_tooltips (MatekbdIndicator *
+	 cafekbd_indicator_set_parent_tooltips (MatekbdIndicator *
 					     gki, gboolean ifset);
 
 	extern void
-	 matekbd_indicator_set_tooltips_format (const gchar str[]);
+	 cafekbd_indicator_set_tooltips_format (const gchar str[]);
 
 #ifdef __cplusplus
 }

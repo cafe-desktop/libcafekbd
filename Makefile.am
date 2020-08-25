@@ -2,7 +2,7 @@ if BUILD_TESTS
 TEST = test
 endif
 
-SUBDIRS = po libmatekbd $(TEST)
+SUBDIRS = po libcafekbd $(TEST)
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
@@ -13,11 +13,11 @@ DISTCHECK_CONFIGURE_FLAGS = \
 
 EXTRA_DIST = \
         autogen.sh \
-        libmatekbd.pc.in \
-        libmatekbdui.pc.in
+        libcafekbd.pc.in \
+        libcafekbdui.pc.in
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libmatekbd.pc libmatekbdui.pc
+pkgconfig_DATA = libcafekbd.pc libcafekbdui.pc
 
 # Build ChangeLog from GIT  history
 ChangeLog:

@@ -20,7 +20,7 @@
 #include "config.h"
 
 #include "libxklavier/xklavier.h"
-#include "libmatekbd/matekbd-status.h"
+#include "libcafekbd/cafekbd-status.h"
 
 #include <string.h>
 #include <sys/types.h>
@@ -47,7 +47,7 @@ main (int argc, char **argv)
 
 	gtk_init (&argc, &argv);
 
-	icon = matekbd_status_new ();
+	icon = cafekbd_status_new ();
 
         if (icon == NULL)
 	{

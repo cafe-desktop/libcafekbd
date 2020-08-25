@@ -32,7 +32,7 @@ extern "C" {
 	typedef struct _MatekbdStatusPrivate MatekbdStatusPrivate;
 	typedef struct _MatekbdStatusClass MatekbdStatusClass;
 
-	#define CAFEKBD_TYPE_STATUS             (matekbd_status_get_type ())
+	#define CAFEKBD_TYPE_STATUS             (cafekbd_status_get_type ())
 	#define CAFEKBD_STATUS(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFEKBD_TYPE_STATUS, MatekbdStatus))
 	#define CAFEKBD_STATUS_CLASS(obj)       (G_TYPE_CHECK_CLASS_CAST ((obj), CAFEKBD_TYPE_STATUS,  MatekbdStatusClass))
 	#define CAFEKBD_IS_STATUS(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFEKBD_TYPE_STATUS))
@@ -48,23 +48,23 @@ extern "C" {
 		GtkNotebookClass parent_class;
 	};
 
-	extern GType matekbd_status_get_type (void);
+	extern GType cafekbd_status_get_type (void);
 
-	extern GtkStatusIcon *matekbd_status_new (void);
+	extern GtkStatusIcon *cafekbd_status_new (void);
 
-	extern void matekbd_status_reinit_ui (MatekbdStatus * gki);
+	extern void cafekbd_status_reinit_ui (MatekbdStatus * gki);
 
-	extern void matekbd_status_set_angle (MatekbdStatus * gki,
+	extern void cafekbd_status_set_angle (MatekbdStatus * gki,
 					   gdouble angle);
 
-	extern XklEngine *matekbd_status_get_xkl_engine (void);
+	extern XklEngine *cafekbd_status_get_xkl_engine (void);
 
-	extern gchar **matekbd_status_get_group_names (void);
+	extern gchar **cafekbd_status_get_group_names (void);
 
-	extern gchar *matekbd_status_get_image_filename (guint group);
+	extern gchar *cafekbd_status_get_image_filename (guint group);
 
 	extern void
-	 matekbd_status_set_tooltips_format (const gchar str[]);
+	 cafekbd_status_set_tooltips_format (const gchar str[]);
 
 #ifdef __cplusplus
 }

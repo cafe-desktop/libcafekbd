@@ -3,9 +3,9 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@
 
-Name: libmatekbd
+Name: libcafekbd
 Description: CAFE keyboard shared library
 Version: @VERSION@
-Requires: libmatekbd = @VERSION@
-Libs: -L${libdir} -lmatekbdui
+Requires: libcafekbd = @VERSION@
+Libs: -L${libdir} -lcafekbdui
 Cflags: -I${includedir}

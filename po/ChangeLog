@@ -354,7 +354,7 @@
 2008-02-15  Luca Ferretti  <elle.uca@libero.it>
 
 	* it.po: Updated Italian translation.
-	* libmatekbd.pot: Removed, this file shouldn't be on svn.
+	* libcafekbd.pot: Removed, this file shouldn't be on svn.
 
 2008-02-15  Gil Forcada  <gforcada@gnome.org>
 
@@ -701,7 +701,7 @@
 2007-03-25  Leonardo Ferreira Fontenelle  <leonardof@svn.gnome.org>
 
 	* pt_BR.po: Added Brazilian Portuguese translation (with 23 messages
-	from mate-applets).
+	from cafe-applets).
 
 2007-03-22  Josep Puigdemont i Casamajó  <josep.puigdemont@gmail.com>
 

@@ -27,11 +27,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define CAFEKBD_KEYBOARD_DRAWING(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), matekbd_keyboard_drawing_get_type (), \
+#define CAFEKBD_KEYBOARD_DRAWING(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), cafekbd_keyboard_drawing_get_type (), \
                                MatekbdKeyboardDrawing))
-#define CAFEKBD_KEYBOARD_DRAWING_CLASS(clazz) (G_TYPE_CHECK_CLASS_CAST ((clazz), matekbd_keyboard_drawing_get_type () \
+#define CAFEKBD_KEYBOARD_DRAWING_CLASS(clazz) (G_TYPE_CHECK_CLASS_CAST ((clazz), cafekbd_keyboard_drawing_get_type () \
                                        MatekbdKeyboardDrawingClass))
-#define CAFEKBD_IS_KEYBOARD_DRAWING(obj) G_TYPE_CHECK_INSTANCE_TYPE ((obj), matekbd_keyboard_drawing_get_type ())
+#define CAFEKBD_IS_KEYBOARD_DRAWING(obj) G_TYPE_CHECK_INSTANCE_TYPE ((obj), cafekbd_keyboard_drawing_get_type ())
 typedef struct _MatekbdKeyboardDrawing MatekbdKeyboardDrawing;
 typedef struct _MatekbdKeyboardDrawingClass MatekbdKeyboardDrawingClass;
 
@@ -168,43 +168,43 @@ struct _MatekbdKeyboardDrawingClass {
 	void (*bad_keycode) (MatekbdKeyboardDrawing * drawing, guint keycode);
 };
 
-GType matekbd_keyboard_drawing_get_type (void);
-GtkWidget *matekbd_keyboard_drawing_new (void);
+GType cafekbd_keyboard_drawing_get_type (void);
+GtkWidget *cafekbd_keyboard_drawing_new (void);
 
-gboolean matekbd_keyboard_drawing_render (MatekbdKeyboardDrawing * kbdrawing,
+gboolean cafekbd_keyboard_drawing_render (MatekbdKeyboardDrawing * kbdrawing,
 				       cairo_t * cr,
 				       PangoLayout * layout,
 				       double x, double y,
 				       double width, double height,
 				       gdouble dpi_x, gdouble dpi_y);
-gboolean matekbd_keyboard_drawing_set_keyboard (MatekbdKeyboardDrawing *
+gboolean cafekbd_keyboard_drawing_set_keyboard (MatekbdKeyboardDrawing *
 					     kbdrawing,
 					     XkbComponentNamesRec * names);
 
-const gchar* matekbd_keyboard_drawing_get_keycodes(MatekbdKeyboardDrawing* kbdrawing);
-const gchar* matekbd_keyboard_drawing_get_geometry(MatekbdKeyboardDrawing* kbdrawing);
-const gchar* matekbd_keyboard_drawing_get_symbols(MatekbdKeyboardDrawing* kbdrawing);
-const gchar* matekbd_keyboard_drawing_get_types(MatekbdKeyboardDrawing* kbdrawing);
-const gchar* matekbd_keyboard_drawing_get_compat(MatekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_keycodes(MatekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_geometry(MatekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_symbols(MatekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_types(MatekbdKeyboardDrawing* kbdrawing);
+const gchar* cafekbd_keyboard_drawing_get_compat(MatekbdKeyboardDrawing* kbdrawing);
 
-void matekbd_keyboard_drawing_set_track_modifiers (MatekbdKeyboardDrawing *
+void cafekbd_keyboard_drawing_set_track_modifiers (MatekbdKeyboardDrawing *
 						kbdrawing,
 						gboolean enable);
-void matekbd_keyboard_drawing_set_track_config (MatekbdKeyboardDrawing *
+void cafekbd_keyboard_drawing_set_track_config (MatekbdKeyboardDrawing *
 					     kbdrawing, gboolean enable);
 
-void matekbd_keyboard_drawing_set_groups_levels (MatekbdKeyboardDrawing *
+void cafekbd_keyboard_drawing_set_groups_levels (MatekbdKeyboardDrawing *
 					      kbdrawing,
 					      MatekbdKeyboardDrawingGroupLevel
 					      * groupLevels[]);
 
 
-void matekbd_keyboard_drawing_print (MatekbdKeyboardDrawing * drawing,
+void cafekbd_keyboard_drawing_print (MatekbdKeyboardDrawing * drawing,
 				  GtkWindow * parent_window,
 				  const gchar * description);
 
 
-GtkWidget* matekbd_keyboard_drawing_new_dialog (gint group, gchar* group_name);
+GtkWidget* cafekbd_keyboard_drawing_new_dialog (gint group, gchar* group_name);
 
 #ifdef __cplusplus
 }

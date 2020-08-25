@@ -27,10 +27,10 @@
 #include <glib/gi18n-lib.h>
 #include <glib/gprintf.h>
 
-#include <matekbd-status.h>
+#include <cafekbd-status.h>
 
-#include <matekbd-desktop-config.h>
-#include <matekbd-indicator-config.h>
+#include <cafekbd-desktop-config.h>
+#include <cafekbd-indicator-config.h>
 
 typedef struct _gki_globals {
 	XklEngine *engine;
@@ -79,26 +79,26 @@ static gki_globals globals;
 		} \
 	}
 
-G_DEFINE_TYPE (MatekbdStatus, matekbd_status, GTK_TYPE_STATUS_ICON)
+G_DEFINE_TYPE (MatekbdStatus, cafekbd_status, GTK_TYPE_STATUS_ICON)
 static void
-matekbd_status_global_init (void);
+cafekbd_status_global_init (void);
 static void
-matekbd_status_global_term (void);
+cafekbd_status_global_term (void);
 static GdkPixbuf *
-matekbd_status_prepare_drawing (MatekbdStatus * gki, int group);
+cafekbd_status_prepare_drawing (MatekbdStatus * gki, int group);
 static void
-matekbd_status_set_current_page_for_group (MatekbdStatus * gki, int group);
+cafekbd_status_set_current_page_for_group (MatekbdStatus * gki, int group);
 static void
-matekbd_status_set_current_page (MatekbdStatus * gki);
+cafekbd_status_set_current_page (MatekbdStatus * gki);
 static void
-matekbd_status_global_cleanup (MatekbdStatus * gki);
+cafekbd_status_global_cleanup (MatekbdStatus * gki);
 static void
-matekbd_status_global_fill (MatekbdStatus * gki);
+cafekbd_status_global_fill (MatekbdStatus * gki);
 static void
-matekbd_status_set_tooltips (MatekbdStatus * gki, const char *str);
+cafekbd_status_set_tooltips (MatekbdStatus * gki, const char *str);
 
 void
-matekbd_status_set_tooltips (MatekbdStatus * gki, const char *str)
+cafekbd_status_set_tooltips (MatekbdStatus * gki, const char *str)
 {
 	g_assert (str == NULL || g_utf8_validate (str, -1, NULL));
 
@@ -106,7 +106,7 @@ matekbd_status_set_tooltips (MatekbdStatus * gki, const char *str)
 }
 
 void
-matekbd_status_global_cleanup (MatekbdStatus * gki)
+cafekbd_status_global_cleanup (MatekbdStatus * gki)
 {
 	while (globals.icons) {
 		if (globals.icons->data)
@@ -117,26 +117,26 @@ matekbd_status_global_cleanup (MatekbdStatus * gki)
 }
 
 void
-matekbd_status_global_fill (MatekbdStatus * gki)
+cafekbd_status_global_fill (MatekbdStatus * gki)
 {
 	int grp;
 	int total_groups = xkl_engine_get_num_groups (globals.engine);
 
 	for (grp = 0; grp < total_groups; grp++) {
-		GdkPixbuf *page = matekbd_status_prepare_drawing (gki, grp);
+		GdkPixbuf *page = cafekbd_status_prepare_drawing (gki, grp);
 		globals.icons = g_slist_append (globals.icons, page);
 	}
 }
 
 static void
-matekbd_status_activate (MatekbdStatus * gki)
+cafekbd_status_activate (MatekbdStatus * gki)
 {
 	xkl_debug (150, "Mouse button pressed on applet\n");
-	matekbd_desktop_config_lock_next_group (&globals.cfg);
+	cafekbd_desktop_config_lock_next_group (&globals.cfg);
 }
 
 /* hackish xref */
-extern gchar *matekbd_indicator_extract_layout_name (int group,
+extern gchar *cafekbd_indicator_extract_layout_name (int group,
 						  XklEngine * engine,
 						  MatekbdKeyboardConfig *
 						  kbd_cfg,
@@ -145,13 +145,13 @@ extern gchar *matekbd_indicator_extract_layout_name (int group,
 						  gchar **
 						  full_group_names);
 
-extern gchar *matekbd_indicator_create_label_title (int group,
+extern gchar *cafekbd_indicator_create_label_title (int group,
 						 GHashTable **
 						 ln2cnt_map,
 						 gchar * layout_name);
 
 static void
-matekbd_status_render_cairo (cairo_t * cr, int group)
+cafekbd_status_render_cairo (cairo_t * cr, int group)
 {
 	double r, g, b;
 	PangoFontDescription *pfd;
@@ -202,13 +202,13 @@ matekbd_status_render_cairo (cairo_t * cr, int group)
 
 	pl = pango_layout_new (pcc);
 
-	layout_name = matekbd_indicator_extract_layout_name (group,
+	layout_name = cafekbd_indicator_extract_layout_name (group,
 							  globals.engine,
 							  &globals.kbd_cfg,
 							  globals.short_group_names,
 							  globals.full_group_names);
 	lbl_title =
-	    matekbd_indicator_create_label_title (group, &ln2cnt_map,
+	    cafekbd_indicator_create_label_title (group, &ln2cnt_map,
 					       layout_name);
 
 	if (group + 1 == xkl_engine_get_num_groups (globals.engine)) {
@@ -285,7 +285,7 @@ convert_bgra_to_rgba (guint8 const *src, guint8 * dst, int width,
 }
 
 static GdkPixbuf *
-matekbd_status_prepare_drawing (MatekbdStatus * gki, int group)
+cafekbd_status_prepare_drawing (MatekbdStatus * gki, int group)
 {
 	GError *gerror = NULL;
 	char *image_filename;
@@ -346,7 +346,7 @@ matekbd_status_prepare_drawing (MatekbdStatus * gki, int group)
 						globals.current_height);
 		unsigned char *cairo_data;
 		guchar *pixbuf_data;
-		matekbd_status_render_cairo (cairo_create (cs), group);
+		cafekbd_status_render_cairo (cairo_create (cs), group);
 		cairo_data = cairo_image_surface_get_data (cs);
 #if 0
 		char pngfilename[20];
@@ -386,7 +386,7 @@ matekbd_status_prepare_drawing (MatekbdStatus * gki, int group)
 }
 
 static void
-matekbd_status_update_tooltips (MatekbdStatus * gki)
+cafekbd_status_update_tooltips (MatekbdStatus * gki)
 {
 	XklState *state = xkl_engine_get_current_state (globals.engine);
 	gchar *buf;
@@ -397,60 +397,60 @@ matekbd_status_update_tooltips (MatekbdStatus * gki)
 	buf = g_strdup_printf (globals.tooltips_format,
 			       globals.full_group_names[state->group]);
 
-	matekbd_status_set_tooltips (gki, buf);
+	cafekbd_status_set_tooltips (gki, buf);
 	g_free (buf);
 }
 
 void
-matekbd_status_reinit_ui (MatekbdStatus * gki)
+cafekbd_status_reinit_ui (MatekbdStatus * gki)
 {
-	matekbd_status_global_cleanup (gki);
-	matekbd_status_global_fill (gki);
+	cafekbd_status_global_cleanup (gki);
+	cafekbd_status_global_fill (gki);
 
-	matekbd_status_set_current_page (gki);
+	cafekbd_status_set_current_page (gki);
 }
 
 /* Should be called once for all widgets */
 static void
-matekbd_status_cfg_changed (GSettings *settings,
+cafekbd_status_cfg_changed (GSettings *settings,
 			    gchar     *key,
 			    gpointer   user_data)
 {
 	xkl_debug (100,
 		   "General configuration changed in settings - reiniting...\n");
-	matekbd_desktop_config_load_from_gsettings (&globals.cfg);
-	matekbd_desktop_config_activate (&globals.cfg);
+	cafekbd_desktop_config_load_from_gsettings (&globals.cfg);
+	cafekbd_desktop_config_activate (&globals.cfg);
 	ForAllIndicators () {
-		matekbd_status_reinit_ui (gki);
+		cafekbd_status_reinit_ui (gki);
 	} NextIndicator ();
 }
 
 /* Should be called once for all widgets */
 static void
-matekbd_status_ind_cfg_changed (GSettings *settings,
+cafekbd_status_ind_cfg_changed (GSettings *settings,
 				gchar     *key,
 				gpointer   user_data)
 {
 	xkl_debug (100,
 		   "Applet configuration changed in settings - reiniting...\n");
-	matekbd_indicator_config_load_from_gsettings (&globals.ind_cfg);
+	cafekbd_indicator_config_load_from_gsettings (&globals.ind_cfg);
 
-	matekbd_indicator_config_free_image_filenames (&globals.ind_cfg);
-	matekbd_indicator_config_load_image_filenames (&globals.ind_cfg,
+	cafekbd_indicator_config_free_image_filenames (&globals.ind_cfg);
+	cafekbd_indicator_config_load_image_filenames (&globals.ind_cfg,
 						    &globals.kbd_cfg);
 
-	matekbd_indicator_config_activate (&globals.ind_cfg);
+	cafekbd_indicator_config_activate (&globals.ind_cfg);
 
 	ForAllIndicators () {
-		matekbd_status_reinit_ui (gki);
+		cafekbd_status_reinit_ui (gki);
 	} NextIndicator ();
 }
 
 static void
-matekbd_status_load_group_names (const gchar ** layout_ids,
+cafekbd_status_load_group_names (const gchar ** layout_ids,
 			      const gchar ** variant_ids)
 {
-	if (!matekbd_desktop_config_load_group_descriptions
+	if (!cafekbd_desktop_config_load_group_descriptions
 	    (&globals.cfg, globals.registry, layout_ids, variant_ids,
 	     &globals.short_group_names, &globals.full_group_names)) {
 		/* We just populate no short names (remain NULL) -
@@ -480,17 +480,17 @@ matekbd_status_load_group_names (const gchar ** layout_ids,
 
 /* Should be called once for all widgets */
 static void
-matekbd_status_kbd_cfg_callback (MatekbdStatus * gki)
+cafekbd_status_kbd_cfg_callback (MatekbdStatus * gki)
 {
 	XklConfigRec *xklrec = xkl_config_rec_new ();
 	xkl_debug (100,
 		   "XKB configuration changed on X Server - reiniting...\n");
 
-	matekbd_keyboard_config_load_from_x_current (&globals.kbd_cfg,
+	cafekbd_keyboard_config_load_from_x_current (&globals.kbd_cfg,
 						  xklrec);
 
-	matekbd_indicator_config_free_image_filenames (&globals.ind_cfg);
-	matekbd_indicator_config_load_image_filenames (&globals.ind_cfg,
+	cafekbd_indicator_config_free_image_filenames (&globals.ind_cfg);
+	cafekbd_indicator_config_load_image_filenames (&globals.ind_cfg,
 						    &globals.kbd_cfg);
 
 	g_strfreev (globals.full_group_names);
@@ -501,18 +501,18 @@ matekbd_status_kbd_cfg_callback (MatekbdStatus * gki)
 		globals.short_group_names = NULL;
 	}
 
-	matekbd_status_load_group_names ((const gchar **) xklrec->layouts,
+	cafekbd_status_load_group_names ((const gchar **) xklrec->layouts,
 				      (const gchar **) xklrec->variants);
 
 	ForAllIndicators () {
-		matekbd_status_reinit_ui (gki);
+		cafekbd_status_reinit_ui (gki);
 	} NextIndicator ();
 	g_object_unref (G_OBJECT (xklrec));
 }
 
 /* Should be called once for all applets */
 static void
-matekbd_status_state_callback (XklEngine * engine,
+cafekbd_status_state_callback (XklEngine * engine,
 			    XklEngineStateChange changeType,
 			    gint group, gboolean restore)
 {
@@ -521,7 +521,7 @@ matekbd_status_state_callback (XklEngine * engine,
 	if (changeType == GROUP_CHANGED) {
 		ForAllIndicators () {
 			xkl_debug (200, "do repaint\n");
-			matekbd_status_set_current_page_for_group (gki,
+			cafekbd_status_set_current_page_for_group (gki,
 								group);
 		}
 		NextIndicator ();
@@ -530,17 +530,17 @@ matekbd_status_state_callback (XklEngine * engine,
 
 
 void
-matekbd_status_set_current_page (MatekbdStatus * gki)
+cafekbd_status_set_current_page (MatekbdStatus * gki)
 {
 	XklState *cur_state;
 	cur_state = xkl_engine_get_current_state (globals.engine);
 	if (cur_state->group >= 0)
-		matekbd_status_set_current_page_for_group (gki,
+		cafekbd_status_set_current_page_for_group (gki,
 							cur_state->group);
 }
 
 void
-matekbd_status_set_current_page_for_group (MatekbdStatus * gki, int group)
+cafekbd_status_set_current_page_for_group (MatekbdStatus * gki, int group)
 {
 	xkl_debug (200, "Revalidating for group %d\n", group);
 
@@ -549,12 +549,12 @@ matekbd_status_set_current_page_for_group (MatekbdStatus * gki, int group)
 						     (globals.icons,
 						      group)));
 
-	matekbd_status_update_tooltips (gki);
+	cafekbd_status_update_tooltips (gki);
 }
 
 /* Should be called once for all widgets */
 static GdkFilterReturn
-matekbd_status_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
+cafekbd_status_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 {
 	XEvent *xevent = (XEvent *) xev;
 
@@ -586,12 +586,12 @@ matekbd_status_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 
 /* Should be called once for all widgets */
 static void
-matekbd_status_start_listen (void)
+cafekbd_status_start_listen (void)
 {
 	gdk_window_add_filter (NULL, (GdkFilterFunc)
-			       matekbd_status_filter_x_evt, NULL);
+			       cafekbd_status_filter_x_evt, NULL);
 	gdk_window_add_filter (gdk_get_default_root_window (),
-			       (GdkFilterFunc) matekbd_status_filter_x_evt,
+			       (GdkFilterFunc) cafekbd_status_filter_x_evt,
 			       NULL);
 
 	xkl_engine_start_listen (globals.engine,
@@ -600,42 +600,42 @@ matekbd_status_start_listen (void)
 
 /* Should be called once for all widgets */
 static void
-matekbd_status_stop_listen (void)
+cafekbd_status_stop_listen (void)
 {
 	xkl_engine_stop_listen (globals.engine, XKLL_TRACK_KEYBOARD_STATE);
 
 	gdk_window_remove_filter (NULL, (GdkFilterFunc)
-				  matekbd_status_filter_x_evt, NULL);
+				  cafekbd_status_filter_x_evt, NULL);
 	gdk_window_remove_filter
 	    (gdk_get_default_root_window (),
-	     (GdkFilterFunc) matekbd_status_filter_x_evt, NULL);
+	     (GdkFilterFunc) cafekbd_status_filter_x_evt, NULL);
 }
 
 static void
-matekbd_status_size_changed (MatekbdStatus * gki, gint size)
+cafekbd_status_size_changed (MatekbdStatus * gki, gint size)
 {
 	if (globals.current_height != size) {
 		globals.current_height = size;
 		globals.current_width = size * 3 / 2;
-		matekbd_status_reinit_ui (gki);
+		cafekbd_status_reinit_ui (gki);
 	}
 }
 
 static void
-matekbd_status_theme_changed (GtkSettings * settings, GParamSpec * pspec,
+cafekbd_status_theme_changed (GtkSettings * settings, GParamSpec * pspec,
 			   MatekbdStatus * gki)
 {
-	matekbd_indicator_config_refresh_style (&globals.ind_cfg);
-	matekbd_status_reinit_ui (gki);
+	cafekbd_indicator_config_refresh_style (&globals.ind_cfg);
+	cafekbd_status_reinit_ui (gki);
 }
 
 static void
-matekbd_status_init (MatekbdStatus * gki)
+cafekbd_status_init (MatekbdStatus * gki)
 {
 	int i;
 
 	if (!g_slist_length (globals.widget_instances))
-		matekbd_status_global_init ();
+		cafekbd_status_global_init ();
 
 	gki->priv = g_new0 (MatekbdStatusPrivate, 1);
 
@@ -647,24 +647,24 @@ matekbd_status_init (MatekbdStatus * gki)
 		   gki);
 
 	if (globals.engine == NULL) {
-		matekbd_status_set_tooltips (gki,
+		cafekbd_status_set_tooltips (gki,
 					  _("XKB initialization error"));
 		return;
 	}
 
-	matekbd_status_set_tooltips (gki, NULL);
+	cafekbd_status_set_tooltips (gki, NULL);
 
-	matekbd_status_global_fill (gki);
-	matekbd_status_set_current_page (gki);
+	cafekbd_status_global_fill (gki);
+	cafekbd_status_set_current_page (gki);
 
 	/* append AFTER all initialization work is finished */
 	globals.widget_instances =
 	    g_slist_append (globals.widget_instances, gki);
 
 	g_signal_connect (gki, "size-changed",
-			  G_CALLBACK (matekbd_status_size_changed), NULL);
+			  G_CALLBACK (cafekbd_status_size_changed), NULL);
 	g_signal_connect (gki, "activate",
-			  G_CALLBACK (matekbd_status_activate), NULL);
+			  G_CALLBACK (cafekbd_status_activate), NULL);
 
 	for (i = sizeof (settings_signal_names) /
 	     sizeof (settings_signal_names[0]); --i >= 0;)
@@ -672,17 +672,17 @@ matekbd_status_init (MatekbdStatus * gki)
 		    g_signal_connect_after (gtk_settings_get_default (),
 					    settings_signal_names[i],
 					    G_CALLBACK
-					    (matekbd_status_theme_changed),
+					    (cafekbd_status_theme_changed),
 					    gki);
 }
 
 static void
-matekbd_status_finalize (GObject * obj)
+cafekbd_status_finalize (GObject * obj)
 {
 	int i;
 	MatekbdStatus *gki = CAFEKBD_STATUS (obj);
 	xkl_debug (100,
-		   "Starting the mate-kbd-status widget shutdown process for %p\n",
+		   "Starting the cafe-kbd-status widget shutdown process for %p\n",
 		   gki);
 
 	for (i = sizeof (settings_signal_names) /
@@ -696,31 +696,31 @@ matekbd_status_finalize (GObject * obj)
 	globals.widget_instances =
 	    g_slist_remove (globals.widget_instances, gki);
 
-	matekbd_status_global_cleanup (gki);
+	cafekbd_status_global_cleanup (gki);
 
 	xkl_debug (100,
-		   "The instance of mate-kbd-status successfully finalized\n");
+		   "The instance of cafe-kbd-status successfully finalized\n");
 
 	g_free (gki->priv);
 
-	G_OBJECT_CLASS (matekbd_status_parent_class)->finalize (obj);
+	G_OBJECT_CLASS (cafekbd_status_parent_class)->finalize (obj);
 
 	if (!g_slist_length (globals.widget_instances))
-		matekbd_status_global_term ();
+		cafekbd_status_global_term ();
 }
 
 static void
-matekbd_status_global_term (void)
+cafekbd_status_global_term (void)
 {
 	xkl_debug (100, "*** Last  MatekbdStatus instance *** \n");
-	matekbd_status_stop_listen ();
+	cafekbd_status_stop_listen ();
 
-	matekbd_desktop_config_stop_listen (&globals.cfg);
-	matekbd_indicator_config_stop_listen (&globals.ind_cfg);
+	cafekbd_desktop_config_stop_listen (&globals.cfg);
+	cafekbd_indicator_config_stop_listen (&globals.ind_cfg);
 
-	matekbd_indicator_config_term (&globals.ind_cfg);
-	matekbd_keyboard_config_term (&globals.kbd_cfg);
-	matekbd_desktop_config_term (&globals.cfg);
+	cafekbd_indicator_config_term (&globals.ind_cfg);
+	cafekbd_keyboard_config_term (&globals.kbd_cfg);
+	cafekbd_desktop_config_term (&globals.cfg);
 
 	if (g_signal_handler_is_connected
 	    (globals.engine, globals.state_changed_handler)) {
@@ -743,7 +743,7 @@ matekbd_status_global_term (void)
 }
 
 static void
-matekbd_status_class_init (MatekbdStatusClass * klass)
+cafekbd_status_class_init (MatekbdStatusClass * klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -755,13 +755,13 @@ matekbd_status_class_init (MatekbdStatusClass * klass)
 	globals.tooltips_format = "%s";
 
 	/* Initing vtable */
-	object_class->finalize = matekbd_status_finalize;
+	object_class->finalize = cafekbd_status_finalize;
 
 	/* Signals */
 }
 
 static void
-matekbd_status_global_init (void)
+cafekbd_status_global_init (void)
 {
 	XklConfigRec *xklrec = xkl_config_rec_new ();
 
@@ -774,93 +774,93 @@ matekbd_status_global_init (void)
 
 	globals.state_changed_handler =
 	    g_signal_connect (globals.engine, "X-state-changed",
-			      G_CALLBACK (matekbd_status_state_callback),
+			      G_CALLBACK (cafekbd_status_state_callback),
 			      NULL);
 	globals.config_changed_handler =
 	    g_signal_connect (globals.engine, "X-config-changed",
-			      G_CALLBACK (matekbd_status_kbd_cfg_callback),
+			      G_CALLBACK (cafekbd_status_kbd_cfg_callback),
 			      NULL);
 
-	matekbd_desktop_config_init (&globals.cfg, globals.engine);
-	matekbd_keyboard_config_init (&globals.kbd_cfg, globals.engine);
-	matekbd_indicator_config_init (&globals.ind_cfg, globals.engine);
+	cafekbd_desktop_config_init (&globals.cfg, globals.engine);
+	cafekbd_keyboard_config_init (&globals.kbd_cfg, globals.engine);
+	cafekbd_indicator_config_init (&globals.ind_cfg, globals.engine);
 
-	matekbd_desktop_config_start_listen (&globals.cfg,
+	cafekbd_desktop_config_start_listen (&globals.cfg,
 					  (GCallback)
-					  matekbd_status_cfg_changed, NULL);
-	matekbd_indicator_config_start_listen (&globals.ind_cfg,
+					  cafekbd_status_cfg_changed, NULL);
+	cafekbd_indicator_config_start_listen (&globals.ind_cfg,
 					    (GCallback)
-					    matekbd_status_ind_cfg_changed,
+					    cafekbd_status_ind_cfg_changed,
 					    NULL);
 
-	matekbd_desktop_config_load_from_gsettings (&globals.cfg);
-	matekbd_desktop_config_activate (&globals.cfg);
+	cafekbd_desktop_config_load_from_gsettings (&globals.cfg);
+	cafekbd_desktop_config_activate (&globals.cfg);
 
 	globals.registry =
 	    xkl_config_registry_get_instance (globals.engine);
 	xkl_config_registry_load (globals.registry,
 				  globals.cfg.load_extra_items);
 
-	matekbd_keyboard_config_load_from_x_current (&globals.kbd_cfg,
+	cafekbd_keyboard_config_load_from_x_current (&globals.kbd_cfg,
 						  xklrec);
 
-	matekbd_indicator_config_load_from_gsettings (&globals.ind_cfg);
+	cafekbd_indicator_config_load_from_gsettings (&globals.ind_cfg);
 
-	matekbd_indicator_config_load_image_filenames (&globals.ind_cfg,
+	cafekbd_indicator_config_load_image_filenames (&globals.ind_cfg,
 						    &globals.kbd_cfg);
 
-	matekbd_indicator_config_activate (&globals.ind_cfg);
+	cafekbd_indicator_config_activate (&globals.ind_cfg);
 
-	matekbd_status_load_group_names ((const gchar **) xklrec->layouts,
+	cafekbd_status_load_group_names ((const gchar **) xklrec->layouts,
 				      (const gchar **) xklrec->variants);
 	g_object_unref (G_OBJECT (xklrec));
 
-	matekbd_status_start_listen ();
+	cafekbd_status_start_listen ();
 
 	xkl_debug (100, "*** Inited globals *** \n");
 }
 
 GtkStatusIcon *
-matekbd_status_new (void)
+cafekbd_status_new (void)
 {
 	return
-	    GTK_STATUS_ICON (g_object_new (matekbd_status_get_type (), NULL));
+	    GTK_STATUS_ICON (g_object_new (cafekbd_status_get_type (), NULL));
 }
 
 /**
- * matekbd_status_get_xkl_engine:
+ * cafekbd_status_get_xkl_engine:
  *
  * Returns: (transfer none): The engine shared by all MatekbdStatus objects
  */
 XklEngine *
-matekbd_status_get_xkl_engine ()
+cafekbd_status_get_xkl_engine ()
 {
 	return globals.engine;
 }
 
 /**
- * matekbd_status_get_group_names:
+ * cafekbd_status_get_group_names:
  *
  * Returns: (transfer none) (array zero-terminated=1): List of group names
  */
 gchar **
-matekbd_status_get_group_names ()
+cafekbd_status_get_group_names ()
 {
 	return globals.full_group_names;
 }
 
 gchar *
-matekbd_status_get_image_filename (guint group)
+cafekbd_status_get_image_filename (guint group)
 {
 	if (!globals.ind_cfg.show_flags)
 		return NULL;
-	return matekbd_indicator_config_get_images_file (&globals.ind_cfg,
+	return cafekbd_indicator_config_get_images_file (&globals.ind_cfg,
 						      &globals.kbd_cfg,
 						      group);
 }
 
 void
-matekbd_status_set_angle (MatekbdStatus * gki, gdouble angle)
+cafekbd_status_set_angle (MatekbdStatus * gki, gdouble angle)
 {
 	gki->priv->angle = angle;
 }

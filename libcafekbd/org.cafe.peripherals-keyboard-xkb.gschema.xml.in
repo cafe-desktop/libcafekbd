@@ -1,11 +1,11 @@
 <schemalist gettext-domain="@GETTEXT_PACKAGE@">
-  <schema id="org.mate.peripherals-keyboard-xkb" path="/org/mate/desktop/peripherals/keyboard/">
-    <child name="kbd" schema="org.mate.peripherals-keyboard-xkb.kbd"/>
-    <child name="general" schema="org.mate.peripherals-keyboard-xkb.general"/>
-    <child name="preview" schema="org.mate.peripherals-keyboard-xkb.preview"/>
-    <child name="indicator" schema="org.mate.peripherals-keyboard-xkb.indicator"/>
+  <schema id="org.cafe.peripherals-keyboard-xkb" path="/org/cafe/desktop/peripherals/keyboard/">
+    <child name="kbd" schema="org.cafe.peripherals-keyboard-xkb.kbd"/>
+    <child name="general" schema="org.cafe.peripherals-keyboard-xkb.general"/>
+    <child name="preview" schema="org.cafe.peripherals-keyboard-xkb.preview"/>
+    <child name="indicator" schema="org.cafe.peripherals-keyboard-xkb.indicator"/>
   </schema>
-  <schema id="org.mate.peripherals-keyboard-xkb.kbd" path="/org/mate/desktop/peripherals/keyboard/kbd/">
+  <schema id="org.cafe.peripherals-keyboard-xkb.kbd" path="/org/cafe/desktop/peripherals/keyboard/kbd/">
     <key name="model" type="s">
       <default>''</default>
       <summary>Keyboard model</summary>
@@ -22,7 +22,7 @@
       <description>Keyboard options</description>
     </key>
   </schema>
-  <schema id="org.mate.peripherals-keyboard-xkb.general" path="/org/mate/desktop/peripherals/keyboard/general/">
+  <schema id="org.cafe.peripherals-keyboard-xkb.general" path="/org/cafe/desktop/peripherals/keyboard/general/">
     <key name="update-handlers" type="as">
       <default>[]</default>
       <summary>Keyboard Update Handlers</summary>
@@ -74,7 +74,7 @@
       <description>Show keyboard leds indicator</description>
     </key>
   </schema>
-  <schema id="org.mate.peripherals-keyboard-xkb.preview" path="/org/mate/desktop/peripherals/keyboard/preview/">
+  <schema id="org.cafe.peripherals-keyboard-xkb.preview" path="/org/cafe/desktop/peripherals/keyboard/preview/">
     <key name="x" type="i">
       <default>-1</default>
       <summary>The Keyboard Preview, X offset</summary>
@@ -96,7 +96,7 @@
       <description>The Keyboard Preview, height</description>
     </key>
   </schema>
-  <schema id="org.mate.peripherals-keyboard-xkb.indicator" path="/org/mate/desktop/peripherals/keyboard/indicator/">
+  <schema id="org.cafe.peripherals-keyboard-xkb.indicator" path="/org/cafe/desktop/peripherals/keyboard/indicator/">
     <key name="secondary" type="i">
       <default>0</default>
       <summary>Secondary groups</summary>

@@ -26,8 +26,8 @@
 
 #include <glib/gi18n-lib.h>
 #include <gio/gio.h>
-#include <matekbd-desktop-config.h>
-#include <matekbd-config-private.h>
+#include <cafekbd-desktop-config.h>
+#include <cafekbd-config-private.h>
 
 /**
  * MatekbdDesktopConfig:
@@ -45,7 +45,7 @@ const gchar CAFEKBD_DESKTOP_CONFIG_KEY_LOAD_EXTRA_ITEMS[] = "load-extra-items";
  */
 
 static gboolean
-    matekbd_desktop_config_get_lv_descriptions
+    cafekbd_desktop_config_get_lv_descriptions
     (MatekbdDesktopConfig * config,
      XklConfigRegistry * registry,
      const gchar ** layout_ids,
@@ -127,7 +127,7 @@ static gboolean
  * extern MatekbdDesktopConfig config functions
  */
 void
-matekbd_desktop_config_init (MatekbdDesktopConfig * config,
+cafekbd_desktop_config_init (MatekbdDesktopConfig * config,
 			  XklEngine * engine)
 {
 	memset (config, 0, sizeof (*config));
@@ -136,14 +136,14 @@ matekbd_desktop_config_init (MatekbdDesktopConfig * config,
 }
 
 void
-matekbd_desktop_config_term (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_term (MatekbdDesktopConfig * config)
 {
 	g_object_unref (config->settings);
 	config->settings = NULL;
 }
 
 void
-matekbd_desktop_config_load_from_gsettings (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_load_from_gsettings (MatekbdDesktopConfig * config)
 {
 	config->group_per_app =
 	    g_settings_get_boolean (config->settings,
@@ -180,7 +180,7 @@ matekbd_desktop_config_load_from_gsettings (MatekbdDesktopConfig * config)
 }
 
 void
-matekbd_desktop_config_save_to_gsettings (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_save_to_gsettings (MatekbdDesktopConfig * config)
 {
 	g_settings_delay (config->settings);
 
@@ -204,7 +204,7 @@ matekbd_desktop_config_save_to_gsettings (MatekbdDesktopConfig * config)
 }
 
 gboolean
-matekbd_desktop_config_activate (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_activate (MatekbdDesktopConfig * config)
 {
 	gboolean rv = TRUE;
 
@@ -219,32 +219,32 @@ matekbd_desktop_config_activate (MatekbdDesktopConfig * config)
 }
 
 void
-matekbd_desktop_config_lock_next_group (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_lock_next_group (MatekbdDesktopConfig * config)
 {
 	int group = xkl_engine_get_next_group (config->engine);
 	xkl_engine_lock_group (config->engine, group);
 }
 
 void
-matekbd_desktop_config_lock_prev_group (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_lock_prev_group (MatekbdDesktopConfig * config)
 {
 	int group = xkl_engine_get_prev_group (config->engine);
 	xkl_engine_lock_group (config->engine, group);
 }
 
 void
-matekbd_desktop_config_restore_group (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_restore_group (MatekbdDesktopConfig * config)
 {
 	int group = xkl_engine_get_current_window_group (config->engine);
 	xkl_engine_lock_group (config->engine, group);
 }
 
 /**
- * matekbd_desktop_config_start_listen:
+ * cafekbd_desktop_config_start_listen:
  * @func: (scope notified): a function to call when settings are changed
  */
 void
-matekbd_desktop_config_start_listen (MatekbdDesktopConfig * config,
+cafekbd_desktop_config_start_listen (MatekbdDesktopConfig * config,
 				  GCallback func,
 				  gpointer user_data)
 {
@@ -254,7 +254,7 @@ matekbd_desktop_config_start_listen (MatekbdDesktopConfig * config,
 }
 
 void
-matekbd_desktop_config_stop_listen (MatekbdDesktopConfig * config)
+cafekbd_desktop_config_stop_listen (MatekbdDesktopConfig * config)
 {
 	g_signal_handler_disconnect (config->settings,
 				    config->config_listener_id);
@@ -262,7 +262,7 @@ matekbd_desktop_config_stop_listen (MatekbdDesktopConfig * config)
 }
 
 gboolean
-matekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
+cafekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
 					     * config,
 					     XklConfigRegistry *
 					     registry,
@@ -279,7 +279,7 @@ matekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
 	gchar **psgn, **pfgn, **psvd;
 	gint total_descriptions;
 
-	if (!matekbd_desktop_config_get_lv_descriptions
+	if (!cafekbd_desktop_config_get_lv_descriptions
 	    (config, registry, layout_ids, variant_ids, &sld, &lld, &svd,
 	     &lvd)) {
 		return False;
@@ -300,7 +300,7 @@ matekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
 		gchar *sd = (*psvd[0] == '\0') ? *psld : *psvd;
 		psld++, psvd++;
 		*psgn++ = g_strdup (sd);
-		*pfgn++ = g_strdup (matekbd_keyboard_config_format_full_layout
+		*pfgn++ = g_strdup (cafekbd_keyboard_config_format_full_layout
 				    (*plld++, *plvd++));
 	}
 	g_strfreev (sld);

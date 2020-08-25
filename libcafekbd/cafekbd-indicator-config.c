@@ -29,10 +29,10 @@
 #include <glib/gi18n-lib.h>
 #include <gdk/gdkx.h>
 
-#include <matekbd-keyboard-config.h>
-#include <matekbd-indicator-config.h>
+#include <cafekbd-keyboard-config.h>
+#include <cafekbd-indicator-config.h>
 
-#include <matekbd-config-private.h>
+#include <cafekbd-config-private.h>
 
 /**
  * MatekbdIndicatorConfig:
@@ -45,14 +45,14 @@ const gchar CAFEKBD_INDICATOR_CONFIG_KEY_FONT_FAMILY[] = "font-family";
 const gchar CAFEKBD_INDICATOR_CONFIG_KEY_FOREGROUND_COLOR[] = "foreground-color";
 const gchar CAFEKBD_INDICATOR_CONFIG_KEY_BACKGROUND_COLOR[] = "background-color";
 
-#define SYSTEM_FONT_SCHEMA "org.mate.interface"
+#define SYSTEM_FONT_SCHEMA "org.cafe.interface"
 #define SYSTEM_FONT_KEY "font-name"
 
 /*
  * static applet config functions
  */
 static void
-matekbd_indicator_config_load_font (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_load_font (MatekbdIndicatorConfig * ind_config)
 {
 	ind_config->font_family =
 	    g_settings_get_string (ind_config->settings,
@@ -72,7 +72,7 @@ matekbd_indicator_config_load_font (MatekbdIndicatorConfig * ind_config)
 		gtk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
 		gtk_style_context_add_class (context, GTK_STYLE_CLASS_DEFAULT);
 		gtk_style_context_add_class (context, "gnome-panel-menu-bar");
-		gtk_style_context_add_class (context, "mate-panel-menu-bar");
+		gtk_style_context_add_class (context, "cafe-panel-menu-bar");
 
 		gtk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
 		                       GTK_STYLE_PROPERTY_FONT, &fd, NULL);
@@ -90,7 +90,7 @@ matekbd_indicator_config_load_font (MatekbdIndicatorConfig * ind_config)
 }
 
 static void
-matekbd_indicator_config_load_colors (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_load_colors (MatekbdIndicatorConfig * ind_config)
 {
 	ind_config->foreground_color =
 	    g_settings_get_string (ind_config->settings,
@@ -110,7 +110,7 @@ matekbd_indicator_config_load_colors (MatekbdIndicatorConfig * ind_config)
 		gtk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
 		gtk_style_context_add_class (context, GTK_STYLE_CLASS_DEFAULT);
 		gtk_style_context_add_class (context, "gnome-panel-menu-bar");
-		gtk_style_context_add_class (context, "mate-panel-menu-bar");
+		gtk_style_context_add_class (context, "cafe-panel-menu-bar");
 
 		gtk_style_context_get_color (context,
 		                             GTK_STATE_FLAG_NORMAL, &fg_color);
@@ -130,17 +130,17 @@ matekbd_indicator_config_load_colors (MatekbdIndicatorConfig * ind_config)
 }
 
 void
-matekbd_indicator_config_refresh_style (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_refresh_style (MatekbdIndicatorConfig * ind_config)
 {
 	g_free (ind_config->font_family);
 	g_free (ind_config->foreground_color);
 	g_free (ind_config->background_color);
-	matekbd_indicator_config_load_font (ind_config);
-	matekbd_indicator_config_load_colors (ind_config);
+	cafekbd_indicator_config_load_font (ind_config);
+	cafekbd_indicator_config_load_colors (ind_config);
 }
 
 gchar *
-matekbd_indicator_config_get_images_file (MatekbdIndicatorConfig *
+cafekbd_indicator_config_get_images_file (MatekbdIndicatorConfig *
 				       ind_config,
 				       MatekbdKeyboardConfig *
 				       kbd_config, int group)
@@ -158,7 +158,7 @@ matekbd_indicator_config_get_images_file (MatekbdIndicatorConfig *
 
 		if (full_layout_name != NULL) {
 			char *l, *v;
-			matekbd_keyboard_config_split_items (full_layout_name,
+			cafekbd_keyboard_config_split_items (full_layout_name,
 							  &l, &v);
 			if (l != NULL) {
 				/* probably there is something in theme? */
@@ -189,7 +189,7 @@ matekbd_indicator_config_get_images_file (MatekbdIndicatorConfig *
 }
 
 void
-matekbd_indicator_config_load_image_filenames (MatekbdIndicatorConfig *
+cafekbd_indicator_config_load_image_filenames (MatekbdIndicatorConfig *
 					    ind_config,
 					    MatekbdKeyboardConfig *
 					    kbd_config)
@@ -203,7 +203,7 @@ matekbd_indicator_config_load_image_filenames (MatekbdIndicatorConfig *
 	for (i = xkl_engine_get_max_num_groups (ind_config->engine);
 	     --i >= 0;) {
 		gchar *image_file =
-		    matekbd_indicator_config_get_images_file (ind_config,
+		    cafekbd_indicator_config_get_images_file (ind_config,
 							   kbd_config,
 							   i);
 		ind_config->image_filenames =
@@ -213,7 +213,7 @@ matekbd_indicator_config_load_image_filenames (MatekbdIndicatorConfig *
 }
 
 void
-matekbd_indicator_config_free_image_filenames (MatekbdIndicatorConfig *
+cafekbd_indicator_config_free_image_filenames (MatekbdIndicatorConfig *
 					    ind_config)
 {
 	while (ind_config->image_filenames) {
@@ -226,7 +226,7 @@ matekbd_indicator_config_free_image_filenames (MatekbdIndicatorConfig *
 }
 
 void
-matekbd_indicator_config_init (MatekbdIndicatorConfig * ind_config,
+cafekbd_indicator_config_init (MatekbdIndicatorConfig * ind_config,
 			       XklEngine * engine)
 {
 	gchar *sp;
@@ -260,7 +260,7 @@ matekbd_indicator_config_init (MatekbdIndicatorConfig * ind_config,
 }
 
 void
-matekbd_indicator_config_term (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_term (MatekbdIndicatorConfig * ind_config)
 {
 	g_free (ind_config->font_family);
 	ind_config->font_family = NULL;
@@ -273,14 +273,14 @@ matekbd_indicator_config_term (MatekbdIndicatorConfig * ind_config)
 
 	ind_config->icon_theme = NULL;
 
-	matekbd_indicator_config_free_image_filenames (ind_config);
+	cafekbd_indicator_config_free_image_filenames (ind_config);
 
 	g_object_unref (ind_config->settings);
 	ind_config->settings = NULL;
 }
 
 void
-matekbd_indicator_config_load_from_gsettings (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_load_from_gsettings (MatekbdIndicatorConfig * ind_config)
 {
 	ind_config->secondary_groups_mask =
 	    g_settings_get_int (ind_config->settings,
@@ -290,13 +290,13 @@ matekbd_indicator_config_load_from_gsettings (MatekbdIndicatorConfig * ind_confi
 	    g_settings_get_boolean (ind_config->settings,
 				 CAFEKBD_INDICATOR_CONFIG_KEY_SHOW_FLAGS);
 
-	matekbd_indicator_config_load_font (ind_config);
-	matekbd_indicator_config_load_colors (ind_config);
+	cafekbd_indicator_config_load_font (ind_config);
+	cafekbd_indicator_config_load_colors (ind_config);
 
 }
 
 void
-matekbd_indicator_config_save_to_gsettings (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_save_to_gsettings (MatekbdIndicatorConfig * ind_config)
 {
 	g_settings_delay (ind_config->settings);
 
@@ -311,18 +311,18 @@ matekbd_indicator_config_save_to_gsettings (MatekbdIndicatorConfig * ind_config)
 }
 
 void
-matekbd_indicator_config_activate (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_activate (MatekbdIndicatorConfig * ind_config)
 {
 	xkl_engine_set_secondary_groups_mask (ind_config->engine,
 					      ind_config->secondary_groups_mask);
 }
 
 /**
- * matekbd_indicator_config_start_listen:
+ * cafekbd_indicator_config_start_listen:
  * @func: (scope notified): a function to call when settings are changed
  */
 void
-matekbd_indicator_config_start_listen (MatekbdIndicatorConfig *
+cafekbd_indicator_config_start_listen (MatekbdIndicatorConfig *
 				    ind_config,
 				    GCallback func,
 				    gpointer user_data)
@@ -333,7 +333,7 @@ matekbd_indicator_config_start_listen (MatekbdIndicatorConfig *
 }
 
 void
-matekbd_indicator_config_stop_listen (MatekbdIndicatorConfig * ind_config)
+cafekbd_indicator_config_stop_listen (MatekbdIndicatorConfig * ind_config)
 {
 	g_signal_handler_disconnect (ind_config->settings,
 				     ind_config->config_listener_id);

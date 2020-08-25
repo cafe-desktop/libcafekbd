@@ -3,7 +3,7 @@
 ##########################################################
 requires:
   archlinux:
-    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/libmatekbd
+    # Useful URL: https://git.archlinux.org/svntogit/community.git/tree/libcafekbd
     - autoconf-archive
     - clang
     - gcc
@@ -12,12 +12,12 @@ requires:
     - gtk3
     - libxklavier
     - make
-    - mate-common
+    - cafe-common
     - which
 
   debian:
-    # Useful URL: https://github.com/mate-desktop/debian-packages
-    # Useful URL: https://salsa.debian.org/debian-mate-team/libmatekbd
+    # Useful URL: https://github.com/cafe-desktop/debian-packages
+    # Useful URL: https://salsa.debian.org/debian-cafe-team/libcafekbd
     - autopoint
     - clang
     - clang-tools
@@ -30,10 +30,10 @@ requires:
     - libxklavier-dev
     - libxml2-utils
     - make
-    - mate-common
+    - cafe-common
 
   fedora:
-    # Useful URL: https://src.fedoraproject.org/cgit/rpms/libmatekbd.git
+    # Useful URL: https://src.fedoraproject.org/cgit/rpms/libcafekbd.git
     - autoconf-archive
     - clang-analyzer
     - clang
@@ -47,7 +47,7 @@ requires:
     - libICE-devel
     - libxklavier-devel
     - make
-    - mate-common
+    - cafe-common
     - redhat-rpm-config
 
   ubuntu:
@@ -62,7 +62,7 @@ requires:
     - libxklavier-dev
     - libxml2-utils
     - make
-    - mate-common
+    - cafe-common
 
 variables:
   - 'CHECKERS="
@@ -84,13 +84,13 @@ variables:
 
 before_scripts:
   - if [ ${DISTRO_NAME} == "debian" ];then
-  -     curl -Ls -o debian.sh https://github.com/mate-desktop/mate-dev-scripts/raw/master/travis/debian.sh
+  -     curl -Ls -o debian.sh https://github.com/cafe-desktop/cafe-dev-scripts/raw/master/travis/debian.sh
   -     bash ./debian.sh
   - fi
   - cd ${START_DIR}
-  - '[ -f mate-common-1.24.1.tar.xz ] || curl -Ls -o mate-common-1.24.1.tar.xz https://github.com/mate-desktop/mate-common/releases/download/v1.24.1/mate-common-1.24.1.tar.xz'
-  - tar xf mate-common-1.24.1.tar.xz
-  - cd mate-common-1.24.1
+  - '[ -f cafe-common-1.24.1.tar.xz ] || curl -Ls -o cafe-common-1.24.1.tar.xz https://github.com/cafe-desktop/cafe-common/releases/download/v1.24.1/cafe-common-1.24.1.tar.xz'
+  - tar xf cafe-common-1.24.1.tar.xz
+  - cd cafe-common-1.24.1
   - if [ ${DISTRO_NAME} == "debian" -o ${DISTRO_NAME} == "ubuntu" ];then
   -     ./configure --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --libexecdir=/usr/lib/x86_64-linux-gnu
   - else
@@ -119,10 +119,10 @@ releases:
   prerelease: false
   checksum: true
   file_glob: true
-  files: libmatekbd-*.tar.xz
+  files: libcafekbd-*.tar.xz
   github_release:
     tags: true
     overwrite: true
     base_version: 1.20.0
     notify_servers:
-      - https://release.mate-desktop.org/release
+      - https://release.cafe-desktop.org/release

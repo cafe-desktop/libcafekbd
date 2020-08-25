@@ -25,7 +25,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <glib.h>
-#include "libmatekbd/matekbd-keyboard-drawing.h"
+#include "libcafekbd/cafekbd-keyboard-drawing.h"
 
 
 static gchar *groups = NULL;
@@ -159,7 +159,7 @@ gint
 main (gint argc, gchar ** argv)
 {
 	GtkWidget *window;
-	GtkWidget *matekbd_keyboard_drawing;
+	GtkWidget *cafekbd_keyboard_drawing;
 	GdkScreen *screen;
 	GdkMonitor *monitor;
 	GdkRectangle rect;
@@ -212,21 +212,21 @@ main (gint argc, gchar ** argv)
 
 	gtk_widget_show (window);
 
-	matekbd_keyboard_drawing = matekbd_keyboard_drawing_new ();
-	gtk_widget_show (matekbd_keyboard_drawing);
-	gtk_container_add (GTK_CONTAINER (window), matekbd_keyboard_drawing);
+	cafekbd_keyboard_drawing = cafekbd_keyboard_drawing_new ();
+	gtk_widget_show (cafekbd_keyboard_drawing);
+	gtk_container_add (GTK_CONTAINER (window), cafekbd_keyboard_drawing);
 
-	matekbd_keyboard_drawing_set_groups_levels (CAFEKBD_KEYBOARD_DRAWING
-						 (matekbd_keyboard_drawing),
+	cafekbd_keyboard_drawing_set_groups_levels (CAFEKBD_KEYBOARD_DRAWING
+						 (cafekbd_keyboard_drawing),
 						 pgroupLevels);
 
 	if (track_modifiers)
-		matekbd_keyboard_drawing_set_track_modifiers
-		    (CAFEKBD_KEYBOARD_DRAWING (matekbd_keyboard_drawing), TRUE);
+		cafekbd_keyboard_drawing_set_track_modifiers
+		    (CAFEKBD_KEYBOARD_DRAWING (cafekbd_keyboard_drawing), TRUE);
 	if (track_config)
-		matekbd_keyboard_drawing_set_track_config
-		    (CAFEKBD_KEYBOARD_DRAWING (matekbd_keyboard_drawing), TRUE);
-	g_signal_connect (G_OBJECT (matekbd_keyboard_drawing), "bad-keycode",
+		cafekbd_keyboard_drawing_set_track_config
+		    (CAFEKBD_KEYBOARD_DRAWING (cafekbd_keyboard_drawing), TRUE);
+	g_signal_connect (G_OBJECT (cafekbd_keyboard_drawing), "bad-keycode",
 			  G_CALLBACK (bad_keycode), NULL);
 
 	if (symbols || geometry || keycodes) {
@@ -239,29 +239,29 @@ main (gint argc, gchar ** argv)
 			names.symbols = symbols;
 		else
 			names.symbols = (gchar *)
-			    matekbd_keyboard_drawing_get_symbols
+			    cafekbd_keyboard_drawing_get_symbols
 			    (CAFEKBD_KEYBOARD_DRAWING
-			     (matekbd_keyboard_drawing));
+			     (cafekbd_keyboard_drawing));
 
 		if (keycodes)
 			names.keycodes = keycodes;
 		else
 			names.keycodes = (gchar *)
-			    matekbd_keyboard_drawing_get_keycodes
+			    cafekbd_keyboard_drawing_get_keycodes
 			    (CAFEKBD_KEYBOARD_DRAWING
-			     (matekbd_keyboard_drawing));
+			     (cafekbd_keyboard_drawing));
 
 		if (geometry)
 			names.geometry = geometry;
 		else
 			names.geometry = (gchar *)
-			    matekbd_keyboard_drawing_get_geometry
+			    cafekbd_keyboard_drawing_get_geometry
 			    (CAFEKBD_KEYBOARD_DRAWING
-			     (matekbd_keyboard_drawing));
+			     (cafekbd_keyboard_drawing));
 
 		success =
-		    matekbd_keyboard_drawing_set_keyboard
-		    (CAFEKBD_KEYBOARD_DRAWING (matekbd_keyboard_drawing),
+		    cafekbd_keyboard_drawing_set_keyboard
+		    (CAFEKBD_KEYBOARD_DRAWING (cafekbd_keyboard_drawing),
 		     &names);
 		if (!success) {
 			g_printerr
@@ -275,7 +275,7 @@ main (gint argc, gchar ** argv)
 		}
 	}
 
-	gtk_widget_grab_focus (matekbd_keyboard_drawing);
+	gtk_widget_grab_focus (cafekbd_keyboard_drawing);
 
 	gtk_main ();
 

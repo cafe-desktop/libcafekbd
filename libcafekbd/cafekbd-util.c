@@ -19,7 +19,7 @@
 
 #include <config.h>
 
-#include <matekbd-util.h>
+#include <cafekbd-util.h>
 
 #include <time.h>
 
@@ -31,10 +31,10 @@
 
 #include <gdk/gdkx.h>
 
-#include <matekbd-config-private.h>
+#include <cafekbd-config-private.h>
 
 static void
-matekbd_log_appender (const char file[], const char function[],
+cafekbd_log_appender (const char file[], const char function[],
 		   int level, const char format[], va_list args)
 {
 	time_t now = time (NULL);
@@ -44,9 +44,9 @@ matekbd_log_appender (const char file[], const char function[],
 }
 
 void
-matekbd_install_glib_log_appender (void)
+cafekbd_install_glib_log_appender (void)
 {
-	xkl_set_log_appender (matekbd_log_appender);
+	xkl_set_log_appender (cafekbd_log_appender);
 }
 
 #define CAFEKBD_PREVIEW_CONFIG_SCHEMA  CAFEKBD_CONFIG_SCHEMA ".preview"
@@ -57,12 +57,12 @@ const gchar CAFEKBD_PREVIEW_CONFIG_KEY_WIDTH[] = "width";
 const gchar CAFEKBD_PREVIEW_CONFIG_KEY_HEIGHT[] = "height";
 
 /**
- * matekbd_preview_load_position:
+ * cafekbd_preview_load_position:
  *
  * Returns: (transfer full): A rectangle to use
  */
 GdkRectangle *
-matekbd_preview_load_position (void)
+cafekbd_preview_load_position (void)
 {
 	GdkRectangle *rv = NULL;
 	gint x, y, w, h;
@@ -96,7 +96,7 @@ matekbd_preview_load_position (void)
 }
 
 void
-matekbd_preview_save_position (GdkRectangle * rect)
+cafekbd_preview_save_position (GdkRectangle * rect)
 {
 	GSettings* settings = g_settings_new (CAFEKBD_PREVIEW_CONFIG_SCHEMA);
 
@@ -113,12 +113,12 @@ matekbd_preview_save_position (GdkRectangle * rect)
 }
 
 /**
- * matekbd_strv_append:
+ * cafekbd_strv_append:
  *
  * Returns: (transfer full) (array zero-terminated=1): Append string to strv array
  */
 gchar **
-matekbd_strv_append (gchar ** arr, gchar * element)
+cafekbd_strv_append (gchar ** arr, gchar * element)
 {
 	gint old_length = (arr == NULL) ? 0 : g_strv_length (arr);
 	gchar **new_arr = g_new0 (gchar *, old_length + 2);

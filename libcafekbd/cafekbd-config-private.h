@@ -20,10 +20,10 @@
 #ifndef __CAFEKBD_CONFIG_PRIVATE_H__
 #define __CAFEKBD_CONFIG_PRIVATE_H__
 
-#include "libmatekbd/matekbd-desktop-config.h"
-#include "libmatekbd/matekbd-keyboard-config.h"
+#include "libcafekbd/cafekbd-desktop-config.h"
+#include "libcafekbd/cafekbd-keyboard-config.h"
 
-#define CAFEKBD_CONFIG_SCHEMA "org.mate.peripherals-keyboard-xkb"
+#define CAFEKBD_CONFIG_SCHEMA "org.cafe.peripherals-keyboard-xkb"
 
 extern const gchar CAFEKBD_PREVIEW_CONFIG_KEY_X[];
 extern const gchar CAFEKBD_PREVIEW_CONFIG_KEY_Y[];
@@ -33,27 +33,27 @@ extern const gchar CAFEKBD_PREVIEW_CONFIG_KEY_HEIGHT[];
 /**
  * General config functions (private)
  */
-extern void matekbd_keyboard_config_model_set (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_model_set (MatekbdKeyboardConfig *
 					    kbd_config,
 					    const gchar * model_name);
 
-extern void matekbd_keyboard_config_options_set (MatekbdKeyboardConfig *
+extern void cafekbd_keyboard_config_options_set (MatekbdKeyboardConfig *
 					      kbd_config,
 					      gint idx,
 					      const gchar * group_name,
 					      const gchar * option_name);
-extern gboolean matekbd_keyboard_config_options_is_set (MatekbdKeyboardConfig *
+extern gboolean cafekbd_keyboard_config_options_is_set (MatekbdKeyboardConfig *
 						     kbd_config,
 						     const gchar *
 						     group_name,
 						     const gchar *
 						     option_name);
 
-extern gboolean matekbd_keyboard_config_dump_settings (MatekbdKeyboardConfig *
+extern gboolean cafekbd_keyboard_config_dump_settings (MatekbdKeyboardConfig *
 						    kbd_config,
 						    const char *file_name);
 
-extern gboolean matekbd_keyboard_config_get_lv_descriptions (XklConfigRegistry
+extern gboolean cafekbd_keyboard_config_get_lv_descriptions (XklConfigRegistry
 							  *
 							  config_registry,
 							  const gchar *

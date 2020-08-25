@@ -50,19 +50,19 @@ struct _MatekbdDesktopConfig {
 /*
  * MatekbdDesktopConfig functions
  */
-extern void matekbd_desktop_config_init (MatekbdDesktopConfig * config,
+extern void cafekbd_desktop_config_init (MatekbdDesktopConfig * config,
 				      XklEngine * engine);
-extern void matekbd_desktop_config_term (MatekbdDesktopConfig * config);
+extern void cafekbd_desktop_config_term (MatekbdDesktopConfig * config);
 
-extern void matekbd_desktop_config_load_from_gsettings (MatekbdDesktopConfig *
+extern void cafekbd_desktop_config_load_from_gsettings (MatekbdDesktopConfig *
 						 config);
 
-extern void matekbd_desktop_config_save_to_gsettings (MatekbdDesktopConfig * config);
+extern void cafekbd_desktop_config_save_to_gsettings (MatekbdDesktopConfig * config);
 
-extern gboolean matekbd_desktop_config_activate (MatekbdDesktopConfig * config);
+extern gboolean cafekbd_desktop_config_activate (MatekbdDesktopConfig * config);
 
 extern gboolean
-matekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
+cafekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
 					     * config,
 					     XklConfigRegistry *
 					     registry,
@@ -74,18 +74,18 @@ matekbd_desktop_config_load_group_descriptions (MatekbdDesktopConfig
 					     short_group_names,
 					     gchar *** full_group_names);
 
-extern void matekbd_desktop_config_lock_next_group (MatekbdDesktopConfig *
+extern void cafekbd_desktop_config_lock_next_group (MatekbdDesktopConfig *
 						 config);
 
-extern void matekbd_desktop_config_lock_prev_group (MatekbdDesktopConfig *
+extern void cafekbd_desktop_config_lock_prev_group (MatekbdDesktopConfig *
 						 config);
 
-extern void matekbd_desktop_config_restore_group (MatekbdDesktopConfig * config);
+extern void cafekbd_desktop_config_restore_group (MatekbdDesktopConfig * config);
 
-extern void matekbd_desktop_config_start_listen (MatekbdDesktopConfig * config,
+extern void cafekbd_desktop_config_start_listen (MatekbdDesktopConfig * config,
 					      GCallback func,
 					      gpointer user_data);
 
-extern void matekbd_desktop_config_stop_listen (MatekbdDesktopConfig * config);
+extern void cafekbd_desktop_config_stop_listen (MatekbdDesktopConfig * config);
 
 #endif
