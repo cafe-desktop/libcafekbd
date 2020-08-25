@@ -49,6 +49,7 @@ requires:
     - libxklavier-devel
     - make
     - redhat-rpm-config
+    - which
 
   ubuntu:
     - autopoint
