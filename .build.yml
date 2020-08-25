@@ -25,6 +25,7 @@ requires:
     - clang
     - clang-tools
     - cppcheck
+    - gettext
     - git
     - gobject-introspection
     - libgirepository1.0-dev
@@ -59,6 +60,7 @@ requires:
     - autopoint
     - clang
     - clang-tools
+    - gettext
     - git
     - gobject-introspection
     - libgirepository1.0-dev
