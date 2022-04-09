@@ -113,7 +113,7 @@ AC_SEARCH_LIBS([sqrt], [m])
 
 GOBJECT_INTROSPECTION_CHECK([0.6.7])
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 libcafekbd.pc
 libcafekbdui.pc
