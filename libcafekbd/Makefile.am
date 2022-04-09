@@ -103,7 +103,8 @@ EXTRA_DIST =					\
 
 DISTCLEANFILES = $(gsettings_SCHEMAS)
 
-GLIB_GENMARSHAL = $(shell pkg-config --variable=glib_genmarshal glib-2.0)
+GLIBGENMARSHALPATH = `pkg-config --variable=glib_genmarshal glib-2.0`
+GLIB_GENMARSHAL = $(GLIBGENMARSHALPATH)
 
 cafekbd-indicator-marshal.h: cafekbd-indicator-marshal.list
 	$(AM_V_GEN)$(GLIB_GENMARSHAL) --prefix=cafekbd_indicator $(srcdir)/cafekbd-indicator-marshal.list --header > $@
@@ -124,7 +125,7 @@ cafekbd-keyboard-drawing-marshal.c: cafekbd-keyboard-drawing-marshal.h
         || ( rm -f cafekbd-keyboard-drawing-marshal.tmp && exit 1 )
 
 
-cafekbd-keyboard-drawing-resources.h cafekbd-keyboard-drawing-resources.c: org.cafe.peripherals.keyboard.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/org.cafe.peripherals.keyboard.gresource.xml)
+cafekbd-keyboard-drawing-resources.h cafekbd-keyboard-drawing-resources.c: org.cafe.peripherals.keyboard.gresource.xml
 	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(srcdir) --generate --c-name cafekbd $<
 
 -include $(INTROSPECTION_MAKEFILE)
