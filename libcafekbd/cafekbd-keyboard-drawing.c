@@ -1489,7 +1489,7 @@ typedef struct {
 static void
 redraw_overlapping_doodads (CafekbdKeyboardDrawingRenderContext * context,
 			    CafekbdKeyboardDrawing * drawing,
-			    CafekbdKeyboardDrawingKey * key)
+			    const CafekbdKeyboardDrawingKey * key)
 {
 	GList *list;
 	gboolean do_draw = FALSE;
