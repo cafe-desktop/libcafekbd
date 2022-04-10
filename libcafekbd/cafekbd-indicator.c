@@ -142,12 +142,13 @@ cafekbd_indicator_load_images ()
 static void
 cafekbd_indicator_free_images ()
 {
-	GdkPixbuf *pi;
 	GSList *img_node;
 
 	cafekbd_indicator_config_free_image_filenames (&globals.ind_cfg);
 
 	while ((img_node = globals.images) != NULL) {
+		GdkPixbuf *pi;
+
 		pi = GDK_PIXBUF (img_node->data);
 		/* It can be NULL - some images may be missing */
 		if (pi != NULL) {
@@ -361,14 +362,15 @@ static GtkWidget *
 cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 {
 	gpointer pimage;
-	GdkPixbuf *image;
 	GtkWidget *ebox;
 
 	pimage = g_slist_nth_data (globals.images, group);
 	ebox = gtk_event_box_new ();
 	gtk_event_box_set_visible_window (GTK_EVENT_BOX (ebox), FALSE);
 	if (globals.ind_cfg.show_flags) {
+		GdkPixbuf *image;
 		GtkWidget *flag;
+
 		if (pimage == NULL)
 			return NULL;
 		image = GDK_PIXBUF (pimage);
