@@ -1,126 +1,17 @@
-### libcafekbd 1.24.1
+### libcafekbd 1.25.0
 
-  * Translations update
-  * build: silent build warnings for distcheck
-  * Reduce the font size of the key names on keyboard layout display
-  * cafekbd-keyboard-drawing: i18n symbolic names
-
-### libcafekbd 1.24.0
-
-  * Translations update
-  * build: add configuration summary
-  * Use gresources for UI files
-  * cafekbd-keyboard-config: Value stored to 'clen' is never read
-  * cafekbd-util: Local variables shadow outer variables
-  * cafekbd-keyboard-drawing: Uninitialized structure member
-  * cafekbd-config-private: avoid redundant redeclarations
-  * migrate from intltool to gettext
-
-### libcafekbd 1.23.0
-
-  * Translations update
-  * travis: enable 'cppcheck' in debian
-  * [ci] use clang analyzer
-
-### libcafekbd 1.22.0
-
-  * Translations update
-  * Initialize Travis CI support
-  * rename g_strv_equal to cafekbd_strv_equal
-
-### libcafekbd 1.21.0
-
-  * Translations update
-  * Use cdk screen resolution for font in keyboard status notification icon, to get correct scaling on HiPDI displays.
-
-### libcafekbd 1.20.0
-
-  * Translations update
-  * bump minimum CDK version according to CTK+ one
-  * remove < ctk+-3.22 bits and bump required ctk+
-  * building: bump required glib version to 2.50.0
-
-### libcafekbd 1.19.1
-
-  * Translations update
-  * WidthOfScreen and HeightOfScreen implementation
-
-### libcafekbd 1.19.0
-
-  * Translations update
-  * cafekbd-status: Fix Cdk-CRITICAL warning on creating status bar icon
-  * ctk 3.22: avoid deprecated cdk_screen_get_monitor... functions:
-  * avoid deprecated cdk_screen_get_width/height
-  * avoid deprecated cdk_screen_get_number
-  * update issue_template
-  * create issue_template.md
-  * Restore Polish translation credits from GNOME
-  * sync with transifex
-  * cafekbd-indicator: Don't expand
-  * cafekbd-indicator: don't use deprecated cdk_cairo_create
-  * Fix for strange CtkIconInfo behaviour
-  * cafekbd-indicator: don't use deprecated CtkAlignment
-  * keyboard-drawing: set css name cafekbd-keyboard-drawing
-  * Slightly increase the font size for the key labels
-  * cafekbd-keyboard-drawing: Don't unset double buffering
-  * cafekbd-keyboard-drawing: Handle XkbGetKeyboard() failing
-  * cafekbd-keyboard-drawing: Prevent ctk+ keynav from taking focus away
-  * fix some introspection warnings
-  * show-layout.ui: don't use deprecated widgets
-  * UI: expand kbdraw vertical
-
-### libcafekbd 1.18.0
-
-  * NEWS: use consistent, project wide, markdown-like formatting
-    to make generating release announcements easier
-  * Move to CTK+3 (require CTK+ >= 3.14), drop CTK+2 code and
-    --with-ctk build option
-  * Translations update
-
-### libcafekbd 1.16.0
-
-  * Require libxklavier 5.2 and use its introspection
-  * CTK+3: fix some deprecations
-  * distcheck: explicitly use currently selected CTK+ version
-  * Translations update
-
-### libcafekbd 1.14.1
-
-  * Translations updated
-
-### libcafekbd 1.14.0
-
-  * Drop CafeConf migration script
-  * Reduce introspection build warnings
-  * Fix some CTK+3 deprecations
-  * Some more fixes and cleanups
-  * Translations update
-  * Fix Changelog generation
-
-### libcafekbd 1.12.1
-
-  * Translations update
-
-### libcafekbd 1.12.0
-
-  * Add GObject introspection
-  * Retrieve strings directly from gschema (requires intltool 0.50.1)
-  * Layout view/print dialog: remove useless Help button
-  * Layout view/print dialog: some UI fixes
-  * Some CTK+3 fixes
-  * Some more fixes and cleanups
-  * Translations update
-
-### libcafekbd 1.10.0
-
-  * Bugfixes
-
-### libcafekbd 1.8.0
-
-  * Improved indicator font customization
-  * CTK3 support
-
-### libcafekbd 1.5.0
-
-  * Switch to gsettings (dropped cafeconf)
-  * Removed old obsolete plugin system for keyboard indicators (unused)
+  * initial commit: libmatekbd 1.24.1 fork
+  * rename MATE to CAFE
+  * ci: enable Github Actions
+  * build:
+    * LT_INIT instead AM_PROG_LIBTOOL
+    * remove obsolete AC_STDC_HEADERS
+    * avoid obsolete AC_HELP_STRING
+    * Fix AC_OUTPUT warning
+  * libmatekbd,makefile: avoid non-POSIX variable names
+  * test,makefile: rename flags
+  * reduce the scope of some variables
+  * cafekbd-keyboard-drawing: declare parameter 'key' with const
+  * port from gtk to ctk
+  * po,Makevars: supress progress indicators
+  * update translations
