@@ -307,7 +307,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 							  &gerror);
 
 		if (image == NULL) {
-			GtkWidget *dialog = ctk_message_dialog_new (NULL,
+			CtkWidget *dialog = ctk_message_dialog_new (NULL,
 								    CTK_DIALOG_DESTROY_WITH_PARENT,
 								    CTK_MESSAGE_ERROR,
 								    CTK_BUTTONS_OK,
@@ -622,7 +622,7 @@ cafekbd_status_size_changed (CafekbdStatus * gki, gint size)
 }
 
 static void
-cafekbd_status_theme_changed (GtkSettings * settings, GParamSpec * pspec,
+cafekbd_status_theme_changed (CtkSettings * settings, GParamSpec * pspec,
 			   CafekbdStatus * gki)
 {
 	cafekbd_indicator_config_refresh_style (&globals.ind_cfg);
@@ -820,7 +820,7 @@ cafekbd_status_global_init (void)
 	xkl_debug (100, "*** Inited globals *** \n");
 }
 
-GtkStatusIcon *
+CtkStatusIcon *
 cafekbd_status_new (void)
 {
 	return

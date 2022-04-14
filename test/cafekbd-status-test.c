@@ -39,7 +39,7 @@
 int
 main (int argc, char **argv)
 {
-	GtkStatusIcon *icon;
+	CtkStatusIcon *icon;
 
 	bindtextdomain (GETTEXT_PACKAGE, CAFELOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");

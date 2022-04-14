@@ -139,7 +139,7 @@ introspection_sources = $(cafekbdinc_HEADERS) \
         $(libcafekbdui_la_SOURCES)
 
 Cafekbd-1.0.gir: libcafekbd.la libcafekbdui.la
-Cafekbd_1_0_gir_INCLUDES = GObject-2.0 Gtk-3.0 xlib-2.0 Xkl-1.0
+Cafekbd_1_0_gir_INCLUDES = GObject-2.0 Ctk-3.0 xlib-2.0 Xkl-1.0
 Cafekbd_1_0_gir_CFLAGS = $(libcafekbdui_la_CFLAGS)
 Cafekbd_1_0_gir_LIBS = libcafekbd.la libcafekbdui.la
 Cafekbd_1_0_gir_FILES = $(introspection_sources)

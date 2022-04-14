@@ -123,7 +123,7 @@ struct _CafekbdKeyboardDrawingRenderContext {
 struct _CafekbdKeyboardDrawing {
 	/*< private > */
 
-	GtkDrawingArea parent;
+	CtkDrawingArea parent;
 
 	cairo_surface_t *surface;
 	XkbDescRec *xkb;
@@ -160,7 +160,7 @@ struct _CafekbdKeyboardDrawing {
 };
 
 struct _CafekbdKeyboardDrawingClass {
-	GtkDrawingAreaClass parent_class;
+	CtkDrawingAreaClass parent_class;
 
 	/* we send this signal when the user presses a key that "doesn't exist"
 	 * according to the keyboard geometry; it probably means their xkb
@@ -169,7 +169,7 @@ struct _CafekbdKeyboardDrawingClass {
 };
 
 GType cafekbd_keyboard_drawing_get_type (void);
-GtkWidget *cafekbd_keyboard_drawing_new (void);
+CtkWidget *cafekbd_keyboard_drawing_new (void);
 
 gboolean cafekbd_keyboard_drawing_render (CafekbdKeyboardDrawing * kbdrawing,
 				       cairo_t * cr,
@@ -200,11 +200,11 @@ void cafekbd_keyboard_drawing_set_groups_levels (CafekbdKeyboardDrawing *
 
 
 void cafekbd_keyboard_drawing_print (CafekbdKeyboardDrawing * drawing,
-				  GtkWindow * parent_window,
+				  CtkWindow * parent_window,
 				  const gchar * description);
 
 
-GtkWidget* cafekbd_keyboard_drawing_new_dialog (gint group, gchar* group_name);
+CtkWidget* cafekbd_keyboard_drawing_new_dialog (gint group, gchar* group_name);
 
 #ifdef __cplusplus
 }

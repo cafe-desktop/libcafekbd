@@ -61,8 +61,8 @@ cafekbd_indicator_config_load_font (CafekbdIndicatorConfig * ind_config)
 	if (ind_config->font_family == NULL ||
 	    ind_config->font_family[0] == '\0') {
 		PangoFontDescription *fd = NULL;
-		GtkWidgetPath *widget_path = ctk_widget_path_new ();
-		GtkStyleContext *context = ctk_style_context_new ();
+		CtkWidgetPath *widget_path = ctk_widget_path_new ();
+		CtkStyleContext *context = ctk_style_context_new ();
 
 		ctk_widget_path_append_type (widget_path, CTK_TYPE_WINDOW);
 		ctk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");
@@ -98,8 +98,8 @@ cafekbd_indicator_config_load_colors (CafekbdIndicatorConfig * ind_config)
 
 	if (ind_config->foreground_color == NULL ||
 	    ind_config->foreground_color[0] == '\0') {
-		GtkWidgetPath *widget_path = ctk_widget_path_new ();
-		GtkStyleContext *context = ctk_style_context_new ();
+		CtkWidgetPath *widget_path = ctk_widget_path_new ();
+		CtkStyleContext *context = ctk_style_context_new ();
 		GdkRGBA fg_color;
 
 		ctk_widget_path_append_type (widget_path, CTK_TYPE_WINDOW);
@@ -146,7 +146,7 @@ cafekbd_indicator_config_get_images_file (CafekbdIndicatorConfig *
 				       kbd_config, int group)
 {
 	char *image_file = NULL;
-	GtkIconInfo *icon_info = NULL;
+	CtkIconInfo *icon_info = NULL;
 
 	if (!ind_config->show_flags)
 		return NULL;

@@ -39,7 +39,7 @@ struct _CafekbdIndicatorConfig {
 	/* private, transient */
 	GSettings *settings;
 	GSList *image_filenames;
-	GtkIconTheme *icon_theme;
+	CtkIconTheme *icon_theme;
 	int config_listener_id;
 	XklEngine *engine;
 };

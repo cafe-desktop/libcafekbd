@@ -1228,7 +1228,7 @@ draw_key (CafekbdKeyboardDrawingRenderContext * context,
 	  CafekbdKeyboardDrawing * drawing, CafekbdKeyboardDrawingKey * key)
 {
 	XkbShapeRec *shape;
-	GtkStyleContext *style_context;
+	CtkStyleContext *style_context;
 	GdkRGBA color;
 	XkbOutlineRec *outline;
 	int origin_offset_x;
@@ -1550,8 +1550,8 @@ draw_keyboard_to_context (CafekbdKeyboardDrawingRenderContext * context,
 static gboolean
 create_cairo (CafekbdKeyboardDrawing * drawing)
 {
-	GtkStyleContext *style_context = NULL;
-	GtkStateFlags state;
+	CtkStyleContext *style_context = NULL;
+	CtkStateFlags state;
 	GdkRGBA dark_color;
 
 	if (drawing == NULL)
@@ -1587,11 +1587,11 @@ destroy_cairo (CafekbdKeyboardDrawing * drawing)
 static void
 draw_keyboard (CafekbdKeyboardDrawing * drawing)
 {
-        GtkStyleContext *context =
+        CtkStyleContext *context =
 	    ctk_widget_get_style_context (CTK_WIDGET (drawing));
-	GtkStateFlags state = ctk_style_context_get_state (context);
+	CtkStateFlags state = ctk_style_context_get_state (context);
 	GdkRGBA color;
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	if (!drawing->xkb)
 		return;
@@ -1629,7 +1629,7 @@ alloc_render_context (CafekbdKeyboardDrawing * drawing)
 	PangoContext *pangoContext =
 	    ctk_widget_get_pango_context (CTK_WIDGET (drawing));
 
-	GtkStyleContext *style_context =
+	CtkStyleContext *style_context =
 	    ctk_widget_get_style_context (CTK_WIDGET (drawing));
 	PangoFontDescription *fd = NULL;
 
@@ -1658,7 +1658,7 @@ free_render_context (CafekbdKeyboardDrawing * drawing)
 }
 
 static gboolean
-draw (GtkWidget *widget,
+draw (CtkWidget *widget,
       cairo_t *cr,
       CafekbdKeyboardDrawing *drawing)
 {
@@ -1724,8 +1724,8 @@ context_setup_scaling (CafekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-size_allocate (GtkWidget * widget,
-	       GtkAllocation * allocation, CafekbdKeyboardDrawing * drawing)
+size_allocate (CtkWidget * widget,
+	       CtkAllocation * allocation, CafekbdKeyboardDrawing * drawing)
 {
 	CafekbdKeyboardDrawingRenderContext *context = drawing->renderContext;
 
@@ -1744,7 +1744,7 @@ size_allocate (GtkWidget * widget,
 }
 
 static gint
-key_event (GtkWidget * widget,
+key_event (CtkWidget * widget,
 	   GdkEventKey * event, CafekbdKeyboardDrawing * drawing)
 {
 	CafekbdKeyboardDrawingKey *key;
@@ -1781,7 +1781,7 @@ key_event (GtkWidget * widget,
 }
 
 static gint
-button_press_event (GtkWidget * widget,
+button_press_event (CtkWidget * widget,
 		    GdkEventButton * event, CafekbdKeyboardDrawing * drawing)
 {
 	if (!drawing->xkb)
@@ -1818,7 +1818,7 @@ unpress_keys (CafekbdKeyboardDrawing * drawing)
 }
 
 static gint
-focus_event (GtkWidget * widget,
+focus_event (CtkWidget * widget,
 	     GdkEventFocus * event, CafekbdKeyboardDrawing * drawing)
 {
 	if (event->in && drawing->timeout > 0) {
@@ -2164,7 +2164,7 @@ xkb_state_notify_event_filter (GdkXEvent * gdkxev,
 
 	if (((XEvent *) gdkxev)->type == drawing->xkb_event_type) {
 		XkbEvent *kev = (XkbEvent *) gdkxev;
-		GtkAllocation allocation;
+		CtkAllocation allocation;
 		switch (kev->any.xkb_type) {
 		case XkbStateNotify:
 			if (((kev->state.changed & modifier_change_mask) &&
@@ -2355,7 +2355,7 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 			       xkb_state_notify_event_filter, drawing);
 }
 
-GtkWidget *
+CtkWidget *
 cafekbd_keyboard_drawing_new (void)
 {
 	return
@@ -2366,7 +2366,7 @@ cafekbd_keyboard_drawing_new (void)
 static void
 cafekbd_keyboard_drawing_class_init (CafekbdKeyboardDrawingClass * klass)
 {
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 	ctk_widget_class_set_css_name (widget_class, "cafekbd-keyboard-drawing");
 
 	klass->bad_keycode = NULL;
@@ -2432,7 +2432,7 @@ cafekbd_keyboard_drawing_set_mods (CafekbdKeyboardDrawing * drawing, guint mods)
  * @height:    height (pixels) of region to render in
  *
  * Renders a keyboard layout to a cairo_t context.  @cr and @layout can be got
- * from e.g. a GtkWidget or a GtkPrintContext.  @cr and @layout may be modified
+ * from e.g. a CtkWidget or a CtkPrintContext.  @cr and @layout may be modified
  * by the function but will not be unreffed.
  *
  * Returns: %TRUE on success, %FALSE on failure
@@ -2445,7 +2445,7 @@ cafekbd_keyboard_drawing_render (CafekbdKeyboardDrawing * kbdrawing,
 			      double width, double height,
 			      double dpi_x, double dpi_y)
 {
-	GtkStyleContext *style_context =
+	CtkStyleContext *style_context =
 	    ctk_widget_get_style_context (CTK_WIDGET (kbdrawing));
 	GdkRGBA dark_color;
 	PangoFontDescription *fd = NULL;
@@ -2491,7 +2491,7 @@ gboolean
 cafekbd_keyboard_drawing_set_keyboard (CafekbdKeyboardDrawing * drawing,
 				    XkbComponentNamesRec * names)
 {
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 
 	free_cdik (drawing);
 	if (drawing->xkb)
@@ -2655,12 +2655,12 @@ typedef struct {
 } XkbLayoutPreviewPrintData;
 
 static void
-cafekbd_keyboard_drawing_begin_print (GtkPrintOperation * operation,
-				   GtkPrintContext * context,
+cafekbd_keyboard_drawing_begin_print (CtkPrintOperation * operation,
+				   CtkPrintContext * context,
 				   XkbLayoutPreviewPrintData * data)
 {
 	/* We always print single-page documents */
-	GtkPrintSettings *settings =
+	CtkPrintSettings *settings =
 	    ctk_print_operation_get_print_settings (operation);
 	ctk_print_operation_set_n_pages (operation, 1);
 	if (!ctk_print_settings_has_key
@@ -2670,8 +2670,8 @@ cafekbd_keyboard_drawing_begin_print (GtkPrintOperation * operation,
 }
 
 static void
-cafekbd_keyboard_drawing_draw_page (GtkPrintOperation * operation,
-				 GtkPrintContext * context,
+cafekbd_keyboard_drawing_draw_page (CtkPrintOperation * operation,
+				 CtkPrintContext * context,
 				 gint page_nr,
 				 XkbLayoutPreviewPrintData * data)
 {
@@ -2711,12 +2711,12 @@ cafekbd_keyboard_drawing_draw_page (GtkPrintOperation * operation,
 
 void
 cafekbd_keyboard_drawing_print (CafekbdKeyboardDrawing * drawing,
-			     GtkWindow * parent_window,
+			     CtkWindow * parent_window,
 			     const gchar * description)
 {
-	GtkPrintOperation *print;
-	GtkPrintOperationResult res;
-	static GtkPrintSettings *settings = NULL;
+	CtkPrintOperation *print;
+	CtkPrintOperationResult res;
+	static CtkPrintSettings *settings = NULL;
 	XkbLayoutPreviewPrintData data = { drawing, description };
 
 	print = ctk_print_operation_new ();
@@ -2746,10 +2746,10 @@ cafekbd_keyboard_drawing_print (CafekbdKeyboardDrawing * drawing,
 }
 
 static void
-show_layout_response (GtkWidget * dialog, gint resp)
+show_layout_response (CtkWidget * dialog, gint resp)
 {
 	GdkRectangle rect;
-	GtkWidget *kbdraw;
+	CtkWidget *kbdraw;
 	const gchar *groupName;
 
 	switch (resp) {
@@ -2775,7 +2775,7 @@ show_layout_response (GtkWidget * dialog, gint resp)
 	}
 }
 
-GtkWidget *
+CtkWidget *
 cafekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 {
 	static CafekbdKeyboardDrawingGroupLevel groupsLevels[] = { {
@@ -2791,8 +2791,8 @@ cafekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 		groupsLevels + 3
 	};
 
-	GtkBuilder *builder;
-	GtkWidget *dialog, *kbdraw;
+	CtkBuilder *builder;
+	CtkWidget *dialog, *kbdraw;
 	XkbComponentNamesRec component_names;
 	XklConfigRec *xkl_data;
 	GdkRectangle *rect;

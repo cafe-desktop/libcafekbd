@@ -69,7 +69,7 @@ static void
 cafekbd_indicator_global_init (void);
 static void
 cafekbd_indicator_global_term (void);
-static GtkWidget *
+static CtkWidget *
 cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group);
 static void
 cafekbd_indicator_set_current_page_for_group (CafekbdIndicator * gki, int group);
@@ -107,7 +107,7 @@ cafekbd_indicator_load_images ()
 			image =
 			    gdk_pixbuf_new_from_file (image_file, &gerror);
 			if (image == NULL) {
-				GtkWidget *dialog =
+				CtkWidget *dialog =
 				    ctk_message_dialog_new (NULL,
 							    CTK_DIALOG_DESTROY_WITH_PARENT,
 							    CTK_MESSAGE_ERROR,
@@ -175,7 +175,7 @@ cafekbd_indicator_set_tooltips (CafekbdIndicator * gki, const char *str)
 	ctk_widget_set_tooltip_text (CTK_WIDGET (gki), str);
 
 	if (gki->priv->set_parent_tooltips) {
-		GtkWidget *parent =
+		CtkWidget *parent =
 		    ctk_widget_get_parent (CTK_WIDGET (gki));
 		if (parent) {
 			ctk_widget_set_tooltip_text (parent, str);
@@ -187,7 +187,7 @@ void
 cafekbd_indicator_cleanup (CafekbdIndicator * gki)
 {
 	int i;
-	GtkNotebook *notebook = CTK_NOTEBOOK (gki);
+	CtkNotebook *notebook = CTK_NOTEBOOK (gki);
 
 	/* Do not remove the first page! It is the default page */
 	for (i = ctk_notebook_get_n_pages (notebook); --i > 0;) {
@@ -200,10 +200,10 @@ cafekbd_indicator_fill (CafekbdIndicator * gki)
 {
 	int grp;
 	int total_groups = xkl_engine_get_num_groups (globals.engine);
-	GtkNotebook *notebook = CTK_NOTEBOOK (gki);
+	CtkNotebook *notebook = CTK_NOTEBOOK (gki);
 
 	for (grp = 0; grp < total_groups; grp++) {
-		GtkWidget *page;
+		CtkWidget *page;
 		page = cafekbd_indicator_prepare_drawing (gki, grp);
 
 		if (page == NULL)
@@ -214,7 +214,7 @@ cafekbd_indicator_fill (CafekbdIndicator * gki)
 	}
 }
 
-static gboolean cafekbd_indicator_key_pressed(GtkWidget* widget, GdkEventKey* event, CafekbdIndicator* gki)
+static gboolean cafekbd_indicator_key_pressed(CtkWidget* widget, GdkEventKey* event, CafekbdIndicator* gki)
 {
 	switch (event->keyval)
 	{
@@ -234,12 +234,12 @@ static gboolean cafekbd_indicator_key_pressed(GtkWidget* widget, GdkEventKey* ev
 }
 
 static gboolean
-cafekbd_indicator_button_pressed (GtkWidget *
+cafekbd_indicator_button_pressed (CtkWidget *
 			       widget,
 			       GdkEventButton * event, CafekbdIndicator * gki)
 {
-	GtkWidget *img = ctk_bin_get_child (CTK_BIN (widget));
-	GtkAllocation allocation;
+	CtkWidget *img = ctk_bin_get_child (CTK_BIN (widget));
+	CtkAllocation allocation;
 	ctk_widget_get_allocation (img, &allocation);
 	xkl_debug (150, "Flag img size %d x %d\n",
 		   allocation.width, allocation.height);
@@ -252,12 +252,12 @@ cafekbd_indicator_button_pressed (GtkWidget *
 }
 
 static void
-draw_flag (GtkWidget * flag, cairo_t * cr, GdkPixbuf * image)
+draw_flag (CtkWidget * flag, cairo_t * cr, GdkPixbuf * image)
 {
 	/* Image width and height */
 	int iw = gdk_pixbuf_get_width (image);
 	int ih = gdk_pixbuf_get_height (image);
-	GtkAllocation allocation;
+	CtkAllocation allocation;
 	double xwiratio, ywiratio, wiratio;
 
 	ctk_widget_get_allocation (flag, &allocation);
@@ -358,18 +358,18 @@ cafekbd_indicator_create_label_title (int group, GHashTable ** ln2cnt_map,
 	return lbl_title;
 }
 
-static GtkWidget *
+static CtkWidget *
 cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 {
 	gpointer pimage;
-	GtkWidget *ebox;
+	CtkWidget *ebox;
 
 	pimage = g_slist_nth_data (globals.images, group);
 	ebox = ctk_event_box_new ();
 	ctk_event_box_set_visible_window (CTK_EVENT_BOX (ebox), FALSE);
 	if (globals.ind_cfg.show_flags) {
 		GdkPixbuf *image;
-		GtkWidget *flag;
+		CtkWidget *flag;
 
 		if (pimage == NULL)
 			return NULL;
@@ -383,7 +383,7 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 	} else {
 		char *lbl_title = NULL;
 		char *layout_name = NULL;
-		GtkWidget *label;
+		CtkWidget *label;
 		static GHashTable *ln2cnt_map = NULL;
 
 		layout_name =
@@ -447,7 +447,7 @@ cafekbd_indicator_update_tooltips (CafekbdIndicator * gki)
 }
 
 static void
-cafekbd_indicator_parent_set (GtkWidget * gki, GtkWidget * previous_parent)
+cafekbd_indicator_parent_set (CtkWidget * gki, CtkWidget * previous_parent)
 {
 	cafekbd_indicator_update_tooltips (CAFEKBD_INDICATOR (gki));
 }
@@ -658,7 +658,7 @@ cafekbd_indicator_stop_listen (void)
 }
 
 static gboolean
-cafekbd_indicator_scroll (GtkWidget * gki, GdkEventScroll * event)
+cafekbd_indicator_scroll (CtkWidget * gki, GdkEventScroll * event)
 {
 	/* mouse wheel events should be ignored, otherwise funny effects appear */
 	return TRUE;
@@ -666,8 +666,8 @@ cafekbd_indicator_scroll (GtkWidget * gki, GdkEventScroll * event)
 
 static void cafekbd_indicator_init(CafekbdIndicator* gki)
 {
-	GtkWidget *def_drawing;
-	GtkNotebook *notebook;
+	CtkWidget *def_drawing;
+	CtkNotebook *notebook;
 
 	if (!g_slist_length(globals.widget_instances))
 	{
@@ -758,7 +758,7 @@ static void
 cafekbd_indicator_class_init (CafekbdIndicatorClass * klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 
 	xkl_debug (100, "*** First CafekbdIndicator instance *** \n");
 
@@ -839,7 +839,7 @@ cafekbd_indicator_global_init (void)
 	xkl_debug (100, "*** Inited globals *** \n");
 }
 
-GtkWidget *
+CtkWidget *
 cafekbd_indicator_new (void)
 {
 	return

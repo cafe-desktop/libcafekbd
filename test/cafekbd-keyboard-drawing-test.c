@@ -158,8 +158,8 @@ bad_keycode (CafekbdKeyboardDrawing * drawing, guint keycode)
 gint
 main (gint argc, gchar ** argv)
 {
-	GtkWidget *window;
-	GtkWidget *cafekbd_keyboard_drawing;
+	CtkWidget *window;
+	CtkWidget *cafekbd_keyboard_drawing;
 	GdkScreen *screen;
 	GdkMonitor *monitor;
 	GdkRectangle rect;
