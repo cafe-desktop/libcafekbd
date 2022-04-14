@@ -149,7 +149,7 @@ cafekbd_indicator_free_images ()
 	while ((img_node = globals.images) != NULL) {
 		GdkPixbuf *pi;
 
-		pi = CDK_PIXBUF (img_node->data);
+		pi = GDK_PIXBUF (img_node->data);
 		/* It can be NULL - some images may be missing */
 		if (pi != NULL) {
 			g_object_unref (pi);
@@ -373,7 +373,7 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 
 		if (pimage == NULL)
 			return NULL;
-		image = CDK_PIXBUF (pimage);
+		image = GDK_PIXBUF (pimage);
 		flag = ctk_drawing_area_new ();
 		ctk_widget_add_events (CTK_WIDGET (flag),
 				       CDK_BUTTON_PRESS_MASK);
@@ -902,7 +902,7 @@ cafekbd_indicator_get_max_width_height_ratio (void)
 	if (!globals.ind_cfg.show_flags)
 		return 0;
 	while (ip != NULL) {
-		GdkPixbuf *img = CDK_PIXBUF (ip->data);
+		GdkPixbuf *img = GDK_PIXBUF (ip->data);
 		gdouble r =
 		    1.0 * cdk_pixbuf_get_width (img) /
 		    cdk_pixbuf_get_height (img);
