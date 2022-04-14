@@ -2,24 +2,24 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the libcafekbd package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # samson <sambelet@yahoo.com>, 2020
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # Martin Wimpress <code@flexion.org>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libcafekbd 1.24.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/libcafekbd\n"
-"POT-Creation-Date: 2020-02-24 21:52+0100\n"
+"POT-Creation-Date: 2022-04-14 19:55+0200\n"
 "PO-Revision-Date: 2020-02-14 12:40+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>, 2020\n"
 "Language-Team: Amharic (https://www.transifex.com/cafe/teams/13566/am/)\n"
+"Language: am\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: am\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: libcafekbd/cafekbd-indicator.c:116 libcafekbd/cafekbd-status.c:315
@@ -27,7 +27,7 @@ msgstr ""
 msgid "There was an error loading an image: %s"
 msgstr "ምስሉ ሲጫን ስህተት ተፈጥሯል: %s"
 
-#: libcafekbd/cafekbd-indicator.c:694 libcafekbd/cafekbd-status.c:651
+#: libcafekbd/cafekbd-indicator.c:696 libcafekbd/cafekbd-status.c:651
 msgid "XKB initialization error"
 msgstr "XKB የ ማስነሻ ስህተት"
 
@@ -265,30 +265,30 @@ msgstr "ያልታወቀ"
 msgid "Keyboard Layout \"%s\""
 msgstr "የ ፊደል ገበታ አቀማመጥ \"%s\""
 
-#: libcafekbd/cafekbd-keyboard-config.c:717
+#: libcafekbd/cafekbd-keyboard-config.c:720
 #, c-format
 msgid "layout \"%s\""
 msgid_plural "layouts \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcafekbd/cafekbd-keyboard-config.c:735
+#: libcafekbd/cafekbd-keyboard-config.c:738
 #, c-format
 msgid "option \"%s\""
 msgid_plural "options \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcafekbd/cafekbd-keyboard-config.c:743
+#: libcafekbd/cafekbd-keyboard-config.c:746
 #, c-format
 msgid "model \"%s\", %s and %s"
 msgstr "ዘዴ \"%s\", %s እና %s"
 
-#: libcafekbd/cafekbd-keyboard-config.c:744
+#: libcafekbd/cafekbd-keyboard-config.c:747
 msgid "no layout"
 msgstr "እቅድ የለም"
 
-#: libcafekbd/cafekbd-keyboard-config.c:745
+#: libcafekbd/cafekbd-keyboard-config.c:748
 msgid "no options"
 msgstr "ምርጫዎች የሉም "
 
@@ -426,7 +426,8 @@ msgstr "የፊት ለፊቱ ቀለም "
 msgid ""
 "The foreground color for the layout indicator. This should be in \"R G B\" "
 "format, for example \"255 0 0\"."
-msgstr "የ ፊት ለፊት ቀለም ለ እቅድ መጠቆሚያ: ይህ መሆን አለበት  \"ቀ አ ሰ\" አቀራረብ ለምሳሌ \"255 0 0\"."
+msgstr ""
+"የ ፊት ለፊት ቀለም ለ እቅድ መጠቆሚያ: ይህ መሆን አለበት  \"ቀ አ ሰ\" አቀራረብ ለምሳሌ \"255 0 0\"."
 
 #: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:120
 msgid "The background color"

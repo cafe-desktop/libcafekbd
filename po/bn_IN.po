@@ -2,23 +2,24 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the libcafekbd package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # umesh agarwal <umesh.agarwal1@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libcafekbd 1.24.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/libcafekbd\n"
-"POT-Creation-Date: 2020-02-24 21:52+0100\n"
+"POT-Creation-Date: 2022-04-14 19:55+0200\n"
 "PO-Revision-Date: 2020-02-14 12:40+0000\n"
 "Last-Translator: umesh agarwal <umesh.agarwal1@gmail.com>, 2020\n"
-"Language-Team: Bengali (India) (https://www.transifex.com/cafe/teams/13566/bn_IN/)\n"
+"Language-Team: Bengali (India) (https://www.transifex.com/cafe/teams/13566/"
+"bn_IN/)\n"
+"Language: bn_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bn_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: libcafekbd/cafekbd-indicator.c:116 libcafekbd/cafekbd-status.c:315
@@ -26,7 +27,7 @@ msgstr ""
 msgid "There was an error loading an image: %s"
 msgstr "ছবি লোড করতে সমস্যা: %s"
 
-#: libcafekbd/cafekbd-indicator.c:694 libcafekbd/cafekbd-status.c:651
+#: libcafekbd/cafekbd-indicator.c:696 libcafekbd/cafekbd-status.c:651
 msgid "XKB initialization error"
 msgstr "XKB প্রারম্ভ সংক্রান্ত সমস্যা"
 
@@ -264,30 +265,30 @@ msgstr "অজানা"
 msgid "Keyboard Layout \"%s\""
 msgstr ""
 
-#: libcafekbd/cafekbd-keyboard-config.c:717
+#: libcafekbd/cafekbd-keyboard-config.c:720
 #, c-format
 msgid "layout \"%s\""
 msgid_plural "layouts \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcafekbd/cafekbd-keyboard-config.c:735
+#: libcafekbd/cafekbd-keyboard-config.c:738
 #, c-format
 msgid "option \"%s\""
 msgid_plural "options \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: libcafekbd/cafekbd-keyboard-config.c:743
+#: libcafekbd/cafekbd-keyboard-config.c:746
 #, c-format
 msgid "model \"%s\", %s and %s"
 msgstr "মডেল \"%s\", %s এবং %s"
 
-#: libcafekbd/cafekbd-keyboard-config.c:744
+#: libcafekbd/cafekbd-keyboard-config.c:747
 msgid "no layout"
 msgstr "কোনো বিন্যাস উপস্থিত নেই"
 
-#: libcafekbd/cafekbd-keyboard-config.c:745
+#: libcafekbd/cafekbd-keyboard-config.c:748
 msgid "no options"
 msgstr "কোনো বিকল্প উপস্থিত নেই"
 
@@ -321,8 +322,8 @@ msgid ""
 "A collection of scripts to run whenever the keyboard state is reloaded. "
 "Useful for re-applying xmodmap based adjustments"
 msgstr ""
-"কি-বোর্ডের অবস্থান লোড করার পরে সঞ্চালনের উদ্দেশ্যে স্ক্রিপ্টের সংকলন। "
-"xmodmap ভিত্তিক পরিবর্তন পুনরায় প্রয়োগ করতে সহায়ক।"
+"কি-বোর্ডের অবস্থান লোড করার পরে সঞ্চালনের উদ্দেশ্যে স্ক্রিপ্টের সংকলন। xmodmap "
+"ভিত্তিক পরিবর্তন পুনরায় প্রয়োগ করতে সহায়ক।"
 
 #: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:33
 msgid "modmap file list"
@@ -356,8 +357,8 @@ msgid ""
 "Show layout names instead of group names (only for versions of XFree "
 "supporting multiple layouts)"
 msgstr ""
-"সংকলনের নামের পরিবর্তে বিন্যাসের নাম প্রদর্শন করা হবে (শুধুমাত্র একাধিক "
-"বিন্যাস বিশিষ্ট XFree-র সংস্করণের জন্য)"
+"সংকলনের নামের পরিবর্তে বিন্যাসের নাম প্রদর্শন করা হবে (শুধুমাত্র একাধিক বিন্যাস "
+"বিশিষ্ট XFree-র সংস্করণের জন্য)"
 
 #: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:58
 msgid "Load extra configuration items"

@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the libcafekbd package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Dušan Kazik <prescott66@gmail.com>, 2020
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
@@ -10,27 +10,28 @@
 # Tibor Kaputa <tibbbi2@gmail.com>, 2020
 # Martin Wimpress <code@flexion.org>, 2020
 # Ján Ďanovský <dagsoftware@yahoo.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libcafekbd 1.24.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/libcafekbd\n"
-"POT-Creation-Date: 2020-02-24 21:52+0100\n"
+"POT-Creation-Date: 2022-04-14 19:55+0200\n"
 "PO-Revision-Date: 2020-02-14 12:40+0000\n"
 "Last-Translator: Ján Ďanovský <dagsoftware@yahoo.com>, 2020\n"
 "Language-Team: Slovak (https://www.transifex.com/cafe/teams/13566/sk/)\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
+">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 
 #: libcafekbd/cafekbd-indicator.c:116 libcafekbd/cafekbd-status.c:315
 #, c-format
 msgid "There was an error loading an image: %s"
 msgstr "Nastala chyba pri načítaní obrázku: %s"
 
-#: libcafekbd/cafekbd-indicator.c:694 libcafekbd/cafekbd-status.c:651
+#: libcafekbd/cafekbd-indicator.c:696 libcafekbd/cafekbd-status.c:651
 msgid "XKB initialization error"
 msgstr "Chyba inicializácie XKB"
 
@@ -268,7 +269,7 @@ msgstr "Neznámy"
 msgid "Keyboard Layout \"%s\""
 msgstr "Rozloženie klávesnice „%s“"
 
-#: libcafekbd/cafekbd-keyboard-config.c:717
+#: libcafekbd/cafekbd-keyboard-config.c:720
 #, c-format
 msgid "layout \"%s\""
 msgid_plural "layouts \"%s\""
@@ -277,7 +278,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcafekbd/cafekbd-keyboard-config.c:735
+#: libcafekbd/cafekbd-keyboard-config.c:738
 #, c-format
 msgid "option \"%s\""
 msgid_plural "options \"%s\""
@@ -286,16 +287,16 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: libcafekbd/cafekbd-keyboard-config.c:743
+#: libcafekbd/cafekbd-keyboard-config.c:746
 #, c-format
 msgid "model \"%s\", %s and %s"
 msgstr "model „%s“, %s a %s"
 
-#: libcafekbd/cafekbd-keyboard-config.c:744
+#: libcafekbd/cafekbd-keyboard-config.c:747
 msgid "no layout"
 msgstr "bez rozloženia"
 
-#: libcafekbd/cafekbd-keyboard-config.c:745
+#: libcafekbd/cafekbd-keyboard-config.c:748
 msgid "no options"
 msgstr "bez možností"
 
@@ -436,8 +437,8 @@ msgid ""
 "The foreground color for the layout indicator. This should be in \"R G B\" "
 "format, for example \"255 0 0\"."
 msgstr ""
-"Farba popredia indikátora rozloženia. Táto hodnota by mala byť vo formáte „R"
-" G B“, napríklad „255 0 0“."
+"Farba popredia indikátora rozloženia. Táto hodnota by mala byť vo formáte „R "
+"G B“, napríklad „255 0 0“."
 
 #: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:120
 msgid "The background color"

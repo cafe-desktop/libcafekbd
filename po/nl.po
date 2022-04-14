@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the libcafekbd package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # 8c3c560621f92e66455793da7b85eff0_8989672 <0e181aafae430e5c919398b6a7bba462_109266>, 2020
 # Stef Pletinck <stef.plet@gmail.com>, 2020
@@ -10,19 +10,19 @@
 # Erik Bent <hj.bent.60@gmail.com>, 2020
 # Nathan Follens, 2020
 # Pjotr <pjotrvertaalt@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: libcafekbd 1.24.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/libcafekbd\n"
-"POT-Creation-Date: 2020-02-24 21:52+0100\n"
+"POT-Creation-Date: 2022-04-14 19:55+0200\n"
 "PO-Revision-Date: 2020-02-14 12:40+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>, 2020\n"
 "Language-Team: Dutch (https://www.transifex.com/cafe/teams/13566/nl/)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: libcafekbd/cafekbd-indicator.c:116 libcafekbd/cafekbd-status.c:315
@@ -30,7 +30,7 @@ msgstr ""
 msgid "There was an error loading an image: %s"
 msgstr "Probleem bij laden van afbeelding: %s"
 
-#: libcafekbd/cafekbd-indicator.c:694 libcafekbd/cafekbd-status.c:651
+#: libcafekbd/cafekbd-indicator.c:696 libcafekbd/cafekbd-status.c:651
 msgid "XKB initialization error"
 msgstr "XKB-initialisatiefout"
 
@@ -280,30 +280,30 @@ msgstr "Onbekend"
 msgid "Keyboard Layout \"%s\""
 msgstr "Toetsenbordindeling ‘%s’"
 
-#: libcafekbd/cafekbd-keyboard-config.c:717
+#: libcafekbd/cafekbd-keyboard-config.c:720
 #, c-format
 msgid "layout \"%s\""
 msgid_plural "layouts \"%s\""
 msgstr[0] "indeling \"%s\""
 msgstr[1] "indelingen \"%s\""
 
-#: libcafekbd/cafekbd-keyboard-config.c:735
+#: libcafekbd/cafekbd-keyboard-config.c:738
 #, c-format
 msgid "option \"%s\""
 msgid_plural "options \"%s\""
 msgstr[0] "optie \"%s\""
 msgstr[1] "opties \"%s\""
 
-#: libcafekbd/cafekbd-keyboard-config.c:743
+#: libcafekbd/cafekbd-keyboard-config.c:746
 #, c-format
 msgid "model \"%s\", %s and %s"
 msgstr "model \"%s\", %s en %s"
 
-#: libcafekbd/cafekbd-keyboard-config.c:744
+#: libcafekbd/cafekbd-keyboard-config.c:747
 msgid "no layout"
 msgstr "geen indeling"
 
-#: libcafekbd/cafekbd-keyboard-config.c:745
+#: libcafekbd/cafekbd-keyboard-config.c:748
 msgid "no options"
 msgstr "geen opties"
 
@@ -337,9 +337,9 @@ msgid ""
 "A collection of scripts to run whenever the keyboard state is reloaded. "
 "Useful for re-applying xmodmap based adjustments"
 msgstr ""
-"Een verzameling scripts die uitgevoerd worden als de toetsenbordinstellingen"
-" opnieuw geladen worden. Dit is bruikbaar om bijvoorbeeld xmodmap-gebaseerde"
-" aanpassingen opnieuw uit te laten voeren."
+"Een verzameling scripts die uitgevoerd worden als de toetsenbordinstellingen "
+"opnieuw geladen worden. Dit is bruikbaar om bijvoorbeeld xmodmap-gebaseerde "
+"aanpassingen opnieuw uit te laten voeren."
 
 #: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:33
 msgid "modmap file list"

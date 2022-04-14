@@ -1,32 +1,248 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: CAFE Desktop Environment\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-09 12:55+0200\n"
+"Report-Msgid-Bugs-To: https://github.com/cafe-desktop/libcafekbd\n"
+"POT-Creation-Date: 2022-04-14 19:55+0200\n"
 "PO-Revision-Date: 2015-09-06 18:41+0000\n"
 "Last-Translator: infirit <inactive+infirit@transifex.com>\n"
-"Language-Team: Gaelic, Scottish (http://www.transifex.com/cafe/CAFE/language/gd/)\n"
+"Language-Team: Gaelic, Scottish (http://www.transifex.com/cafe/CAFE/language/"
+"gd/)\n"
+"Language: gd\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: gd\n"
-"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : (n > 2 && n < 20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
 
-#: ../libcafekbd/cafekbd-indicator.c:116 ../libcafekbd/cafekbd-status.c:310
+#: libcafekbd/cafekbd-indicator.c:116 libcafekbd/cafekbd-status.c:315
 #, c-format
 msgid "There was an error loading an image: %s"
 msgstr ""
 
-#: ../libcafekbd/cafekbd-indicator.c:699 ../libcafekbd/cafekbd-status.c:645
+#: libcafekbd/cafekbd-indicator.c:696 libcafekbd/cafekbd-status.c:651
 msgid "XKB initialization error"
 msgstr ""
 
-#: ../libcafekbd/cafekbd-keyboard-drawing.c:2460
+#: libcafekbd/cafekbd-keyboard-drawing.c:651
+msgid ""
+"Scroll\n"
+"Lock"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:659
+msgid "Sys Rq"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:663
+msgid ""
+"Page\n"
+"Up"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:667
+msgid ""
+"Page\n"
+"Down"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:671
+msgid ""
+"Num\n"
+"Lock"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:675
+msgid "Pg Up"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:679
+msgid "Pg Dn"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:683
+#: libcafekbd/cafekbd-keyboard-drawing.c:759
+msgid "Home"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:687
+#: libcafekbd/cafekbd-keyboard-drawing.c:764
+msgid "Left"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:691
+#: libcafekbd/cafekbd-keyboard-drawing.c:784
+msgid "End"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:695
+#: libcafekbd/cafekbd-keyboard-drawing.c:769
+msgid "Up"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:699
+msgid "Begin"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:703
+#: libcafekbd/cafekbd-keyboard-drawing.c:774
+msgid "Right"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:707
+msgid "Enter"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:711
+#: libcafekbd/cafekbd-keyboard-drawing.c:779
+msgid "Down"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:715
+msgid "Ins"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:719
+msgid "Del"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:724
+msgid "ISO_Level3_Shift"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:729
+#: libcafekbd/cafekbd-keyboard-drawing.c:739
+msgid "Tab"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:734
+msgid "BackSpace"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:744
+msgid "Return"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:749
+msgid "Pause"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:754
+msgid "Esc"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:789
+msgid "Print"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:794
+msgid "Insert"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:799
+msgid "Menu"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:804
+msgid "F1"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:809
+msgid "F2"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:814
+msgid "F3"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:819
+msgid "F4"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:824
+msgid "F5"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:829
+msgid "F6"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:834
+msgid "F7"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:839
+msgid "F8"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:844
+msgid "F9"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:849
+msgid "F10"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:854
+msgid "F11"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:859
+msgid "F12"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:864
+#: libcafekbd/cafekbd-keyboard-drawing.c:869
+msgid "Shift"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:874
+#: libcafekbd/cafekbd-keyboard-drawing.c:879
+msgid "Control"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:884
+msgid ""
+"Caps\n"
+"Lock"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:889
+msgid "Meta"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:894
+msgid "Alt"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:899
+#: libcafekbd/cafekbd-keyboard-drawing.c:904
+msgid "Super"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:909
+msgid "Delete"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:973
+msgid ""
+"horiz\n"
+"conn"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:977
+msgid "AltGr"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:981
+msgid "Compose"
+msgstr ""
+
+#: libcafekbd/cafekbd-keyboard-drawing.c:2692
 #, c-format
 msgid ""
 "Keyboard layout \"%s\"\n"
@@ -34,16 +250,16 @@ msgid ""
 "For licensing see package metadata"
 msgstr ""
 
-#: ../libcafekbd/cafekbd-keyboard-drawing.c:2542
+#: libcafekbd/cafekbd-keyboard-drawing.c:2774
 msgid "Unknown"
 msgstr ""
 
-#: ../libcafekbd/cafekbd-keyboard-drawing.c:2587
+#: libcafekbd/cafekbd-keyboard-drawing.c:2820
 #, c-format
 msgid "Keyboard Layout \"%s\""
 msgstr ""
 
-#: ../libcafekbd/cafekbd-keyboard-config.c:719
+#: libcafekbd/cafekbd-keyboard-config.c:720
 #, c-format
 msgid "layout \"%s\""
 msgid_plural "layouts \"%s\""
@@ -52,7 +268,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: ../libcafekbd/cafekbd-keyboard-config.c:737
+#: libcafekbd/cafekbd-keyboard-config.c:738
 #, c-format
 msgid "option \"%s\""
 msgid_plural "options \"%s\""
@@ -61,158 +277,170 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: ../libcafekbd/cafekbd-keyboard-config.c:745
+#: libcafekbd/cafekbd-keyboard-config.c:746
 #, c-format
 msgid "model \"%s\", %s and %s"
 msgstr ""
 
-#: ../libcafekbd/cafekbd-keyboard-config.c:746
+#: libcafekbd/cafekbd-keyboard-config.c:747
 msgid "no layout"
 msgstr ""
 
-#: ../libcafekbd/cafekbd-keyboard-config.c:747
+#: libcafekbd/cafekbd-keyboard-config.c:748
 msgid "no options"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:1
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:11
 msgid "Keyboard model"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:2
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:12
 msgid "keyboard model"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:3
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:16
 msgid "Keyboard layout"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:4
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:17
 msgid "keyboard layout"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:5
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:21
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:22
 msgid "Keyboard options"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:6
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:28
 msgid "Keyboard Update Handlers"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:7
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:29
 msgid ""
 "A collection of scripts to run whenever the keyboard state is reloaded. "
 "Useful for re-applying xmodmap based adjustments"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:8
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:33
 msgid "modmap file list"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:9
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:34
 msgid "A list of modmap files available in the $HOME directory."
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:10
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:38
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:39
 msgid "Default group, assigned on window creation"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:11
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:43
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:44
 msgid "Keep and manage separate group per window"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:12
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:48
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:49
 msgid "Save/restore indicators together with layout groups"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:13
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:53
 msgid "Show layout names instead of group names"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:14
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:54
 msgid ""
 "Show layout names instead of group names (only for versions of XFree "
 "supporting multiple layouts)"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:15
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:58
 msgid "Load extra configuration items"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:16
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:59
 msgid "Load exotic, rarely used layouts and options"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:17
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:63
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:64
 msgid "Suppress the \"X sysconfig changed\" warning message"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:18
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:68
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:69
 msgid "Allow to disable the keyboard indicator tray icon"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:19
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:73
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:74
 msgid "Show keyboard leds indicator"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:20
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:80
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:81
 msgid "The Keyboard Preview, X offset"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:21
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:85
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:86
 msgid "The Keyboard Preview, Y offset"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:22
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:90
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:91
 msgid "The Keyboard Preview, width"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:23
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:95
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:96
 msgid "The Keyboard Preview, height"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:24
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:102
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:103
 msgid "Secondary groups"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:25
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:110
 msgid "The font"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:26
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:111
 msgid ""
 "The font for the layout indicator. This should be in \"[FAMILY-LIST] [STYLE-"
 "OPTIONS] [SIZE]\" format."
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:27
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:115
 msgid "The foreground color"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:28
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:116
 msgid ""
 "The foreground color for the layout indicator. This should be in \"R G B\" "
 "format, for example \"255 0 0\"."
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:29
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:120
 msgid "The background color"
 msgstr ""
 
-#: ../libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in.h:30
+#: libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml.in:121
 msgid ""
 "The background color for the layout indicator. This should be in \"R G B\" "
 "format, for example \"255 0 0\"."
 msgstr ""
 
-#: ../libcafekbd/show-layout.ui.h:1
+#: libcafekbd/show-layout.ui:9
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../test/cafekbd-indicator-test.c:55
+#: test/cafekbd-indicator-test.c:55
 #, c-format
 msgid "Keyboard Indicator Test (%s)"
 msgstr ""
 
-#: ../test/cafekbd-indicator-test.c:63
+#: test/cafekbd-indicator-test.c:63
 msgid "Indicator:"
 msgstr ""
