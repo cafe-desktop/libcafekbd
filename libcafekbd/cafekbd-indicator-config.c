@@ -27,7 +27,7 @@
 #include <pango/pango.h>
 
 #include <glib/gi18n-lib.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 
 #include <cafekbd-keyboard-config.h>
 #include <cafekbd-indicator-config.h>
@@ -68,7 +68,7 @@ cafekbd_indicator_config_load_font (CafekbdIndicatorConfig * ind_config)
 		ctk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");
 
 		ctk_style_context_set_path (context, widget_path);
-		ctk_style_context_set_screen (context, gdk_screen_get_default ());
+		ctk_style_context_set_screen (context, cdk_screen_get_default ());
 		ctk_style_context_set_state (context, CTK_STATE_FLAG_NORMAL);
 		ctk_style_context_add_class (context, CTK_STYLE_CLASS_DEFAULT);
 		ctk_style_context_add_class (context, "gnome-panel-menu-bar");
@@ -106,7 +106,7 @@ cafekbd_indicator_config_load_colors (CafekbdIndicatorConfig * ind_config)
 		ctk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");
 
 		ctk_style_context_set_path (context, widget_path);
-		ctk_style_context_set_screen (context, gdk_screen_get_default ());
+		ctk_style_context_set_screen (context, cdk_screen_get_default ());
 		ctk_style_context_set_state (context, CTK_STATE_FLAG_NORMAL);
 		ctk_style_context_add_class (context, CTK_STYLE_CLASS_DEFAULT);
 		ctk_style_context_add_class (context, "gnome-panel-menu-bar");
