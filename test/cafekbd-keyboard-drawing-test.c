@@ -204,8 +204,8 @@ main (gint argc, gchar ** argv)
 			  G_CALLBACK (ctk_main_quit), NULL);
 
 	screen = ctk_window_get_screen (CTK_WINDOW (window));
-	monitor = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), 0, 0);
-	gdk_monitor_get_geometry (monitor, &rect);
+	monitor = cdk_display_get_monitor_at_point (cdk_screen_get_display (screen), 0, 0);
+	cdk_monitor_get_geometry (monitor, &rect);
 	ctk_window_set_default_size (CTK_WINDOW (window),
 				     rect.width * 4 / 5,
 				     rect.height * 1 / 2);

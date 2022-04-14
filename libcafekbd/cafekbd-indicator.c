@@ -21,8 +21,8 @@
 #include <memory.h>
 
 #include <ctk/ctk.h>
-#include <gdk/gdkkeysyms.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkkeysyms.h>
+#include <cdk/cdkx.h>
 #include <glib/gi18n-lib.h>
 
 #include <cafekbd-indicator.h>
@@ -105,7 +105,7 @@ cafekbd_indicator_load_images ()
 		if (image_file != NULL) {
 			GError *gerror = NULL;
 			image =
-			    gdk_pixbuf_new_from_file (image_file, &gerror);
+			    cdk_pixbuf_new_from_file (image_file, &gerror);
 			if (image == NULL) {
 				CtkWidget *dialog =
 				    ctk_message_dialog_new (NULL,
@@ -131,8 +131,8 @@ cafekbd_indicator_load_images ()
 			xkl_debug (150,
 				   "Image %d[%s] loaded -> %p[%dx%d]\n",
 				   i, image_file, image,
-				   gdk_pixbuf_get_width (image),
-				   gdk_pixbuf_get_height (image));
+				   cdk_pixbuf_get_width (image),
+				   cdk_pixbuf_get_height (image));
 		}
 		/* We append the image anyway - even if it is NULL! */
 		globals.images = g_slist_append (globals.images, image);
@@ -255,8 +255,8 @@ static void
 draw_flag (CtkWidget * flag, cairo_t * cr, GdkPixbuf * image)
 {
 	/* Image width and height */
-	int iw = gdk_pixbuf_get_width (image);
-	int ih = gdk_pixbuf_get_height (image);
+	int iw = cdk_pixbuf_get_width (image);
+	int ih = cdk_pixbuf_get_height (image);
 	CtkAllocation allocation;
 	double xwiratio, ywiratio, wiratio;
 
@@ -272,7 +272,7 @@ draw_flag (CtkWidget * flag, cairo_t * cr, GdkPixbuf * image)
 	cairo_scale (cr, wiratio, wiratio);
 	cairo_translate (cr, - iw / 2.0, - ih / 2.0);
 
-	gdk_cairo_set_source_pixbuf (cr, image, 0, 0);
+	cdk_cairo_set_source_pixbuf (cr, image, 0, 0);
 	cairo_paint (cr);
 }
 
@@ -634,9 +634,9 @@ cafekbd_indicator_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 static void
 cafekbd_indicator_start_listen (void)
 {
-	gdk_window_add_filter (NULL, (GdkFilterFunc)
+	cdk_window_add_filter (NULL, (GdkFilterFunc)
 			       cafekbd_indicator_filter_x_evt, NULL);
-	gdk_window_add_filter (gdk_get_default_root_window (),
+	cdk_window_add_filter (cdk_get_default_root_window (),
 			       (GdkFilterFunc)
 			       cafekbd_indicator_filter_x_evt, NULL);
 
@@ -650,10 +650,10 @@ cafekbd_indicator_stop_listen (void)
 {
 	xkl_engine_stop_listen (globals.engine, XKLL_TRACK_KEYBOARD_STATE);
 
-	gdk_window_remove_filter (NULL, (GdkFilterFunc)
+	cdk_window_remove_filter (NULL, (GdkFilterFunc)
 				  cafekbd_indicator_filter_x_evt, NULL);
-	gdk_window_remove_filter
-	    (gdk_get_default_root_window (),
+	cdk_window_remove_filter
+	    (cdk_get_default_root_window (),
 	     (GdkFilterFunc) cafekbd_indicator_filter_x_evt, NULL);
 }
 
@@ -786,7 +786,7 @@ cafekbd_indicator_global_init (void)
 {
 	XklConfigRec *xklrec = xkl_config_rec_new ();
 
-	globals.engine = xkl_engine_get_instance(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()));
+	globals.engine = xkl_engine_get_instance(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
 
 	if (globals.engine == NULL)
 	{
@@ -904,8 +904,8 @@ cafekbd_indicator_get_max_width_height_ratio (void)
 	while (ip != NULL) {
 		GdkPixbuf *img = GDK_PIXBUF (ip->data);
 		gdouble r =
-		    1.0 * gdk_pixbuf_get_width (img) /
-		    gdk_pixbuf_get_height (img);
+		    1.0 * cdk_pixbuf_get_width (img) /
+		    cdk_pixbuf_get_height (img);
 		if (r > rv)
 			rv = r;
 		ip = ip->next;

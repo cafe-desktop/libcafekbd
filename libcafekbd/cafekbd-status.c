@@ -22,8 +22,8 @@
 
 #include <cairo.h>
 
-#include <gdk/gdkkeysyms.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkkeysyms.h>
+#include <cdk/cdkx.h>
 #include <glib/gi18n-lib.h>
 #include <glib/gprintf.h>
 
@@ -187,12 +187,12 @@ cafekbd_status_render_cairo (cairo_t * cr, int group)
 
 	pcc = pango_cairo_create_context (cr);
 
-	screen_res = gdk_screen_get_resolution (gdk_screen_get_default ());
+	screen_res = cdk_screen_get_resolution (cdk_screen_get_default ());
 	if (screen_res > 0)
 		pango_cairo_context_set_resolution (pcc, screen_res);
 
-	fo = cairo_font_options_copy (gdk_screen_get_font_options
-				      (gdk_screen_get_default ()));
+	fo = cairo_font_options_copy (cdk_screen_get_font_options
+				      (cdk_screen_get_default ()));
 	/* SUBPIXEL antialiasing gives bad results on in-memory images */
 	if (cairo_font_options_get_antialias (fo) ==
 	    CAIRO_ANTIALIAS_SUBPIXEL)
@@ -301,7 +301,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 					       ind_cfg.image_filenames,
 					       group);
 
-		image = gdk_pixbuf_new_from_file_at_size (image_filename,
+		image = cdk_pixbuf_new_from_file_at_size (image_filename,
 							  globals.current_width,
 							  globals.current_height,
 							  &gerror);
@@ -334,9 +334,9 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 		xkl_debug (150,
 			   "Image %d[%s] loaded -> %p[%dx%d], alpha: %d\n",
 			   group, image_filename, image,
-			   gdk_pixbuf_get_width (image),
-			   gdk_pixbuf_get_height (image),
-			   gdk_pixbuf_get_has_alpha (image));
+			   cdk_pixbuf_get_width (image),
+			   cdk_pixbuf_get_height (image),
+			   cdk_pixbuf_get_has_alpha (image));
 
 		return image;
 	} else {
@@ -364,7 +364,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 
 		cairo_surface_destroy (cs);
 
-		image = gdk_pixbuf_new_from_data (pixbuf_data,
+		image = cdk_pixbuf_new_from_data (pixbuf_data,
 						  GDK_COLORSPACE_RGB,
 						  TRUE,
 						  8,
@@ -376,9 +376,9 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 						  g_free, NULL);
 		xkl_debug (150,
 			   "Image %d created -> %p[%dx%d], alpha: %d\n",
-			   group, image, gdk_pixbuf_get_width (image),
-			   gdk_pixbuf_get_height (image),
-			   gdk_pixbuf_get_has_alpha (image));
+			   group, image, cdk_pixbuf_get_width (image),
+			   cdk_pixbuf_get_height (image),
+			   cdk_pixbuf_get_has_alpha (image));
 
 		return image;
 	}
@@ -588,9 +588,9 @@ cafekbd_status_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 static void
 cafekbd_status_start_listen (void)
 {
-	gdk_window_add_filter (NULL, (GdkFilterFunc)
+	cdk_window_add_filter (NULL, (GdkFilterFunc)
 			       cafekbd_status_filter_x_evt, NULL);
-	gdk_window_add_filter (gdk_get_default_root_window (),
+	cdk_window_add_filter (cdk_get_default_root_window (),
 			       (GdkFilterFunc) cafekbd_status_filter_x_evt,
 			       NULL);
 
@@ -604,10 +604,10 @@ cafekbd_status_stop_listen (void)
 {
 	xkl_engine_stop_listen (globals.engine, XKLL_TRACK_KEYBOARD_STATE);
 
-	gdk_window_remove_filter (NULL, (GdkFilterFunc)
+	cdk_window_remove_filter (NULL, (GdkFilterFunc)
 				  cafekbd_status_filter_x_evt, NULL);
-	gdk_window_remove_filter
-	    (gdk_get_default_root_window (),
+	cdk_window_remove_filter
+	    (cdk_get_default_root_window (),
 	     (GdkFilterFunc) cafekbd_status_filter_x_evt, NULL);
 }
 
@@ -765,7 +765,7 @@ cafekbd_status_global_init (void)
 {
 	XklConfigRec *xklrec = xkl_config_rec_new ();
 
-	globals.engine = xkl_engine_get_instance(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()));
+	globals.engine = xkl_engine_get_instance(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
 
 	if (globals.engine == NULL) {
 		xkl_debug (0, "Libxklavier initialization error");

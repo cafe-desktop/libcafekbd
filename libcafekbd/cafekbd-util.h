@@ -21,7 +21,7 @@
 #define __CAFEKBD_UTIL_H__
 
 #include <glib.h>
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 
 extern void cafekbd_install_glib_log_appender (void);
 

@@ -29,8 +29,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkx.h>
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 

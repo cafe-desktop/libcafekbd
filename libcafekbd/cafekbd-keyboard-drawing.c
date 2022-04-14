@@ -19,8 +19,8 @@
 
 #include <config.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkx.h>
+#include <cdk/cdkkeysyms.h>
 #include <X11/XKBlib.h>
 #include <X11/extensions/XKBgeom.h>
 #include <stdlib.h>
@@ -314,7 +314,7 @@ draw_polygon (CafekbdKeyboardDrawingRenderContext * context,
 		filled = FALSE;
 	}
 
-	gdk_cairo_set_source_rgba (context->cr, fill_color);
+	cdk_cairo_set_source_rgba (context->cr, fill_color);
 
 	points = g_new (GdkPoint, num_points);
 
@@ -375,7 +375,7 @@ draw_curve_rectangle (cairo_t * cr,
 {
 	curve_rectangle (cr, x, y, width, height, radius);
 
-	gdk_cairo_set_source_rgba (cr, fill_color);
+	cdk_cairo_set_source_rgba (cr, fill_color);
 
 	if (filled)
 		cairo_fill (cr);
@@ -982,12 +982,12 @@ set_key_label_in_layout (CafekbdKeyboardDrawingRenderContext * context,
 		break;
 
 	default:
-		uc = gdk_keyval_to_unicode (keyval);
+		uc = cdk_keyval_to_unicode (keyval);
 		if (uc != 0 && g_unichar_isgraph (uc)) {
 			buf[g_unichar_to_utf8 (uc, buf)] = '\0';
 			set_markup (context, buf);
 		} else {
-			gchar *name = gdk_keyval_name (keyval);
+			gchar *name = cdk_keyval_name (keyval);
 			if (name) {
 				set_markup (context, name);
 			} else
@@ -1051,7 +1051,7 @@ draw_pango_layout (CafekbdKeyboardDrawingRenderContext * context,
 	}
 
 	cairo_move_to (context->cr, x, y);
-	gdk_cairo_set_source_rgba (context->cr, color);
+	cdk_cairo_set_source_rgba (context->cr, color);
 	pango_cairo_show_layout (context->cr, layout);
 }
 
@@ -1599,7 +1599,7 @@ draw_keyboard (CafekbdKeyboardDrawing * drawing)
 	ctk_widget_get_allocation (CTK_WIDGET (drawing), &allocation);
 
 	drawing->surface =
-	    gdk_window_create_similar_surface (ctk_widget_get_window
+	    cdk_window_create_similar_surface (ctk_widget_get_window
 					       (CTK_WIDGET (drawing)),
 					       CAIRO_CONTENT_COLOR,
 					       allocation.width,
@@ -1611,7 +1611,7 @@ draw_keyboard (CafekbdKeyboardDrawing * drawing)
 		ctk_style_context_add_class (context, CTK_STYLE_CLASS_VIEW);
 		ctk_style_context_get_background_color (context, state, &color);
 		ctk_style_context_restore (context);
-		gdk_cairo_set_source_rgba (drawing->renderContext->cr, &color);
+		cdk_cairo_set_source_rgba (drawing->renderContext->cr, &color);
 		cairo_paint (drawing->renderContext->cr);
 
 		draw_keyboard_to_context (drawing->renderContext, drawing);
@@ -2152,7 +2152,7 @@ process_indicators_state_notify (XkbIndicatorNotifyEvent * iev,
 }
 
 static GdkFilterReturn
-xkb_state_notify_event_filter (GdkXEvent * gdkxev,
+xkb_state_notify_event_filter (GdkXEvent * cdkxev,
 			       GdkEvent * event,
 			       CafekbdKeyboardDrawing * drawing)
 {
@@ -2162,8 +2162,8 @@ xkb_state_notify_event_filter (GdkXEvent * gdkxev,
 	if (!drawing->xkb)
 		return GDK_FILTER_CONTINUE;
 
-	if (((XEvent *) gdkxev)->type == drawing->xkb_event_type) {
-		XkbEvent *kev = (XkbEvent *) gdkxev;
+	if (((XEvent *) cdkxev)->type == drawing->xkb_event_type) {
+		XkbEvent *kev = (XkbEvent *) cdkxev;
 		CtkAllocation allocation;
 		switch (kev->any.xkb_type) {
 		case XkbStateNotify:
@@ -2195,7 +2195,7 @@ xkb_state_notify_event_filter (GdkXEvent * gdkxev,
 				process_indicators_state_notify (&
 								 ((XkbEvent
 								   *)
-								  gdkxev)->indicators,
+								  cdkxev)->indicators,
 drawing);
 			}
 			break;
@@ -2227,7 +2227,7 @@ static void
 destroy (CafekbdKeyboardDrawing * drawing)
 {
 	free_render_context (drawing);
-	gdk_window_remove_filter (NULL, (GdkFilterFunc)
+	cdk_window_remove_filter (NULL, (GdkFilterFunc)
 				  xkb_state_notify_event_filter, drawing);
 	if (drawing->timeout > 0) {
 		g_source_remove (drawing->timeout);
@@ -2255,7 +2255,7 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 	gint opcode = 0, error = 0, major = 1, minor = 0;
 	gint mask;
 
-	drawing->display = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+	drawing->display = GDK_DISPLAY_XDISPLAY(cdk_display_get_default());
 
 	printf ("dpy: %p\n", (void *) drawing->display);
 
@@ -2268,14 +2268,14 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 	printf ("evt/error/major/minor: %d/%d/%d/%d\n",
 		drawing->xkb_event_type, error, major, minor);
 
-	/* XXX: this stuff probably doesn't matter.. also, gdk_screen_get_default can fail */
+	/* XXX: this stuff probably doesn't matter.. also, cdk_screen_get_default can fail */
 	if (ctk_widget_has_screen (CTK_WIDGET (drawing)))
 		drawing->screen_num =
-		    gdk_x11_screen_get_screen_number (ctk_widget_get_screen
+		    cdk_x11_screen_get_screen_number (ctk_widget_get_screen
 					   (CTK_WIDGET (drawing)));
 	else
 		drawing->screen_num =
-		    gdk_x11_screen_get_screen_number (gdk_screen_get_default ());
+		    cdk_x11_screen_get_screen_number (cdk_screen_get_default ());
 
 	drawing->surface = NULL;
 	alloc_render_context (drawing);
@@ -2351,7 +2351,7 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 	g_signal_connect (G_OBJECT (drawing), "style-set",
 			  G_CALLBACK (style_changed), drawing);
 
-	gdk_window_add_filter (NULL, (GdkFilterFunc)
+	cdk_window_add_filter (NULL, (GdkFilterFunc)
 			       xkb_state_notify_event_filter, drawing);
 }
 
@@ -2798,7 +2798,7 @@ cafekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 	GdkRectangle *rect;
 	GError *error = NULL;
 	char title[128] = "";
-	XklEngine* engine = xkl_engine_get_instance(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()));
+	XklEngine* engine = xkl_engine_get_instance(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
 
 	builder = ctk_builder_new ();
 	ctk_builder_add_from_resource (builder,
