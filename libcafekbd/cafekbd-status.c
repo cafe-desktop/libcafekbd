@@ -301,7 +301,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 					       ind_cfg.image_filenames,
 					       group);
 
-		image = cdk_pixbuf_new_from_file_at_size (image_filename,
+		image = gdk_pixbuf_new_from_file_at_size (image_filename,
 							  globals.current_width,
 							  globals.current_height,
 							  &gerror);
@@ -334,9 +334,9 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 		xkl_debug (150,
 			   "Image %d[%s] loaded -> %p[%dx%d], alpha: %d\n",
 			   group, image_filename, image,
-			   cdk_pixbuf_get_width (image),
-			   cdk_pixbuf_get_height (image),
-			   cdk_pixbuf_get_has_alpha (image));
+			   gdk_pixbuf_get_width (image),
+			   gdk_pixbuf_get_height (image),
+			   gdk_pixbuf_get_has_alpha (image));
 
 		return image;
 	} else {
@@ -364,7 +364,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 
 		cairo_surface_destroy (cs);
 
-		image = cdk_pixbuf_new_from_data (pixbuf_data,
+		image = gdk_pixbuf_new_from_data (pixbuf_data,
 						  CDK_COLORSPACE_RGB,
 						  TRUE,
 						  8,
@@ -376,9 +376,9 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 						  g_free, NULL);
 		xkl_debug (150,
 			   "Image %d created -> %p[%dx%d], alpha: %d\n",
-			   group, image, cdk_pixbuf_get_width (image),
-			   cdk_pixbuf_get_height (image),
-			   cdk_pixbuf_get_has_alpha (image));
+			   group, image, gdk_pixbuf_get_width (image),
+			   gdk_pixbuf_get_height (image),
+			   gdk_pixbuf_get_has_alpha (image));
 
 		return image;
 	}

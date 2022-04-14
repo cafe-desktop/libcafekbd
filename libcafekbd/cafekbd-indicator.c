@@ -105,7 +105,7 @@ cafekbd_indicator_load_images ()
 		if (image_file != NULL) {
 			GError *gerror = NULL;
 			image =
-			    cdk_pixbuf_new_from_file (image_file, &gerror);
+			    gdk_pixbuf_new_from_file (image_file, &gerror);
 			if (image == NULL) {
 				CtkWidget *dialog =
 				    ctk_message_dialog_new (NULL,
@@ -131,8 +131,8 @@ cafekbd_indicator_load_images ()
 			xkl_debug (150,
 				   "Image %d[%s] loaded -> %p[%dx%d]\n",
 				   i, image_file, image,
-				   cdk_pixbuf_get_width (image),
-				   cdk_pixbuf_get_height (image));
+				   gdk_pixbuf_get_width (image),
+				   gdk_pixbuf_get_height (image));
 		}
 		/* We append the image anyway - even if it is NULL! */
 		globals.images = g_slist_append (globals.images, image);
@@ -255,8 +255,8 @@ static void
 draw_flag (CtkWidget * flag, cairo_t * cr, GdkPixbuf * image)
 {
 	/* Image width and height */
-	int iw = cdk_pixbuf_get_width (image);
-	int ih = cdk_pixbuf_get_height (image);
+	int iw = gdk_pixbuf_get_width (image);
+	int ih = gdk_pixbuf_get_height (image);
 	CtkAllocation allocation;
 	double xwiratio, ywiratio, wiratio;
 
@@ -904,8 +904,8 @@ cafekbd_indicator_get_max_width_height_ratio (void)
 	while (ip != NULL) {
 		GdkPixbuf *img = GDK_PIXBUF (ip->data);
 		gdouble r =
-		    1.0 * cdk_pixbuf_get_width (img) /
-		    cdk_pixbuf_get_height (img);
+		    1.0 * gdk_pixbuf_get_width (img) /
+		    gdk_pixbuf_get_height (img);
 		if (r > rv)
 			rv = r;
 		ip = ip->next;
