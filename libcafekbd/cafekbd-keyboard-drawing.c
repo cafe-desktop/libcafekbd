@@ -647,337 +647,337 @@ set_key_label_in_layout (CafekbdKeyboardDrawingRenderContext * context,
 	gunichar uc;
 
 	switch (keyval) {
-	case GDK_KEY_Scroll_Lock:
+	case CDK_KEY_Scroll_Lock:
 		set_markup (context, _("Scroll\nLock"));
 		break;
 
-	case GDK_KEY_space:
+	case CDK_KEY_space:
 		set_markup (context, "");
 		break;
 
-	case GDK_KEY_Sys_Req:
+	case CDK_KEY_Sys_Req:
 		set_markup (context, _("Sys Rq"));
 		break;
 
-	case GDK_KEY_Page_Up:
+	case CDK_KEY_Page_Up:
 		set_markup (context, _("Page\nUp"));
 		break;
 
-	case GDK_KEY_Page_Down:
+	case CDK_KEY_Page_Down:
 		set_markup (context, _("Page\nDown"));
 		break;
 
-	case GDK_KEY_Num_Lock:
+	case CDK_KEY_Num_Lock:
 		set_markup (context, _("Num\nLock"));
 		break;
 
-	case GDK_KEY_KP_Page_Up:
+	case CDK_KEY_KP_Page_Up:
 		set_markup (context, _("Pg Up"));
 		break;
 
-	case GDK_KEY_KP_Page_Down:
+	case CDK_KEY_KP_Page_Down:
 		set_markup (context, _("Pg Dn"));
 		break;
 
-	case GDK_KEY_KP_Home:
+	case CDK_KEY_KP_Home:
 		set_markup (context, _("Home"));
 		break;
 
-	case GDK_KEY_KP_Left:
+	case CDK_KEY_KP_Left:
 		set_markup (context, _("Left"));
 		break;
 
-	case GDK_KEY_KP_End:
+	case CDK_KEY_KP_End:
 		set_markup (context, _("End"));
 		break;
 
-	case GDK_KEY_KP_Up:
+	case CDK_KEY_KP_Up:
 		set_markup (context, _("Up"));
 		break;
 
-	case GDK_KEY_KP_Begin:
+	case CDK_KEY_KP_Begin:
 		set_markup (context, _("Begin"));
 		break;
 
-	case GDK_KEY_KP_Right:
+	case CDK_KEY_KP_Right:
 		set_markup (context, _("Right"));
 		break;
 
-	case GDK_KEY_KP_Enter:
+	case CDK_KEY_KP_Enter:
 		set_markup (context, _("Enter"));
 		break;
 
-	case GDK_KEY_KP_Down:
+	case CDK_KEY_KP_Down:
 		set_markup (context, _("Down"));
 		break;
 
-	case GDK_KEY_KP_Insert:
+	case CDK_KEY_KP_Insert:
 		set_markup (context, _("Ins"));
 		break;
 
-	case GDK_KEY_KP_Delete:
+	case CDK_KEY_KP_Delete:
 		set_markup (context, _("Del"));
 		break;
 
 	/* 0xfe03 */
-	case GDK_KEY_ISO_Level3_Shift:
+	case CDK_KEY_ISO_Level3_Shift:
 		set_markup (context, _("ISO_Level3_Shift"));
 		break;
 
 	/* 0xfe20 */
-	case GDK_KEY_ISO_Left_Tab:
+	case CDK_KEY_ISO_Left_Tab:
 		set_markup (context, _("Tab"));
 		break;
 
 	/* 0xff08 */
-	case GDK_KEY_BackSpace:
+	case CDK_KEY_BackSpace:
 		set_markup (context, _("BackSpace"));
 		break;
 
 	/* 0xff09 */
-	case GDK_KEY_Tab:
+	case CDK_KEY_Tab:
 		set_markup (context, _("Tab"));
 		break;
 
 	/* 0xff0d */
-	case GDK_KEY_Return:
+	case CDK_KEY_Return:
 		set_markup (context, _("Return"));
 		break;
 
 	/* 0xff13 */
-	case GDK_KEY_Pause:
+	case CDK_KEY_Pause:
 		set_markup (context, _("Pause"));
 		break;
 
 	/* 0xff1b */
-	case GDK_KEY_Escape:
+	case CDK_KEY_Escape:
 		set_markup (context, _("Esc"));
 		break;
 
 	/* 0xff50 */
-	case GDK_KEY_Home:
+	case CDK_KEY_Home:
 		set_markup (context, _("Home"));
 		break;
 
 	/* 0xff51 */
-	case GDK_KEY_Left:
+	case CDK_KEY_Left:
 		set_markup (context, _("Left"));
 		break;
 
 	/* 0xff52 */
-	case GDK_KEY_Up:
+	case CDK_KEY_Up:
 		set_markup (context, _("Up"));
 		break;
 
 	/* 0xff53 */
-	case GDK_KEY_Right:
+	case CDK_KEY_Right:
 		set_markup (context, _("Right"));
 		break;
 
 	/* 0xff54 */
-	case GDK_KEY_Down:
+	case CDK_KEY_Down:
 		set_markup (context, _("Down"));
 		break;
 
 	/* 0xff57 */
-	case GDK_KEY_End:
+	case CDK_KEY_End:
 		set_markup (context, _("End"));
 		break;
 
 	/* 0xff61 */
-	case GDK_KEY_Print:
+	case CDK_KEY_Print:
 		set_markup (context, _("Print"));
 		break;
 
 	/* 0xff63 */
-	case GDK_KEY_Insert:
+	case CDK_KEY_Insert:
 		set_markup (context, _("Insert"));
 		break;
 
 	/* 0xff67 */
-	case GDK_KEY_Menu:
+	case CDK_KEY_Menu:
 		set_markup (context, _("Menu"));
 		break;
 
 	/* 0xffbe */
-	case GDK_KEY_F1:
+	case CDK_KEY_F1:
 		set_markup (context, _("F1"));
 		break;
 
 	/* 0xffbf */
-	case GDK_KEY_F2:
+	case CDK_KEY_F2:
 		set_markup (context, _("F2"));
 		break;
 
 	/* 0xffc0 */
-	case GDK_KEY_F3:
+	case CDK_KEY_F3:
 		set_markup (context, _("F3"));
 		break;
 
 	/* 0xffc1 */
-	case GDK_KEY_F4:
+	case CDK_KEY_F4:
 		set_markup (context, _("F4"));
 		break;
 
 	/* 0xffc2 */
-	case GDK_KEY_F5:
+	case CDK_KEY_F5:
 		set_markup (context, _("F5"));
 		break;
 
 	/* 0xffc3 */
-	case GDK_KEY_F6:
+	case CDK_KEY_F6:
 		set_markup (context, _("F6"));
 		break;
 
 	/* 0xffc4 */
-	case GDK_KEY_F7:
+	case CDK_KEY_F7:
 		set_markup (context, _("F7"));
 		break;
 
 	/* 0xffc5 */
-	case GDK_KEY_F8:
+	case CDK_KEY_F8:
 		set_markup (context, _("F8"));
 		break;
 
 	/* 0xffc6 */
-	case GDK_KEY_F9:
+	case CDK_KEY_F9:
 		set_markup (context, _("F9"));
 		break;
 
 	/* 0xffc7 */
-	case GDK_KEY_F10:
+	case CDK_KEY_F10:
 		set_markup (context, _("F10"));
 		break;
 
 	/* 0xffc8 */
-	case GDK_KEY_F11:
+	case CDK_KEY_F11:
 		set_markup (context, _("F11"));
 		break;
 
 	/* 0xffc9 */
-	case GDK_KEY_F12:
+	case CDK_KEY_F12:
 		set_markup (context, _("F12"));
 		break;
 
 	/* 0xffe1 */
-	case GDK_KEY_Shift_L:
+	case CDK_KEY_Shift_L:
 		set_markup (context, _("Shift"));
 		break;
 
 	/* 0xffe2 */
-	case GDK_KEY_Shift_R:
+	case CDK_KEY_Shift_R:
 		set_markup (context, _("Shift"));
 		break;
 
 	/* 0xffe3 */
-	case GDK_KEY_Control_L:
+	case CDK_KEY_Control_L:
 		set_markup (context, _("Control"));
 		break;
 
 	/* 0xffe4 */
-	case GDK_KEY_Control_R:
+	case CDK_KEY_Control_R:
 		set_markup (context, _("Control"));
 		break;
 
 	/* 0xffe5 */
-	case GDK_KEY_Caps_Lock:
+	case CDK_KEY_Caps_Lock:
 		set_markup (context, _("Caps\nLock"));
 		break;
 
 	/* 0xffe7 */
-	case GDK_KEY_Meta_L:
+	case CDK_KEY_Meta_L:
 		set_markup (context, _("Meta"));
 		break;
 
 	/* 0xffe9 */
-	case GDK_KEY_Alt_L:
+	case CDK_KEY_Alt_L:
 		set_markup (context, _("Alt"));
 		break;
 
 	/* 0xffeb */
-	case GDK_KEY_Super_L:
+	case CDK_KEY_Super_L:
 		set_markup (context, _("Super"));
 		break;
 
 	/* 0xffec */
-	case GDK_KEY_Super_R:
+	case CDK_KEY_Super_R:
 		set_markup (context, _("Super"));
 		break;
 
 	/* 0xffff */
-	case GDK_KEY_VoidSymbol:
+	case CDK_KEY_VoidSymbol:
 		set_markup (context, _("Delete"));
 		break;
 
-	case GDK_KEY_dead_grave:
+	case CDK_KEY_dead_grave:
 		set_markup (context, "ˋ");
 		break;
 
-	case GDK_KEY_dead_acute:
+	case CDK_KEY_dead_acute:
 		set_markup (context, "ˊ");
 		break;
 
-	case GDK_KEY_dead_circumflex:
+	case CDK_KEY_dead_circumflex:
 		set_markup (context, "ˆ");
 		break;
 
-	case GDK_KEY_dead_tilde:
+	case CDK_KEY_dead_tilde:
 		set_markup (context, "~");
 		break;
 
-	case GDK_KEY_dead_macron:
+	case CDK_KEY_dead_macron:
 		set_markup (context, "ˉ");
 		break;
 
-	case GDK_KEY_dead_breve:
+	case CDK_KEY_dead_breve:
 		set_markup (context, "˘");
 		break;
 
-	case GDK_KEY_dead_abovedot:
+	case CDK_KEY_dead_abovedot:
 		set_markup (context, "˙");
 		break;
 
-	case GDK_KEY_dead_diaeresis:
+	case CDK_KEY_dead_diaeresis:
 		set_markup (context, "¨");
 		break;
 
-	case GDK_KEY_dead_abovering:
+	case CDK_KEY_dead_abovering:
 		set_markup (context, "˚");
 		break;
 
-	case GDK_KEY_dead_doubleacute:
+	case CDK_KEY_dead_doubleacute:
 		set_markup (context, "˝");
 		break;
 
-	case GDK_KEY_dead_caron:
+	case CDK_KEY_dead_caron:
 		set_markup (context, "ˇ");
 		break;
 
-	case GDK_KEY_dead_cedilla:
+	case CDK_KEY_dead_cedilla:
 		set_markup (context, "¸");
 		break;
 
-	case GDK_KEY_dead_ogonek:
+	case CDK_KEY_dead_ogonek:
 		set_markup (context, "˛");
 		break;
 
-		/* case GDK_KEY_dead_iota:
-		 * case GDK_KEY_dead_voiced_sound:
-		 * case GDK_KEY_dead_semivoiced_sound: */
+		/* case CDK_KEY_dead_iota:
+		 * case CDK_KEY_dead_voiced_sound:
+		 * case CDK_KEY_dead_semivoiced_sound: */
 
-	case GDK_KEY_dead_belowdot:
+	case CDK_KEY_dead_belowdot:
 		set_markup (context, " ̣");
 		break;
 
-	case GDK_KEY_horizconnector:
+	case CDK_KEY_horizconnector:
 		set_markup (context, _("horiz\nconn"));
 		break;
 
-	case GDK_KEY_Mode_switch:
+	case CDK_KEY_Mode_switch:
 		set_markup (context, _("AltGr"));
 		break;
 
-	case GDK_KEY_Multi_key:
+	case CDK_KEY_Multi_key:
 		set_markup (context, _("Compose"));
 		break;
 
@@ -1762,12 +1762,12 @@ key_event (CtkWidget * widget,
 		return TRUE;
 	}
 
-	if ((event->type == GDK_KEY_PRESS && key->pressed) ||
-	    (event->type == GDK_KEY_RELEASE && !key->pressed))
+	if ((event->type == CDK_KEY_PRESS && key->pressed) ||
+	    (event->type == CDK_KEY_RELEASE && !key->pressed))
 		return TRUE;
 	/* otherwise this event changes the state we believed we had before */
 
-	key->pressed = (event->type == GDK_KEY_PRESS);
+	key->pressed = (event->type == CDK_KEY_PRESS);
 
 	if (create_cairo (drawing)) {
 		draw_key (drawing->renderContext, drawing, key);
@@ -2160,7 +2160,7 @@ xkb_state_notify_event_filter (GdkXEvent * cdkxev,
 #define modifier_change_mask (XkbModifierStateMask | XkbModifierBaseMask | XkbModifierLatchMask | XkbModifierLockMask)
 
 	if (!drawing->xkb)
-		return GDK_FILTER_CONTINUE;
+		return CDK_FILTER_CONTINUE;
 
 	if (((XEvent *) cdkxev)->type == drawing->xkb_event_type) {
 		XkbEvent *kev = (XkbEvent *) cdkxev;
@@ -2220,7 +2220,7 @@ drawing);
 		}
 	}
 
-	return GDK_FILTER_CONTINUE;
+	return CDK_FILTER_CONTINUE;
 }
 
 static void
@@ -2255,7 +2255,7 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 	gint opcode = 0, error = 0, major = 1, minor = 0;
 	gint mask;
 
-	drawing->display = GDK_DISPLAY_XDISPLAY(cdk_display_get_default());
+	drawing->display = CDK_DISPLAY_XDISPLAY(cdk_display_get_default());
 
 	printf ("dpy: %p\n", (void *) drawing->display);
 
@@ -2303,7 +2303,7 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 	}
 
 	drawing->l3mod = XkbKeysymToModifiers (drawing->display,
-					       GDK_KEY_ISO_Level3_Shift);
+					       CDK_KEY_ISO_Level3_Shift);
 
 	drawing->xkbOnDisplay = TRUE;
 
@@ -2329,9 +2329,9 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 	ctk_widget_set_can_focus (CTK_WIDGET (drawing), TRUE);
 
 	ctk_widget_set_events (CTK_WIDGET (drawing),
-			       GDK_EXPOSURE_MASK | GDK_KEY_PRESS_MASK |
-			       GDK_KEY_RELEASE_MASK | GDK_BUTTON_PRESS_MASK
-			       | GDK_FOCUS_CHANGE_MASK);
+			       CDK_EXPOSURE_MASK | CDK_KEY_PRESS_MASK |
+			       CDK_KEY_RELEASE_MASK | CDK_BUTTON_PRESS_MASK
+			       | CDK_FOCUS_CHANGE_MASK);
 	g_signal_connect (G_OBJECT (drawing), "draw",
 			  G_CALLBACK (draw), drawing);
 	g_signal_connect_after (G_OBJECT (drawing), "key-press-event",
@@ -2798,7 +2798,7 @@ cafekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 	GdkRectangle *rect;
 	GError *error = NULL;
 	char title[128] = "";
-	XklEngine* engine = xkl_engine_get_instance(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
+	XklEngine* engine = xkl_engine_get_instance(CDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
 
 	builder = ctk_builder_new ();
 	ctk_builder_add_from_resource (builder,

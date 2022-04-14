@@ -365,7 +365,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 		cairo_surface_destroy (cs);
 
 		image = cdk_pixbuf_new_from_data (pixbuf_data,
-						  GDK_COLORSPACE_RGB,
+						  CDK_COLORSPACE_RGB,
 						  TRUE,
 						  8,
 						  globals.real_width,
@@ -545,7 +545,7 @@ cafekbd_status_set_current_page_for_group (CafekbdStatus * gki, int group)
 	xkl_debug (200, "Revalidating for group %d\n", group);
 
 	ctk_status_icon_set_from_pixbuf (CTK_STATUS_ICON (gki),
-					 GDK_PIXBUF (g_slist_nth_data
+					 CDK_PIXBUF (g_slist_nth_data
 						     (globals.icons,
 						      group)));
 
@@ -580,7 +580,7 @@ cafekbd_status_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 		NextIndicator ()}
 		break;
 	}
-	return GDK_FILTER_CONTINUE;
+	return CDK_FILTER_CONTINUE;
 }
 
 
@@ -765,7 +765,7 @@ cafekbd_status_global_init (void)
 {
 	XklConfigRec *xklrec = xkl_config_rec_new ();
 
-	globals.engine = xkl_engine_get_instance(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
+	globals.engine = xkl_engine_get_instance(CDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
 
 	if (globals.engine == NULL) {
 		xkl_debug (0, "Libxklavier initialization error");
