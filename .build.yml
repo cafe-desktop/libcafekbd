@@ -20,6 +20,7 @@ requires:
     - libxklavier-dev
     - libxml2-utils
     - make
+    - wget
 
 before_scripts:
   - ./html-cppcheck
