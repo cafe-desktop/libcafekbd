@@ -25,9 +25,9 @@
 
 extern void cafekbd_install_glib_log_appender (void);
 
-extern GdkRectangle *cafekbd_preview_load_position (void);
+extern CdkRectangle *cafekbd_preview_load_position (void);
 
-extern void cafekbd_preview_save_position (GdkRectangle * rect);
+extern void cafekbd_preview_save_position (CdkRectangle * rect);
 
 /* Missing in glib */
 extern gchar **cafekbd_strv_append (gchar ** arr, gchar * element);

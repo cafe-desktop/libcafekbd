@@ -117,7 +117,7 @@ struct _CafekbdKeyboardDrawingRenderContext {
 	gint scale_numerator;
 	gint scale_denominator;
 
-	GdkRGBA dark_color;
+	CdkRGBA dark_color;
 };
 
 struct _CafekbdKeyboardDrawing {
@@ -138,7 +138,7 @@ struct _CafekbdKeyboardDrawing {
 	/* list of stuff to draw in priority order */
 	GList *keyboard_items;
 
-	GdkRGBA *colors;
+	CdkRGBA *colors;
 
 	guint timeout;
 	guint idle_redraw;

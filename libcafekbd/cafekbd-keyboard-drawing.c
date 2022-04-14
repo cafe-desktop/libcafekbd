@@ -261,7 +261,7 @@ rounded_corner (cairo_t * cr,
 static void
 rounded_polygon (cairo_t * cr,
 		 gboolean filled,
-		 gdouble radius, GdkPoint * points, gint num_points)
+		 gdouble radius, CdkPoint * points, gint num_points)
 {
 	gint i, j;
 
@@ -298,12 +298,12 @@ rounded_polygon (cairo_t * cr,
 
 static void
 draw_polygon (CafekbdKeyboardDrawingRenderContext * context,
-	      GdkRGBA * fill_color,
+	      CdkRGBA * fill_color,
 	      gint xkb_x,
 	      gint xkb_y, XkbPointRec * xkb_points, guint num_points,
 	      gdouble radius)
 {
-	GdkPoint *points;
+	CdkPoint *points;
 	gboolean filled;
 	gint i;
 
@@ -316,7 +316,7 @@ draw_polygon (CafekbdKeyboardDrawingRenderContext * context,
 
 	cdk_cairo_set_source_rgba (context->cr, fill_color);
 
-	points = g_new (GdkPoint, num_points);
+	points = g_new (CdkPoint, num_points);
 
 #ifdef KBDRAW_DEBUG
 	printf ("    Polygon points:\n");
@@ -370,7 +370,7 @@ curve_rectangle (cairo_t * cr,
 static void
 draw_curve_rectangle (cairo_t * cr,
 		      gboolean filled,
-		      GdkRGBA * fill_color,
+		      CdkRGBA * fill_color,
 		      gint x, gint y, gint width, gint height, gint radius)
 {
 	curve_rectangle (cr, x, y, width, height, radius);
@@ -386,7 +386,7 @@ draw_curve_rectangle (cairo_t * cr,
 /* x, y, width, height are in the xkb coordinate system */
 static void
 draw_rectangle (CafekbdKeyboardDrawingRenderContext * context,
-		GdkRGBA * fill_color,
+		CdkRGBA * fill_color,
 		gint angle,
 		gint xkb_x, gint xkb_y, gint xkb_width, gint xkb_height,
 		gint radius)
@@ -441,7 +441,7 @@ draw_rectangle (CafekbdKeyboardDrawingRenderContext * context,
 static void
 draw_outline (CafekbdKeyboardDrawingRenderContext * context,
 	      XkbOutlineRec * outline,
-	      GdkRGBA * color,
+	      CdkRGBA * color,
 	      gint angle, gint origin_x, gint origin_y)
 {
 #ifdef KBDRAW_DEBUG
@@ -496,7 +496,7 @@ draw_outline (CafekbdKeyboardDrawingRenderContext * context,
 
 /* see PSColorDef in xkbprint */
 static gboolean
-parse_xkb_color_spec (gchar * colorspec, GdkRGBA * color)
+parse_xkb_color_spec (gchar * colorspec, CdkRGBA * color)
 {
 	glong level;
 
@@ -1003,7 +1003,7 @@ draw_pango_layout (CafekbdKeyboardDrawingRenderContext * context,
 		   gint angle, gint x, gint y)
 {
 	PangoLayout *layout = context->layout;
-	GdkRGBA *color;
+	CdkRGBA *color;
 	PangoLayoutLine *line;
 	gint x_off, y_off;
 	gint i;
@@ -1229,7 +1229,7 @@ draw_key (CafekbdKeyboardDrawingRenderContext * context,
 {
 	XkbShapeRec *shape;
 	CtkStyleContext *style_context;
-	GdkRGBA color;
+	CdkRGBA color;
 	XkbOutlineRec *outline;
 	int origin_offset_x;
 	/* gint i; */
@@ -1291,7 +1291,7 @@ invalidate_region (CafekbdKeyboardDrawing * drawing,
 		   gdouble angle,
 		   gint origin_x, gint origin_y, XkbShapeRec * shape)
 {
-	GdkPoint points[4];
+	CdkPoint points[4];
 	gint x_min, x_max, y_min, y_max;
 	gint x, y, width, height;
 	gint xx, yy;
@@ -1395,7 +1395,7 @@ draw_indicator_doodad (CafekbdKeyboardDrawingRenderContext * context,
 		       CafekbdKeyboardDrawingDoodad * doodad,
 		       XkbIndicatorDoodadRec * indicator_doodad)
 {
-	GdkRGBA *color;
+	CdkRGBA *color;
 	XkbShapeRec *shape;
 	gint i;
 
@@ -1422,7 +1422,7 @@ draw_shape_doodad (CafekbdKeyboardDrawingRenderContext * context,
 		   XkbShapeDoodadRec * shape_doodad)
 {
 	XkbShapeRec *shape;
-	GdkRGBA *color;
+	CdkRGBA *color;
 	gint i;
 
 	if (!drawing->xkb)
@@ -1552,7 +1552,7 @@ create_cairo (CafekbdKeyboardDrawing * drawing)
 {
 	CtkStyleContext *style_context = NULL;
 	CtkStateFlags state;
-	GdkRGBA dark_color;
+	CdkRGBA dark_color;
 
 	if (drawing == NULL)
 		return FALSE;
@@ -1590,7 +1590,7 @@ draw_keyboard (CafekbdKeyboardDrawing * drawing)
         CtkStyleContext *context =
 	    ctk_widget_get_style_context (CTK_WIDGET (drawing));
 	CtkStateFlags state = ctk_style_context_get_state (context);
-	GdkRGBA color;
+	CdkRGBA color;
 	CtkAllocation allocation;
 
 	if (!drawing->xkb)
@@ -1745,7 +1745,7 @@ size_allocate (CtkWidget * widget,
 
 static gint
 key_event (CtkWidget * widget,
-	   GdkEventKey * event, CafekbdKeyboardDrawing * drawing)
+	   CdkEventKey * event, CafekbdKeyboardDrawing * drawing)
 {
 	CafekbdKeyboardDrawingKey *key;
 	if (!drawing->xkb)
@@ -1782,7 +1782,7 @@ key_event (CtkWidget * widget,
 
 static gint
 button_press_event (CtkWidget * widget,
-		    GdkEventButton * event, CafekbdKeyboardDrawing * drawing)
+		    CdkEventButton * event, CafekbdKeyboardDrawing * drawing)
 {
 	if (!drawing->xkb)
 		return FALSE;
@@ -1819,7 +1819,7 @@ unpress_keys (CafekbdKeyboardDrawing * drawing)
 
 static gint
 focus_event (CtkWidget * widget,
-	     GdkEventFocus * event, CafekbdKeyboardDrawing * drawing)
+	     CdkEventFocus * event, CafekbdKeyboardDrawing * drawing)
 {
 	if (event->in && drawing->timeout > 0) {
 		g_source_remove (drawing->timeout);
@@ -2056,7 +2056,7 @@ init_colors (CafekbdKeyboardDrawing * drawing)
 	if (!drawing->xkb)
 		return;
 
-	drawing->colors = g_new (GdkRGBA, drawing->xkb->geom->num_colors);
+	drawing->colors = g_new (CdkRGBA, drawing->xkb->geom->num_colors);
 
 	for (i = 0; i < drawing->xkb->geom->num_colors; i++) {
 		result =
@@ -2151,9 +2151,9 @@ process_indicators_state_notify (XkbIndicatorNotifyEvent * iev,
 		}
 }
 
-static GdkFilterReturn
-xkb_state_notify_event_filter (GdkXEvent * cdkxev,
-			       GdkEvent * event,
+static CdkFilterReturn
+xkb_state_notify_event_filter (CdkXEvent * cdkxev,
+			       CdkEvent * event,
 			       CafekbdKeyboardDrawing * drawing)
 {
 #define group_change_mask (XkbGroupStateMask | XkbGroupBaseMask | XkbGroupLatchMask | XkbGroupLockMask)
@@ -2227,7 +2227,7 @@ static void
 destroy (CafekbdKeyboardDrawing * drawing)
 {
 	free_render_context (drawing);
-	cdk_window_remove_filter (NULL, (GdkFilterFunc)
+	cdk_window_remove_filter (NULL, (CdkFilterFunc)
 				  xkb_state_notify_event_filter, drawing);
 	if (drawing->timeout > 0) {
 		g_source_remove (drawing->timeout);
@@ -2351,7 +2351,7 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 	g_signal_connect (G_OBJECT (drawing), "style-set",
 			  G_CALLBACK (style_changed), drawing);
 
-	cdk_window_add_filter (NULL, (GdkFilterFunc)
+	cdk_window_add_filter (NULL, (CdkFilterFunc)
 			       xkb_state_notify_event_filter, drawing);
 }
 
@@ -2447,7 +2447,7 @@ cafekbd_keyboard_drawing_render (CafekbdKeyboardDrawing * kbdrawing,
 {
 	CtkStyleContext *style_context =
 	    ctk_widget_get_style_context (CTK_WIDGET (kbdrawing));
-	GdkRGBA dark_color;
+	CdkRGBA dark_color;
 	PangoFontDescription *fd = NULL;
 
 	ctk_style_context_get_background_color (style_context,
@@ -2748,7 +2748,7 @@ cafekbd_keyboard_drawing_print (CafekbdKeyboardDrawing * drawing,
 static void
 show_layout_response (CtkWidget * dialog, gint resp)
 {
-	GdkRectangle rect;
+	CdkRectangle rect;
 	CtkWidget *kbdraw;
 	const gchar *groupName;
 
@@ -2795,7 +2795,7 @@ cafekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 	CtkWidget *dialog, *kbdraw;
 	XkbComponentNamesRec component_names;
 	XklConfigRec *xkl_data;
-	GdkRectangle *rect;
+	CdkRectangle *rect;
 	GError *error = NULL;
 	char title[128] = "";
 	XklEngine* engine = xkl_engine_get_instance(CDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
