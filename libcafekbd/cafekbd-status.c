@@ -48,7 +48,7 @@ typedef struct _gki_globals {
 	gint current_height;
 	int real_width;
 
-	GSList *icons;		/* list of CdkPixbuf */
+	GSList *icons;		/* list of GdkPixbuf */
 	GSList *widget_instances;	/* list of CafekbdStatus */
 	gulong state_changed_handler;
 	gulong config_changed_handler;
@@ -84,7 +84,7 @@ static void
 cafekbd_status_global_init (void);
 static void
 cafekbd_status_global_term (void);
-static CdkPixbuf *
+static GdkPixbuf *
 cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group);
 static void
 cafekbd_status_set_current_page_for_group (CafekbdStatus * gki, int group);
@@ -123,7 +123,7 @@ cafekbd_status_global_fill (CafekbdStatus * gki)
 	int total_groups = xkl_engine_get_num_groups (globals.engine);
 
 	for (grp = 0; grp < total_groups; grp++) {
-		CdkPixbuf *page = cafekbd_status_prepare_drawing (gki, grp);
+		GdkPixbuf *page = cafekbd_status_prepare_drawing (gki, grp);
 		globals.icons = g_slist_append (globals.icons, page);
 	}
 }
@@ -284,12 +284,12 @@ convert_bgra_to_rgba (guint8 const *src, guint8 * dst, int width,
 	}
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 {
 	GError *gerror = NULL;
 	char *image_filename;
-	CdkPixbuf *image;
+	GdkPixbuf *image;
 
 	if (globals.current_width == 0)
 		return NULL;
@@ -372,7 +372,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 						  globals.current_height,
 						  globals.real_width *
 						  4,
-						  (CdkPixbufDestroyNotify)
+						  (GdkPixbufDestroyNotify)
 						  g_free, NULL);
 		xkl_debug (150,
 			   "Image %d created -> %p[%dx%d], alpha: %d\n",
