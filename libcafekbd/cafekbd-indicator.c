@@ -63,7 +63,7 @@ static gki_globals globals;
 		} \
 	}
 
-G_DEFINE_TYPE (CafekbdIndicator, cafekbd_indicator, GTK_TYPE_NOTEBOOK)
+G_DEFINE_TYPE (CafekbdIndicator, cafekbd_indicator, CTK_TYPE_NOTEBOOK)
 
 static void
 cafekbd_indicator_global_init (void);
@@ -109,9 +109,9 @@ cafekbd_indicator_load_images ()
 			if (image == NULL) {
 				GtkWidget *dialog =
 				    ctk_message_dialog_new (NULL,
-							    GTK_DIALOG_DESTROY_WITH_PARENT,
-							    GTK_MESSAGE_ERROR,
-							    GTK_BUTTONS_OK,
+							    CTK_DIALOG_DESTROY_WITH_PARENT,
+							    CTK_MESSAGE_ERROR,
+							    CTK_BUTTONS_OK,
 							    _
 							    ("There was an error loading an image: %s"),
 							    gerror->
@@ -122,7 +122,7 @@ cafekbd_indicator_load_images ()
 						  (ctk_widget_destroy),
 						  NULL);
 
-				ctk_window_set_resizable (GTK_WINDOW
+				ctk_window_set_resizable (CTK_WINDOW
 							  (dialog), FALSE);
 
 				ctk_widget_show (dialog);
@@ -172,11 +172,11 @@ cafekbd_indicator_set_tooltips (CafekbdIndicator * gki, const char *str)
 {
 	g_assert (str == NULL || g_utf8_validate (str, -1, NULL));
 
-	ctk_widget_set_tooltip_text (GTK_WIDGET (gki), str);
+	ctk_widget_set_tooltip_text (CTK_WIDGET (gki), str);
 
 	if (gki->priv->set_parent_tooltips) {
 		GtkWidget *parent =
-		    ctk_widget_get_parent (GTK_WIDGET (gki));
+		    ctk_widget_get_parent (CTK_WIDGET (gki));
 		if (parent) {
 			ctk_widget_set_tooltip_text (parent, str);
 		}
@@ -187,7 +187,7 @@ void
 cafekbd_indicator_cleanup (CafekbdIndicator * gki)
 {
 	int i;
-	GtkNotebook *notebook = GTK_NOTEBOOK (gki);
+	GtkNotebook *notebook = CTK_NOTEBOOK (gki);
 
 	/* Do not remove the first page! It is the default page */
 	for (i = ctk_notebook_get_n_pages (notebook); --i > 0;) {
@@ -200,7 +200,7 @@ cafekbd_indicator_fill (CafekbdIndicator * gki)
 {
 	int grp;
 	int total_groups = xkl_engine_get_num_groups (globals.engine);
-	GtkNotebook *notebook = GTK_NOTEBOOK (gki);
+	GtkNotebook *notebook = CTK_NOTEBOOK (gki);
 
 	for (grp = 0; grp < total_groups; grp++) {
 		GtkWidget *page;
@@ -238,7 +238,7 @@ cafekbd_indicator_button_pressed (GtkWidget *
 			       widget,
 			       GdkEventButton * event, CafekbdIndicator * gki)
 {
-	GtkWidget *img = ctk_bin_get_child (GTK_BIN (widget));
+	GtkWidget *img = ctk_bin_get_child (CTK_BIN (widget));
 	GtkAllocation allocation;
 	ctk_widget_get_allocation (img, &allocation);
 	xkl_debug (150, "Flag img size %d x %d\n",
@@ -366,7 +366,7 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 
 	pimage = g_slist_nth_data (globals.images, group);
 	ebox = ctk_event_box_new ();
-	ctk_event_box_set_visible_window (GTK_EVENT_BOX (ebox), FALSE);
+	ctk_event_box_set_visible_window (CTK_EVENT_BOX (ebox), FALSE);
 	if (globals.ind_cfg.show_flags) {
 		GdkPixbuf *image;
 		GtkWidget *flag;
@@ -375,11 +375,11 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 			return NULL;
 		image = GDK_PIXBUF (pimage);
 		flag = ctk_drawing_area_new ();
-		ctk_widget_add_events (GTK_WIDGET (flag),
+		ctk_widget_add_events (CTK_WIDGET (flag),
 				       GDK_BUTTON_PRESS_MASK);
 		g_signal_connect (G_OBJECT (flag), "draw",
 		                  G_CALLBACK (draw_flag), image);
-		ctk_container_add (GTK_CONTAINER (ebox), flag);
+		ctk_container_add (CTK_CONTAINER (ebox), flag);
 	} else {
 		char *lbl_title = NULL;
 		char *layout_name = NULL;
@@ -399,14 +399,14 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 						       layout_name);
 
 		label = ctk_label_new (lbl_title);
-		ctk_widget_set_halign (label, GTK_ALIGN_CENTER);
-		ctk_widget_set_valign (label, GTK_ALIGN_CENTER);
+		ctk_widget_set_halign (label, CTK_ALIGN_CENTER);
+		ctk_widget_set_valign (label, CTK_ALIGN_CENTER);
 		ctk_widget_set_margin_start (label, 2);
 		ctk_widget_set_margin_end (label, 2);
 		ctk_widget_set_margin_top (label, 2);
 		ctk_widget_set_margin_bottom (label, 2);
 		g_free (lbl_title);
-		ctk_label_set_angle (GTK_LABEL (label), gki->priv->angle);
+		ctk_label_set_angle (CTK_LABEL (label), gki->priv->angle);
 
 		if (group + 1 ==
 		    xkl_engine_get_num_groups (globals.engine)) {
@@ -414,7 +414,7 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 			ln2cnt_map = NULL;
 		}
 
-		ctk_container_add (GTK_CONTAINER (ebox), label);
+		ctk_container_add (CTK_CONTAINER (ebox), label);
 	}
 
 	g_signal_connect (G_OBJECT (ebox),
@@ -591,7 +591,7 @@ cafekbd_indicator_set_current_page_for_group (CafekbdIndicator * gki, int group)
 {
 	xkl_debug (200, "Revalidating for group %d\n", group);
 
-	ctk_notebook_set_current_page (GTK_NOTEBOOK (gki), group + 1);
+	ctk_notebook_set_current_page (CTK_NOTEBOOK (gki), group + 1);
 
 	cafekbd_indicator_update_tooltips (gki);
 }
@@ -611,7 +611,7 @@ cafekbd_indicator_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 			ForAllIndicators () {
 				GdkWindow *w =
 				    ctk_widget_get_parent_window
-				    (GTK_WIDGET (gki));
+				    (CTK_WIDGET (gki));
 
 				/* compare the indicator's parent window with the even window */
 				if (w != NULL
@@ -676,7 +676,7 @@ static void cafekbd_indicator_init(CafekbdIndicator* gki)
 
 	gki->priv = g_new0 (CafekbdIndicatorPrivate, 1);
 
-	notebook = GTK_NOTEBOOK (gki);
+	notebook = CTK_NOTEBOOK (gki);
 
 	xkl_debug (100, "Initiating the widget startup process for %p\n", gki);
 
@@ -685,7 +685,7 @@ static void cafekbd_indicator_init(CafekbdIndicator* gki)
 
 	def_drawing =
 	    ctk_image_new_from_icon_name ("process-stop",
-				      GTK_ICON_SIZE_BUTTON);
+				      CTK_ICON_SIZE_BUTTON);
 
 	ctk_notebook_append_page (notebook, def_drawing,
 				  ctk_label_new (""));
@@ -702,7 +702,7 @@ static void cafekbd_indicator_init(CafekbdIndicator* gki)
 	cafekbd_indicator_fill (gki);
 	cafekbd_indicator_set_current_page (gki);
 
-	ctk_widget_add_events (GTK_WIDGET (gki), GDK_BUTTON_PRESS_MASK);
+	ctk_widget_add_events (CTK_WIDGET (gki), GDK_BUTTON_PRESS_MASK);
 
 	/* append AFTER all initialization work is finished */
 	globals.widget_instances =
@@ -758,7 +758,7 @@ static void
 cafekbd_indicator_class_init (CafekbdIndicatorClass * klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 
 	xkl_debug (100, "*** First CafekbdIndicator instance *** \n");
 
@@ -843,7 +843,7 @@ GtkWidget *
 cafekbd_indicator_new (void)
 {
 	return
-	    GTK_WIDGET (g_object_new (cafekbd_indicator_get_type (), NULL));
+	    CTK_WIDGET (g_object_new (cafekbd_indicator_get_type (), NULL));
 }
 
 void

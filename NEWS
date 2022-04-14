@@ -36,7 +36,7 @@
 ### libcafekbd 1.20.0
 
   * Translations update
-  * bump minimum GDK version according to GTK+ one
+  * bump minimum GDK version according to CTK+ one
   * remove < ctk+-3.22 bits and bump required ctk+
   * building: bump required glib version to 2.50.0
 
@@ -73,15 +73,15 @@
 
   * NEWS: use consistent, project wide, markdown-like formatting
     to make generating release announcements easier
-  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and
+  * Move to CTK+3 (require CTK+ >= 3.14), drop CTK+2 code and
     --with-ctk build option
   * Translations update
 
 ### libcafekbd 1.16.0
 
   * Require libxklavier 5.2 and use its introspection
-  * GTK+3: fix some deprecations
-  * distcheck: explicitly use currently selected GTK+ version
+  * CTK+3: fix some deprecations
+  * distcheck: explicitly use currently selected CTK+ version
   * Translations update
 
 ### libcafekbd 1.14.1
@@ -92,7 +92,7 @@
 
   * Drop CafeConf migration script
   * Reduce introspection build warnings
-  * Fix some GTK+3 deprecations
+  * Fix some CTK+3 deprecations
   * Some more fixes and cleanups
   * Translations update
   * Fix Changelog generation
@@ -107,7 +107,7 @@
   * Retrieve strings directly from gschema (requires intltool 0.50.1)
   * Layout view/print dialog: remove useless Help button
   * Layout view/print dialog: some UI fixes
-  * Some GTK+3 fixes
+  * Some CTK+3 fixes
   * Some more fixes and cleanups
   * Translations update
 
@@ -118,7 +118,7 @@
 ### libcafekbd 1.8.0
 
   * Improved indicator font customization
-  * GTK3 support
+  * CTK3 support
 
 ### libcafekbd 1.5.0
 

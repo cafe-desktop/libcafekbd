@@ -79,7 +79,7 @@ static gki_globals globals;
 		} \
 	}
 
-G_DEFINE_TYPE (CafekbdStatus, cafekbd_status, GTK_TYPE_STATUS_ICON)
+G_DEFINE_TYPE (CafekbdStatus, cafekbd_status, CTK_TYPE_STATUS_ICON)
 static void
 cafekbd_status_global_init (void);
 static void
@@ -102,7 +102,7 @@ cafekbd_status_set_tooltips (CafekbdStatus * gki, const char *str)
 {
 	g_assert (str == NULL || g_utf8_validate (str, -1, NULL));
 
-	ctk_status_icon_set_tooltip_text (GTK_STATUS_ICON (gki), str);
+	ctk_status_icon_set_tooltip_text (CTK_STATUS_ICON (gki), str);
 }
 
 void
@@ -308,9 +308,9 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 
 		if (image == NULL) {
 			GtkWidget *dialog = ctk_message_dialog_new (NULL,
-								    GTK_DIALOG_DESTROY_WITH_PARENT,
-								    GTK_MESSAGE_ERROR,
-								    GTK_BUTTONS_OK,
+								    CTK_DIALOG_DESTROY_WITH_PARENT,
+								    CTK_MESSAGE_ERROR,
+								    CTK_BUTTONS_OK,
 								    _
 								    ("There was an error loading an image: %s"),
 								    gerror
@@ -323,7 +323,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 					  G_CALLBACK (ctk_widget_destroy),
 					  NULL);
 
-			ctk_window_set_resizable (GTK_WINDOW (dialog),
+			ctk_window_set_resizable (CTK_WINDOW (dialog),
 						  FALSE);
 
 			ctk_widget_show (dialog);
@@ -544,7 +544,7 @@ cafekbd_status_set_current_page_for_group (CafekbdStatus * gki, int group)
 {
 	xkl_debug (200, "Revalidating for group %d\n", group);
 
-	ctk_status_icon_set_from_pixbuf (GTK_STATUS_ICON (gki),
+	ctk_status_icon_set_from_pixbuf (CTK_STATUS_ICON (gki),
 					 GDK_PIXBUF (g_slist_nth_data
 						     (globals.icons,
 						      group)));
@@ -567,7 +567,7 @@ cafekbd_status_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 			ForAllIndicators () {
 				guint32 xid =
 				    ctk_status_icon_get_x11_window_id
-				    (GTK_STATUS_ICON (gki));
+				    (CTK_STATUS_ICON (gki));
 
 				/* compare the indicator's parent window with the even window */
 				if (xid == rne->window) {
@@ -641,7 +641,7 @@ cafekbd_status_init (CafekbdStatus * gki)
 
 	/* This should give NA a hint about the order */
 	/* commenting out fixes a Gdk-critical warning */
-/*	ctk_status_icon_set_name (GTK_STATUS_ICON (gki), "keyboard"); */
+/*	ctk_status_icon_set_name (CTK_STATUS_ICON (gki), "keyboard"); */
 
 	xkl_debug (100, "Initiating the widget startup process for %p\n",
 		   gki);
@@ -824,7 +824,7 @@ GtkStatusIcon *
 cafekbd_status_new (void)
 {
 	return
-	    GTK_STATUS_ICON (g_object_new (cafekbd_status_get_type (), NULL));
+	    CTK_STATUS_ICON (g_object_new (cafekbd_status_get_type (), NULL));
 }
 
 /**
