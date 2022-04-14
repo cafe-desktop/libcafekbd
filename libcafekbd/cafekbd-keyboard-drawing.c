@@ -37,7 +37,7 @@
 
 #define INVALID_KEYCODE ((guint)(-1))
 
-#define GTK_RESPONSE_PRINT 2
+#define CTK_RESPONSE_PRINT 2
 
 #define KEY_FONT_SIZE 12
 
@@ -1246,11 +1246,11 @@ draw_key (CafekbdKeyboardDrawingRenderContext * context,
 	shape = drawing->xkb->geom->shapes + key->xkbkey->shape_ndx;
 
 	if (key->pressed) {
-		style_context = ctk_widget_get_style_context (GTK_WIDGET (drawing));
+		style_context = ctk_widget_get_style_context (CTK_WIDGET (drawing));
 		ctk_style_context_save (style_context);
-		ctk_style_context_add_class (style_context, GTK_STYLE_CLASS_VIEW);
+		ctk_style_context_add_class (style_context, CTK_STYLE_CLASS_VIEW);
 		ctk_style_context_get_background_color (style_context,
-		                                        GTK_STATE_FLAG_SELECTED,
+		                                        CTK_STATE_FLAG_SELECTED,
 		                                        &color);
 		ctk_style_context_restore (style_context);
 	 } else
@@ -1334,7 +1334,7 @@ invalidate_region (CafekbdKeyboardDrawing * drawing,
 	    xkb_to_pixmap_coord (drawing->renderContext,
 				 y_max - y_min) + 12;
 
-	ctk_widget_queue_draw_area (GTK_WIDGET (drawing), x, y, width,
+	ctk_widget_queue_draw_area (CTK_WIDGET (drawing), x, y, width,
 				    height);
 }
 
@@ -1562,7 +1562,7 @@ create_cairo (CafekbdKeyboardDrawing * drawing)
 	drawing->renderContext->cr =
 	    cairo_create (drawing->surface);
 
-	style_context = ctk_widget_get_style_context (GTK_WIDGET (drawing));
+	style_context = ctk_widget_get_style_context (CTK_WIDGET (drawing));
 	state = ctk_style_context_get_state (style_context);
 
 	ctk_style_context_get_background_color (style_context, state,
@@ -1588,7 +1588,7 @@ static void
 draw_keyboard (CafekbdKeyboardDrawing * drawing)
 {
         GtkStyleContext *context =
-	    ctk_widget_get_style_context (GTK_WIDGET (drawing));
+	    ctk_widget_get_style_context (CTK_WIDGET (drawing));
 	GtkStateFlags state = ctk_style_context_get_state (context);
 	GdkRGBA color;
 	GtkAllocation allocation;
@@ -1596,11 +1596,11 @@ draw_keyboard (CafekbdKeyboardDrawing * drawing)
 	if (!drawing->xkb)
 		return;
 
-	ctk_widget_get_allocation (GTK_WIDGET (drawing), &allocation);
+	ctk_widget_get_allocation (CTK_WIDGET (drawing), &allocation);
 
 	drawing->surface =
 	    gdk_window_create_similar_surface (ctk_widget_get_window
-					       (GTK_WIDGET (drawing)),
+					       (CTK_WIDGET (drawing)),
 					       CAIRO_CONTENT_COLOR,
 					       allocation.width,
 					       allocation.height);
@@ -1608,7 +1608,7 @@ draw_keyboard (CafekbdKeyboardDrawing * drawing)
 	if (create_cairo (drawing)) {
 		/* blank background */
 		ctk_style_context_save (context);
-		ctk_style_context_add_class (context, GTK_STYLE_CLASS_VIEW);
+		ctk_style_context_add_class (context, CTK_STYLE_CLASS_VIEW);
 		ctk_style_context_get_background_color (context, state, &color);
 		ctk_style_context_restore (context);
 		gdk_cairo_set_source_rgba (drawing->renderContext->cr, &color);
@@ -1627,15 +1627,15 @@ alloc_render_context (CafekbdKeyboardDrawing * drawing)
 	    g_new0 (CafekbdKeyboardDrawingRenderContext, 1);
 
 	PangoContext *pangoContext =
-	    ctk_widget_get_pango_context (GTK_WIDGET (drawing));
+	    ctk_widget_get_pango_context (CTK_WIDGET (drawing));
 
 	GtkStyleContext *style_context =
-	    ctk_widget_get_style_context (GTK_WIDGET (drawing));
+	    ctk_widget_get_style_context (CTK_WIDGET (drawing));
 	PangoFontDescription *fd = NULL;
 
 	ctk_style_context_get (style_context,
 	                       ctk_style_context_get_state (style_context),
-	                       GTK_STYLE_PROPERTY_FONT, &fd, NULL);
+	                       CTK_STYLE_PROPERTY_FONT, &fd, NULL);
 
 	context->layout = pango_layout_new (pangoContext);
 	pango_layout_set_ellipsize (context->layout, PANGO_ELLIPSIZE_END);
@@ -1681,7 +1681,7 @@ idle_redraw (gpointer user_data)
 
 	drawing->idle_redraw = 0;
 	draw_keyboard (drawing);
-	ctk_widget_queue_draw (GTK_WIDGET (drawing));
+	ctk_widget_queue_draw (CTK_WIDGET (drawing));
 	return FALSE;
 }
 
@@ -2179,10 +2179,10 @@ xkb_state_notify_event_filter (GdkXEvent * gdkxev,
 					    drawing->xkb->max_key_code +
 					    1);
 
-				ctk_widget_get_allocation (GTK_WIDGET
+				ctk_widget_get_allocation (CTK_WIDGET
 							   (drawing),
 							   &allocation);
-				size_allocate (GTK_WIDGET (drawing),
+				size_allocate (CTK_WIDGET (drawing),
 					       &allocation, drawing);
 
 				init_keys_and_doodads (drawing);
@@ -2269,10 +2269,10 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 		drawing->xkb_event_type, error, major, minor);
 
 	/* XXX: this stuff probably doesn't matter.. also, gdk_screen_get_default can fail */
-	if (ctk_widget_has_screen (GTK_WIDGET (drawing)))
+	if (ctk_widget_has_screen (CTK_WIDGET (drawing)))
 		drawing->screen_num =
 		    gdk_x11_screen_get_screen_number (ctk_widget_get_screen
-					   (GTK_WIDGET (drawing)));
+					   (CTK_WIDGET (drawing)));
 	else
 		drawing->screen_num =
 		    gdk_x11_screen_get_screen_number (gdk_screen_get_default ());
@@ -2326,9 +2326,9 @@ cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
 	init_colors (drawing);
 
 	/* required to get key events */
-	ctk_widget_set_can_focus (GTK_WIDGET (drawing), TRUE);
+	ctk_widget_set_can_focus (CTK_WIDGET (drawing), TRUE);
 
-	ctk_widget_set_events (GTK_WIDGET (drawing),
+	ctk_widget_set_events (CTK_WIDGET (drawing),
 			       GDK_EXPOSURE_MASK | GDK_KEY_PRESS_MASK |
 			       GDK_KEY_RELEASE_MASK | GDK_BUTTON_PRESS_MASK
 			       | GDK_FOCUS_CHANGE_MASK);
@@ -2359,14 +2359,14 @@ GtkWidget *
 cafekbd_keyboard_drawing_new (void)
 {
 	return
-	    GTK_WIDGET (g_object_new
+	    CTK_WIDGET (g_object_new
 			(cafekbd_keyboard_drawing_get_type (), NULL));
 }
 
 static void
 cafekbd_keyboard_drawing_class_init (CafekbdKeyboardDrawingClass * klass)
 {
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 	ctk_widget_class_set_css_name (widget_class, "cafekbd-keyboard-drawing");
 
 	klass->bad_keycode = NULL;
@@ -2400,7 +2400,7 @@ cafekbd_keyboard_drawing_get_type (void)
 		};
 
 		cafekbd_keyboard_drawing_type =
-		    g_type_register_static (GTK_TYPE_DRAWING_AREA,
+		    g_type_register_static (CTK_TYPE_DRAWING_AREA,
 					    "CafekbdKeyboardDrawing",
 					    &cafekbd_keyboard_drawing_info,
 					    0);
@@ -2417,7 +2417,7 @@ cafekbd_keyboard_drawing_set_mods (CafekbdKeyboardDrawing * drawing, guint mods)
 #endif
 	if (mods != drawing->mods) {
 		drawing->mods = mods;
-		ctk_widget_queue_draw (GTK_WIDGET (drawing));
+		ctk_widget_queue_draw (CTK_WIDGET (drawing));
 	}
 }
 
@@ -2446,7 +2446,7 @@ cafekbd_keyboard_drawing_render (CafekbdKeyboardDrawing * kbdrawing,
 			      double dpi_x, double dpi_y)
 {
 	GtkStyleContext *style_context =
-	    ctk_widget_get_style_context (GTK_WIDGET (kbdrawing));
+	    ctk_widget_get_style_context (CTK_WIDGET (kbdrawing));
 	GdkRGBA dark_color;
 	PangoFontDescription *fd = NULL;
 
@@ -2460,7 +2460,7 @@ cafekbd_keyboard_drawing_render (CafekbdKeyboardDrawing * kbdrawing,
 
 	ctk_style_context_get (style_context,
 	                       ctk_style_context_get_state (style_context),
-	                       GTK_STYLE_PROPERTY_FONT, &fd, NULL);
+	                       CTK_STYLE_PROPERTY_FONT, &fd, NULL);
 	fd = pango_font_description_copy (fd);
 
 	CafekbdKeyboardDrawingRenderContext context = {
@@ -2533,9 +2533,9 @@ cafekbd_keyboard_drawing_set_keyboard (CafekbdKeyboardDrawing * drawing,
 	init_keys_and_doodads (drawing);
 	init_colors (drawing);
 
-	ctk_widget_get_allocation (GTK_WIDGET (drawing), &allocation);
-	size_allocate (GTK_WIDGET (drawing), &allocation, drawing);
-	ctk_widget_queue_draw (GTK_WIDGET (drawing));
+	ctk_widget_get_allocation (CTK_WIDGET (drawing), &allocation);
+	size_allocate (CTK_WIDGET (drawing), &allocation, drawing);
+	ctk_widget_queue_draw (CTK_WIDGET (drawing));
 
 	return TRUE;
 }
@@ -2646,7 +2646,7 @@ cafekbd_keyboard_drawing_set_groups_levels (CafekbdKeyboardDrawing * drawing,
 #endif
 	drawing->groupLevels = groupLevels;
 
-	ctk_widget_queue_draw (GTK_WIDGET (drawing));
+	ctk_widget_queue_draw (CTK_WIDGET (drawing));
 }
 
 typedef struct {
@@ -2664,9 +2664,9 @@ cafekbd_keyboard_drawing_begin_print (GtkPrintOperation * operation,
 	    ctk_print_operation_get_print_settings (operation);
 	ctk_print_operation_set_n_pages (operation, 1);
 	if (!ctk_print_settings_has_key
-	    (settings, GTK_PRINT_SETTINGS_ORIENTATION))
+	    (settings, CTK_PRINT_SETTINGS_ORIENTATION))
 		ctk_print_settings_set_orientation (settings,
-						    GTK_PAGE_ORIENTATION_LANDSCAPE);
+						    CTK_PAGE_ORIENTATION_LANDSCAPE);
 }
 
 static void
@@ -2686,7 +2686,7 @@ cafekbd_keyboard_drawing_draw_page (GtkPrintOperation * operation,
 	gdouble dpi_y = ctk_print_context_get_dpi_y (context);
 	gchar *header;
 
-	ctk_print_operation_set_unit (operation, GTK_UNIT_PIXEL);
+	ctk_print_operation_set_unit (operation, CTK_UNIT_PIXEL);
 
 	header = g_strdup_printf
 	    (_("Keyboard layout \"%s\"\n"
@@ -2732,10 +2732,10 @@ cafekbd_keyboard_drawing_print (CafekbdKeyboardDrawing * drawing,
 			  &data);
 
 	res = ctk_print_operation_run (print,
-				       GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG,
+				       CTK_PRINT_OPERATION_ACTION_PRINT_DIALOG,
 				       parent_window, NULL);
 
-	if (res == GTK_PRINT_OPERATION_RESULT_APPLY) {
+	if (res == CTK_PRINT_OPERATION_RESULT_APPLY) {
 		if (settings != NULL)
 			g_object_unref (settings);
 		settings = ctk_print_operation_get_print_settings (print);
@@ -2753,23 +2753,23 @@ show_layout_response (GtkWidget * dialog, gint resp)
 	const gchar *groupName;
 
 	switch (resp) {
-	case GTK_RESPONSE_CLOSE:
-		ctk_window_get_position (GTK_WINDOW (dialog), &rect.x,
+	case CTK_RESPONSE_CLOSE:
+		ctk_window_get_position (CTK_WINDOW (dialog), &rect.x,
 					 &rect.y);
-		ctk_window_get_size (GTK_WINDOW (dialog), &rect.width,
+		ctk_window_get_size (CTK_WINDOW (dialog), &rect.width,
 				     &rect.height);
 		cafekbd_preview_save_position (&rect);
 		ctk_widget_destroy (dialog);
 		break;
-	case GTK_RESPONSE_PRINT:
+	case CTK_RESPONSE_PRINT:
 		kbdraw =
-		    GTK_WIDGET (g_object_get_data
+		    CTK_WIDGET (g_object_get_data
 				(G_OBJECT (dialog), "kbdraw"));
 		groupName =
 		    (const gchar *) g_object_get_data (G_OBJECT (dialog),
 						       "groupName");
 		cafekbd_keyboard_drawing_print (CAFEKBD_KEYBOARD_DRAWING
-					     (kbdraw), GTK_WINDOW (dialog),
+					     (kbdraw), CTK_WINDOW (dialog),
 					     groupName ? groupName :
 					     _("Unknown"));
 	}
@@ -2812,14 +2812,14 @@ cafekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 
 
 	dialog =
-	    GTK_WIDGET (ctk_builder_get_object
+	    CTK_WIDGET (ctk_builder_get_object
 			(builder, "gswitchit_layout_view"));
 	kbdraw = cafekbd_keyboard_drawing_new ();
 	ctk_widget_set_vexpand (kbdraw, TRUE);
 
 	snprintf (title, sizeof (title), _("Keyboard Layout \"%s\""),
 		  group_name);
-	ctk_window_set_title (GTK_WINDOW (dialog), title);
+	ctk_window_set_title (CTK_WINDOW (dialog), title);
 	g_object_set_data_full (G_OBJECT (dialog), "group_name",
 				g_strdup (group_name), g_free);
 
@@ -2876,18 +2876,18 @@ cafekbd_keyboard_drawing_new_dialog (gint group, gchar * group_name)
 
 	if (rect != NULL)
 	{
-		ctk_window_move (GTK_WINDOW (dialog), rect->x, rect->y);
-		ctk_window_resize (GTK_WINDOW (dialog), rect->width, rect->height);
+		ctk_window_move (CTK_WINDOW (dialog), rect->x, rect->y);
+		ctk_window_resize (CTK_WINDOW (dialog), rect->width, rect->height);
 		g_free (rect);
 	}
 	else
 	{
-		ctk_window_resize (GTK_WINDOW (dialog), 700, 400);
+		ctk_window_resize (CTK_WINDOW (dialog), 700, 400);
 	}
 
-	ctk_window_set_resizable (GTK_WINDOW (dialog), TRUE);
+	ctk_window_set_resizable (CTK_WINDOW (dialog), TRUE);
 
-	ctk_container_add (GTK_CONTAINER
+	ctk_container_add (CTK_CONTAINER
 			   (ctk_builder_get_object
 			    (builder, "preview_vbox")), kbdraw);
 

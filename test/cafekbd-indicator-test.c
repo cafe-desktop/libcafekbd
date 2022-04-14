@@ -49,19 +49,19 @@ int main(int argc, char** argv)
 	/* Different data dir defs in g-a and g-c-c */
 	ctk_init (&argc, &argv);
 
-	mainwin = ctk_window_new(GTK_WINDOW_TOPLEVEL);
+	mainwin = ctk_window_new(CTK_WINDOW_TOPLEVEL);
 
 	gki = cafekbd_indicator_new();
 	cafekbd_indicator_set_tooltips_format(_("Keyboard Indicator Test (%s)"));
 	cafekbd_indicator_set_parent_tooltips(CAFEKBD_INDICATOR (gki), TRUE);
 
-	ctk_window_resize(GTK_WINDOW(mainwin), 250, 250);
-	vbox = ctk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+	ctk_window_resize(CTK_WINDOW(mainwin), 250, 250);
+	vbox = ctk_box_new(CTK_ORIENTATION_VERTICAL, 6);
 
-	ctk_container_add(GTK_CONTAINER(mainwin), vbox);
-	ctk_container_set_border_width(GTK_CONTAINER(vbox), 12);
-	ctk_container_add(GTK_CONTAINER(vbox), ctk_label_new(_("Indicator:")));
-	ctk_container_add(GTK_CONTAINER(vbox), gki);
+	ctk_container_add(CTK_CONTAINER(mainwin), vbox);
+	ctk_container_set_border_width(CTK_CONTAINER(vbox), 12);
+	ctk_container_add(CTK_CONTAINER(vbox), ctk_label_new(_("Indicator:")));
+	ctk_container_add(CTK_CONTAINER(vbox), gki);
 
 	ctk_widget_show_all(mainwin);
 

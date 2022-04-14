@@ -49,7 +49,7 @@ libcafekbdui_la_SOURCES =			\
 	$(NULL)
 libcafekbdui_la_CFLAGS =			\
 	$(common_CFLAGS)			\
-	$(GTK_CFLAGS)				\
+	$(CTK_CFLAGS)				\
 	$(NULL)
 libcafekbdui_la_LDFLAGS =			\
 	$(common_LDFLAGS)			\
@@ -59,7 +59,7 @@ libcafekbdui_la_LIBADD = 			\
 	$(common_LIBADD)			\
 	$(GLIB_LIBS)				\
 	$(GMODULE_LIBS)				\
-	$(GTK_LIBS)				\
+	$(CTK_LIBS)				\
 	$(NULL)
 
 BUILT_SOURCES =					\

@@ -64,18 +64,18 @@ cafekbd_indicator_config_load_font (CafekbdIndicatorConfig * ind_config)
 		GtkWidgetPath *widget_path = ctk_widget_path_new ();
 		GtkStyleContext *context = ctk_style_context_new ();
 
-		ctk_widget_path_append_type (widget_path, GTK_TYPE_WINDOW);
+		ctk_widget_path_append_type (widget_path, CTK_TYPE_WINDOW);
 		ctk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");
 
 		ctk_style_context_set_path (context, widget_path);
 		ctk_style_context_set_screen (context, gdk_screen_get_default ());
-		ctk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
-		ctk_style_context_add_class (context, GTK_STYLE_CLASS_DEFAULT);
+		ctk_style_context_set_state (context, CTK_STATE_FLAG_NORMAL);
+		ctk_style_context_add_class (context, CTK_STYLE_CLASS_DEFAULT);
 		ctk_style_context_add_class (context, "gnome-panel-menu-bar");
 		ctk_style_context_add_class (context, "cafe-panel-menu-bar");
 
-		ctk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
-		                       GTK_STYLE_PROPERTY_FONT, &fd, NULL);
+		ctk_style_context_get (context, CTK_STATE_FLAG_NORMAL,
+		                       CTK_STYLE_PROPERTY_FONT, &fd, NULL);
 
 		if (fd != NULL) {
 			ind_config->font_family =
@@ -102,18 +102,18 @@ cafekbd_indicator_config_load_colors (CafekbdIndicatorConfig * ind_config)
 		GtkStyleContext *context = ctk_style_context_new ();
 		GdkRGBA fg_color;
 
-		ctk_widget_path_append_type (widget_path, GTK_TYPE_WINDOW);
+		ctk_widget_path_append_type (widget_path, CTK_TYPE_WINDOW);
 		ctk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");
 
 		ctk_style_context_set_path (context, widget_path);
 		ctk_style_context_set_screen (context, gdk_screen_get_default ());
-		ctk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
-		ctk_style_context_add_class (context, GTK_STYLE_CLASS_DEFAULT);
+		ctk_style_context_set_state (context, CTK_STATE_FLAG_NORMAL);
+		ctk_style_context_add_class (context, CTK_STYLE_CLASS_DEFAULT);
 		ctk_style_context_add_class (context, "gnome-panel-menu-bar");
 		ctk_style_context_add_class (context, "cafe-panel-menu-bar");
 
 		ctk_style_context_get_color (context,
-		                             GTK_STATE_FLAG_NORMAL, &fg_color);
+		                             CTK_STATE_FLAG_NORMAL, &fg_color);
 		ind_config->foreground_color =
 		    g_strdup_printf ("%g %g %g",
 		                     fg_color.red,

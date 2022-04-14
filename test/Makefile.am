@@ -3,11 +3,11 @@ noinst_PROGRAMS = cafekbd-indicator-test \
                   cafekbd-status-test
 
 CFLAGS_common = $(WARN_CFLAGS) -I$(top_srcdir) -Wall \
-	$(GTK_CFLAGS) \
+	$(CTK_CFLAGS) \
 	$(LIBXKLAVIER_CFLAGS) \
 	-DCAFELOCALEDIR="\"$(datadir)/locale\""
 	
-LDFLAGS_common = $(GTK_LIBS) \
+LDFLAGS_common = $(CTK_LIBS) \
 	$(LIBXKLAVIER_LIBS) \
 	$(top_builddir)/libcafekbd/libcafekbd.la	\
 	$(top_builddir)/libcafekbd/libcafekbdui.la
