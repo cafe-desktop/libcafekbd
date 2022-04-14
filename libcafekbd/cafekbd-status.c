@@ -55,9 +55,9 @@ typedef struct _gki_globals {
 } gki_globals;
 
 static gchar *settings_signal_names[] = {
-	"notify::gtk-theme-name",
-	"notify::gtk-key-theme-name",
-	"notify::gtk-font-name",
+	"notify::ctk-theme-name",
+	"notify::ctk-key-theme-name",
+	"notify::ctk-font-name",
 	"notify::font-options",
 };
 
@@ -102,7 +102,7 @@ cafekbd_status_set_tooltips (CafekbdStatus * gki, const char *str)
 {
 	g_assert (str == NULL || g_utf8_validate (str, -1, NULL));
 
-	gtk_status_icon_set_tooltip_text (GTK_STATUS_ICON (gki), str);
+	ctk_status_icon_set_tooltip_text (GTK_STATUS_ICON (gki), str);
 }
 
 void
@@ -307,7 +307,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 							  &gerror);
 
 		if (image == NULL) {
-			GtkWidget *dialog = gtk_message_dialog_new (NULL,
+			GtkWidget *dialog = ctk_message_dialog_new (NULL,
 								    GTK_DIALOG_DESTROY_WITH_PARENT,
 								    GTK_MESSAGE_ERROR,
 								    GTK_BUTTONS_OK,
@@ -320,13 +320,13 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 								    :
 								    gerror->message);
 			g_signal_connect (G_OBJECT (dialog), "response",
-					  G_CALLBACK (gtk_widget_destroy),
+					  G_CALLBACK (ctk_widget_destroy),
 					  NULL);
 
-			gtk_window_set_resizable (GTK_WINDOW (dialog),
+			ctk_window_set_resizable (GTK_WINDOW (dialog),
 						  FALSE);
 
-			gtk_widget_show (dialog);
+			ctk_widget_show (dialog);
 			g_error_free (gerror);
 
 			return NULL;
@@ -544,7 +544,7 @@ cafekbd_status_set_current_page_for_group (CafekbdStatus * gki, int group)
 {
 	xkl_debug (200, "Revalidating for group %d\n", group);
 
-	gtk_status_icon_set_from_pixbuf (GTK_STATUS_ICON (gki),
+	ctk_status_icon_set_from_pixbuf (GTK_STATUS_ICON (gki),
 					 GDK_PIXBUF (g_slist_nth_data
 						     (globals.icons,
 						      group)));
@@ -566,7 +566,7 @@ cafekbd_status_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 
 			ForAllIndicators () {
 				guint32 xid =
-				    gtk_status_icon_get_x11_window_id
+				    ctk_status_icon_get_x11_window_id
 				    (GTK_STATUS_ICON (gki));
 
 				/* compare the indicator's parent window with the even window */
@@ -641,7 +641,7 @@ cafekbd_status_init (CafekbdStatus * gki)
 
 	/* This should give NA a hint about the order */
 	/* commenting out fixes a Gdk-critical warning */
-/*	gtk_status_icon_set_name (GTK_STATUS_ICON (gki), "keyboard"); */
+/*	ctk_status_icon_set_name (GTK_STATUS_ICON (gki), "keyboard"); */
 
 	xkl_debug (100, "Initiating the widget startup process for %p\n",
 		   gki);
@@ -669,7 +669,7 @@ cafekbd_status_init (CafekbdStatus * gki)
 	for (i = sizeof (settings_signal_names) /
 	     sizeof (settings_signal_names[0]); --i >= 0;)
 		gki->priv->settings_signal_handlers[i] =
-		    g_signal_connect_after (gtk_settings_get_default (),
+		    g_signal_connect_after (ctk_settings_get_default (),
 					    settings_signal_names[i],
 					    G_CALLBACK
 					    (cafekbd_status_theme_changed),
@@ -687,7 +687,7 @@ cafekbd_status_finalize (GObject * obj)
 
 	for (i = sizeof (settings_signal_names) /
 	     sizeof (settings_signal_names[0]); --i >= 0;)
-		g_signal_handler_disconnect (gtk_settings_get_default (),
+		g_signal_handler_disconnect (ctk_settings_get_default (),
 					     gki->
 					     priv->settings_signal_handlers
 					     [i]);

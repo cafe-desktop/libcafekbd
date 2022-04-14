@@ -61,20 +61,20 @@ cafekbd_indicator_config_load_font (CafekbdIndicatorConfig * ind_config)
 	if (ind_config->font_family == NULL ||
 	    ind_config->font_family[0] == '\0') {
 		PangoFontDescription *fd = NULL;
-		GtkWidgetPath *widget_path = gtk_widget_path_new ();
-		GtkStyleContext *context = gtk_style_context_new ();
+		GtkWidgetPath *widget_path = ctk_widget_path_new ();
+		GtkStyleContext *context = ctk_style_context_new ();
 
-		gtk_widget_path_append_type (widget_path, GTK_TYPE_WINDOW);
-		gtk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");
+		ctk_widget_path_append_type (widget_path, GTK_TYPE_WINDOW);
+		ctk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");
 
-		gtk_style_context_set_path (context, widget_path);
-		gtk_style_context_set_screen (context, gdk_screen_get_default ());
-		gtk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
-		gtk_style_context_add_class (context, GTK_STYLE_CLASS_DEFAULT);
-		gtk_style_context_add_class (context, "gnome-panel-menu-bar");
-		gtk_style_context_add_class (context, "cafe-panel-menu-bar");
+		ctk_style_context_set_path (context, widget_path);
+		ctk_style_context_set_screen (context, gdk_screen_get_default ());
+		ctk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
+		ctk_style_context_add_class (context, GTK_STYLE_CLASS_DEFAULT);
+		ctk_style_context_add_class (context, "gnome-panel-menu-bar");
+		ctk_style_context_add_class (context, "cafe-panel-menu-bar");
 
-		gtk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
+		ctk_style_context_get (context, GTK_STATE_FLAG_NORMAL,
 		                       GTK_STYLE_PROPERTY_FONT, &fd, NULL);
 
 		if (fd != NULL) {
@@ -83,7 +83,7 @@ cafekbd_indicator_config_load_font (CafekbdIndicatorConfig * ind_config)
 		}
 
 		g_object_unref (G_OBJECT (context));
-		gtk_widget_path_unref (widget_path);
+		ctk_widget_path_unref (widget_path);
 	}
 	xkl_debug (150, "font: [%s]\n", ind_config->font_family);
 
@@ -98,21 +98,21 @@ cafekbd_indicator_config_load_colors (CafekbdIndicatorConfig * ind_config)
 
 	if (ind_config->foreground_color == NULL ||
 	    ind_config->foreground_color[0] == '\0') {
-		GtkWidgetPath *widget_path = gtk_widget_path_new ();
-		GtkStyleContext *context = gtk_style_context_new ();
+		GtkWidgetPath *widget_path = ctk_widget_path_new ();
+		GtkStyleContext *context = ctk_style_context_new ();
 		GdkRGBA fg_color;
 
-		gtk_widget_path_append_type (widget_path, GTK_TYPE_WINDOW);
-		gtk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");
+		ctk_widget_path_append_type (widget_path, GTK_TYPE_WINDOW);
+		ctk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");
 
-		gtk_style_context_set_path (context, widget_path);
-		gtk_style_context_set_screen (context, gdk_screen_get_default ());
-		gtk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
-		gtk_style_context_add_class (context, GTK_STYLE_CLASS_DEFAULT);
-		gtk_style_context_add_class (context, "gnome-panel-menu-bar");
-		gtk_style_context_add_class (context, "cafe-panel-menu-bar");
+		ctk_style_context_set_path (context, widget_path);
+		ctk_style_context_set_screen (context, gdk_screen_get_default ());
+		ctk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
+		ctk_style_context_add_class (context, GTK_STYLE_CLASS_DEFAULT);
+		ctk_style_context_add_class (context, "gnome-panel-menu-bar");
+		ctk_style_context_add_class (context, "cafe-panel-menu-bar");
 
-		gtk_style_context_get_color (context,
+		ctk_style_context_get_color (context,
 		                             GTK_STATE_FLAG_NORMAL, &fg_color);
 		ind_config->foreground_color =
 		    g_strdup_printf ("%g %g %g",
@@ -121,7 +121,7 @@ cafekbd_indicator_config_load_colors (CafekbdIndicatorConfig * ind_config)
 		                     fg_color.blue);
 
 		g_object_unref (G_OBJECT (context));
-		gtk_widget_path_unref (widget_path);
+		ctk_widget_path_unref (widget_path);
 	}
 
 	ind_config->background_color =
@@ -162,12 +162,12 @@ cafekbd_indicator_config_get_images_file (CafekbdIndicatorConfig *
 							  &l, &v);
 			if (l != NULL) {
 				/* probably there is something in theme? */
-				icon_info = gtk_icon_theme_lookup_icon
+				icon_info = ctk_icon_theme_lookup_icon
 				    (ind_config->icon_theme, l, 48, 0);
 
 				/* Unbelievable but happens */
 				if (icon_info != NULL &&
-				    gtk_icon_info_get_filename (icon_info) == NULL) {
+				    ctk_icon_info_get_filename (icon_info) == NULL) {
 					g_object_unref (icon_info);
 					icon_info = NULL;
 				}
@@ -176,12 +176,12 @@ cafekbd_indicator_config_get_images_file (CafekbdIndicatorConfig *
 	}
 	/* fallback to the default value */
 	if (icon_info == NULL) {
-		icon_info = gtk_icon_theme_lookup_icon
+		icon_info = ctk_icon_theme_lookup_icon
 		    (ind_config->icon_theme, "stock_dialog-error", 48, 0);
 	}
 	if (icon_info != NULL) {
 		image_file =
-		    g_strdup (gtk_icon_info_get_filename (icon_info));
+		    g_strdup (ctk_icon_info_get_filename (icon_info));
 		g_object_unref (icon_info);
 	}
 
@@ -235,23 +235,23 @@ cafekbd_indicator_config_init (CafekbdIndicatorConfig * ind_config,
 	ind_config->settings = g_settings_new (CAFEKBD_INDICATOR_CONFIG_SCHEMA);
 	ind_config->engine = engine;
 
-	ind_config->icon_theme = gtk_icon_theme_get_default ();
+	ind_config->icon_theme = ctk_icon_theme_get_default ();
 
-	gtk_icon_theme_append_search_path (ind_config->icon_theme, sp =
+	ctk_icon_theme_append_search_path (ind_config->icon_theme, sp =
 					   g_build_filename (g_get_home_dir
 							     (),
 							     ".icons/flags",
 							     NULL));
 	g_free (sp);
 
-	gtk_icon_theme_append_search_path (ind_config->icon_theme,
+	ctk_icon_theme_append_search_path (ind_config->icon_theme,
 					   sp =
 					   g_build_filename (DATADIR,
 							     "pixmaps/flags",
 							     NULL));
 	g_free (sp);
 
-	gtk_icon_theme_append_search_path (ind_config->icon_theme,
+	ctk_icon_theme_append_search_path (ind_config->icon_theme,
 					   sp =
 					   g_build_filename (DATADIR,
 							     "icons/flags",

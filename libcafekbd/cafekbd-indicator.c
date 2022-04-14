@@ -20,7 +20,7 @@
 
 #include <memory.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk/gdkx.h>
 #include <glib/gi18n-lib.h>
@@ -108,7 +108,7 @@ cafekbd_indicator_load_images ()
 			    gdk_pixbuf_new_from_file (image_file, &gerror);
 			if (image == NULL) {
 				GtkWidget *dialog =
-				    gtk_message_dialog_new (NULL,
+				    ctk_message_dialog_new (NULL,
 							    GTK_DIALOG_DESTROY_WITH_PARENT,
 							    GTK_MESSAGE_ERROR,
 							    GTK_BUTTONS_OK,
@@ -119,13 +119,13 @@ cafekbd_indicator_load_images ()
 				g_signal_connect (G_OBJECT (dialog),
 						  "response",
 						  G_CALLBACK
-						  (gtk_widget_destroy),
+						  (ctk_widget_destroy),
 						  NULL);
 
-				gtk_window_set_resizable (GTK_WINDOW
+				ctk_window_set_resizable (GTK_WINDOW
 							  (dialog), FALSE);
 
-				gtk_widget_show (dialog);
+				ctk_widget_show (dialog);
 				g_error_free (gerror);
 			}
 			xkl_debug (150,
@@ -172,13 +172,13 @@ cafekbd_indicator_set_tooltips (CafekbdIndicator * gki, const char *str)
 {
 	g_assert (str == NULL || g_utf8_validate (str, -1, NULL));
 
-	gtk_widget_set_tooltip_text (GTK_WIDGET (gki), str);
+	ctk_widget_set_tooltip_text (GTK_WIDGET (gki), str);
 
 	if (gki->priv->set_parent_tooltips) {
 		GtkWidget *parent =
-		    gtk_widget_get_parent (GTK_WIDGET (gki));
+		    ctk_widget_get_parent (GTK_WIDGET (gki));
 		if (parent) {
-			gtk_widget_set_tooltip_text (parent, str);
+			ctk_widget_set_tooltip_text (parent, str);
 		}
 	}
 }
@@ -190,8 +190,8 @@ cafekbd_indicator_cleanup (CafekbdIndicator * gki)
 	GtkNotebook *notebook = GTK_NOTEBOOK (gki);
 
 	/* Do not remove the first page! It is the default page */
-	for (i = gtk_notebook_get_n_pages (notebook); --i > 0;) {
-		gtk_notebook_remove_page (notebook, i);
+	for (i = ctk_notebook_get_n_pages (notebook); --i > 0;) {
+		ctk_notebook_remove_page (notebook, i);
 	}
 }
 
@@ -207,10 +207,10 @@ cafekbd_indicator_fill (CafekbdIndicator * gki)
 		page = cafekbd_indicator_prepare_drawing (gki, grp);
 
 		if (page == NULL)
-			page = gtk_label_new ("");
+			page = ctk_label_new ("");
 
-		gtk_notebook_append_page (notebook, page, NULL);
-		gtk_widget_show_all (page);
+		ctk_notebook_append_page (notebook, page, NULL);
+		ctk_widget_show_all (page);
 	}
 }
 
@@ -238,9 +238,9 @@ cafekbd_indicator_button_pressed (GtkWidget *
 			       widget,
 			       GdkEventButton * event, CafekbdIndicator * gki)
 {
-	GtkWidget *img = gtk_bin_get_child (GTK_BIN (widget));
+	GtkWidget *img = ctk_bin_get_child (GTK_BIN (widget));
 	GtkAllocation allocation;
-	gtk_widget_get_allocation (img, &allocation);
+	ctk_widget_get_allocation (img, &allocation);
 	xkl_debug (150, "Flag img size %d x %d\n",
 		   allocation.width, allocation.height);
 	if (event->button == 1 && event->type == GDK_BUTTON_PRESS) {
@@ -260,7 +260,7 @@ draw_flag (GtkWidget * flag, cairo_t * cr, GdkPixbuf * image)
 	GtkAllocation allocation;
 	double xwiratio, ywiratio, wiratio;
 
-	gtk_widget_get_allocation (flag, &allocation);
+	ctk_widget_get_allocation (flag, &allocation);
 
 	/* widget-to-image scales, X and Y */
 	xwiratio = 1.0 * allocation.width / iw;
@@ -365,8 +365,8 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 	GtkWidget *ebox;
 
 	pimage = g_slist_nth_data (globals.images, group);
-	ebox = gtk_event_box_new ();
-	gtk_event_box_set_visible_window (GTK_EVENT_BOX (ebox), FALSE);
+	ebox = ctk_event_box_new ();
+	ctk_event_box_set_visible_window (GTK_EVENT_BOX (ebox), FALSE);
 	if (globals.ind_cfg.show_flags) {
 		GdkPixbuf *image;
 		GtkWidget *flag;
@@ -374,12 +374,12 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 		if (pimage == NULL)
 			return NULL;
 		image = GDK_PIXBUF (pimage);
-		flag = gtk_drawing_area_new ();
-		gtk_widget_add_events (GTK_WIDGET (flag),
+		flag = ctk_drawing_area_new ();
+		ctk_widget_add_events (GTK_WIDGET (flag),
 				       GDK_BUTTON_PRESS_MASK);
 		g_signal_connect (G_OBJECT (flag), "draw",
 		                  G_CALLBACK (draw_flag), image);
-		gtk_container_add (GTK_CONTAINER (ebox), flag);
+		ctk_container_add (GTK_CONTAINER (ebox), flag);
 	} else {
 		char *lbl_title = NULL;
 		char *layout_name = NULL;
@@ -398,15 +398,15 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 						       &ln2cnt_map,
 						       layout_name);
 
-		label = gtk_label_new (lbl_title);
-		gtk_widget_set_halign (label, GTK_ALIGN_CENTER);
-		gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
-		gtk_widget_set_margin_start (label, 2);
-		gtk_widget_set_margin_end (label, 2);
-		gtk_widget_set_margin_top (label, 2);
-		gtk_widget_set_margin_bottom (label, 2);
+		label = ctk_label_new (lbl_title);
+		ctk_widget_set_halign (label, GTK_ALIGN_CENTER);
+		ctk_widget_set_valign (label, GTK_ALIGN_CENTER);
+		ctk_widget_set_margin_start (label, 2);
+		ctk_widget_set_margin_end (label, 2);
+		ctk_widget_set_margin_top (label, 2);
+		ctk_widget_set_margin_bottom (label, 2);
 		g_free (lbl_title);
-		gtk_label_set_angle (GTK_LABEL (label), gki->priv->angle);
+		ctk_label_set_angle (GTK_LABEL (label), gki->priv->angle);
 
 		if (group + 1 ==
 		    xkl_engine_get_num_groups (globals.engine)) {
@@ -414,7 +414,7 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 			ln2cnt_map = NULL;
 		}
 
-		gtk_container_add (GTK_CONTAINER (ebox), label);
+		ctk_container_add (GTK_CONTAINER (ebox), label);
 	}
 
 	g_signal_connect (G_OBJECT (ebox),
@@ -591,7 +591,7 @@ cafekbd_indicator_set_current_page_for_group (CafekbdIndicator * gki, int group)
 {
 	xkl_debug (200, "Revalidating for group %d\n", group);
 
-	gtk_notebook_set_current_page (GTK_NOTEBOOK (gki), group + 1);
+	ctk_notebook_set_current_page (GTK_NOTEBOOK (gki), group + 1);
 
 	cafekbd_indicator_update_tooltips (gki);
 }
@@ -610,7 +610,7 @@ cafekbd_indicator_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 
 			ForAllIndicators () {
 				GdkWindow *w =
-				    gtk_widget_get_parent_window
+				    ctk_widget_get_parent_window
 				    (GTK_WIDGET (gki));
 
 				/* compare the indicator's parent window with the even window */
@@ -680,15 +680,15 @@ static void cafekbd_indicator_init(CafekbdIndicator* gki)
 
 	xkl_debug (100, "Initiating the widget startup process for %p\n", gki);
 
-	gtk_notebook_set_show_tabs (notebook, FALSE);
-	gtk_notebook_set_show_border (notebook, FALSE);
+	ctk_notebook_set_show_tabs (notebook, FALSE);
+	ctk_notebook_set_show_border (notebook, FALSE);
 
 	def_drawing =
-	    gtk_image_new_from_icon_name ("process-stop",
+	    ctk_image_new_from_icon_name ("process-stop",
 				      GTK_ICON_SIZE_BUTTON);
 
-	gtk_notebook_append_page (notebook, def_drawing,
-				  gtk_label_new (""));
+	ctk_notebook_append_page (notebook, def_drawing,
+				  ctk_label_new (""));
 
 	if (globals.engine == NULL) {
 		cafekbd_indicator_set_tooltips (gki,
@@ -702,7 +702,7 @@ static void cafekbd_indicator_init(CafekbdIndicator* gki)
 	cafekbd_indicator_fill (gki);
 	cafekbd_indicator_set_current_page (gki);
 
-	gtk_widget_add_events (GTK_WIDGET (gki), GDK_BUTTON_PRESS_MASK);
+	ctk_widget_add_events (GTK_WIDGET (gki), GDK_BUTTON_PRESS_MASK);
 
 	/* append AFTER all initialization work is finished */
 	globals.widget_instances =

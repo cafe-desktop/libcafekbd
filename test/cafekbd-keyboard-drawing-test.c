@@ -21,7 +21,7 @@
 # include <config.h>
 #endif
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <stdlib.h>
 #include <string.h>
 #include <glib.h>
@@ -187,7 +187,7 @@ main (gint argc, gchar ** argv)
 		exit (0);
 	}
 
-	gtk_init (&argc, &argv);
+	ctk_init (&argc, &argv);
 
 	if (!set_groups (groups, groupLevels)) {
 		g_printerr ("--groups: invalid argument\n");
@@ -199,22 +199,22 @@ main (gint argc, gchar ** argv)
 		exit (1);
 	}
 
-	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	window = ctk_window_new (GTK_WINDOW_TOPLEVEL);
 	g_signal_connect (G_OBJECT (window), "destroy",
-			  G_CALLBACK (gtk_main_quit), NULL);
+			  G_CALLBACK (ctk_main_quit), NULL);
 
-	screen = gtk_window_get_screen (GTK_WINDOW (window));
+	screen = ctk_window_get_screen (GTK_WINDOW (window));
 	monitor = gdk_display_get_monitor_at_point (gdk_screen_get_display (screen), 0, 0);
 	gdk_monitor_get_geometry (monitor, &rect);
-	gtk_window_set_default_size (GTK_WINDOW (window),
+	ctk_window_set_default_size (GTK_WINDOW (window),
 				     rect.width * 4 / 5,
 				     rect.height * 1 / 2);
 
-	gtk_widget_show (window);
+	ctk_widget_show (window);
 
 	cafekbd_keyboard_drawing = cafekbd_keyboard_drawing_new ();
-	gtk_widget_show (cafekbd_keyboard_drawing);
-	gtk_container_add (GTK_CONTAINER (window), cafekbd_keyboard_drawing);
+	ctk_widget_show (cafekbd_keyboard_drawing);
+	ctk_container_add (GTK_CONTAINER (window), cafekbd_keyboard_drawing);
 
 	cafekbd_keyboard_drawing_set_groups_levels (CAFEKBD_KEYBOARD_DRAWING
 						 (cafekbd_keyboard_drawing),
@@ -275,9 +275,9 @@ main (gint argc, gchar ** argv)
 		}
 	}
 
-	gtk_widget_grab_focus (cafekbd_keyboard_drawing);
+	ctk_widget_grab_focus (cafekbd_keyboard_drawing);
 
-	gtk_main ();
+	ctk_main ();
 
 	return 0;
 }

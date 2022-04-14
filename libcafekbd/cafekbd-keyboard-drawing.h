@@ -20,7 +20,7 @@
 #ifndef CAFEKBD_KEYBOARD_DRAWING_H
 #define CAFEKBD_KEYBOARD_DRAWING_H 1
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <X11/XKBlib.h>
 #include <X11/extensions/XKBgeom.h>
 

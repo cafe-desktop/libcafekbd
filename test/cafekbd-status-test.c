@@ -32,7 +32,7 @@
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "X11/XKBlib.h"
 
@@ -45,7 +45,7 @@ main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
-	gtk_init (&argc, &argv);
+	ctk_init (&argc, &argv);
 
 	icon = cafekbd_status_new ();
 
@@ -54,7 +54,7 @@ main (int argc, char **argv)
 		return 1;
 	}
 
-	gtk_main ();
+	ctk_main ();
 
 	return 0;
 }
