@@ -58,8 +58,8 @@
   * sync with transifex
   * cafekbd-indicator: Don't expand
   * cafekbd-indicator: don't use deprecated gdk_cairo_create
-  * Fix for strange GtkIconInfo behaviour
-  * cafekbd-indicator: don't use deprecated GtkAlignment
+  * Fix for strange CtkIconInfo behaviour
+  * cafekbd-indicator: don't use deprecated CtkAlignment
   * keyboard-drawing: set css name cafekbd-keyboard-drawing
   * Slightly increase the font size for the key labels
   * cafekbd-keyboard-drawing: Don't unset double buffering

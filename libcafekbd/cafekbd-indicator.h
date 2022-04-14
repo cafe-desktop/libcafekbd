@@ -40,19 +40,19 @@ extern "C" {
 #define CAFEKBD_INDICATOR_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAFEKBD_TYPE_INDICATOR, CafekbdIndicatorClass))
 
 	struct _CafekbdIndicator {
-		GtkNotebook parent;
+		CtkNotebook parent;
 		CafekbdIndicatorPrivate *priv;
 	};
 
 	struct _CafekbdIndicatorClass {
-		GtkNotebookClass parent_class;
+		CtkNotebookClass parent_class;
 
 		void (*reinit_ui) (CafekbdIndicator * gki);
 	};
 
 	extern GType cafekbd_indicator_get_type (void);
 
-	extern GtkWidget *cafekbd_indicator_new (void);
+	extern CtkWidget *cafekbd_indicator_new (void);
 
 	extern void cafekbd_indicator_reinit_ui (CafekbdIndicator * gki);
 

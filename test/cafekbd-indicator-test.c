@@ -38,9 +38,9 @@
 
 int main(int argc, char** argv)
 {
-	GtkWidget* gki;
-	GtkWidget* mainwin;
-	GtkWidget* vbox;
+	CtkWidget* gki;
+	CtkWidget* mainwin;
+	CtkWidget* vbox;
 
 	bindtextdomain(GETTEXT_PACKAGE, CAFELOCALEDIR);
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");

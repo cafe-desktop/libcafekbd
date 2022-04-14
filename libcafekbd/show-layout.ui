@@ -3,7 +3,7 @@
 <!--*- mode: xml -*-->
 <interface>
   <requires lib="ctk+" version="3.14"/>
-  <object class="GtkDialog" id="gswitchit_layout_view">
+  <object class="CtkDialog" id="gswitchit_layout_view">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">Keyboard Layout</property>
@@ -11,18 +11,18 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
-      <object class="GtkBox" id="dialog-vbox1">
+      <object class="CtkBox" id="dialog-vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area1">
+          <object class="CtkButtonBox" id="dialog-action_area1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="btnPrint">
+              <object class="CtkButton" id="btnPrint">
                 <property name="label">ctk-print</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -37,7 +37,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btnClose">
+              <object class="CtkButton" id="btnClose">
                 <property name="label">ctk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -60,7 +60,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="preview_vbox">
+          <object class="CtkBox" id="preview_vbox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="border_width">5</property>

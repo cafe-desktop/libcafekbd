@@ -40,17 +40,17 @@ extern "C" {
 	#define CAFEKBD_STATUS_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CAFEKBD_TYPE_STATUS, CafekbdStatusClass))
 
 	struct _CafekbdStatus {
-		GtkStatusIcon parent;
+		CtkStatusIcon parent;
 		CafekbdStatusPrivate *priv;
 	};
 
 	struct _CafekbdStatusClass {
-		GtkNotebookClass parent_class;
+		CtkNotebookClass parent_class;
 	};
 
 	extern GType cafekbd_status_get_type (void);
 
-	extern GtkStatusIcon *cafekbd_status_new (void);
+	extern CtkStatusIcon *cafekbd_status_new (void);
 
 	extern void cafekbd_status_reinit_ui (CafekbdStatus * gki);
 
