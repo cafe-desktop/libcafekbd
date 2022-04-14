@@ -99,7 +99,7 @@ cafekbd_indicator_load_images ()
 
 	for (i = xkl_engine_get_max_num_groups (globals.engine);
 	     --i >= 0; image_filename = image_filename->next) {
-		CdkPixbuf *image = NULL;
+		GdkPixbuf *image = NULL;
 		char *image_file = (char *) image_filename->data;
 
 		if (image_file != NULL) {
@@ -147,7 +147,7 @@ cafekbd_indicator_free_images ()
 	cafekbd_indicator_config_free_image_filenames (&globals.ind_cfg);
 
 	while ((img_node = globals.images) != NULL) {
-		CdkPixbuf *pi;
+		GdkPixbuf *pi;
 
 		pi = CDK_PIXBUF (img_node->data);
 		/* It can be NULL - some images may be missing */
@@ -252,7 +252,7 @@ cafekbd_indicator_button_pressed (CtkWidget *
 }
 
 static void
-draw_flag (CtkWidget * flag, cairo_t * cr, CdkPixbuf * image)
+draw_flag (CtkWidget * flag, cairo_t * cr, GdkPixbuf * image)
 {
 	/* Image width and height */
 	int iw = cdk_pixbuf_get_width (image);
@@ -368,7 +368,7 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 	ebox = ctk_event_box_new ();
 	ctk_event_box_set_visible_window (CTK_EVENT_BOX (ebox), FALSE);
 	if (globals.ind_cfg.show_flags) {
-		CdkPixbuf *image;
+		GdkPixbuf *image;
 		CtkWidget *flag;
 
 		if (pimage == NULL)
@@ -902,7 +902,7 @@ cafekbd_indicator_get_max_width_height_ratio (void)
 	if (!globals.ind_cfg.show_flags)
 		return 0;
 	while (ip != NULL) {
-		CdkPixbuf *img = CDK_PIXBUF (ip->data);
+		GdkPixbuf *img = CDK_PIXBUF (ip->data);
 		gdouble r =
 		    1.0 * cdk_pixbuf_get_width (img) /
 		    cdk_pixbuf_get_height (img);
