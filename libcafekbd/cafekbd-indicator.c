@@ -149,7 +149,7 @@ cafekbd_indicator_free_images ()
 	while ((img_node = globals.images) != NULL) {
 		GdkPixbuf *pi;
 
-		pi = GDK_PIXBUF (img_node->data);
+		pi = CDK_PIXBUF (img_node->data);
 		/* It can be NULL - some images may be missing */
 		if (pi != NULL) {
 			g_object_unref (pi);
@@ -218,12 +218,12 @@ static gboolean cafekbd_indicator_key_pressed(CtkWidget* widget, GdkEventKey* ev
 {
 	switch (event->keyval)
 	{
-			case GDK_KEY_KP_Enter:
-			case GDK_KEY_ISO_Enter:
-			case GDK_KEY_3270_Enter:
-			case GDK_KEY_Return:
-			case GDK_KEY_space:
-			case GDK_KEY_KP_Space:
+			case CDK_KEY_KP_Enter:
+			case CDK_KEY_ISO_Enter:
+			case CDK_KEY_3270_Enter:
+			case CDK_KEY_Return:
+			case CDK_KEY_space:
+			case CDK_KEY_KP_Space:
 			cafekbd_desktop_config_lock_next_group(&globals.cfg);
 			return TRUE;
 		default:
@@ -243,7 +243,7 @@ cafekbd_indicator_button_pressed (CtkWidget *
 	ctk_widget_get_allocation (img, &allocation);
 	xkl_debug (150, "Flag img size %d x %d\n",
 		   allocation.width, allocation.height);
-	if (event->button == 1 && event->type == GDK_BUTTON_PRESS) {
+	if (event->button == 1 && event->type == CDK_BUTTON_PRESS) {
 		xkl_debug (150, "Mouse button pressed on applet\n");
 		cafekbd_desktop_config_lock_next_group (&globals.cfg);
 		return TRUE;
@@ -373,10 +373,10 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 
 		if (pimage == NULL)
 			return NULL;
-		image = GDK_PIXBUF (pimage);
+		image = CDK_PIXBUF (pimage);
 		flag = ctk_drawing_area_new ();
 		ctk_widget_add_events (CTK_WIDGET (flag),
-				       GDK_BUTTON_PRESS_MASK);
+				       CDK_BUTTON_PRESS_MASK);
 		g_signal_connect (G_OBJECT (flag), "draw",
 		                  G_CALLBACK (draw_flag), image);
 		ctk_container_add (CTK_CONTAINER (ebox), flag);
@@ -615,7 +615,7 @@ cafekbd_indicator_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 
 				/* compare the indicator's parent window with the even window */
 				if (w != NULL
-				    && GDK_WINDOW_XID (w) == rne->window) {
+				    && CDK_WINDOW_XID (w) == rne->window) {
 					/* if so - make it transparent... */
 					xkl_engine_set_window_transparent
 					    (globals.engine, rne->window,
@@ -626,7 +626,7 @@ cafekbd_indicator_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 		}
 		break;
 	}
-	return GDK_FILTER_CONTINUE;
+	return CDK_FILTER_CONTINUE;
 }
 
 
@@ -702,7 +702,7 @@ static void cafekbd_indicator_init(CafekbdIndicator* gki)
 	cafekbd_indicator_fill (gki);
 	cafekbd_indicator_set_current_page (gki);
 
-	ctk_widget_add_events (CTK_WIDGET (gki), GDK_BUTTON_PRESS_MASK);
+	ctk_widget_add_events (CTK_WIDGET (gki), CDK_BUTTON_PRESS_MASK);
 
 	/* append AFTER all initialization work is finished */
 	globals.widget_instances =
@@ -786,7 +786,7 @@ cafekbd_indicator_global_init (void)
 {
 	XklConfigRec *xklrec = xkl_config_rec_new ();
 
-	globals.engine = xkl_engine_get_instance(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
+	globals.engine = xkl_engine_get_instance(CDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
 
 	if (globals.engine == NULL)
 	{
@@ -902,7 +902,7 @@ cafekbd_indicator_get_max_width_height_ratio (void)
 	if (!globals.ind_cfg.show_flags)
 		return 0;
 	while (ip != NULL) {
-		GdkPixbuf *img = GDK_PIXBUF (ip->data);
+		GdkPixbuf *img = CDK_PIXBUF (ip->data);
 		gdouble r =
 		    1.0 * cdk_pixbuf_get_width (img) /
 		    cdk_pixbuf_get_height (img);

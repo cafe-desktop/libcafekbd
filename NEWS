@@ -36,7 +36,7 @@
 ### libcafekbd 1.20.0
 
   * Translations update
-  * bump minimum GDK version according to CTK+ one
+  * bump minimum CDK version according to CTK+ one
   * remove < ctk+-3.22 bits and bump required ctk+
   * building: bump required glib version to 2.50.0
 

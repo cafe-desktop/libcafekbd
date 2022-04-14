@@ -3,7 +3,7 @@ lib_LTLIBRARIES = libcafekbd.la libcafekbdui.la
 
 common_CFLAGS =					\
 	-I$(top_srcdir)				\
-	$(GDK_CFLAGS)				\
+	$(CDK_CFLAGS)				\
 	$(GIO_CFLAGS)				\
 	$(LIBXKLAVIER_CFLAGS)			\
 	$(XLIB_CFLAGS)				\
@@ -17,7 +17,7 @@ common_CFLAGS =					\
 common_LDFLAGS = -version-info @VERSION_INFO@ -no-undefined
 
 common_LIBADD =					\
-	$(GDK_LIBS)				\
+	$(CDK_LIBS)				\
 	$(GIO_LIBS)				\
 	$(LIBXKLAVIER_LIBS)			\
 	$(XLIB_LIBS)				\
