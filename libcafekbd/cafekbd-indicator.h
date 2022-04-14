@@ -20,7 +20,7 @@
 #ifndef __CAFEKBD_INDICATOR_H__
 #define __CAFEKBD_INDICATOR_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <libxklavier/xklavier.h>
 

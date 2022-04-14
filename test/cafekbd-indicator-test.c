@@ -32,7 +32,7 @@
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "X11/XKBlib.h"
 
@@ -47,27 +47,27 @@ int main(int argc, char** argv)
 	textdomain(GETTEXT_PACKAGE);
 
 	/* Different data dir defs in g-a and g-c-c */
-	gtk_init (&argc, &argv);
+	ctk_init (&argc, &argv);
 
-	mainwin = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	mainwin = ctk_window_new(GTK_WINDOW_TOPLEVEL);
 
 	gki = cafekbd_indicator_new();
 	cafekbd_indicator_set_tooltips_format(_("Keyboard Indicator Test (%s)"));
 	cafekbd_indicator_set_parent_tooltips(CAFEKBD_INDICATOR (gki), TRUE);
 
-	gtk_window_resize(GTK_WINDOW(mainwin), 250, 250);
-	vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+	ctk_window_resize(GTK_WINDOW(mainwin), 250, 250);
+	vbox = ctk_box_new(GTK_ORIENTATION_VERTICAL, 6);
 
-	gtk_container_add(GTK_CONTAINER(mainwin), vbox);
-	gtk_container_set_border_width(GTK_CONTAINER(vbox), 12);
-	gtk_container_add(GTK_CONTAINER(vbox), gtk_label_new(_("Indicator:")));
-	gtk_container_add(GTK_CONTAINER(vbox), gki);
+	ctk_container_add(GTK_CONTAINER(mainwin), vbox);
+	ctk_container_set_border_width(GTK_CONTAINER(vbox), 12);
+	ctk_container_add(GTK_CONTAINER(vbox), ctk_label_new(_("Indicator:")));
+	ctk_container_add(GTK_CONTAINER(vbox), gki);
 
-	gtk_widget_show_all(mainwin);
+	ctk_widget_show_all(mainwin);
 
-	g_signal_connect(G_OBJECT(mainwin), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+	g_signal_connect(G_OBJECT(mainwin), "destroy", G_CALLBACK(ctk_main_quit), NULL);
 
-	gtk_main();
+	ctk_main();
 
 	return 0;
 }

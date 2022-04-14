@@ -20,7 +20,7 @@
 #ifndef __CAFEKBD_INDICATOR_CONFIG_H__
 #define __CAFEKBD_INDICATOR_CONFIG_H__
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "libcafekbd/cafekbd-keyboard-config.h"
 
