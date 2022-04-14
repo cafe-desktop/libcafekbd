@@ -365,7 +365,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 		cairo_surface_destroy (cs);
 
 		image = gdk_pixbuf_new_from_data (pixbuf_data,
-						  CDK_COLORSPACE_RGB,
+						  GDK_COLORSPACE_RGB,
 						  TRUE,
 						  8,
 						  globals.real_width,
