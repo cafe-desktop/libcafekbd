@@ -48,7 +48,7 @@
 ### libcafekbd 1.19.0
 
   * Translations update
-  * cafekbd-status: Fix Gdk-CRITICAL warning on creating status bar icon
+  * cafekbd-status: Fix Cdk-CRITICAL warning on creating status bar icon
   * ctk 3.22: avoid deprecated cdk_screen_get_monitor... functions:
   * avoid deprecated cdk_screen_get_width/height
   * avoid deprecated cdk_screen_get_number

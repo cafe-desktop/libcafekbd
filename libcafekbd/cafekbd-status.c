@@ -48,7 +48,7 @@ typedef struct _gki_globals {
 	gint current_height;
 	int real_width;
 
-	GSList *icons;		/* list of GdkPixbuf */
+	GSList *icons;		/* list of CdkPixbuf */
 	GSList *widget_instances;	/* list of CafekbdStatus */
 	gulong state_changed_handler;
 	gulong config_changed_handler;
@@ -84,7 +84,7 @@ static void
 cafekbd_status_global_init (void);
 static void
 cafekbd_status_global_term (void);
-static GdkPixbuf *
+static CdkPixbuf *
 cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group);
 static void
 cafekbd_status_set_current_page_for_group (CafekbdStatus * gki, int group);
@@ -123,7 +123,7 @@ cafekbd_status_global_fill (CafekbdStatus * gki)
 	int total_groups = xkl_engine_get_num_groups (globals.engine);
 
 	for (grp = 0; grp < total_groups; grp++) {
-		GdkPixbuf *page = cafekbd_status_prepare_drawing (gki, grp);
+		CdkPixbuf *page = cafekbd_status_prepare_drawing (gki, grp);
 		globals.icons = g_slist_append (globals.icons, page);
 	}
 }
@@ -284,12 +284,12 @@ convert_bgra_to_rgba (guint8 const *src, guint8 * dst, int width,
 	}
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 {
 	GError *gerror = NULL;
 	char *image_filename;
-	GdkPixbuf *image;
+	CdkPixbuf *image;
 
 	if (globals.current_width == 0)
 		return NULL;
@@ -372,7 +372,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
 						  globals.current_height,
 						  globals.real_width *
 						  4,
-						  (GdkPixbufDestroyNotify)
+						  (CdkPixbufDestroyNotify)
 						  g_free, NULL);
 		xkl_debug (150,
 			   "Image %d created -> %p[%dx%d], alpha: %d\n",
@@ -553,8 +553,8 @@ cafekbd_status_set_current_page_for_group (CafekbdStatus * gki, int group)
 }
 
 /* Should be called once for all widgets */
-static GdkFilterReturn
-cafekbd_status_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
+static CdkFilterReturn
+cafekbd_status_filter_x_evt (CdkXEvent * xev, CdkEvent * event)
 {
 	XEvent *xevent = (XEvent *) xev;
 
@@ -588,10 +588,10 @@ cafekbd_status_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 static void
 cafekbd_status_start_listen (void)
 {
-	cdk_window_add_filter (NULL, (GdkFilterFunc)
+	cdk_window_add_filter (NULL, (CdkFilterFunc)
 			       cafekbd_status_filter_x_evt, NULL);
 	cdk_window_add_filter (cdk_get_default_root_window (),
-			       (GdkFilterFunc) cafekbd_status_filter_x_evt,
+			       (CdkFilterFunc) cafekbd_status_filter_x_evt,
 			       NULL);
 
 	xkl_engine_start_listen (globals.engine,
@@ -604,11 +604,11 @@ cafekbd_status_stop_listen (void)
 {
 	xkl_engine_stop_listen (globals.engine, XKLL_TRACK_KEYBOARD_STATE);
 
-	cdk_window_remove_filter (NULL, (GdkFilterFunc)
+	cdk_window_remove_filter (NULL, (CdkFilterFunc)
 				  cafekbd_status_filter_x_evt, NULL);
 	cdk_window_remove_filter
 	    (cdk_get_default_root_window (),
-	     (GdkFilterFunc) cafekbd_status_filter_x_evt, NULL);
+	     (CdkFilterFunc) cafekbd_status_filter_x_evt, NULL);
 }
 
 static void
@@ -640,7 +640,7 @@ cafekbd_status_init (CafekbdStatus * gki)
 	gki->priv = g_new0 (CafekbdStatusPrivate, 1);
 
 	/* This should give NA a hint about the order */
-	/* commenting out fixes a Gdk-critical warning */
+	/* commenting out fixes a Cdk-critical warning */
 /*	ctk_status_icon_set_name (CTK_STATUS_ICON (gki), "keyboard"); */
 
 	xkl_debug (100, "Initiating the widget startup process for %p\n",

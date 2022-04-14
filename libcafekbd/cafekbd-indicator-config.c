@@ -100,7 +100,7 @@ cafekbd_indicator_config_load_colors (CafekbdIndicatorConfig * ind_config)
 	    ind_config->foreground_color[0] == '\0') {
 		CtkWidgetPath *widget_path = ctk_widget_path_new ();
 		CtkStyleContext *context = ctk_style_context_new ();
-		GdkRGBA fg_color;
+		CdkRGBA fg_color;
 
 		ctk_widget_path_append_type (widget_path, CTK_TYPE_WINDOW);
 		ctk_widget_path_iter_set_name (widget_path, -1 , "PanelWidget");

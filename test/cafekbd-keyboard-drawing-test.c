@@ -160,9 +160,9 @@ main (gint argc, gchar ** argv)
 {
 	CtkWidget *window;
 	CtkWidget *cafekbd_keyboard_drawing;
-	GdkScreen *screen;
-	GdkMonitor *monitor;
-	GdkRectangle rect;
+	CdkScreen *screen;
+	CdkMonitor *monitor;
+	CdkRectangle rect;
 	GOptionContext *context;
 	GError *error = NULL;
 

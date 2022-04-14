@@ -99,7 +99,7 @@ cafekbd_indicator_load_images ()
 
 	for (i = xkl_engine_get_max_num_groups (globals.engine);
 	     --i >= 0; image_filename = image_filename->next) {
-		GdkPixbuf *image = NULL;
+		CdkPixbuf *image = NULL;
 		char *image_file = (char *) image_filename->data;
 
 		if (image_file != NULL) {
@@ -147,7 +147,7 @@ cafekbd_indicator_free_images ()
 	cafekbd_indicator_config_free_image_filenames (&globals.ind_cfg);
 
 	while ((img_node = globals.images) != NULL) {
-		GdkPixbuf *pi;
+		CdkPixbuf *pi;
 
 		pi = CDK_PIXBUF (img_node->data);
 		/* It can be NULL - some images may be missing */
@@ -214,7 +214,7 @@ cafekbd_indicator_fill (CafekbdIndicator * gki)
 	}
 }
 
-static gboolean cafekbd_indicator_key_pressed(CtkWidget* widget, GdkEventKey* event, CafekbdIndicator* gki)
+static gboolean cafekbd_indicator_key_pressed(CtkWidget* widget, CdkEventKey* event, CafekbdIndicator* gki)
 {
 	switch (event->keyval)
 	{
@@ -236,7 +236,7 @@ static gboolean cafekbd_indicator_key_pressed(CtkWidget* widget, GdkEventKey* ev
 static gboolean
 cafekbd_indicator_button_pressed (CtkWidget *
 			       widget,
-			       GdkEventButton * event, CafekbdIndicator * gki)
+			       CdkEventButton * event, CafekbdIndicator * gki)
 {
 	CtkWidget *img = ctk_bin_get_child (CTK_BIN (widget));
 	CtkAllocation allocation;
@@ -252,7 +252,7 @@ cafekbd_indicator_button_pressed (CtkWidget *
 }
 
 static void
-draw_flag (CtkWidget * flag, cairo_t * cr, GdkPixbuf * image)
+draw_flag (CtkWidget * flag, cairo_t * cr, CdkPixbuf * image)
 {
 	/* Image width and height */
 	int iw = cdk_pixbuf_get_width (image);
@@ -368,7 +368,7 @@ cafekbd_indicator_prepare_drawing (CafekbdIndicator * gki, int group)
 	ebox = ctk_event_box_new ();
 	ctk_event_box_set_visible_window (CTK_EVENT_BOX (ebox), FALSE);
 	if (globals.ind_cfg.show_flags) {
-		GdkPixbuf *image;
+		CdkPixbuf *image;
 		CtkWidget *flag;
 
 		if (pimage == NULL)
@@ -597,8 +597,8 @@ cafekbd_indicator_set_current_page_for_group (CafekbdIndicator * gki, int group)
 }
 
 /* Should be called once for all widgets */
-static GdkFilterReturn
-cafekbd_indicator_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
+static CdkFilterReturn
+cafekbd_indicator_filter_x_evt (CdkXEvent * xev, CdkEvent * event)
 {
 	XEvent *xevent = (XEvent *) xev;
 
@@ -609,7 +609,7 @@ cafekbd_indicator_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 			XReparentEvent *rne = (XReparentEvent *) xev;
 
 			ForAllIndicators () {
-				GdkWindow *w =
+				CdkWindow *w =
 				    ctk_widget_get_parent_window
 				    (CTK_WIDGET (gki));
 
@@ -634,10 +634,10 @@ cafekbd_indicator_filter_x_evt (GdkXEvent * xev, GdkEvent * event)
 static void
 cafekbd_indicator_start_listen (void)
 {
-	cdk_window_add_filter (NULL, (GdkFilterFunc)
+	cdk_window_add_filter (NULL, (CdkFilterFunc)
 			       cafekbd_indicator_filter_x_evt, NULL);
 	cdk_window_add_filter (cdk_get_default_root_window (),
-			       (GdkFilterFunc)
+			       (CdkFilterFunc)
 			       cafekbd_indicator_filter_x_evt, NULL);
 
 	xkl_engine_start_listen (globals.engine,
@@ -650,15 +650,15 @@ cafekbd_indicator_stop_listen (void)
 {
 	xkl_engine_stop_listen (globals.engine, XKLL_TRACK_KEYBOARD_STATE);
 
-	cdk_window_remove_filter (NULL, (GdkFilterFunc)
+	cdk_window_remove_filter (NULL, (CdkFilterFunc)
 				  cafekbd_indicator_filter_x_evt, NULL);
 	cdk_window_remove_filter
 	    (cdk_get_default_root_window (),
-	     (GdkFilterFunc) cafekbd_indicator_filter_x_evt, NULL);
+	     (CdkFilterFunc) cafekbd_indicator_filter_x_evt, NULL);
 }
 
 static gboolean
-cafekbd_indicator_scroll (CtkWidget * gki, GdkEventScroll * event)
+cafekbd_indicator_scroll (CtkWidget * gki, CdkEventScroll * event)
 {
 	/* mouse wheel events should be ignored, otherwise funny effects appear */
 	return TRUE;
@@ -902,7 +902,7 @@ cafekbd_indicator_get_max_width_height_ratio (void)
 	if (!globals.ind_cfg.show_flags)
 		return 0;
 	while (ip != NULL) {
-		GdkPixbuf *img = CDK_PIXBUF (ip->data);
+		CdkPixbuf *img = CDK_PIXBUF (ip->data);
 		gdouble r =
 		    1.0 * cdk_pixbuf_get_width (img) /
 		    cdk_pixbuf_get_height (img);

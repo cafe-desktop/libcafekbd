@@ -61,10 +61,10 @@ const gchar CAFEKBD_PREVIEW_CONFIG_KEY_HEIGHT[] = "height";
  *
  * Returns: (transfer full): A rectangle to use
  */
-GdkRectangle *
+CdkRectangle *
 cafekbd_preview_load_position (void)
 {
-	GdkRectangle *rv = NULL;
+	CdkRectangle *rv = NULL;
 	gint x, y, w, h;
 	GSettings* settings = g_settings_new (CAFEKBD_PREVIEW_CONFIG_SCHEMA);
 
@@ -75,11 +75,11 @@ cafekbd_preview_load_position (void)
 
 	g_object_unref (settings);
 
-	rv = g_new (GdkRectangle, 1);
+	rv = g_new (CdkRectangle, 1);
 	if (x == -1 || y == -1 || w == -1 || h == -1) {
 		/* default values should be treated as
 		 * "0.75 of the screen size" */
-		GdkScreen *scr = cdk_screen_get_default ();
+		CdkScreen *scr = cdk_screen_get_default ();
 		w = WidthOfScreen (cdk_x11_screen_get_xscreen (scr));
 		h = HeightOfScreen (cdk_x11_screen_get_xscreen (scr));
 		rv->x = w >> 3;
@@ -96,7 +96,7 @@ cafekbd_preview_load_position (void)
 }
 
 void
-cafekbd_preview_save_position (GdkRectangle * rect)
+cafekbd_preview_save_position (CdkRectangle * rect)
 {
 	GSettings* settings = g_settings_new (CAFEKBD_PREVIEW_CONFIG_SCHEMA);
 
