@@ -125,7 +125,9 @@ cafekbd-keyboard-drawing-marshal.c: cafekbd-keyboard-drawing-marshal.h
         || ( rm -f cafekbd-keyboard-drawing-marshal.tmp && exit 1 )
 
 
-cafekbd-keyboard-drawing-resources.h cafekbd-keyboard-drawing-resources.c: org.cafe.peripherals.keyboard.gresource.xml
+dependencies:
+	$(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/org.cafe.peripherals.keyboard.gresource.xml
+cafekbd-keyboard-drawing-resources.h cafekbd-keyboard-drawing-resources.c: org.cafe.peripherals.keyboard.gresource.xml Makefile dependencies
 	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(srcdir) --generate --c-name cafekbd $<
 
 -include $(INTROSPECTION_MAKEFILE)
