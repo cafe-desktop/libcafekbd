@@ -82,6 +82,11 @@ cafekbd_indicator_fill (CafekbdIndicator * gki);
 static void
 cafekbd_indicator_set_tooltips (CafekbdIndicator * gki, const char *str);
 
+gchar *
+cafekbd_indicator_extract_layout_name (int group, XklEngine *engine, CafekbdKeyboardConfig *kbd_cfg, gchar **short_group_names, gchar **full_group_names);
+gchar *
+cafekbd_indicator_create_label_title (int group, GHashTable **ln2cnt_map, gchar *layout_name);
+
 void
 cafekbd_indicator_load_images ()
 {
