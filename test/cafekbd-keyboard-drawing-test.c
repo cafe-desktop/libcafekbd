@@ -148,7 +148,8 @@ set_levels (gchar * levels_option,
 }
 
 static void
-bad_keycode (CafekbdKeyboardDrawing * drawing, guint keycode)
+bad_keycode (CafekbdKeyboardDrawing *drawing G_GNUC_UNUSED,
+	     guint                   keycode)
 {
 	g_warning
 	    ("got keycode %u, which is not on your keyboard according to your configuration",
