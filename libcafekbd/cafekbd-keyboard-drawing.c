@@ -33,8 +33,6 @@
 #include <cafekbd-keyboard-drawing-marshal.h>
 #include <cafekbd-util.h>
 
-#define noKBDRAW_DEBUG
-
 #define INVALID_KEYCODE ((guint)(-1))
 
 #define CTK_RESPONSE_PRINT 2
@@ -2160,7 +2158,6 @@ xkb_state_notify_event_filter (CdkXEvent              *cdkxev,
 			       CdkEvent               *event G_GNUC_UNUSED,
 			       CafekbdKeyboardDrawing *drawing)
 {
-#define group_change_mask (XkbGroupStateMask | XkbGroupBaseMask | XkbGroupLatchMask | XkbGroupLockMask)
 #define modifier_change_mask (XkbModifierStateMask | XkbModifierBaseMask | XkbModifierLatchMask | XkbModifierLockMask)
 
 	if (!drawing->xkb)
