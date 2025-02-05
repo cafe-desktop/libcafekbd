@@ -214,7 +214,9 @@ cafekbd_indicator_fill (CafekbdIndicator * gki)
 	}
 }
 
-static gboolean cafekbd_indicator_key_pressed(CtkWidget* widget, CdkEventKey* event, CafekbdIndicator* gki)
+static gboolean cafekbd_indicator_key_pressed (CtkWidget        *widget G_GNUC_UNUSED,
+					       CdkEventKey      *event,
+					       CafekbdIndicator *gki G_GNUC_UNUSED)
 {
 	switch (event->keyval)
 	{
@@ -234,9 +236,9 @@ static gboolean cafekbd_indicator_key_pressed(CtkWidget* widget, CdkEventKey* ev
 }
 
 static gboolean
-cafekbd_indicator_button_pressed (CtkWidget *
-			       widget,
-			       CdkEventButton * event, CafekbdIndicator * gki)
+cafekbd_indicator_button_pressed (CtkWidget        *widget,
+				  CdkEventButton   *event,
+				  CafekbdIndicator *gki G_GNUC_UNUSED)
 {
 	CtkWidget *img = ctk_bin_get_child (CTK_BIN (widget));
 	CtkAllocation allocation;
@@ -447,7 +449,8 @@ cafekbd_indicator_update_tooltips (CafekbdIndicator * gki)
 }
 
 static void
-cafekbd_indicator_parent_set (CtkWidget * gki, CtkWidget * previous_parent)
+cafekbd_indicator_parent_set (CtkWidget *gki,
+			      CtkWidget *previous_parent G_GNUC_UNUSED)
 {
 	cafekbd_indicator_update_tooltips (CAFEKBD_INDICATOR (gki));
 }
@@ -466,9 +469,9 @@ cafekbd_indicator_reinit_ui (CafekbdIndicator * gki)
 
 /* Should be called once for all widgets */
 static void
-cafekbd_indicator_cfg_changed (GSettings *settings,
-			       gchar     *key,
-			       gpointer   user_data)
+cafekbd_indicator_cfg_changed (GSettings *settings G_GNUC_UNUSED,
+			       gchar     *key G_GNUC_UNUSED,
+			       gpointer   user_data G_GNUC_UNUSED)
 {
 	xkl_debug (100,
 		   "General configuration changed in GSettings - reiniting...\n");
@@ -481,9 +484,9 @@ cafekbd_indicator_cfg_changed (GSettings *settings,
 
 /* Should be called once for all widgets */
 static void
-cafekbd_indicator_ind_cfg_changed (GSettings *settings,
-				   gchar     *key,
-				   gpointer   user_data)
+cafekbd_indicator_ind_cfg_changed (GSettings *settings G_GNUC_UNUSED,
+				   gchar     *key G_GNUC_UNUSED,
+				   gpointer   user_data G_GNUC_UNUSED)
 {
 	xkl_debug (100,
 		   "Applet configuration changed in GSettings - reiniting...\n");
@@ -528,7 +531,7 @@ cafekbd_indicator_load_group_names (const gchar ** layout_ids,
 
 /* Should be called once for all widgets */
 static void
-cafekbd_indicator_kbd_cfg_callback (CafekbdIndicator * gki)
+cafekbd_indicator_kbd_cfg_callback (CafekbdIndicator *gki G_GNUC_UNUSED)
 {
 	XklConfigRec *xklrec = xkl_config_rec_new ();
 	xkl_debug (100,
@@ -558,9 +561,10 @@ cafekbd_indicator_kbd_cfg_callback (CafekbdIndicator * gki)
 
 /* Should be called once for all applets */
 static void
-cafekbd_indicator_state_callback (XklEngine * engine,
-			       XklEngineStateChange changeType,
-			       gint group, gboolean restore)
+cafekbd_indicator_state_callback (XklEngine           *engine G_GNUC_UNUSED,
+				  XklEngineStateChange changeType,
+				  gint                 group,
+				  gboolean             restore)
 {
 	xkl_debug (150, "group is now %d, restore: %d\n", group, restore);
 
@@ -598,7 +602,8 @@ cafekbd_indicator_set_current_page_for_group (CafekbdIndicator * gki, int group)
 
 /* Should be called once for all widgets */
 static CdkFilterReturn
-cafekbd_indicator_filter_x_evt (CdkXEvent * xev, CdkEvent * event)
+cafekbd_indicator_filter_x_evt (CdkXEvent *xev,
+				CdkEvent  *event G_GNUC_UNUSED)
 {
 	XEvent *xevent = (XEvent *) xev;
 
@@ -658,7 +663,8 @@ cafekbd_indicator_stop_listen (void)
 }
 
 static gboolean
-cafekbd_indicator_scroll (CtkWidget * gki, CdkEventScroll * event)
+cafekbd_indicator_scroll (CtkWidget      *gki G_GNUC_UNUSED,
+			  CdkEventScroll *event G_GNUC_UNUSED)
 {
 	/* mouse wheel events should be ignored, otherwise funny effects appear */
 	return TRUE;
