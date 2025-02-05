@@ -1658,8 +1658,8 @@ free_render_context (CafekbdKeyboardDrawing * drawing)
 }
 
 static gboolean
-draw (CtkWidget *widget,
-      cairo_t *cr,
+draw (CtkWidget              *widget G_GNUC_UNUSED,
+      cairo_t                *cr,
       CafekbdKeyboardDrawing *drawing)
 {
 	if (!drawing->xkb)
@@ -1724,8 +1724,9 @@ context_setup_scaling (CafekbdKeyboardDrawingRenderContext * context,
 }
 
 static void
-size_allocate (CtkWidget * widget,
-	       CtkAllocation * allocation, CafekbdKeyboardDrawing * drawing)
+size_allocate (CtkWidget              *widget G_GNUC_UNUSED,
+	       CtkAllocation          *allocation,
+	       CafekbdKeyboardDrawing *drawing)
 {
 	CafekbdKeyboardDrawingRenderContext *context = drawing->renderContext;
 
@@ -1744,8 +1745,9 @@ size_allocate (CtkWidget * widget,
 }
 
 static gint
-key_event (CtkWidget * widget,
-	   CdkEventKey * event, CafekbdKeyboardDrawing * drawing)
+key_event (CtkWidget              *widget G_GNUC_UNUSED,
+	   CdkEventKey            *event,
+	   CafekbdKeyboardDrawing *drawing)
 {
 	CafekbdKeyboardDrawingKey *key;
 	if (!drawing->xkb)
@@ -1781,8 +1783,9 @@ key_event (CtkWidget * widget,
 }
 
 static gint
-button_press_event (CtkWidget * widget,
-		    CdkEventButton * event, CafekbdKeyboardDrawing * drawing)
+button_press_event (CtkWidget              *widget,
+		    CdkEventButton         *event G_GNUC_UNUSED,
+		    CafekbdKeyboardDrawing *drawing)
 {
 	if (!drawing->xkb)
 		return FALSE;
@@ -1818,8 +1821,9 @@ unpress_keys (CafekbdKeyboardDrawing * drawing)
 }
 
 static gint
-focus_event (CtkWidget * widget,
-	     CdkEventFocus * event, CafekbdKeyboardDrawing * drawing)
+focus_event (CtkWidget              *widget G_GNUC_UNUSED,
+	     CdkEventFocus          *event,
+	     CafekbdKeyboardDrawing *drawing)
 {
 	if (event->in && drawing->timeout > 0) {
 		g_source_remove (drawing->timeout);
@@ -2152,9 +2156,9 @@ process_indicators_state_notify (XkbIndicatorNotifyEvent * iev,
 }
 
 static CdkFilterReturn
-xkb_state_notify_event_filter (CdkXEvent * cdkxev,
-			       CdkEvent * event,
-			       CafekbdKeyboardDrawing * drawing)
+xkb_state_notify_event_filter (CdkXEvent              *cdkxev,
+			       CdkEvent               *event G_GNUC_UNUSED,
+			       CafekbdKeyboardDrawing *drawing)
 {
 #define group_change_mask (XkbGroupStateMask | XkbGroupBaseMask | XkbGroupLatchMask | XkbGroupLockMask)
 #define modifier_change_mask (XkbModifierStateMask | XkbModifierBaseMask | XkbModifierLatchMask | XkbModifierLockMask)
@@ -2655,9 +2659,9 @@ typedef struct {
 } XkbLayoutPreviewPrintData;
 
 static void
-cafekbd_keyboard_drawing_begin_print (CtkPrintOperation * operation,
-				   CtkPrintContext * context,
-				   XkbLayoutPreviewPrintData * data)
+cafekbd_keyboard_drawing_begin_print (CtkPrintOperation         *operation,
+				      CtkPrintContext           *context G_GNUC_UNUSED,
+				      XkbLayoutPreviewPrintData *data G_GNUC_UNUSED)
 {
 	/* We always print single-page documents */
 	CtkPrintSettings *settings =
@@ -2670,10 +2674,10 @@ cafekbd_keyboard_drawing_begin_print (CtkPrintOperation * operation,
 }
 
 static void
-cafekbd_keyboard_drawing_draw_page (CtkPrintOperation * operation,
-				 CtkPrintContext * context,
-				 gint page_nr,
-				 XkbLayoutPreviewPrintData * data)
+cafekbd_keyboard_drawing_draw_page (CtkPrintOperation         *operation,
+				    CtkPrintContext           *context,
+				    gint                       page_nr G_GNUC_UNUSED,
+				    XkbLayoutPreviewPrintData *data)
 {
 	cairo_t *cr = ctk_print_context_get_cairo_context (context);
 	PangoLayout *layout =

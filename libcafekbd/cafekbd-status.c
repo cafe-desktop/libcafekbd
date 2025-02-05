@@ -106,7 +106,7 @@ cafekbd_status_set_tooltips (CafekbdStatus * gki, const char *str)
 }
 
 void
-cafekbd_status_global_cleanup (CafekbdStatus * gki)
+cafekbd_status_global_cleanup (CafekbdStatus *gki G_GNUC_UNUSED)
 {
 	while (globals.icons) {
 		if (globals.icons->data)
@@ -129,7 +129,7 @@ cafekbd_status_global_fill (CafekbdStatus * gki)
 }
 
 static void
-cafekbd_status_activate (CafekbdStatus * gki)
+cafekbd_status_activate (CafekbdStatus *gki G_GNUC_UNUSED)
 {
 	xkl_debug (150, "Mouse button pressed on applet\n");
 	cafekbd_desktop_config_lock_next_group (&globals.cfg);
@@ -285,7 +285,8 @@ convert_bgra_to_rgba (guint8 const *src, guint8 * dst, int width,
 }
 
 static GdkPixbuf *
-cafekbd_status_prepare_drawing (CafekbdStatus * gki, int group)
+cafekbd_status_prepare_drawing (CafekbdStatus *gki G_GNUC_UNUSED,
+				int            group)
 {
 	GError *gerror = NULL;
 	char *image_filename;
@@ -412,9 +413,9 @@ cafekbd_status_reinit_ui (CafekbdStatus * gki)
 
 /* Should be called once for all widgets */
 static void
-cafekbd_status_cfg_changed (GSettings *settings,
-			    gchar     *key,
-			    gpointer   user_data)
+cafekbd_status_cfg_changed (GSettings *settings G_GNUC_UNUSED,
+			    gchar     *key G_GNUC_UNUSED,
+			    gpointer   user_data G_GNUC_UNUSED)
 {
 	xkl_debug (100,
 		   "General configuration changed in settings - reiniting...\n");
@@ -427,9 +428,9 @@ cafekbd_status_cfg_changed (GSettings *settings,
 
 /* Should be called once for all widgets */
 static void
-cafekbd_status_ind_cfg_changed (GSettings *settings,
-				gchar     *key,
-				gpointer   user_data)
+cafekbd_status_ind_cfg_changed (GSettings *settings G_GNUC_UNUSED,
+				gchar     *key G_GNUC_UNUSED,
+				gpointer   user_data G_GNUC_UNUSED)
 {
 	xkl_debug (100,
 		   "Applet configuration changed in settings - reiniting...\n");
@@ -480,7 +481,7 @@ cafekbd_status_load_group_names (const gchar ** layout_ids,
 
 /* Should be called once for all widgets */
 static void
-cafekbd_status_kbd_cfg_callback (CafekbdStatus * gki)
+cafekbd_status_kbd_cfg_callback (CafekbdStatus *gki G_GNUC_UNUSED)
 {
 	XklConfigRec *xklrec = xkl_config_rec_new ();
 	xkl_debug (100,
@@ -512,9 +513,10 @@ cafekbd_status_kbd_cfg_callback (CafekbdStatus * gki)
 
 /* Should be called once for all applets */
 static void
-cafekbd_status_state_callback (XklEngine * engine,
-			    XklEngineStateChange changeType,
-			    gint group, gboolean restore)
+cafekbd_status_state_callback (XklEngine           *engine G_GNUC_UNUSED,
+			       XklEngineStateChange changeType,
+			       gint                 group,
+			       gboolean             restore)
 {
 	xkl_debug (150, "group is now %d, restore: %d\n", group, restore);
 
@@ -554,7 +556,8 @@ cafekbd_status_set_current_page_for_group (CafekbdStatus * gki, int group)
 
 /* Should be called once for all widgets */
 static CdkFilterReturn
-cafekbd_status_filter_x_evt (CdkXEvent * xev, CdkEvent * event)
+cafekbd_status_filter_x_evt (CdkXEvent *xev,
+			     CdkEvent  *event G_GNUC_UNUSED)
 {
 	XEvent *xevent = (XEvent *) xev;
 
@@ -622,8 +625,9 @@ cafekbd_status_size_changed (CafekbdStatus * gki, gint size)
 }
 
 static void
-cafekbd_status_theme_changed (CtkSettings * settings, GParamSpec * pspec,
-			   CafekbdStatus * gki)
+cafekbd_status_theme_changed (CtkSettings   *settings G_GNUC_UNUSED,
+			      GParamSpec    *pspec G_GNUC_UNUSED,
+			      CafekbdStatus *gki)
 {
 	cafekbd_indicator_config_refresh_style (&globals.ind_cfg);
 	cafekbd_status_reinit_ui (gki);
