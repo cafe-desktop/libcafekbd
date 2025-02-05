@@ -87,8 +87,8 @@ cafekbd_indicator_extract_layout_name (int group, XklEngine *engine, CafekbdKeyb
 gchar *
 cafekbd_indicator_create_label_title (int group, GHashTable **ln2cnt_map, gchar *layout_name);
 
-void
-cafekbd_indicator_load_images ()
+static void
+cafekbd_indicator_load_images (void)
 {
 	int i;
 	GSList *image_filename;
@@ -145,7 +145,7 @@ cafekbd_indicator_load_images ()
 }
 
 static void
-cafekbd_indicator_free_images ()
+cafekbd_indicator_free_images (void)
 {
 	GSList *img_node;
 
