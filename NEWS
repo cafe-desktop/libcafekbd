@@ -1,3 +1,14 @@
+### libcafekbd 2.0.0
+
+  * ci: some improvements
+  * libcafekbd,Makefile: Add POSIX support to dependencies generation
+  * add G_GNUC_UNUSED in unused parameters
+  * Remove unused macros
+  * cafekbd-indicator:
+    - Fix [-Wmissing-prototypes] warnings
+    - Fix [-Wstrict-prototypes] warnings
+  * update translations
+  
 ### libcafekbd 1.25.0
 
   * initial commit: libmatekbd 1.24.1 fork
