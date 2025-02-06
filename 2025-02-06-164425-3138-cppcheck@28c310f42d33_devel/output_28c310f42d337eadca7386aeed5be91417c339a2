@@ -1,0 +1,1866 @@
+Checking libcafekbd/cafekbd-desktop-config.c ...
+libcafekbd/cafekbd-desktop-config.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+1/10 files checked 4% done
+Checking libcafekbd/cafekbd-indicator-config.c ...
+libcafekbd/cafekbd-indicator-config.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+2/10 files checked 10% done
+Checking libcafekbd/cafekbd-indicator.c ...
+libcafekbd/cafekbd-indicator.c:66:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE (CafekbdIndicator, cafekbd_indicator, CTK_TYPE_NOTEBOOK)
+^
+3/10 files checked 24% done
+Checking libcafekbd/cafekbd-keyboard-config.c ...
+libcafekbd/cafekbd-keyboard-config.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+libcafekbd/cafekbd-keyboard-config.c:67:8: style: Condition '*l1' is always true [knownConditionTrueFalse]
+   if (*l1 && *l2) {
+       ^
+libcafekbd/cafekbd-keyboard-config.c:67:15: style: Condition '*l2' is always true [knownConditionTrueFalse]
+   if (*l1 && *l2) {
+              ^
+libcafekbd/cafekbd-keyboard-config.c:227:16: style: Condition 'option!=NULL' is always true [knownConditionTrueFalse]
+       (option != NULL) ? strchr (option, ':') : NULL;
+               ^
+libcafekbd/cafekbd-keyboard-config.c:282:18: style: Condition 'variant==NULL' is always false [knownConditionTrueFalse]
+        (variant ==
+                 ^
+libcafekbd/cafekbd-keyboard-config.c:226:10: style: Variable 'delim' can be declared as pointer to const [constVariablePointer]
+   char *delim =
+         ^
+libcafekbd/cafekbd-keyboard-config.c:609:65: style: Parameter 'kbd_config' can be declared as pointer to const [constParameterPointer]
+cafekbd_keyboard_config_options_is_set (CafekbdKeyboardConfig * kbd_config,
+                                                                ^
+4/10 files checked 36% done
+Checking libcafekbd/cafekbd-keyboard-drawing.c ...
+libcafekbd/cafekbd-keyboard-drawing.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+libcafekbd/cafekbd-keyboard-drawing.c:61:60: style: Parameter 'context' can be declared as pointer to const [constParameterPointer]
+xkb_to_pixmap_coord (CafekbdKeyboardDrawingRenderContext * context, gint n)
+                                                           ^
+libcafekbd/cafekbd-keyboard-drawing.c:67:61: style: Parameter 'context' can be declared as pointer to const [constParameterPointer]
+xkb_to_pixmap_double (CafekbdKeyboardDrawingRenderContext * context,
+                                                            ^
+libcafekbd/cafekbd-keyboard-drawing.c:625:51: style: Parameter 'context' can be declared as pointer to const [constParameterPointer]
+set_markup (CafekbdKeyboardDrawingRenderContext * context, gchar *txt)
+                                                  ^
+libcafekbd/cafekbd-keyboard-drawing.c:1026:11: style: Variable 'runp' can be declared as pointer to const [constVariablePointer]
+  GSList *runp;
+          ^
+libcafekbd/cafekbd-keyboard-drawing.c:1036:25: style: Variable 'geometry' can be declared as pointer to const [constVariablePointer]
+    PangoGlyphGeometry *geometry;
+                        ^
+libcafekbd/cafekbd-keyboard-drawing.c:1202:39: style: Parameter 'outline' can be declared as pointer to const [constParameterPointer]
+calc_origin_offset_x (XkbOutlineRec * outline)
+                                      ^
+libcafekbd/cafekbd-keyboard-drawing.c:1397:15: style: Variable 'shape' can be declared as pointer to const [constVariablePointer]
+ XkbShapeRec *shape;
+              ^
+libcafekbd/cafekbd-keyboard-drawing.c:1786:31: style: Parameter 'drawing' can be declared as pointer to const. However it seems that 'button_press_event' is a callback function, if 'drawing' is declared with const you might also need to cast function pointer(s). [constParameterCallback]
+      CafekbdKeyboardDrawing *drawing)
+                              ^
+libcafekbd/cafekbd-keyboard-drawing.c:2343:18: note: You might need to cast the function pointer here
+     G_CALLBACK (button_press_event), drawing);
+                 ^
+libcafekbd/cafekbd-keyboard-drawing.c:1786:31: note: Parameter 'drawing' can be declared as pointer to const
+      CafekbdKeyboardDrawing *drawing)
+                              ^
+libcafekbd/cafekbd-keyboard-drawing.c:1823:31: style: Parameter 'event' can be declared as pointer to const. However it seems that 'focus_event' is a callback function, if 'event' is declared with const you might also need to cast function pointer(s). [constParameterCallback]
+      CdkEventFocus          *event,
+                              ^
+libcafekbd/cafekbd-keyboard-drawing.c:2347:18: note: You might need to cast the function pointer here
+     G_CALLBACK (focus_event), drawing);
+                 ^
+libcafekbd/cafekbd-keyboard-drawing.c:1823:31: note: Parameter 'event' can be declared as pointer to const
+      CdkEventFocus          *event,
+                              ^
+libcafekbd/cafekbd-keyboard-drawing.c:1838:64: style: Parameter 'a' can be declared as pointer to const. However it seems that 'compare_keyboard_item_priorities' is a callback function, if 'a' is declared with const you might also need to cast function pointer(s). [constParameterCallback]
+compare_keyboard_item_priorities (CafekbdKeyboardDrawingItem * a,
+                                                               ^
+libcafekbd/cafekbd-keyboard-drawing.c:2049:13: note: You might need to cast the function pointer here
+            compare_keyboard_item_priorities);
+            ^
+libcafekbd/cafekbd-keyboard-drawing.c:1838:64: note: Parameter 'a' can be declared as pointer to const
+compare_keyboard_item_priorities (CafekbdKeyboardDrawingItem * a,
+                                                               ^
+libcafekbd/cafekbd-keyboard-drawing.c:1839:36: style: Parameter 'b' can be declared as pointer to const. However it seems that 'compare_keyboard_item_priorities' is a callback function, if 'b' is declared with const you might also need to cast function pointer(s). [constParameterCallback]
+      CafekbdKeyboardDrawingItem * b)
+                                   ^
+libcafekbd/cafekbd-keyboard-drawing.c:2049:13: note: You might need to cast the function pointer here
+            compare_keyboard_item_priorities);
+            ^
+libcafekbd/cafekbd-keyboard-drawing.c:1839:36: note: Parameter 'b' can be declared as pointer to const
+      CafekbdKeyboardDrawingItem * b)
+                                   ^
+libcafekbd/cafekbd-keyboard-drawing.c:1863:9: style: Variable 'pind' can be declared as pointer to const [constVariablePointer]
+  Atom *pind = drawing->xkb->names->indicators;
+        ^
+libcafekbd/cafekbd-keyboard-drawing.c:2124:60: style: Parameter 'iev' can be declared as pointer to const [constParameterPointer]
+process_indicators_state_notify (XkbIndicatorNotifyEvent * iev,
+                                                           ^
+Checking libcafekbd/cafekbd-keyboard-drawing.c: KBDRAW_DEBUG...
+5/10 files checked 77% done
+Checking libcafekbd/cafekbd-status.c ...
+libcafekbd/cafekbd-status.c:82:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE (CafekbdStatus, cafekbd_status, CTK_TYPE_STATUS_ICON)
+^
+6/10 files checked 91% done
+Checking libcafekbd/cafekbd-util.c ...
+7/10 files checked 93% done
+Checking test/cafekbd-indicator-test.c ...
+8/10 files checked 94% done
+Checking test/cafekbd-keyboard-drawing-test.c ...
+test/cafekbd-keyboard-drawing-test.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+Checking test/cafekbd-keyboard-drawing-test.c: HAVE_CONFIG_H...
+9/10 files checked 99% done
+Checking test/cafekbd-status-test.c ...
+test/cafekbd-status-test.c:42:17: style: Variable 'icon' can be declared as pointer to const [constVariablePointer]
+ CtkStatusIcon *icon;
+                ^
+10/10 files checked 100% done
+nofile:0:0: information: Active checkers: There was critical errors (use --checkers-report=<filename> to see details) [checkersReport]
+
+/usr/bin/cafe-autogen
+checking for autoreconf >= 2.53...
+(B  testing autoreconf... found 2.72
+checking for pkg-config >= 0.14.0...
+(B  testing pkg-config... found 1.8.1
+checking for cafe-common >= 0.0.1...
+(B  testing cafe-doc-common... found 2.0.0
+Checking for required M4 macros...
+(BChecking for forbidden M4 macros...
+(BProcessing ./configure.ac
+(BRunning cafe-doc-common...
+(BRunning autoreconf...
+(Bautoreconf: export WARNINGS=no-portability
+autoreconf: Entering directory '.'
+autoreconf: running: autopoint --force
+Copying file ABOUT-NLS
+Copying file config.rpath
+Copying file m4/codeset.m4
+Copying file m4/extern-inline.m4
+Copying file m4/fcntl-o.m4
+Copying file m4/gettext.m4
+Copying file m4/glibc2.m4
+Copying file m4/glibc21.m4
+Copying file m4/iconv.m4
+Copying file m4/intdiv0.m4
+Copying file m4/intl.m4
+Copying file m4/intldir.m4
+Copying file m4/intlmacosx.m4
+Copying file m4/intmax.m4
+Copying file m4/inttypes-pri.m4
+Copying file m4/inttypes_h.m4
+Copying file m4/lcmessage.m4
+Copying file m4/lib-ld.m4
+Copying file m4/lib-link.m4
+Copying file m4/lib-prefix.m4
+Copying file m4/lock.m4
+Copying file m4/longlong.m4
+Copying file m4/nls.m4
+Copying file m4/po.m4
+Copying file m4/printf-posix.m4
+Copying file m4/progtest.m4
+Copying file m4/size_max.m4
+Copying file m4/stdint_h.m4
+Copying file m4/threadlib.m4
+Copying file m4/uintmax_t.m4
+Copying file m4/visibility.m4
+Copying file m4/wchar_t.m4
+Copying file m4/wint_t.m4
+Copying file m4/xsize.m4
+Copying file po/Makefile.in.in
+Copying file po/Makevars.template
+Copying file po/Rules-quot
+Copying file po/boldquot.sed
+Copying file po/en@boldquot.header
+Copying file po/en@quot.header
+Copying file po/insert-header.sin
+Copying file po/quot.sed
+Copying file po/remove-potcdate.sin
+autoreconf: running: aclocal --force -I m4 ${ACLOCAL_FLAGS}
+autoreconf: configure.ac: tracing
+autoreconf: running: libtoolize --copy --force
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+autoreconf: configure.ac: not using Intltool
+autoreconf: configure.ac: not using Gtkdoc
+autoreconf: running: aclocal --force -I m4 ${ACLOCAL_FLAGS}
+autoreconf: running: /usr/bin/autoconf --force
+autoreconf: running: /usr/bin/autoheader --force
+autoreconf: running: automake --add-missing --copy --force-missing
+configure.ac:31: installing './compile'
+configure.ac:34: installing './config.guess'
+configure.ac:34: installing './config.sub'
+configure.ac:16: installing './install-sh'
+configure.ac:16: installing './missing'
+Makefile.am: installing './INSTALL'
+libcafekbd/Makefile.am: installing './depcomp'
+autoreconf: Leaving directory '.'
+Skipping configure process.
+scan-build: Using '/usr/lib/llvm-19/bin/clang' for static analysis
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer accepts -g... yes
+checking for /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer option to enable C11 features... none needed
+checking whether /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer understands -c and -o together... rm: cannot remove 'conftest.plist': Is a directory
+yes
+checking dependency style of /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer... gcc3
+checking whether C compiler accepts -Werror=unknown-warning-option... no
+checking whether C compiler accepts -Wall... yes
+checking whether C compiler accepts -Wmissing-prototypes... yes
+checking whether C compiler accepts -Wbad-function-cast... yes
+checking whether C compiler accepts -Wcast-align... yes
+checking whether C compiler accepts -Wextra... yes
+checking whether C compiler accepts -Wformat-nonliteral... yes
+checking whether C compiler accepts -Wmissing-declarations... yes
+checking whether C compiler accepts -Wnested-externs... yes
+checking whether C compiler accepts -Wpointer-arith... yes
+checking whether C compiler accepts -Wredundant-decls... yes
+checking whether C compiler accepts -Wshadow... yes
+checking whether C compiler accepts -Wstrict-prototypes... yes
+checking whether C compiler accepts -Wunused-macros... yes
+checking whether C compiler accepts -Werror=format-security... yes
+checking whether C compiler accepts -fstrict-aliasing... yes
+checking flags to pass to the C compiler /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer... -Wall -Wmissing-prototypes -Wbad-function-cast -Wcast-align -Wextra -Wformat-nonliteral -Wmissing-declarations -Wnested-externs -Wpointer-arith -Wredundant-decls -Wshadow -Wstrict-prototypes -Wunused-macros -Werror=format-security -fstrict-aliasing
+checking for gcc... (cached) /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer
+checking whether the compiler supports GNU C... (cached) yes
+checking whether /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer accepts -g... (cached) yes
+checking for /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer option to enable C11 features... (cached) none needed
+checking whether /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer understands -c and -o together... (cached) yes
+checking dependency style of /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer... (cached) gcc3
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... rm: cannot remove 'conftest.plist': Is a directory
+BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3145728
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for file... file
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... ranlib
+checking for ar... ar
+checking for archiver @FILE support... rm: cannot remove 'conftest.plist': Is a directory
+@
+checking for strip... strip
+checking command to parse /usr/bin/nm -B output from /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer object... rm: cannot remove 'conftest.plist': Is a directory
+ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer supports -fno-rtti -fno-exceptions... no
+checking for /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer option to produce PIC... -fPIC -DPIC
+checking if /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer PIC flag -fPIC -DPIC works... yes
+checking if /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer static flag -static works... yes
+checking if /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer supports -c -o file.o... yes
+checking if /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer supports -c -o file.o... (cached) yes
+checking whether the /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for ld used by /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking for shared library run path origin... done
+checking how to run the C preprocessor... /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer -E
+checking for egrep -e... (cached) /usr/bin/grep -E
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for glib-compile-resources... /usr/bin/glib-compile-resources
+checking for xmllint... /usr/bin/xmllint
+checking for setlocale... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for glib-2.0 >= 2.50.0... yes
+checking for gmodule-2.0... yes
+checking for gio-2.0 >= 2.25.0... yes
+checking for cdk-3.0 >= 3.22.0... yes
+checking for ctk+-3.0 >= 3.22.0 cdk-x11-3.0 >= 3.22.0... yes
+checking for libxklavier >= 5.2... yes
+checking for X... libraries , headers 
+checking for gethostbyname... yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking for pkg-config... (cached) /usr/bin/pkg-config
+checking pkg-config is at least version 0.16... yes
+checking for library containing sqrt... -lm
+checking for gobject-introspection... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libcafekbd.pc
+config.status: creating libcafekbdui.pc
+config.status: creating po/Makefile.in
+config.status: creating libcafekbd/Makefile
+config.status: creating libcafekbd/org.cafe.peripherals-keyboard-xkb.gschema.xml
+config.status: creating test/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+
+Configuration:
+
+    prefix:                       /usr
+    exec_prefix:                  ${prefix}
+    libdir:                       ${exec_prefix}/lib
+    bindir:                       ${exec_prefix}/bin
+    sbindir:                      ${exec_prefix}/sbin
+    sysconfdir:                   ${prefix}/etc
+    datadir:                      ${datarootdir}
+    source code location:         .
+    compiler:                     /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer
+    cflags:                       -Wall -Wmissing-prototypes -Wbad-function-cast -Wcast-align -Wextra -Wformat-nonliteral -Wmissing-declarations -Wnested-externs -Wpointer-arith -Wredundant-decls -Wshadow -Wstrict-prototypes -Wunused-macros -Werror=format-security -fstrict-aliasing
+    Warning flags:                -Wall -Wmissing-prototypes -Wbad-function-cast -Wcast-align -Wextra -Wformat-nonliteral -Wmissing-declarations -Wnested-externs -Wpointer-arith -Wredundant-decls -Wshadow -Wstrict-prototypes -Wunused-macros -Werror=format-security -fstrict-aliasing
+
+scan-build: Analysis run complete.
+scan-build: Removing directory '/tmp/scan-build-2025-02-06-164243-11857-1' because it contains no reports.
+scan-build: No bugs found.
+scan-build: Using '/usr/lib/llvm-19/bin/clang' for static analysis
+make  all-recursive
+make[1]: Entering directory '/rootdir'
+Making all in po
+make[2]: Entering directory '/rootdir/po'
+make libcafekbd.pot-update
+make[3]: Entering directory '/rootdir/po'
+sed -e '/^#/d' remove-potcdate.sin > t-remove-potcdate.sed
+mv t-remove-potcdate.sed remove-potcdate.sed
+package_gnu=""; \
+test -n "$package_gnu" || { \
+  if { if (LC_ALL=C find --version) 2>/dev/null | grep GNU >/dev/null; then \
+	 LC_ALL=C find -L .. -maxdepth 1 -type f \
+		       -size -10000000c -exec grep 'GNU libcafekbd' \
+		       /dev/null '{}' ';' 2>/dev/null; \
+       else \
+	 LC_ALL=C grep 'GNU libcafekbd' ../* 2>/dev/null; \
+       fi; \
+     } | grep -v 'libtool:' >/dev/null; then \
+     package_gnu=yes; \
+   else \
+     package_gnu=no; \
+   fi; \
+}; \
+if test "$package_gnu" = "yes"; then \
+  package_prefix='GNU '; \
+else \
+  package_prefix=''; \
+fi; \
+if test -n '' || test 'https://github.com/cafe-desktop/libcafekbd' = '@'PACKAGE_BUGREPORT'@'; then \
+  msgid_bugs_address=''; \
+else \
+  msgid_bugs_address='https://github.com/cafe-desktop/libcafekbd'; \
+fi; \
+case `/usr/bin/xgettext --version | sed 1q | sed -e 's,^[^0-9]*,,'` in \
+  '' | 0.[0-9] | 0.[0-9].* | 0.1[0-5] | 0.1[0-5].* | 0.16 | 0.16.[0-1]*) \
+    /usr/bin/xgettext --default-domain=libcafekbd --directory=.. \
+      --add-comments=TRANSLATORS: --from-code=UTF-8 --keyword=_ --keyword=N_ --keyword=C_:1c,2 --keyword=NC_:1c,2 --keyword=g_dngettext:2,3 --add-comments=Translators:  \
+      --files-from=./POTFILES.in \
+      --copyright-holder='CAFE Desktop Environment team' \
+      --msgid-bugs-address="$msgid_bugs_address" \
+    ;; \
+  *) \
+    /usr/bin/xgettext --default-domain=libcafekbd --directory=.. \
+      --add-comments=TRANSLATORS: --from-code=UTF-8 --keyword=_ --keyword=N_ --keyword=C_:1c,2 --keyword=NC_:1c,2 --keyword=g_dngettext:2,3 --add-comments=Translators:  \
+      --files-from=./POTFILES.in \
+      --copyright-holder='CAFE Desktop Environment team' \
+      --package-name="${package_prefix}libcafekbd" \
+      --package-version='2.0.0' \
+      --msgid-bugs-address="$msgid_bugs_address" \
+    ;; \
+esac
+test ! -f libcafekbd.po || { \
+  if test -f ./libcafekbd.pot-header; then \
+    sed -e '1,/^#$/d' < libcafekbd.po > libcafekbd.1po && \
+    cat ./libcafekbd.pot-header libcafekbd.1po > libcafekbd.po; \
+    rm -f libcafekbd.1po; \
+  fi; \
+  if test -f ./libcafekbd.pot; then \
+    sed -f remove-potcdate.sed < ./libcafekbd.pot > libcafekbd.1po && \
+    sed -f remove-potcdate.sed < libcafekbd.po > libcafekbd.2po && \
+    if cmp libcafekbd.1po libcafekbd.2po >/dev/null 2>&1; then \
+      rm -f libcafekbd.1po libcafekbd.2po libcafekbd.po; \
+    else \
+      rm -f libcafekbd.1po libcafekbd.2po ./libcafekbd.pot && \
+      mv libcafekbd.po ./libcafekbd.pot; \
+    fi; \
+  else \
+    mv libcafekbd.po ./libcafekbd.pot; \
+  fi; \
+}
+make[3]: Leaving directory '/rootdir/po'
+test ! -f ./libcafekbd.pot || \
+  test -z "af.gmo am.gmo an.gmo ar.gmo as.gmo ast.gmo az.gmo be.gmo bg.gmo bn.gmo bn_IN.gmo br.gmo bs.gmo ca.gmo ca@valencia.gmo cmn.gmo crh.gmo cs.gmo csb.gmo cv.gmo cy.gmo da.gmo de.gmo de_CH.gmo dz.gmo el.gmo en_AU.gmo en_CA.gmo en_GB.gmo eo.gmo es.gmo es_419.gmo es_AR.gmo es_CL.gmo es_CO.gmo es_CR.gmo es_DO.gmo es_EC.gmo es_ES.gmo es_MX.gmo es_NI.gmo es_PA.gmo es_PE.gmo es_PR.gmo es_SV.gmo es_US.gmo es_UY.gmo es_VE.gmo et.gmo eu.gmo fa.gmo fi.gmo fil.gmo fo.gmo fr.gmo fr_CA.gmo frp.gmo fur.gmo fy.gmo ga.gmo gd.gmo gl.gmo gu.gmo ha.gmo he.gmo hi.gmo hr.gmo hu.gmo hy.gmo ia.gmo id.gmo ie.gmo ig.gmo is.gmo it.gmo ja.gmo jv.gmo ka.gmo kab.gmo kk.gmo km.gmo kn.gmo ko.gmo ks.gmo ku.gmo ku_IQ.gmo ky.gmo la.gmo lb.gmo li.gmo lo.gmo lt.gmo lv.gmo mai.gmo mg.gmo mi.gmo mk.gmo ml.gmo mn.gmo mr.gmo ms.gmo my.gmo nah.gmo nb.gmo nds.gmo ne.gmo nl.gmo nn.gmo nqo.gmo nso.gmo oc.gmo om.gmo or.gmo pa.gmo pl.gmo pms.gmo ps.gmo pt.gmo pt_BR.gmo ro.gmo ru.gmo rw.gmo sc.gmo sco.gmo si.gmo sk.gmo sl.gmo so.gmo sq.gmo sr.gmo sr@latin.gmo sv.gmo sw.gmo ta.gmo te.gmo tg.gmo th.gmo tk.gmo tl.gmo tr.gmo ts.gmo tt.gmo ug.gmo uk.gmo ur.gmo ur_PK.gmo uz.gmo vi.gmo wa.gmo xh.gmo yi.gmo yo.gmo zh_CN.gmo zh_HK.gmo zh_TW.gmo zu.gmo" || make af.gmo am.gmo an.gmo ar.gmo as.gmo ast.gmo az.gmo be.gmo bg.gmo bn.gmo bn_IN.gmo br.gmo bs.gmo ca.gmo ca@valencia.gmo cmn.gmo crh.gmo cs.gmo csb.gmo cv.gmo cy.gmo da.gmo de.gmo de_CH.gmo dz.gmo el.gmo en_AU.gmo en_CA.gmo en_GB.gmo eo.gmo es.gmo es_419.gmo es_AR.gmo es_CL.gmo es_CO.gmo es_CR.gmo es_DO.gmo es_EC.gmo es_ES.gmo es_MX.gmo es_NI.gmo es_PA.gmo es_PE.gmo es_PR.gmo es_SV.gmo es_US.gmo es_UY.gmo es_VE.gmo et.gmo eu.gmo fa.gmo fi.gmo fil.gmo fo.gmo fr.gmo fr_CA.gmo frp.gmo fur.gmo fy.gmo ga.gmo gd.gmo gl.gmo gu.gmo ha.gmo he.gmo hi.gmo hr.gmo hu.gmo hy.gmo ia.gmo id.gmo ie.gmo ig.gmo is.gmo it.gmo ja.gmo jv.gmo ka.gmo kab.gmo kk.gmo km.gmo kn.gmo ko.gmo ks.gmo ku.gmo ku_IQ.gmo ky.gmo la.gmo lb.gmo li.gmo lo.gmo lt.gmo lv.gmo mai.gmo mg.gmo mi.gmo mk.gmo ml.gmo mn.gmo mr.gmo ms.gmo my.gmo nah.gmo nb.gmo nds.gmo ne.gmo nl.gmo nn.gmo nqo.gmo nso.gmo oc.gmo om.gmo or.gmo pa.gmo pl.gmo pms.gmo ps.gmo pt.gmo pt_BR.gmo ro.gmo ru.gmo rw.gmo sc.gmo sco.gmo si.gmo sk.gmo sl.gmo so.gmo sq.gmo sr.gmo sr@latin.gmo sv.gmo sw.gmo ta.gmo te.gmo tg.gmo th.gmo tk.gmo tl.gmo tr.gmo ts.gmo tt.gmo ug.gmo uk.gmo ur.gmo ur_PK.gmo uz.gmo vi.gmo wa.gmo xh.gmo yi.gmo yo.gmo zh_CN.gmo zh_HK.gmo zh_TW.gmo zu.gmo
+make[3]: Entering directory '/rootdir/po'
+/usr/bin/msgmerge --update --quiet --lang=af af.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=am am.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=an an.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ar ar.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=as as.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ast ast.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=az az.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=be be.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=bn bn.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=bg bg.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=br br.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=bn_IN bn_IN.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=bs bs.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ca@valencia ca@valencia.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ca ca.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=crh crh.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=cmn cmn.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=cs cs.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=csb csb.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=cv cv.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=cy cy.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=da da.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=de de.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=dz dz.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=de_CH de_CH.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=el el.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=en_AU en_AU.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=en_CA en_CA.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=en_GB en_GB.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=eo eo.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es es.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_419 es_419.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_AR es_AR.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_CL es_CL.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_CO es_CO.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_CR es_CR.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_DO es_DO.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_EC es_EC.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_ES es_ES.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_MX es_MX.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_NI es_NI.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_PE es_PE.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_PR es_PR.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_PA es_PA.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_SV es_SV.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_US es_US.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_UY es_UY.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=et et.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=es_VE es_VE.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=eu eu.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=fa fa.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=fi fi.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=fil fil.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=fo fo.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=fr fr.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=fr_CA fr_CA.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=frp frp.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=fur fur.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=fy fy.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ga ga.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=gd gd.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=gl gl.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=gu gu.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ha ha.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=he he.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=hi hi.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=hu hu.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=hr hr.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=hy hy.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=id id.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ia ia.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ig ig.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ie ie.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=is is.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=it it.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=jv jv.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ja ja.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ka ka.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=kab kab.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=km km.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=kk kk.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=kn kn.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ko ko.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ks ks.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ku ku.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ku_IQ ku_IQ.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ky ky.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=la la.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=lb lb.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=lo lo.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=li li.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=lt lt.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=lv lv.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=mai mai.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=mg mg.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=mi mi.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=mk mk.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ml ml.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=mn mn.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=mr mr.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ms ms.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=my my.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=nah nah.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=nb nb.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=nds nds.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=nl nl.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ne ne.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=nn nn.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=nqo nqo.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=nso nso.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=oc oc.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=or or.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=om om.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=pa pa.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=pl pl.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=pms pms.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ps ps.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=pt pt.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=pt_BR pt_BR.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ro ro.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ru ru.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=rw rw.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=sco sco.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=sc sc.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=si si.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=sk sk.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=sl sl.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=sq sq.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=so so.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=sr sr.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=sr@latin sr@latin.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=sv sv.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ta ta.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=sw sw.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=te te.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=tg tg.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=th th.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=tk tk.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=tl tl.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=tr tr.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ts ts.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=tt tt.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ug ug.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=uk uk.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ur ur.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=ur_PK ur_PK.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=uz uz.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=vi vi.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=xh xh.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=wa wa.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=yi yi.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=yo yo.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=zh_CN zh_CN.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=zh_HK zh_HK.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=zh_TW zh_TW.po libcafekbd.pot
+/usr/bin/msgmerge --update --quiet --lang=zu zu.po libcafekbd.pot
+rm -f af.gmo && /usr/bin/msgfmt -c --statistics --verbose -o af.gmo af.po
+af.po: 7 translated messages, 84 untranslated messages.
+rm -f am.gmo && /usr/bin/msgfmt -c --statistics --verbose -o am.gmo am.po
+rm -f an.gmo && /usr/bin/msgfmt -c --statistics --verbose -o an.gmo an.po
+am.po: 54 translated messages, 37 untranslated messages.
+rm -f ar.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ar.gmo ar.po
+rm -f as.gmo && /usr/bin/msgfmt -c --statistics --verbose -o as.gmo as.po
+an.po:7: warning: header field 'Last-Translator' still has the initial default value
+an.po: 0 translated messages, 91 untranslated messages.
+ar.po: 50 translated messages, 41 untranslated messages.
+rm -f ast.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ast.gmo ast.po
+as.po: 41 translated messages, 50 untranslated messages.
+rm -f az.gmo && /usr/bin/msgfmt -c --statistics --verbose -o az.gmo az.po
+rm -f be.gmo && /usr/bin/msgfmt -c --statistics --verbose -o be.gmo be.po
+rm -f bg.gmo && /usr/bin/msgfmt -c --statistics --verbose -o bg.gmo bg.po
+rm -f bn.gmo && /usr/bin/msgfmt -c --statistics --verbose -o bn.gmo bn.po
+be.po: 46 translated messages, 45 untranslated messages.
+az.po: 9 translated messages, 82 untranslated messages.
+bg.po: 54 translated messages, 37 untranslated messages.
+bn.po: 43 translated messages, 48 untranslated messages.
+ast.po: 47 translated messages, 44 untranslated messages.
+rm -f bn_IN.gmo && /usr/bin/msgfmt -c --statistics --verbose -o bn_IN.gmo bn_IN.po
+rm -f bs.gmo && /usr/bin/msgfmt -c --statistics --verbose -o bs.gmo bs.po
+rm -f br.gmo && /usr/bin/msgfmt -c --statistics --verbose -o br.gmo br.po
+rm -f ca.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ca.gmo ca.po
+rm -f ca@valencia.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ca@valencia.gmo ca@valencia.po
+bn_IN.po: 41 translated messages, 50 untranslated messages.
+bs.po: 25 translated messages, 66 untranslated messages.
+br.po: 20 translated messages, 71 untranslated messages.
+ca.po: 87 translated messages, 4 untranslated messages.
+ca@valencia.po: 54 translated messages, 37 untranslated messages.
+rm -f cmn.gmo && /usr/bin/msgfmt -c --statistics --verbose -o cmn.gmo cmn.po
+rm -f crh.gmo && /usr/bin/msgfmt -c --statistics --verbose -o crh.gmo crh.po
+rm -f cs.gmo && /usr/bin/msgfmt -c --statistics --verbose -o cs.gmo cs.po
+rm -f csb.gmo && /usr/bin/msgfmt -c --statistics --verbose -o csb.gmo csb.po
+rm -f cv.gmo && /usr/bin/msgfmt -c --statistics --verbose -o cv.gmo cv.po
+crh.po: 11 translated messages, 80 untranslated messages.
+cmn.po: 46 translated messages, 45 untranslated messages.
+csb.po:7: warning: header field 'Last-Translator' still has the initial default value
+csb.po: 0 translated messages, 91 untranslated messages.
+rm -f cy.gmo && /usr/bin/msgfmt -c --statistics --verbose -o cy.gmo cy.po
+cs.po: 81 translated messages, 10 untranslated messages.
+rm -f da.gmo && /usr/bin/msgfmt -c --statistics --verbose -o da.gmo da.po
+cv.po: 0 translated messages, 91 untranslated messages.
+rm -f de.gmo && /usr/bin/msgfmt -c --statistics --verbose -o de.gmo de.po
+rm -f de_CH.gmo && /usr/bin/msgfmt -c --statistics --verbose -o de_CH.gmo de_CH.po
+cy.po: 26 translated messages, 65 untranslated messages.
+rm -f dz.gmo && /usr/bin/msgfmt -c --statistics --verbose -o dz.gmo dz.po
+da.po: 91 translated messages.
+de.po: 76 translated messages, 15 untranslated messages.
+de_CH.po: 0 translated messages, 91 untranslated messages.
+rm -f el.gmo && /usr/bin/msgfmt -c --statistics --verbose -o el.gmo el.po
+rm -f en_AU.gmo && /usr/bin/msgfmt -c --statistics --verbose -o en_AU.gmo en_AU.po
+rm -f en_CA.gmo && /usr/bin/msgfmt -c --statistics --verbose -o en_CA.gmo en_CA.po
+dz.po: 39 translated messages, 52 untranslated messages.
+el.po: 54 translated messages, 37 untranslated messages.
+rm -f en_GB.gmo && /usr/bin/msgfmt -c --statistics --verbose -o en_GB.gmo en_GB.po
+en_AU.po: 54 translated messages, 37 untranslated messages.
+en_CA.po: 10 translated messages, 81 untranslated messages.
+rm -f eo.gmo && /usr/bin/msgfmt -c --statistics --verbose -o eo.gmo eo.po
+rm -f es.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es.gmo es.po
+en_GB.po: 54 translated messages, 37 untranslated messages.
+rm -f es_419.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_419.gmo es_419.po
+es.po: 89 translated messages, 2 untranslated messages.
+eo.po: 52 translated messages, 39 untranslated messages.
+rm -f es_AR.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_AR.gmo es_AR.po
+rm -f es_CL.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_CL.gmo es_CL.po
+es_419.po: 0 translated messages, 91 untranslated messages.
+rm -f es_CO.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_CO.gmo es_CO.po
+rm -f es_CR.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_CR.gmo es_CR.po
+es_CL.po: 3 translated messages, 88 untranslated messages.
+es_AR.po: 21 translated messages, 70 untranslated messages.
+rm -f es_DO.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_DO.gmo es_DO.po
+es_CR.po: 1 translated message, 90 untranslated messages.
+es_CO.po: 49 translated messages, 42 untranslated messages.
+rm -f es_EC.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_EC.gmo es_EC.po
+rm -f es_ES.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_ES.gmo es_ES.po
+rm -f es_MX.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_MX.gmo es_MX.po
+es_DO.po: 1 translated message, 90 untranslated messages.
+es_EC.po: 1 translated message, 90 untranslated messages.
+rm -f es_NI.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_NI.gmo es_NI.po
+es_ES.po: 1 translated message, 90 untranslated messages.
+es_MX.po: 1 translated message, 90 untranslated messages.
+rm -f es_PA.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_PA.gmo es_PA.po
+rm -f es_PE.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_PE.gmo es_PE.po
+es_NI.po: 1 translated message, 90 untranslated messages.
+rm -f es_PR.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_PR.gmo es_PR.po
+rm -f es_SV.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_SV.gmo es_SV.po
+es_PA.po: 1 translated message, 90 untranslated messages.
+es_PE.po: rm -f es_US.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_US.gmo es_US.po
+1 translated message, 90 untranslated messages.
+es_PR.po: 1 translated message, 90 untranslated messages.
+es_SV.po: 1 translated message, 90 untranslated messages.
+rm -f es_UY.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_UY.gmo es_UY.po
+rm -f es_VE.gmo && /usr/bin/msgfmt -c --statistics --verbose -o es_VE.gmo es_VE.po
+es_US.po: 0 translated messages, 91 untranslated messages.
+rm -f et.gmo && /usr/bin/msgfmt -c --statistics --verbose -o et.gmo et.po
+rm -f eu.gmo && /usr/bin/msgfmt -c --statistics --verbose -o eu.gmo eu.po
+es_UY.po: 1 translated message, 90 untranslated messages.
+es_VE.po: 1 translated message, 90 untranslated messages.
+rm -f fa.gmo && /usr/bin/msgfmt -c --statistics --verbose -o fa.gmo fa.po
+et.po: 54 translated messages, 37 untranslated messages.
+eu.po: rm -f fi.gmo && /usr/bin/msgfmt -c --statistics --verbose -o fi.gmo fi.po
+54 translated messages, 37 untranslated messages.
+fa.po: 11 translated messages, 80 untranslated messages.
+rm -f fil.gmo && /usr/bin/msgfmt -c --statistics --verbose -o fil.gmo fil.po
+rm -f fo.gmo && /usr/bin/msgfmt -c --statistics --verbose -o fo.gmo fo.po
+rm -f fr.gmo && /usr/bin/msgfmt -c --statistics --verbose -o fr.gmo fr.po
+fi.po: 48 translated messages, 43 untranslated messages.
+rm -f fr_CA.gmo && /usr/bin/msgfmt -c --statistics --verbose -o fr_CA.gmo fr_CA.po
+fil.po: 0 translated messages, 91 untranslated messages.
+fo.po: 0 translated messages, 91 untranslated messages.
+rm -f frp.gmo && /usr/bin/msgfmt -c --statistics --verbose -o frp.gmo frp.po
+fr.po: 67 translated messages, 24 untranslated messages.
+fr_CA.po: 3 translated messages, 88 untranslated messages.
+rm -f fy.gmo && /usr/bin/msgfmt -c --statistics --verbose -o fy.gmo fy.po
+rm -f fur.gmo && /usr/bin/msgfmt -c --statistics --verbose -o fur.gmo fur.po
+frp.po: 7 translated messages, 84 untranslated messages.
+rm -f ga.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ga.gmo ga.po
+rm -f gd.gmo && /usr/bin/msgfmt -c --statistics --verbose -o gd.gmo gd.po
+fy.po: 4 translated messages, 87 untranslated messages.
+rm -f gl.gmo && /usr/bin/msgfmt -c --statistics --verbose -o gl.gmo gl.po
+fur.po: 4 translated messages, 87 untranslated messages.
+ga.po: 41 translated messages, 50 untranslated messages.
+gd.po: 0 translated messages, 91 untranslated messages.
+rm -f gu.gmo && /usr/bin/msgfmt -c --statistics --verbose -o gu.gmo gu.po
+gl.po: 89 translated messages, 2 untranslated messages.
+rm -f ha.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ha.gmo ha.po
+rm -f hi.gmo && /usr/bin/msgfmt -c --statistics --verbose -o hi.gmo hi.po
+rm -f he.gmo && /usr/bin/msgfmt -c --statistics --verbose -o he.gmo he.po
+gu.po: 43 translated messages, 48 untranslated messages.
+rm -f hr.gmo && /usr/bin/msgfmt -c --statistics --verbose -o hr.gmo hr.po
+ha.po: 5 translated messages, 86 untranslated messages.
+hi.po: 45 translated messages, 46 untranslated messages.
+rm -f hu.gmo && /usr/bin/msgfmt -c --statistics --verbose -o hu.gmo hu.po
+hr.po: 54 translated messages, 37 untranslated messages.
+he.po: 54 translated messages, 37 untranslated messages.
+rm -f hy.gmo && /usr/bin/msgfmt -c --statistics --verbose -o hy.gmo hy.po
+rm -f ia.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ia.gmo ia.po
+rm -f ie.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ie.gmo ie.po
+rm -f id.gmo && /usr/bin/msgfmt -c --statistics --verbose -o id.gmo id.po
+hu.po: 54 translated messages, 37 untranslated messages.
+hy.po: 54 translated messages, 37 untranslated messages.
+ia.po: 3 translated messages, 88 untranslated messages.
+ie.po: 45 translated messages, 46 untranslated messages.
+rm -f ig.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ig.gmo ig.po
+rm -f is.gmo && /usr/bin/msgfmt -c --statistics --verbose -o is.gmo is.po
+id.po: 91 translated messages.
+rm -f it.gmo && /usr/bin/msgfmt -c --statistics --verbose -o it.gmo it.po
+rm -f ja.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ja.gmo ja.po
+ig.po: 5 translated messages, 86 untranslated messages.
+is.po: 12 translated messages, 79 untranslated messages.
+rm -f jv.gmo && /usr/bin/msgfmt -c --statistics --verbose -o jv.gmo jv.po
+rm -f ka.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ka.gmo ka.po
+ja.po: it.po: 91 translated messages.
+54 translated messages, 37 untranslated messages.
+rm -f kab.gmo && /usr/bin/msgfmt -c --statistics --verbose -o kab.gmo kab.po
+jv.po: 2 translated messages, 89 untranslated messages.
+rm -f km.gmo && /usr/bin/msgfmt -c --statistics --verbose -o km.gmo km.po
+ka.po: 37 translated messagesrm -f kk.gmo && /usr/bin/msgfmt -c --statistics --verbose -o kk.gmo kk.po
+, 54 untranslated messages.
+kab.po: 4 translated messages, 87 untranslated messages.
+rm -f kn.gmo && /usr/bin/msgfmt -c --statistics --verbose -o kn.gmo kn.po
+km.po:7: warning: header field 'Last-Translator' still has the initial default value
+km.po: 0 translated messages, 91 untranslated messages.
+kk.po: 24 translated messages, 67 untranslated messages.
+rm -f ko.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ko.gmo ko.po
+rm -f ks.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ks.gmo ks.po
+kn.po: 43 translated messages, 48 untranslated messages.
+rm -f ku.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ku.gmo ku.po
+rm -f ku_IQ.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ku_IQ.gmo ku_IQ.po
+ko.po: 54 translated messages, 37 untranslated messages.
+rm -f ky.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ky.gmo ky.po
+ks.po: 3 translated messages, 88 untranslated messages.
+ku_IQ.po: 16 translated messages, 75 untranslated messages.
+rm -f la.gmo && /usr/bin/msgfmt -c --statistics --verbose -o la.gmo la.po
+ku.po: 10 translated messages, 81 untranslated messages.
+ky.po: 26 translated messages, 65 untranslated messages.
+la.po: 2 translated messages, 89 untranslated messages.
+rm -f lb.gmo && /usr/bin/msgfmt -c --statistics --verbose -o lb.gmo lb.po
+rm -f li.gmo && /usr/bin/msgfmt -c --statistics --verbose -o li.gmo li.po
+rm -f lo.gmo && /usr/bin/msgfmt -c --statistics --verbose -o lo.gmo lo.po
+rm -f lv.gmo && /usr/bin/msgfmt -c --statistics --verbose -o lv.gmo lv.po
+rm -f lt.gmo && /usr/bin/msgfmt -c --statistics --verbose -o lt.gmo lt.po
+lb.po:7: warning: header field 'Last-Translator' still has the initial default value
+lb.po: 0 translated messages, 91 untranslated messages.
+li.po:7: warning: header field 'Last-Translator' still has the initial default value
+li.po: 0 translated messages, 91 untranslated messages.
+lo.po:7: warning: header field 'Last-Translator' still has the initial default value
+lo.po: 0 translated messages, 91 untranslated messages.
+lt.po: 91 translated messages.
+rm -f mai.gmo && /usr/bin/msgfmt -c --statistics --verbose -o mai.gmo mai.po
+lv.po: 49 translated messages, 42 untranslated messages.
+rm -f mg.gmo && /usr/bin/msgfmt -c --statistics --verbose -o mg.gmo mg.po
+rm -f mi.gmo && /usr/bin/msgfmt -c --statistics --verbose -o mi.gmo mi.po
+rm -f mk.gmo && /usr/bin/msgfmt -c --statistics --verbose -o mk.gmo mk.po
+mai.po: 18 translated messages, 73 untranslated messages.
+rm -f ml.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ml.gmo ml.po
+mg.po: 10 translated messages, 81 untranslated messages.
+mi.po:7: warning: header field 'Last-Translator' still has the initial default value
+mi.po: 0 translated messages, 91 untranslated messages.
+mk.po: 39 translated messages, 52 untranslated messages.
+rm -f mn.gmo && /usr/bin/msgfmt -c --statistics --verbose -o mn.gmo mn.po
+rm -f mr.gmo && /usr/bin/msgfmt -c --statistics --verbose -o mr.gmo mr.po
+ml.po: 41 translated messages, 50 untranslated messages.
+rm -f ms.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ms.gmo ms.po
+rm -f my.gmo && /usr/bin/msgfmt -c --statistics --verbose -o my.gmo my.po
+mn.po: 10 translated messages, 81 untranslated messages.
+mr.po: 47 translated messages, 44 untranslated messages.
+rm -f nah.gmo && /usr/bin/msgfmt -c --statistics --verbose -o nah.gmo nah.po
+ms.po: 91 translated messages.
+my.po:7: warning: header field 'Last-Translator' still has the initial default value
+my.po: 0 translated messages, 91 untranslated messages.
+rm -f nds.gmo && /usr/bin/msgfmt -c --statistics --verbose -o nds.gmo nds.po
+rm -f nb.gmo && /usr/bin/msgfmt -c --statistics --verbose -o nb.gmo nb.po
+rm -f ne.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ne.gmo ne.po
+nah.po: 0 translated messages, 91 untranslated messages.
+rm -f nl.gmo && /usr/bin/msgfmt -c --statistics --verbose -o nl.gmo nl.po
+nds.po: 12 translated messages, 79 untranslated messages.
+nb.po: 91 translated messages.
+ne.po: 13 translated messages, 78 untranslated messages.
+rm -f nn.gmo && /usr/bin/msgfmt -c --statistics --verbose -o nn.gmo nn.po
+nl.po: rm -f nso.gmo && /usr/bin/msgfmt -c --statistics --verbose -o nso.gmo nso.po
+91 translated messages.
+rm -f nqo.gmo && /usr/bin/msgfmt -c --statistics --verbose -o nqo.gmo nqo.po
+rm -f oc.gmo && /usr/bin/msgfmt -c --statistics --verbose -o oc.gmo oc.po
+nn.po: 40 translated messages, 51 untranslated messages.
+rm -f om.gmo && /usr/bin/msgfmt -c --statistics --verbose -o om.gmo om.po
+nso.po: 3 translated messages, 88 untranslated messages.
+nqo.po: 0 translated messages, 91 untranslated messages.
+oc.po: 68 translated messages, 23 untranslated messages.
+rm -f or.gmo && /usr/bin/msgfmt -c --statistics --verbose -o or.gmo or.po
+rm -f pl.gmo && /usr/bin/msgfmt -c --statistics --verbose -o pl.gmo pl.po
+rm -f pms.gmo && /usr/bin/msgfmt -c --statistics --verbose -o pms.gmo pms.po
+rm -f pa.gmo && /usr/bin/msgfmt -c --statistics --verbose -o pa.gmo pa.po
+om.po: 0 translated messages, 91 untranslated messages.
+or.po: 41 translated messages, 50 untranslated messages.
+pms.po: 3 translated messages, 88 untranslated messages.
+pl.po: 55 translated messages, 36 untranslated messages.
+rm -f ps.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ps.gmo ps.po
+pa.po: 46 translated messages, 45 untranslated messages.
+rm -f pt_BR.gmo && /usr/bin/msgfmt -c --statistics --verbose -o pt_BR.gmo pt_BR.po
+rm -f pt.gmo && /usr/bin/msgfmt -c --statistics --verbose -o pt.gmo pt.po
+rm -f ro.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ro.gmo ro.po
+ps.po: 6 translated messages, 85 untranslated messages.
+rm -f ru.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ru.gmo ru.po
+pt_BR.po: 58 translated messages, 33 untranslated messages.
+ro.po: 54 translated messages, 37 untranslated messages.
+pt.po: 84 translated messages, 7 untranslated messages.
+rm -f rw.gmo && /usr/bin/msgfmt -c --statistics --verbose -o rw.gmo rw.po
+ru.po: 89 translated messages, 2 untranslated messages.
+rm -f sc.gmo && /usr/bin/msgfmt -c --statistics --verbose -o sc.gmo sc.po
+rm -f si.gmo && /usr/bin/msgfmt -c --statistics --verbose -o si.gmo si.po
+rm -f sco.gmo && /usr/bin/msgfmt -c --statistics --verbose -o sco.gmo sco.po
+rw.po: 10 translated messages, 81 untranslated messages.
+sc.po: 2 translated messages, 89 untranslated messages.
+rm -f sk.gmo && /usr/bin/msgfmt -c --statistics --verbose -o sk.gmo sk.po
+rm -f sl.gmo && /usr/bin/msgfmt -c --statistics --verbose -o sl.gmo sl.po
+sco.po: 0 translated messages, 91 untranslated messages.
+si.po: 36 translated messages, 55 untranslated messages.
+rm -f so.gmo && /usr/bin/msgfmt -c --statistics --verbose -o so.gmo so.po
+sk.po: 54 translated messages, 37 untranslated messages.
+sl.po: 55 translated messages, 36 untranslated messages.
+rm -f sr.gmo && /usr/bin/msgfmt -c --statistics --verbose -o sr.gmo sr.po
+rm -f sq.gmo && /usr/bin/msgfmt -c --statistics --verbose -o sq.gmo sq.po
+so.po: 0 translated messages, 91 untranslated messages.
+rm -f sr@latin.gmo && /usr/bin/msgfmt -c --statistics --verbose -o sr@latin.gmo sr@latin.po
+sr.po: 91 translated messages.
+rm -f sv.gmo && /usr/bin/msgfmt -c --statistics --verbose -o sv.gmo sv.po
+sq.po: 52 translated messages, 39 untranslated messages.
+rm -f sw.gmo && /usr/bin/msgfmt -c --statistics --verbose -o sw.gmo sw.po
+rm -f ta.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ta.gmo ta.po
+sv.po: 80 translated messages, 11 untranslated messages.
+sr@latin.po: 46 translated messages, 45 untranslated messages.
+sw.po: 0 translated messages, 91 untranslated messages.
+rm -f te.gmo && /usr/bin/msgfmt -c --statistics --verbose -o te.gmo te.po
+rm -f tg.gmo && /usr/bin/msgfmt -c --statistics --verbose -o tg.gmo tg.po
+ta.po: 46 translated messages, 45 untranslated messages.
+rm -f th.gmo && /usr/bin/msgfmt -c --statistics --verbose -o th.gmo th.po
+rm -f tk.gmo && /usr/bin/msgfmt -c --statistics --verbose -o tk.gmo tk.po
+tg.po: 0 translated messages, 91 untranslated messages.
+te.po: 41 translated messages, 50 untranslated messages.
+rm -f tl.gmo && /usr/bin/msgfmt -c --statistics --verbose -o tl.gmo tl.po
+th.po: 45 translated messages, 46 untranslated messages.
+tk.po: 7 translated messages, 84 untranslated messages.
+rm -f tr.gmo && /usr/bin/msgfmt -c --statistics --verbose -o tr.gmo tr.po
+rm -f ts.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ts.gmo ts.po
+tl.po: 0 translated messages, 91 untranslated messages.
+rm -f tt.gmo && /usr/bin/msgfmt -c --statistics --verbose -o tt.gmo tt.po
+tr.po: 58 translated messages, 33 untranslated messages.
+rm -f ug.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ug.gmo ug.po
+ts.po: rm -f uk.gmo && /usr/bin/msgfmt -c --statistics --verbose -o uk.gmo uk.po
+0 translated messages, 91 untranslated messages.
+tt.po:7: warning: header field 'Last-Translator' still has the initial default value
+tt.po: 0 translated messages, 91 untranslated messages.
+rm -f ur.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ur.gmo ur.po
+ug.po: 6 translated messages, 85 untranslated messages.
+rm -f ur_PK.gmo && /usr/bin/msgfmt -c --statistics --verbose -o ur_PK.gmo ur_PK.po
+rm -f uz.gmo && /usr/bin/msgfmt -c --statistics --verbose -o uz.gmo uz.po
+ur.po: 7 translated messages, 84 untranslated messages.
+uk.po: 58 translated messages, 33 untranslated messages.
+rm -f vi.gmo && /usr/bin/msgfmt -c --statistics --verbose -o vi.gmo vi.po
+uz.po: 26 translated messages, 65 untranslated messages.
+ur_PK.po:7: warning: header field 'Last-Translator' still has the initial default value
+ur_PK.po: 0 translated messages, 91 untranslated messages.
+rm -f xh.gmo && /usr/bin/msgfmt -c --statistics --verbose -o xh.gmo xh.po
+rm -f wa.gmo && /usr/bin/msgfmt -c --statistics --verbose -o wa.gmo wa.po
+vi.po: 52 translated messages, 39 untranslated messages.
+rm -f yi.gmo && /usr/bin/msgfmt -c --statistics --verbose -o yi.gmo yi.po
+rm -f yo.gmo && /usr/bin/msgfmt -c --statistics --verbose -o yo.gmo yo.po
+xh.po: 8 translated messages, 83 untranslated messages.
+wa.po: 9 translated messages, 82 untranslated messages.
+rm -f zh_CN.gmo && /usr/bin/msgfmt -c --statistics --verbose -o zh_CN.gmo zh_CN.po
+yi.po:7: warning: header field 'Last-Translator' still has the initial default value
+yi.po: 0 translated messages, 91 untranslated messages.
+rm -f zh_HK.gmo && /usr/bin/msgfmt -c --statistics --verbose -o zh_HK.gmo zh_HK.po
+yo.po: 5 translated messages, 86 untranslated messages.
+rm -f zh_TW.gmo && /usr/bin/msgfmt -c --statistics --verbose -o zh_TW.gmo zh_TW.po
+zh_CN.po: 63 translated messages, 28 untranslated messages.
+rm -f zu.gmo && /usr/bin/msgfmt -c --statistics --verbose -o zu.gmo zu.po
+zh_HK.po: 47 translated messages, 44 untranslated messages.
+zh_TW.po: 91 translated messages.
+zu.po: 3 translated messages, 88 untranslated messages.
+make[3]: Leaving directory '/rootdir/po'
+touch stamp-po
+make[2]: Leaving directory '/rootdir/po'
+Making all in libcafekbd
+make[2]: Entering directory '/rootdir/libcafekbd'
+/usr/bin/glib-compile-resources --generate-dependencies --sourcedir . ./org.cafe.peripherals.keyboard.gresource.xml
+  GEN      cafekbd-indicator-marshal.h
+  GEN      cafekbd-keyboard-drawing-marshal.h
+./show-layout.ui
+  GEN      cafekbd-keyboard-drawing-resources.c
+  GEN      cafekbd-keyboard-drawing-resources.h
+INFO: Reading ./cafekbd-keyboard-drawing-marshal.list...
+INFO: Reading ./cafekbd-indicator-marshal.list...
+  GEN      cafekbd-indicator-marshal.c
+  GEN      cafekbd-keyboard-drawing-marshal.c
+INFO: Reading ./cafekbd-indicator-marshal.list...
+INFO: Reading ./cafekbd-keyboard-drawing-marshal.list...
+make  all-am
+make[3]: Entering directory '/rootdir/libcafekbd'
+  CC       libcafekbd_la-cafekbd-desktop-config.lo
+  CC       libcafekbd_la-cafekbd-keyboard-config.lo
+  CC       libcafekbd_la-cafekbd-util.lo
+  CC       libcafekbdui_la-cafekbd-indicator-config.lo
+  CC       libcafekbdui_la-cafekbd-indicator.lo
+cafekbd-desktop-config.c: In function 'cafekbd_desktop_config_load_from_gsettings':
+cafekbd-desktop-config.c:176:38: warning: comparison of integer expressions of different signedness: 'gint' {aka 'int'} and 'guint' {aka 'unsigned int'} [-Wsign-compare]
+  176 |             || config->default_group >=
+      |                                      ^~
+cafekbd-indicator-config.c: In function 'cafekbd_indicator_config_get_images_file':
+cafekbd-indicator-config.c:152:59: warning: comparison of integer expressions of different signedness: 'guint' {aka 'unsigned int'} and 'int' [-Wsign-compare]
+  152 |             (g_strv_length (kbd_config->layouts_variants) > group)) {
+      |                                                           ^
+cafekbd-indicator.c: In function 'cafekbd_indicator_extract_layout_name':
+cafekbd-indicator.c:293:19: warning: comparison of integer expressions of different signedness: 'int' and 'guint' {aka 'unsigned int'} [-Wsign-compare]
+  293 |         if (group < g_strv_length (short_group_names)) {
+      |                   ^
+cafekbd-indicator.c: In function 'cafekbd_indicator_prepare_drawing':
+cafekbd-indicator.c:418:31: warning: comparison of integer expressions of different signedness: 'int' and 'guint' {aka 'unsigned int'} [-Wsign-compare]
+  418 |                 if (group + 1 ==
+      |                               ^~
+cafekbd-indicator.c: In function 'cafekbd_indicator_update_tooltips':
+cafekbd-indicator.c:446:29: warning: comparison of integer expressions of different signedness: 'gint32' {aka 'int'} and 'guint' {aka 'unsigned int'} [-Wsign-compare]
+  446 |             || state->group >= g_strv_length (globals.full_group_names))
+      |                             ^~
+cafekbd-indicator.c:450:32: warning: format not a string literal, argument types not checked [-Wformat-nonliteral]
+  450 |                                globals.full_group_names[state->group]);
+      |                                ^~~~~~~
+cafekbd-indicator.c: In function 'cafekbd_indicator_kbd_cfg_callback':
+cafekbd-indicator.c:61:44: warning: declaration of 'gki' shadows a parameter [-Wshadow]
+   61 |                         CafekbdIndicator * gki = (CafekbdIndicator*)cur->data;
+      |                                            ^~~
+cafekbd-indicator.c:561:9: note: in expansion of macro 'ForAllIndicators'
+  561 |         ForAllIndicators () {
+      |         ^~~~~~~~~~~~~~~~
+cafekbd-indicator.c:539:55: note: shadowed declaration is here
+  539 | cafekbd_indicator_kbd_cfg_callback (CafekbdIndicator *gki G_GNUC_UNUSED)
+cafekbd-indicator.c: In function 'cafekbd_indicator_start_listen':
+cafekbd-indicator.c:647:38: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+  647 |         cdk_window_add_filter (NULL, (CdkFilterFunc)
+      |                                      ^
+cafekbd-indicator.c:650:32: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+  650 |                                (CdkFilterFunc)
+      |                                ^
+cafekbd-indicator.c: In function 'cafekbd_indicator_stop_listen':
+cafekbd-indicator.c:663:41: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+  663 |         cdk_window_remove_filter (NULL, (CdkFilterFunc)
+      |                                         ^
+cafekbd-indicator.c:667:14: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+  667 |              (CdkFilterFunc) cafekbd_indicator_filter_x_evt, NULL);
+      |              ^
+  CC       libcafekbdui_la-cafekbd-status.lo
+cafekbd-status.c: In function 'cafekbd_status_render_cairo':
+cafekbd-status.c:214:23: warning: comparison of integer expressions of different signedness: 'int' and 'guint' {aka 'unsigned int'} [-Wsign-compare]
+  214 |         if (group + 1 == xkl_engine_get_num_groups (globals.engine)) {
+      |                       ^~
+cafekbd-status.c: In function 'cafekbd_status_prepare_drawing':
+cafekbd-status.c:376:51: warning: cast between incompatible function types from 'void (*)(void *)' to 'void (*)(guchar *, void *)' {aka 'void (*)(unsigned char *, void *)'} [-Wcast-function-type]
+  376 |                                                   (GdkPixbufDestroyNotify)
+      |                                                   ^
+cafekbd-status.c: In function 'cafekbd_status_update_tooltips':
+cafekbd-status.c:395:29: warning: comparison of integer expressions of different signedness: 'gint32' {aka 'int'} and 'guint' {aka 'unsigned int'} [-Wsign-compare]
+  395 |             || state->group >= g_strv_length (globals.full_group_names))
+      |                             ^~
+cafekbd-status.c:399:32: warning: format not a string literal, argument types not checked [-Wformat-nonliteral]
+  399 |                                globals.full_group_names[state->group]);
+      |                                ^~~~~~~
+cafekbd-status.c: In function 'cafekbd_status_kbd_cfg_callback':
+cafekbd-status.c:77:41: warning: declaration of 'gki' shadows a parameter [-Wshadow]
+   77 |                         CafekbdStatus * gki = (CafekbdStatus*)cur->data;
+      |                                         ^~~
+cafekbd-status.c:508:9: note: in expansion of macro 'ForAllIndicators'
+  508 |         ForAllIndicators () {
+      |         ^~~~~~~~~~~~~~~~
+cafekbd-status.c:484:49: note: shadowed declaration is here
+  484 | cafekbd_status_kbd_cfg_callback (CafekbdStatus *gki G_GNUC_UNUSED)
+cafekbd-status.c: In function 'cafekbd_status_start_listen':
+cafekbd-status.c:594:38: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+  594 |         cdk_window_add_filter (NULL, (CdkFilterFunc)
+      |                                      ^
+cafekbd-status.c:597:32: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+  597 |                                (CdkFilterFunc) cafekbd_status_filter_x_evt,
+      |                                ^
+cafekbd-status.c: In function 'cafekbd_status_stop_listen':
+cafekbd-status.c:610:41: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+  610 |         cdk_window_remove_filter (NULL, (CdkFilterFunc)
+      |                                         ^
+cafekbd-status.c:614:14: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+  614 |              (CdkFilterFunc) cafekbd_status_filter_x_evt, NULL);
+      |              ^
+  CC       libcafekbdui_la-cafekbd-indicator-marshal.lo
+cafekbd-indicator-marshal.c:30:9: warning: macro "g_marshal_value_peek_char" is not used [-Wunused-macros]
+   30 | #define g_marshal_value_peek_char(v)     (v)->data[0].v_int
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:42:9: warning: macro "g_marshal_value_peek_string" is not used [-Wunused-macros]
+   42 | #define g_marshal_value_peek_string(v)   (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:45:9: warning: macro "g_marshal_value_peek_pointer" is not used [-Wunused-macros]
+   45 | #define g_marshal_value_peek_pointer(v)  (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:47:9: warning: macro "g_marshal_value_peek_variant" is not used [-Wunused-macros]
+   47 | #define g_marshal_value_peek_variant(v)  (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:37:9: warning: macro "g_marshal_value_peek_uint64" is not used [-Wunused-macros]
+   37 | #define g_marshal_value_peek_uint64(v)   (v)->data[0].v_uint64
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:35:9: warning: macro "g_marshal_value_peek_ulong" is not used [-Wunused-macros]
+   35 | #define g_marshal_value_peek_ulong(v)    (v)->data[0].v_ulong
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:36:9: warning: macro "g_marshal_value_peek_int64" is not used [-Wunused-macros]
+   36 | #define g_marshal_value_peek_int64(v)    (v)->data[0].v_int64
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:33:9: warning: macro "g_marshal_value_peek_uint" is not used [-Wunused-macros]
+   33 | #define g_marshal_value_peek_uint(v)     (v)->data[0].v_uint
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:38:9: warning: macro "g_marshal_value_peek_enum" is not used [-Wunused-macros]
+   38 | #define g_marshal_value_peek_enum(v)     (v)->data[0].v_long
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:29:9: warning: macro "g_marshal_value_peek_boolean" is not used [-Wunused-macros]
+   29 | #define g_marshal_value_peek_boolean(v)  (v)->data[0].v_int
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:32:9: warning: macro "g_marshal_value_peek_int" is not used [-Wunused-macros]
+   32 | #define g_marshal_value_peek_int(v)      (v)->data[0].v_int
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:31:9: warning: macro "g_marshal_value_peek_uchar" is not used [-Wunused-macros]
+   31 | #define g_marshal_value_peek_uchar(v)    (v)->data[0].v_uint
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:41:9: warning: macro "g_marshal_value_peek_double" is not used [-Wunused-macros]
+   41 | #define g_marshal_value_peek_double(v)   (v)->data[0].v_double
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:34:9: warning: macro "g_marshal_value_peek_long" is not used [-Wunused-macros]
+   34 | #define g_marshal_value_peek_long(v)     (v)->data[0].v_long
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:46:9: warning: macro "g_marshal_value_peek_object" is not used [-Wunused-macros]
+   46 | #define g_marshal_value_peek_object(v)   (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:44:9: warning: macro "g_marshal_value_peek_boxed" is not used [-Wunused-macros]
+   44 | #define g_marshal_value_peek_boxed(v)    (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:40:9: warning: macro "g_marshal_value_peek_float" is not used [-Wunused-macros]
+   40 | #define g_marshal_value_peek_float(v)    (v)->data[0].v_float
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:43:9: warning: macro "g_marshal_value_peek_param" is not used [-Wunused-macros]
+   43 | #define g_marshal_value_peek_param(v)    (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-indicator-marshal.c:39:9: warning: macro "g_marshal_value_peek_flags" is not used [-Wunused-macros]
+   39 | #define g_marshal_value_peek_flags(v)    (v)->data[0].v_ulong
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC       libcafekbdui_la-cafekbd-keyboard-drawing-marshal.lo
+cafekbd-keyboard-drawing-marshal.c:30:9: warning: macro "g_marshal_value_peek_char" is not used [-Wunused-macros]
+   30 | #define g_marshal_value_peek_char(v)     (v)->data[0].v_int
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:42:9: warning: macro "g_marshal_value_peek_string" is not used [-Wunused-macros]
+   42 | #define g_marshal_value_peek_string(v)   (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:45:9: warning: macro "g_marshal_value_peek_pointer" is not used [-Wunused-macros]
+   45 | #define g_marshal_value_peek_pointer(v)  (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:47:9: warning: macro "g_marshal_value_peek_variant" is not used [-Wunused-macros]
+   47 | #define g_marshal_value_peek_variant(v)  (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:37:9: warning: macro "g_marshal_value_peek_uint64" is not used [-Wunused-macros]
+   37 | #define g_marshal_value_peek_uint64(v)   (v)->data[0].v_uint64
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:35:9: warning: macro "g_marshal_value_peek_ulong" is not used [-Wunused-macros]
+   35 | #define g_marshal_value_peek_ulong(v)    (v)->data[0].v_ulong
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:36:9: warning: macro "g_marshal_value_peek_int64" is not used [-Wunused-macros]
+   36 | #define g_marshal_value_peek_int64(v)    (v)->data[0].v_int64
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:33:9: warning: macro "g_marshal_value_peek_uint" is not used [-Wunused-macros]
+   33 | #define g_marshal_value_peek_uint(v)     (v)->data[0].v_uint
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:38:9: warning: macro "g_marshal_value_peek_enum" is not used [-Wunused-macros]
+   38 | #define g_marshal_value_peek_enum(v)     (v)->data[0].v_long
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:29:9: warning: macro "g_marshal_value_peek_boolean" is not used [-Wunused-macros]
+   29 | #define g_marshal_value_peek_boolean(v)  (v)->data[0].v_int
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:32:9: warning: macro "g_marshal_value_peek_int" is not used [-Wunused-macros]
+   32 | #define g_marshal_value_peek_int(v)      (v)->data[0].v_int
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:31:9: warning: macro "g_marshal_value_peek_uchar" is not used [-Wunused-macros]
+   31 | #define g_marshal_value_peek_uchar(v)    (v)->data[0].v_uint
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:41:9: warning: macro "g_marshal_value_peek_double" is not used [-Wunused-macros]
+   41 | #define g_marshal_value_peek_double(v)   (v)->data[0].v_double
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:34:9: warning: macro "g_marshal_value_peek_long" is not used [-Wunused-macros]
+   34 | #define g_marshal_value_peek_long(v)     (v)->data[0].v_long
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:46:9: warning: macro "g_marshal_value_peek_object" is not used [-Wunused-macros]
+   46 | #define g_marshal_value_peek_object(v)   (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:44:9: warning: macro "g_marshal_value_peek_boxed" is not used [-Wunused-macros]
+   44 | #define g_marshal_value_peek_boxed(v)    (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:40:9: warning: macro "g_marshal_value_peek_float" is not used [-Wunused-macros]
+   40 | #define g_marshal_value_peek_float(v)    (v)->data[0].v_float
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:43:9: warning: macro "g_marshal_value_peek_param" is not used [-Wunused-macros]
+   43 | #define g_marshal_value_peek_param(v)    (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-marshal.c:39:9: warning: macro "g_marshal_value_peek_flags" is not used [-Wunused-macros]
+   39 | #define g_marshal_value_peek_flags(v)    (v)->data[0].v_ulong
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/bin/glib-compile-resources --generate-dependencies --sourcedir . ./org.cafe.peripherals.keyboard.gresource.xml
+./show-layout.ui
+  CC       libcafekbdui_la-cafekbd-keyboard-drawing.lo
+cafekbd-keyboard-drawing.c: In function 'draw_polygon':
+cafekbd-keyboard-drawing.c:322:23: warning: comparison of integer expressions of different signedness: 'gint' {aka 'int'} and 'guint' {aka 'unsigned int'} [-Wsign-compare]
+  322 |         for (i = 0; i < num_points; i++) {
+      |                       ^
+cafekbd-keyboard-drawing.c: In function 'process_indicators_state_notify':
+cafekbd-keyboard-drawing.c:2131:23: warning: comparison of integer expressions of different signedness: 'gint' {aka 'int'} and 'long unsigned int' [-Wsign-compare]
+ 2131 |         for (i = 0; i <= drawing->xkb->indicators->phys_indicators; i++)
+      |                       ^~
+cafekbd-keyboard-drawing.c: In function 'cafekbd_keyboard_drawing_get_type':
+cafekbd-keyboard-drawing.c:2394:25: warning: cast between incompatible function types from 'void (*)(CafekbdKeyboardDrawingClass *)' {aka 'void (*)(struct _CafekbdKeyboardDrawingClass *)'} to 'void (*)(void *, void *)' [-Wcast-function-type]
+ 2394 |                         (GClassInitFunc) cafekbd_keyboard_drawing_class_init,
+      |                         ^
+cafekbd-keyboard-drawing.c:2399:25: warning: cast between incompatible function types from 'void (*)(CafekbdKeyboardDrawing *)' {aka 'void (*)(struct _CafekbdKeyboardDrawing *)'} to 'void (*)(GTypeInstance *, void *)' {aka 'void (*)(struct _GTypeInstance *, void *)'} [-Wcast-function-type]
+ 2399 |                         (GInstanceInitFunc) cafekbd_keyboard_drawing_init,
+      |                         ^
+  GEN      org.cafe.peripherals-keyboard-xkb.gschema.valid
+  GEN      cafekbd-keyboard-drawing-resources.c
+  CC       libcafekbdui_la-cafekbd-keyboard-drawing-resources.lo
+cafekbd-keyboard-drawing-resources.c:114:9: warning: macro "__G_CONSTRUCTOR_H__" is not used [-Wunused-macros]
+  114 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+  CCLD     libcafekbd.la
+  CCLD     libcafekbdui.la
+  GISCAN   Cafekbd-1.0.gir
+/rootdir/libcafekbd/tmp-introspectqekde35i/Cafekbd-1.0.c:89:13: warning: File position of the stream might be 'indeterminate' after a failed operation. Can cause undefined behavior [unix.Stream]
+   89 |       ret = fread (&byte, 1, 1, input);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/rootdir/libcafekbd/tmp-introspectqekde35i/Cafekbd-1.0.c:89:13: warning: Read function called when stream is in EOF state. Function has no effect [unix.Stream]
+   89 |       ret = fread (&byte, 1, 1, input);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/rootdir/libcafekbd/tmp-introspectqekde35i/Cafekbd-1.0.c:239:11: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  239 |           break;
+      |           ^~~~~
+/rootdir/libcafekbd/tmp-introspectqekde35i/Cafekbd-1.0.c:246:11: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  246 |           break;
+      |           ^~~~~
+/rootdir/libcafekbd/tmp-introspectqekde35i/Cafekbd-1.0.c:812:27: warning: Access to field 'message' results in a dereference of a null pointer (loaded from variable 'error') [core.NullDereference]
+  812 |       g_printerr ("%s\n", error->message);
+      |                           ^~~~~~~~~~~~~~
+5 warnings generated.
+  GICOMP   Cafekbd-1.0.gir
+make[3]: Leaving directory '/rootdir/libcafekbd'
+make[2]: Leaving directory '/rootdir/libcafekbd'
+Making all in test
+make[2]: Entering directory '/rootdir/test'
+  CC       cafekbd_indicator_test-cafekbd-indicator-test.o
+  CC       cafekbd_keyboard_drawing_test-cafekbd-keyboard-drawing-test.o
+  CC       cafekbd_status_test-cafekbd-status-test.o
+cafekbd-keyboard-drawing-test.c:187:3: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  187 |                 g_print ("kbdraw %s\n", VERSION);
+      |                 ^~~~~~~
+cafekbd-keyboard-drawing-test.c:194:3: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  194 |                 g_printerr ("--groups: invalid argument\n");
+      |                 ^~~~~~~~~~
+cafekbd-keyboard-drawing-test.c:199:3: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  199 |                 g_printerr ("--levels: invalid argument\n");
+      |                 ^~~~~~~~~~
+cafekbd-keyboard-drawing-test.c:225:3: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  225 |                 cafekbd_keyboard_drawing_set_track_modifiers
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-test.c:228:3: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  228 |                 cafekbd_keyboard_drawing_set_track_config
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cafekbd-keyboard-drawing-test.c:248:21: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  248 |                         names.keycodes = keycodes;
+      |                                          ^~~~~~~~
+cafekbd-keyboard-drawing-test.c:256:21: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  256 |                         names.geometry = geometry;
+      |                                          ^~~~~~~~
+7 warnings generated.
+  CCLD     cafekbd-keyboard-drawing-test
+  CCLD     cafekbd-status-test
+  CCLD     cafekbd-indicator-test
+make[2]: Leaving directory '/rootdir/test'
+make[2]: Entering directory '/rootdir'
+make[2]: Leaving directory '/rootdir'
+make[1]: Leaving directory '/rootdir'
+scan-build: Analysis run complete.
+scan-build: 11 bugs found.
+scan-build: Run 'scan-view /rootdir/html-report/2025-02-06-164253-14522-1' to examine bug reports.
+Making check in po
+make[1]: Entering directory '/rootdir/po'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/rootdir/po'
+Making check in libcafekbd
+make[1]: Entering directory '/rootdir/libcafekbd'
+/usr/bin/glib-compile-resources --generate-dependencies --sourcedir . ./org.cafe.peripherals.keyboard.gresource.xml
+./show-layout.ui
+  GEN      cafekbd-keyboard-drawing-resources.c
+  GEN      cafekbd-keyboard-drawing-resources.h
+make  check-am
+make[2]: Entering directory '/rootdir/libcafekbd'
+/usr/bin/glib-compile-resources --generate-dependencies --sourcedir . ./org.cafe.peripherals.keyboard.gresource.xml
+./show-layout.ui
+  GEN      cafekbd-keyboard-drawing-resources.c
+  CC       libcafekbdui_la-cafekbd-keyboard-drawing-resources.lo
+cafekbd-keyboard-drawing-resources.c:113:9: warning: macro "__G_CONSTRUCTOR_H__" is not used [-Wunused-macros]
+  113 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+  CCLD     libcafekbdui.la
+  GISCAN   Cafekbd-1.0.gir
+/rootdir/libcafekbd/tmp-introspectnxg3cfas/Cafekbd-1.0.c:89:13: warning: File position of the stream might be 'indeterminate' after a failed operation. Can cause undefined behavior [unix.Stream]
+   89 |       ret = fread (&byte, 1, 1, input);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/rootdir/libcafekbd/tmp-introspectnxg3cfas/Cafekbd-1.0.c:89:13: warning: Read function called when stream is in EOF state. Function has no effect [unix.Stream]
+   89 |       ret = fread (&byte, 1, 1, input);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/rootdir/libcafekbd/tmp-introspectnxg3cfas/Cafekbd-1.0.c:812:27: warning: Access to field 'message' results in a dereference of a null pointer (loaded from variable 'error') [core.NullDereference]
+  812 |       g_printerr ("%s\n", error->message);
+      |                           ^~~~~~~~~~~~~~
+3 warnings generated.
+  GICOMP   Cafekbd-1.0.gir
+make[2]: Leaving directory '/rootdir/libcafekbd'
+make[1]: Leaving directory '/rootdir/libcafekbd'
+Making check in test
+make[1]: Entering directory '/rootdir/test'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/rootdir/test'
+make[1]: Entering directory '/rootdir'
+make[1]: Leaving directory '/rootdir'
+Listing... 0%Listing... 0%Listing... 0%              adduser/testing,now 3.137 all [installed,automatic]
+advaita-icon-theme/unknown,now 3.25.0-1 all [installed,automatic]
+apt/testing,now 2.9.26 amd64 [installed,automatic]
+aptitude-common/testing,now 0.8.13-6.1 all [installed,automatic]
+aptitude/testing,now 0.8.13-6.1 amd64 [installed]
+at-spi2-common/testing,now 2.55.0.1-1 all [installed,automatic]
+at-spi2-core/testing,now 2.55.0.1-1 amd64 [installed,automatic]
+autoconf-archive/testing,now 20220903-3 all [installed]
+autoconf/testing,now 2.72-3 all [installed,automatic]
+automake/testing,now 1:1.17-3 all [installed,automatic]
+autopoint/testing,now 0.23.1-1 all [installed]
+autotools-dev/testing,now 20220109.1 all [installed,automatic]
+base-files/testing,now 13.6 amd64 [installed,automatic]
+base-passwd/testing,now 3.6.6 amd64 [installed,automatic]
+bash/testing,now 5.2.37-1 amd64 [installed,automatic]
+binfmt-support/testing,now 2.2.2-7 amd64 [installed,automatic]
+binutils-common/testing,now 2.43.90.20250127-1 amd64 [installed,automatic]
+binutils-gold-x86-64-linux-gnu/testing,now 2.44-1 amd64 [installed,automatic]
+binutils-gold/testing,now 2.44-1 amd64 [installed,automatic]
+binutils-x86-64-linux-gnu/testing,now 2.43.90.20250127-1 amd64 [installed,automatic]
+binutils/testing,now 2.43.90.20250127-1 amd64 [installed,automatic]
+bsdutils/testing,now 1:2.40.4-2 amd64 [installed,automatic]
+build-essential/testing,now 12.12 amd64 [installed,automatic]
+bzip2-doc/testing,now 1.0.8-6 all [installed,automatic]
+bzip2/testing,now 1.0.8-6 amd64 [installed,automatic]
+ca-certificates/testing,now 20241223 all [installed,automatic]
+clang-19/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+clang-tools-19/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+clang-tools/testing,now 1:19.0-63 amd64 [installed]
+clang/testing,now 1:19.0-63 amd64 [installed]
+coreutils/testing,now 9.5-1+b1 amd64 [installed,automatic]
+cpp-14-x86-64-linux-gnu/testing,now 14.2.0-12 amd64 [installed,automatic]
+cpp-14/testing,now 14.2.0-12 amd64 [installed,automatic]
+cpp-x86-64-linux-gnu/testing,now 4:14.2.0-1 amd64 [installed,automatic]
+cpp/testing,now 4:14.2.0-1 amd64 [installed,automatic]
+cppcheck/testing,now 2.16.0-1 amd64 [installed]
+ctk-update-icon-cache/unknown,now 3.25.6-1 amd64 [installed,automatic]
+dash/testing,now 0.5.12-12 amd64 [installed,automatic]
+dbus-bin/testing,now 1.16.0-1 amd64 [installed,automatic]
+dbus-daemon/testing,now 1.16.0-1 amd64 [installed,automatic]
+dbus-session-bus-common/testing,now 1.16.0-1 all [installed,automatic]
+dbus-system-bus-common/testing,now 1.16.0-1 all [installed,automatic]
+dbus-user-session/testing,now 1.16.0-1 amd64 [installed,automatic]
+dbus/testing,now 1.16.0-1 amd64 [installed,automatic]
+dconf-gsettings-backend/testing,now 0.40.0-5 amd64 [installed,automatic]
+dconf-service/testing,now 0.40.0-5 amd64 [installed,automatic]
+debconf/testing,now 1.5.89 all [installed,automatic]
+debian-archive-keyring/testing,now 2023.4 all [installed,automatic]
+debianutils/testing,now 5.21 amd64 [installed,automatic]
+diffutils/testing,now 1:3.10-2 amd64 [installed,automatic]
+dirmngr/testing,now 2.2.46-1+b1 amd64 [installed,automatic]
+dmsetup/testing,now 2:1.02.201-1 amd64 [installed,automatic]
+dpkg-dev/testing,now 1.22.14 all [installed,automatic]
+dpkg/testing,now 1.22.14 amd64 [installed,automatic]
+e2fsprogs/testing,now 1.47.2-1 amd64 [installed,automatic]
+expect/testing,now 5.45.4-3+b1 amd64 [installed]
+fakeroot/testing,now 1.37-1 amd64 [installed,automatic]
+file/testing,now 1:5.45-3+b1 amd64 [installed,automatic]
+findutils/testing,now 4.10.0-3 amd64 [installed,automatic]
+fontconfig-config/testing,now 2.15.0-2 amd64 [installed,automatic]
+fontconfig/testing,now 2.15.0-2 amd64 [installed,automatic]
+fonts-dejavu-core/testing,now 2.37-8 all [installed,automatic]
+fonts-dejavu-mono/testing,now 2.37-8 all [installed,automatic]
+g++-14-x86-64-linux-gnu/testing,now 14.2.0-12 amd64 [installed,automatic]
+g++-14/testing,now 14.2.0-12 amd64 [installed,automatic]
+g++-x86-64-linux-gnu/testing,now 4:14.2.0-1 amd64 [installed,automatic]
+g++/testing,now 4:14.2.0-1 amd64 [installed,automatic]
+gcc-14-base/testing,now 14.2.0-12 amd64 [installed,automatic]
+gcc-14-x86-64-linux-gnu/testing,now 14.2.0-12 amd64 [installed,automatic]
+gcc-14/testing,now 14.2.0-12 amd64 [installed,automatic]
+gcc-x86-64-linux-gnu/testing,now 4:14.2.0-1 amd64 [installed,automatic]
+gcc/testing,now 4:14.2.0-1 amd64 [installed,automatic]
+gettext-base/testing,now 0.23.1-1 amd64 [installed,automatic]
+gettext/testing,now 0.23.1-1 amd64 [installed]
+gir1.2-atk-1.0/testing,now 2.55.0.1-1 amd64 [installed,automatic]
+gir1.2-atspi-2.0/testing,now 2.55.0.1-1 amd64 [installed,automatic]
+gir1.2-ctk-3.0/unknown,now 3.25.6-1 amd64 [installed]
+gir1.2-freedesktop-dev/testing,now 1.82.0-4 amd64 [installed,automatic]
+gir1.2-freedesktop/testing,now 1.82.0-4 amd64 [installed,automatic]
+gir1.2-gdkpixbuf-2.0/testing,now 2.42.12+dfsg-2 amd64 [installed,automatic]
+gir1.2-girepository-2.0-dev/testing,now 1.82.0-4 amd64 [installed,automatic]
+gir1.2-girepository-2.0/testing,now 1.82.0-4 amd64 [installed,automatic]
+gir1.2-glib-2.0-dev/testing,now 2.82.4-2 amd64 [installed,automatic]
+gir1.2-glib-2.0/testing,now 2.82.4-2 amd64 [installed,automatic]
+gir1.2-harfbuzz-0.0/testing,now 10.2.0-1 amd64 [installed,automatic]
+gir1.2-pango-1.0/testing,now 1.56.1-1 amd64 [installed,automatic]
+gir1.2-xkl-1.0/testing,now 5.4-5+b2 amd64 [installed,automatic]
+girepository-tools/testing,now 2.82.4-2 amd64 [installed,automatic]
+git-man/testing,now 1:2.47.2-0.1 all [installed,automatic]
+git/testing,now 1:2.47.2-0.1 amd64 [installed]
+gnupg-l10n/testing,now 2.2.46-1 all [installed,automatic]
+gnupg-utils/testing,now 2.2.46-1+b1 amd64 [installed,automatic]
+gnupg/testing,now 2.2.46-1 all [installed,automatic]
+gobject-introspection-bin/testing,now 1.82.0-4 amd64 [installed,automatic]
+gobject-introspection/testing,now 1.82.0-4 amd64 [installed]
+gpg-agent/testing,now 2.2.46-1+b1 amd64 [installed,automatic]
+gpg-wks-client/testing,now 2.2.46-1+b1 amd64 [installed,automatic]
+gpg/testing,now 2.2.46-1+b1 amd64 [installed,automatic]
+gpgconf/testing,now 2.2.46-1+b1 amd64 [installed,automatic]
+gpgsm/testing,now 2.2.46-1+b1 amd64 [installed,automatic]
+gpgv/testing,now 2.2.46-1+b1 amd64 [installed,automatic]
+grep/testing,now 3.11-4 amd64 [installed,automatic]
+gsettings-desktop-schemas/testing,now 47.1-1 all [installed,automatic]
+gzip/testing,now 1.13-1 amd64 [installed,automatic]
+hicolor-icon-theme/testing,now 0.18-2 all [installed,automatic]
+hostname/testing,now 3.25 amd64 [installed,automatic]
+icu-devtools/testing,now 72.1-6 amd64 [installed,automatic]
+init-system-helpers/testing,now 1.68 all [installed,automatic]
+krb5-locales/testing,now 1.21.3-4 all [installed,automatic]
+less/testing,now 643-1 amd64 [installed,automatic]
+lib32gcc-s1/testing,now 14.2.0-12 amd64 [installed,automatic]
+lib32stdc++6/testing,now 14.2.0-12 amd64 [installed,automatic]
+libacl1/testing,now 2.3.2-2+b1 amd64 [installed,automatic]
+libalgorithm-diff-perl/testing,now 1.201-1 all [installed,automatic]
+libalgorithm-diff-xs-perl/testing,now 0.04-8+b4 amd64 [installed,automatic]
+libalgorithm-merge-perl/testing,now 0.08-5 all [installed,automatic]
+libapparmor1/testing,now 3.1.7-1+b3 amd64 [installed,automatic]
+libapt-pkg6.0t64/testing,now 2.9.26 amd64 [installed,automatic]
+libasan8/testing,now 14.2.0-12 amd64 [installed,automatic]
+libassuan9/testing,now 3.0.1-2 amd64 [installed,automatic]
+libatk-bridge2.0-0t64/testing,now 2.55.0.1-1 amd64 [installed,automatic]
+libatk-bridge2.0-dev/testing,now 2.55.0.1-1 amd64 [installed,automatic]
+libatk1.0-0t64/testing,now 2.55.0.1-1 amd64 [installed,automatic]
+libatk1.0-dev/testing,now 2.55.0.1-1 amd64 [installed,automatic]
+libatomic1/testing,now 14.2.0-12 amd64 [installed,automatic]
+libatspi2.0-0t64/testing,now 2.55.0.1-1 amd64 [installed,automatic]
+libatspi2.0-dev/testing,now 2.55.0.1-1 amd64 [installed,automatic]
+libattr1/testing,now 1:2.5.2-2 amd64 [installed,automatic]
+libaudit-common/testing,now 1:4.0.2-2 all [installed,automatic]
+libaudit1/testing,now 1:4.0.2-2+b1 amd64 [installed,automatic]
+libavahi-client3/testing,now 0.8-16 amd64 [installed,automatic]
+libavahi-common-data/testing,now 0.8-16 amd64 [installed,automatic]
+libavahi-common3/testing,now 0.8-16 amd64 [installed,automatic]
+libbinutils/testing,now 2.43.90.20250127-1 amd64 [installed,automatic]
+libblkid-dev/testing,now 2.40.4-2 amd64 [installed,automatic]
+libblkid1/testing,now 2.40.4-2 amd64 [installed,automatic]
+libboost-iostreams1.83.0/testing,now 1.83.0-4 amd64 [installed,automatic]
+libbrotli-dev/testing,now 1.1.0-2+b6 amd64 [installed,automatic]
+libbrotli1/testing,now 1.1.0-2+b6 amd64 [installed,automatic]
+libbsd0/testing,now 0.12.2-2 amd64 [installed,automatic]
+libbz2-1.0/testing,now 1.0.8-6 amd64 [installed,automatic]
+libbz2-dev/testing,now 1.0.8-6 amd64 [installed,automatic]
+libc-bin/testing,now 2.40-6 amd64 [installed,automatic]
+libc-dev-bin/testing,now 2.40-6 amd64 [installed,automatic]
+libc6-dev/testing,now 2.40-6 amd64 [installed,automatic]
+libc6-i386/testing,now 2.40-6 amd64 [installed,automatic]
+libc6/testing,now 2.40-6 amd64 [installed,automatic]
+libcairo-gobject2/testing,now 1.18.2-2 amd64 [installed,automatic]
+libcairo-script-interpreter2/testing,now 1.18.2-2 amd64 [installed,automatic]
+libcairo2-dev/testing,now 1.18.2-2 amd64 [installed,automatic]
+libcairo2/testing,now 1.18.2-2 amd64 [installed,automatic]
+libcap-dev/testing,now 1:2.66-5+b1 amd64 [installed,automatic]
+libcap-ng0/testing,now 0.8.5-4 amd64 [installed,automatic]
+libcap2/testing,now 1:2.66-5+b1 amd64 [installed,automatic]
+libcbor0.10/testing,now 0.10.2-2 amd64 [installed,automatic]
+libcc1-0/testing,now 14.2.0-12 amd64 [installed,automatic]
+libclang-common-19-dev/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+libclang-cpp19/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+libclang-rt-19-dev/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+libclang1-19/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+libcolord2/testing,now 1.4.7-1+b2 amd64 [installed,automatic]
+libcom-err2/testing,now 1.47.2-1 amd64 [installed,automatic]
+libcrypt-dev/testing,now 1:4.4.38-1 amd64 [installed,automatic]
+libcrypt1/testing,now 1:4.4.38-1 amd64 [installed,automatic]
+libcryptsetup12/testing,now 2:2.7.5-1 amd64 [installed,automatic]
+libctf-nobfd0/testing,now 2.43.90.20250127-1 amd64 [installed,automatic]
+libctf0/testing,now 2.43.90.20250127-1 amd64 [installed,automatic]
+libctk-3-0/unknown,now 3.25.6-1 amd64 [installed]
+libctk-3-bin/unknown,now 3.25.6-1 amd64 [installed,automatic]
+libctk-3-common/unknown,now 3.25.6-1 all [installed]
+libctk-3-dev/unknown,now 3.25.6-1 amd64 [installed]
+libcups2t64/testing,now 2.4.10-2+b1 amd64 [installed,automatic]
+libcurl3t64-gnutls/testing,now 8.11.1-1+b1 amd64 [installed,automatic]
+libcurl4t64/testing,now 8.11.1-1+b1 amd64 [installed,automatic]
+libcwidget4/testing,now 0.5.18-6+b2 amd64 [installed,automatic]
+libdatrie-dev/testing,now 0.2.13-3+b1 amd64 [installed,automatic]
+libdatrie1/testing,now 0.2.13-3+b1 amd64 [installed,automatic]
+libdav1d7/testing,now 1.5.1-1 amd64 [installed,automatic]
+libdb5.3t64/testing,now 5.3.28+dfsg2-9 amd64 [installed,automatic]
+libdbus-1-3/testing,now 1.16.0-1 amd64 [installed,automatic]
+libdbus-1-dev/testing,now 1.16.0-1 amd64 [installed,automatic]
+libdconf1/testing,now 0.40.0-5 amd64 [installed,automatic]
+libdebconfclient0/testing,now 0.277 amd64 [installed,automatic]
+libdeflate-dev/testing,now 1.23-1+b1 amd64 [installed,automatic]
+libdeflate0/testing,now 1.23-1+b1 amd64 [installed,automatic]
+libdevmapper1.02.1/testing,now 2:1.02.201-1 amd64 [installed,automatic]
+libdpkg-perl/testing,now 1.22.14 all [installed,automatic]
+libdrm-amdgpu1/testing,now 2.4.123-1 amd64 [installed,automatic]
+libdrm-common/testing,now 2.4.123-1 all [installed,automatic]
+libdrm-intel1/testing,now 2.4.123-1 amd64 [installed,automatic]
+libdrm-radeon1/testing,now 2.4.123-1 amd64 [installed,automatic]
+libdrm2/testing,now 2.4.123-1 amd64 [installed,automatic]
+libedit2/testing,now 3.1-20250104-1 amd64 [installed,automatic]
+libegl-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libegl-mesa0/testing,now 24.2.8-1 amd64 [installed,automatic]
+libegl1-mesa-dev/testing,now 24.2.8-1 amd64 [installed,automatic]
+libegl1/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libelf1t64/testing,now 0.192-4 amd64 [installed,automatic]
+libepoxy-dev/testing,now 1.5.10-2 amd64 [installed,automatic]
+libepoxy0/testing,now 1.5.10-2 amd64 [installed,automatic]
+liberror-perl/testing,now 0.17029-2 all [installed,automatic]
+libexpat1-dev/testing,now 2.6.4-1 amd64 [installed,automatic]
+libexpat1/testing,now 2.6.4-1 amd64 [installed,automatic]
+libext2fs2t64/testing,now 1.47.2-1 amd64 [installed,automatic]
+libfakeroot/testing,now 1.37-1 amd64 [installed,automatic]
+libffi-dev/testing,now 3.4.6-1 amd64 [installed,automatic]
+libffi8/testing,now 3.4.6-1 amd64 [installed,automatic]
+libfido2-1/testing,now 1.15.0-1+b1 amd64 [installed,automatic]
+libfile-fcntllock-perl/testing,now 0.22-4+b4 amd64 [installed,automatic]
+libfontconfig-dev/testing,now 2.15.0-2 amd64 [installed,automatic]
+libfontconfig1/testing,now 2.15.0-2 amd64 [installed,automatic]
+libfreetype-dev/testing,now 2.13.3+dfsg-1 amd64 [installed,automatic]
+libfreetype6/testing,now 2.13.3+dfsg-1 amd64 [installed,automatic]
+libfribidi-dev/testing,now 1.0.16-1 amd64 [installed,automatic]
+libfribidi0/testing,now 1.0.16-1 amd64 [installed,automatic]
+libgbm1/testing,now 24.2.8-1 amd64 [installed,automatic]
+libgc1/testing,now 1:8.2.8-1 amd64 [installed,automatic]
+libgcc-14-dev/testing,now 14.2.0-12 amd64 [installed,automatic]
+libgcc-s1/testing,now 14.2.0-12 amd64 [installed,automatic]
+libgcrypt20/testing,now 1.11.0-7 amd64 [installed,automatic]
+libgdbm-compat4t64/testing,now 1.24-2 amd64 [installed,automatic]
+libgdbm6t64/testing,now 1.24-2 amd64 [installed,automatic]
+libgdk-pixbuf-2.0-0/testing,now 2.42.12+dfsg-2 amd64 [installed,automatic]
+libgdk-pixbuf-2.0-dev/testing,now 2.42.12+dfsg-2 amd64 [installed,automatic]
+libgdk-pixbuf2.0-bin/testing,now 2.42.12+dfsg-2 amd64 [installed,automatic]
+libgdk-pixbuf2.0-common/testing,now 2.42.12+dfsg-2 all [installed,automatic]
+libgio-2.0-dev-bin/testing,now 2.82.4-2 amd64 [installed,automatic]
+libgio-2.0-dev/testing,now 2.82.4-2 amd64 [installed,automatic]
+libgirepository-1.0-1/testing,now 1.82.0-4 amd64 [installed,automatic]
+libgirepository-1.0-dev/testing,now 1.82.0-4 amd64 [installed,automatic]
+libgirepository-2.0-0/testing,now 2.82.4-2 amd64 [installed,automatic]
+libgirepository1.0-dev/testing,now 1.82.0-4 amd64 [installed]
+libgl-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libgl1-mesa-dri/testing,now 24.2.8-1 amd64 [installed,automatic]
+libgl1/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglapi-mesa/testing,now 24.2.8-1 amd64 [installed,automatic]
+libgles-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libgles1/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libgles2/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglib2.0-0t64/testing,now 2.82.4-2 amd64 [installed,automatic]
+libglib2.0-bin/testing,now 2.82.4-2 amd64 [installed,automatic]
+libglib2.0-data/testing,now 2.82.4-2 all [installed,automatic]
+libglib2.0-dev-bin/testing,now 2.82.4-2 amd64 [installed,automatic]
+libglib2.0-dev/testing,now 2.82.4-2 amd64 [installed]
+libglvnd-core-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglvnd-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglvnd0/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglx-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglx-mesa0/testing,now 24.2.8-1 amd64 [installed,automatic]
+libglx0/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libgmp10/testing,now 2:6.3.0+dfsg-3 amd64 [installed,automatic]
+libgnutls30t64/testing,now 3.8.8-2 amd64 [installed,automatic]
+libgomp1/testing,now 14.2.0-12 amd64 [installed,automatic]
+libgpg-error-l10n/testing,now 1.51-3 all [installed,automatic]
+libgpg-error0/testing,now 1.51-3 amd64 [installed,automatic]
+libgpm2/testing,now 1.20.7-11+b2 amd64 [installed,automatic]
+libgprofng0/testing,now 2.43.90.20250127-1 amd64 [installed,automatic]
+libgraphite2-3/testing,now 1.3.14-2+b1 amd64 [installed,automatic]
+libgraphite2-dev/testing,now 1.3.14-2+b1 amd64 [installed,automatic]
+libgssapi-krb5-2/testing,now 1.21.3-4 amd64 [installed,automatic]
+libharfbuzz-cairo0/testing,now 10.2.0-1 amd64 [installed,automatic]
+libharfbuzz-dev/testing,now 10.2.0-1 amd64 [installed,automatic]
+libharfbuzz-gobject0/testing,now 10.2.0-1 amd64 [installed,automatic]
+libharfbuzz-icu0/testing,now 10.2.0-1 amd64 [installed,automatic]
+libharfbuzz-subset0/testing,now 10.2.0-1 amd64 [installed,automatic]
+libharfbuzz0b/testing,now 10.2.0-1 amd64 [installed,automatic]
+libhogweed6t64/testing,now 3.10-1+b1 amd64 [installed,automatic]
+libhwasan0/testing,now 14.2.0-12 amd64 [installed,automatic]
+libice-dev/testing,now 2:1.1.1-1 amd64 [installed,automatic]
+libice6/testing,now 2:1.1.1-1 amd64 [installed,automatic]
+libicu-dev/testing,now 72.1-6 amd64 [installed,automatic]
+libicu72/testing,now 72.1-6 amd64 [installed,automatic]
+libidn2-0/testing,now 2.3.7-2+b1 amd64 [installed,automatic]
+libisl23/testing,now 0.27-1 amd64 [installed,automatic]
+libitm1/testing,now 14.2.0-12 amd64 [installed,automatic]
+libjansson4/testing,now 2.14-2+b3 amd64 [installed,automatic]
+libjbig-dev/testing,now 2.1-6.1+b2 amd64 [installed,automatic]
+libjbig0/testing,now 2.1-6.1+b2 amd64 [installed,automatic]
+libjpeg-dev/testing,now 1:2.1.5-3+b1 amd64 [installed,automatic]
+libjpeg62-turbo-dev/testing,now 1:2.1.5-3+b1 amd64 [installed,automatic]
+libjpeg62-turbo/testing,now 1:2.1.5-3+b1 amd64 [installed,automatic]
+libjson-c5/testing,now 0.18+ds-1 amd64 [installed,automatic]
+libk5crypto3/testing,now 1.21.3-4 amd64 [installed,automatic]
+libkeyutils1/testing,now 1.6.3-4 amd64 [installed,automatic]
+libkmod2/testing,now 33+20240816-2 amd64 [installed,automatic]
+libkrb5-3/testing,now 1.21.3-4 amd64 [installed,automatic]
+libkrb5support0/testing,now 1.21.3-4 amd64 [installed,automatic]
+libksba8/testing,now 1.6.7-2+b1 amd64 [installed,automatic]
+liblcms2-2/testing,now 2.16-2 amd64 [installed,automatic]
+libldap-common/testing,now 2.6.9+dfsg-1 all [installed,automatic]
+libldap2/testing,now 2.6.9+dfsg-1 amd64 [installed,automatic]
+liblerc-dev/testing,now 4.0.0+ds-5 amd64 [installed,automatic]
+liblerc4/testing,now 4.0.0+ds-5 amd64 [installed,automatic]
+libllvm19/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+liblocale-gettext-perl/testing,now 1.07-7+b1 amd64 [installed,automatic]
+liblsan0/testing,now 14.2.0-12 amd64 [installed,automatic]
+libltdl-dev/testing,now 2.5.4-3 amd64 [installed,automatic]
+libltdl7/testing,now 2.5.4-3 amd64 [installed,automatic]
+liblz4-1/testing,now 1.10.0-3 amd64 [installed,automatic]
+liblzma-dev/testing,now 5.6.3-1+b1 amd64 [installed,automatic]
+liblzma5/testing,now 5.6.3-1+b1 amd64 [installed,automatic]
+liblzo2-2/testing,now 2.10-3+b1 amd64 [installed,automatic]
+libmagic-mgc/testing,now 1:5.45-3+b1 amd64 [installed,automatic]
+libmagic1t64/testing,now 1:5.45-3+b1 amd64 [installed,automatic]
+libmd0/testing,now 1.1.0-2+b1 amd64 [installed,automatic]
+libmount-dev/testing,now 2.40.4-2 amd64 [installed,automatic]
+libmount1/testing,now 2.40.4-2 amd64 [installed,automatic]
+libmpc3/testing,now 1.3.1-1+b3 amd64 [installed,automatic]
+libmpfr6/testing,now 4.2.1-1+b2 amd64 [installed,automatic]
+libncurses-dev/testing,now 6.5-2+b1 amd64 [installed,automatic]
+libncurses6/testing,now 6.5-2+b1 amd64 [installed,automatic]
+libncursesw6/testing,now 6.5-2+b1 amd64 [installed,automatic]
+libnettle8t64/testing,now 3.10-1+b1 amd64 [installed,automatic]
+libnghttp2-14/testing,now 1.64.0-1 amd64 [installed,automatic]
+libnghttp3-9/testing,now 1.6.0-2 amd64 [installed,automatic]
+libngtcp2-16/testing,now 1.9.1-1 amd64 [installed,automatic]
+libngtcp2-crypto-gnutls8/testing,now 1.9.1-1 amd64 [installed,automatic]
+libnpth0t64/testing,now 1.8-2 amd64 [installed,automatic]
+libnss-systemd/testing,now 257.2-3 amd64 [installed,automatic]
+libobjc-14-dev/testing,now 14.2.0-12 amd64 [installed,automatic]
+libobjc4/testing,now 14.2.0-12 amd64 [installed,automatic]
+libopengl-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libopengl0/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libp11-kit0/testing,now 0.25.5-3 amd64 [installed,automatic]
+libpam-modules-bin/testing,now 1.7.0-2 amd64 [installed,automatic]
+libpam-modules/testing,now 1.7.0-2 amd64 [installed,automatic]
+libpam-runtime/testing,now 1.7.0-2 all [installed,automatic]
+libpam-systemd/testing,now 257.2-3 amd64 [installed,automatic]
+libpam0g/testing,now 1.7.0-2 amd64 [installed,automatic]
+libpango-1.0-0/testing,now 1.56.1-1 amd64 [installed,automatic]
+libpango1.0-dev/testing,now 1.56.1-1 amd64 [installed,automatic]
+libpangocairo-1.0-0/testing,now 1.56.1-1 amd64 [installed,automatic]
+libpangoft2-1.0-0/testing,now 1.56.1-1 amd64 [installed,automatic]
+libpangoxft-1.0-0/testing,now 1.56.1-1 amd64 [installed,automatic]
+libpciaccess0/testing,now 0.17-3+b3 amd64 [installed,automatic]
+libpcre2-16-0/testing,now 10.44-5 amd64 [installed,automatic]
+libpcre2-32-0/testing,now 10.44-5 amd64 [installed,automatic]
+libpcre2-8-0/testing,now 10.44-5 amd64 [installed,automatic]
+libpcre2-dev/testing,now 10.44-5 amd64 [installed,automatic]
+libpcre2-posix3/testing,now 10.44-5 amd64 [installed,automatic]
+libperl5.40/testing,now 5.40.0-8 amd64 [installed,automatic]
+libpfm4/testing,now 4.13.0+git83-g91970fe-1 amd64 [installed,automatic]
+libpipeline1/testing,now 1.5.8-1 amd64 [installed,automatic]
+libpixman-1-0/testing,now 0.44.0-3 amd64 [installed,automatic]
+libpixman-1-dev/testing,now 0.44.0-3 amd64 [installed,automatic]
+libpkgconf3/testing,now 1.8.1-4 amd64 [installed,automatic]
+libpng-dev/testing,now 1.6.44-3 amd64 [installed,automatic]
+libpng-tools/testing,now 1.6.44-3 amd64 [installed,automatic]
+libpng16-16t64/testing,now 1.6.44-3 amd64 [installed,automatic]
+libproc2-0/testing,now 2:4.0.4-7 amd64 [installed,automatic]
+libpsl5t64/testing,now 0.21.2-1.1+b1 amd64 [installed,automatic]
+libpython3-stdlib/testing,now 3.13.1-2 amd64 [installed,automatic]
+libpython3.13-minimal/testing,now 3.13.1-3+b1 amd64 [installed,automatic]
+libpython3.13-stdlib/testing,now 3.13.1-3+b1 amd64 [installed,automatic]
+libquadmath0/testing,now 14.2.0-12 amd64 [installed,automatic]
+libreadline8t64/testing,now 8.2-6 amd64 [installed,automatic]
+librsvg2-2/testing,now 2.59.1+dfsg-1 amd64 [installed,automatic]
+librsvg2-common/testing,now 2.59.1+dfsg-1 amd64 [installed,automatic]
+librtmp1/testing,now 2.4+20151223.gitfa8646d.1-2+b5 amd64 [installed,automatic]
+libsasl2-2/testing,now 2.1.28+dfsg1-8+b1 amd64 [installed,automatic]
+libsasl2-modules-db/testing,now 2.1.28+dfsg1-8+b1 amd64 [installed,automatic]
+libsasl2-modules/testing,now 2.1.28+dfsg1-8+b1 amd64 [installed,automatic]
+libseccomp2/testing,now 2.5.5-2 amd64 [installed,automatic]
+libselinux1-dev/testing,now 3.7-3.1 amd64 [installed,automatic]
+libselinux1/testing,now 3.7-3.1 amd64 [installed,automatic]
+libsemanage-common/testing,now 3.7-2.1 all [installed,automatic]
+libsemanage2/testing,now 3.7-2.1 amd64 [installed,automatic]
+libsensors-config/testing,now 1:3.6.0-10 all [installed,automatic]
+libsensors5/testing,now 1:3.6.0-10+b1 amd64 [installed,automatic]
+libsepol-dev/testing,now 3.7-1 amd64 [installed,automatic]
+libsepol2/testing,now 3.7-1 amd64 [installed,automatic]
+libsframe1/testing,now 2.43.90.20250127-1 amd64 [installed,automatic]
+libsharpyuv-dev/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libsharpyuv0/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libsigc++-2.0-0v5/testing,now 2.12.1-3 amd64 [installed,automatic]
+libsm-dev/testing,now 2:1.2.4-1 amd64 [installed,automatic]
+libsm6/testing,now 2:1.2.4-1 amd64 [installed,automatic]
+libsmartcols1/testing,now 2.40.4-2 amd64 [installed,automatic]
+libsqlite3-0/testing,now 3.46.1-1 amd64 [installed,automatic]
+libss2/testing,now 1.47.2-1 amd64 [installed,automatic]
+libssh2-1t64/testing,now 1.11.1-1 amd64 [installed,automatic]
+libssl3t64/testing,now 3.4.0-2 amd64 [installed,automatic]
+libstdc++-14-dev/testing,now 14.2.0-12 amd64 [installed,automatic]
+libstdc++6/testing,now 14.2.0-12 amd64 [installed,automatic]
+libsysprof-capture-4-dev/testing,now 47.2-1 amd64 [installed,automatic]
+libsystemd-dev/testing,now 257.2-3 amd64 [installed,automatic]
+libsystemd-shared/testing,now 257.2-3 amd64 [installed,automatic]
+libsystemd0/testing,now 257.2-3 amd64 [installed,automatic]
+libtasn1-6/testing,now 4.19.0-3+b3 amd64 [installed,automatic]
+libtcl8.6/testing,now 8.6.16+dfsg-1 amd64 [installed,automatic]
+libthai-data/testing,now 0.1.29-2 all [installed,automatic]
+libthai-dev/testing,now 0.1.29-2+b1 amd64 [installed,automatic]
+libthai0/testing,now 0.1.29-2+b1 amd64 [installed,automatic]
+libtiff-dev/testing,now 4.5.1+git230720-5 amd64 [installed,automatic]
+libtiff6/testing,now 4.5.1+git230720-5 amd64 [installed,automatic]
+libtiffxx6/testing,now 4.5.1+git230720-5 amd64 [installed,automatic]
+libtinfo6/testing,now 6.5-2+b1 amd64 [installed,automatic]
+libtinyxml2-10/testing,now 10.0.0+dfsg-2+b2 amd64 [installed,automatic]
+libtool/testing,now 2.5.4-3 all [installed]
+libtsan2/testing,now 14.2.0-12 amd64 [installed,automatic]
+libubsan1/testing,now 14.2.0-12 amd64 [installed,automatic]
+libudev1/testing,now 257.2-3 amd64 [installed,automatic]
+libunistring5/testing,now 1.3-1 amd64 [installed,automatic]
+libuuid1/testing,now 2.40.4-2 amd64 [installed,automatic]
+libvulkan1/testing,now 1.4.304.0-1 amd64 [installed,automatic]
+libwayland-bin/testing,now 1.23.1-1 amd64 [installed,automatic]
+libwayland-client0/testing,now 1.23.1-1 amd64 [installed,automatic]
+libwayland-cursor0/testing,now 1.23.1-1 amd64 [installed,automatic]
+libwayland-dev/testing,now 1.23.1-1 amd64 [installed,automatic]
+libwayland-egl1/testing,now 1.23.1-1 amd64 [installed,automatic]
+libwayland-server0/testing,now 1.23.1-1 amd64 [installed,automatic]
+libwebp-dev/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libwebp7/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libwebpdecoder3/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libwebpdemux2/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libwebpmux3/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libx11-6/testing,now 2:1.8.10-2 amd64 [installed,automatic]
+libx11-data/testing,now 2:1.8.10-2 all [installed,automatic]
+libx11-dev/testing,now 2:1.8.10-2 amd64 [installed,automatic]
+libx11-xcb1/testing,now 2:1.8.10-2 amd64 [installed,automatic]
+libxapian30/testing,now 1.4.25-2 amd64 [installed,automatic]
+libxau-dev/testing,now 1:1.0.11-1 amd64 [installed,automatic]
+libxau6/testing,now 1:1.0.11-1 amd64 [installed,automatic]
+libxaw7/testing,now 2:1.0.16-1 amd64 [installed,automatic]
+libxcb-dri2-0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-dri3-0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-glx0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-present0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-randr0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-render0-dev/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-render0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-shm0-dev/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-shm0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-sync1/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-xfixes0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb1-dev/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb1/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcomposite-dev/testing,now 1:0.4.6-1 amd64 [installed,automatic]
+libxcomposite1/testing,now 1:0.4.6-1 amd64 [installed,automatic]
+libxcursor-dev/testing,now 1:1.2.3-1 amd64 [installed,automatic]
+libxcursor1/testing,now 1:1.2.3-1 amd64 [installed,automatic]
+libxdamage-dev/testing,now 1:1.1.6-1+b2 amd64 [installed,automatic]
+libxdamage1/testing,now 1:1.1.6-1+b2 amd64 [installed,automatic]
+libxdmcp-dev/testing,now 1:1.1.5-1 amd64 [installed,automatic]
+libxdmcp6/testing,now 1:1.1.5-1 amd64 [installed,automatic]
+libxext-dev/testing,now 2:1.3.4-1+b3 amd64 [installed,automatic]
+libxext6/testing,now 2:1.3.4-1+b3 amd64 [installed,automatic]
+libxfixes-dev/testing,now 1:6.0.0-2+b4 amd64 [installed,automatic]
+libxfixes3/testing,now 1:6.0.0-2+b4 amd64 [installed,automatic]
+libxft-dev/testing,now 2.3.6-1+b4 amd64 [installed,automatic]
+libxft2/testing,now 2.3.6-1+b4 amd64 [installed,automatic]
+libxi-dev/testing,now 2:1.8.2-1 amd64 [installed,automatic]
+libxi6/testing,now 2:1.8.2-1 amd64 [installed,automatic]
+libxinerama-dev/testing,now 2:1.1.4-3+b3 amd64 [installed,automatic]
+libxinerama1/testing,now 2:1.1.4-3+b3 amd64 [installed,automatic]
+libxkbcommon-dev/testing,now 1.7.0-2 amd64 [installed,automatic]
+libxkbcommon0/testing,now 1.7.0-2 amd64 [installed,automatic]
+libxkbfile1/testing,now 1:1.1.0-1+b4 amd64 [installed,automatic]
+libxklavier-dev/testing,now 5.4-5+b2 amd64 [installed]
+libxklavier16/testing,now 5.4-5+b2 amd64 [installed,automatic]
+libxml2-dev/testing,now 2.12.7+dfsg+really2.9.14-0.2+b1 amd64 [installed,automatic]
+libxml2-utils/testing,now 2.12.7+dfsg+really2.9.14-0.2+b1 amd64 [installed]
+libxml2/testing,now 2.12.7+dfsg+really2.9.14-0.2+b1 amd64 [installed,automatic]
+libxmu6/testing,now 2:1.1.3-3+b4 amd64 [installed,automatic]
+libxmuu1/testing,now 2:1.1.3-3+b4 amd64 [installed,automatic]
+libxpm4/testing,now 1:3.5.17-1+b3 amd64 [installed,automatic]
+libxrandr-dev/testing,now 2:1.5.4-1+b3 amd64 [installed,automatic]
+libxrandr2/testing,now 2:1.5.4-1+b3 amd64 [installed,automatic]
+libxrender-dev/testing,now 1:0.9.10-1.1+b4 amd64 [installed,automatic]
+libxrender1/testing,now 1:0.9.10-1.1+b4 amd64 [installed,automatic]
+libxshmfence1/testing,now 1.3-1+b3 amd64 [installed,automatic]
+libxt6t64/testing,now 1:1.2.1-1.2+b2 amd64 [installed,automatic]
+libxtst-dev/testing,now 2:1.2.5-1 amd64 [installed,automatic]
+libxtst6/testing,now 2:1.2.5-1 amd64 [installed,automatic]
+libxxf86vm1/testing,now 1:1.1.4-1+b4 amd64 [installed,automatic]
+libxxhash0/testing,now 0.8.2-2+b2 amd64 [installed,automatic]
+libyaml-0-2/testing,now 0.2.5-2 amd64 [installed,automatic]
+libz3-4/testing,now 4.13.3-1 amd64 [installed,automatic]
+libz3-dev/testing,now 4.13.3-1 amd64 [installed,automatic]
+libzstd-dev/testing,now 1.5.6+dfsg-2 amd64 [installed,automatic]
+libzstd1/testing,now 1.5.6+dfsg-2 amd64 [installed,automatic]
+linux-libc-dev/testing,now 6.12.11-1 all [installed,automatic]
+linux-sysctl-defaults/testing,now 4.11 all [installed,automatic]
+llvm-19-dev/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+llvm-19-linker-tools/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+llvm-19-runtime/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+llvm-19-tools/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+llvm-19/testing,now 1:19.1.6-1+b1 amd64 [installed,automatic]
+login.defs/testing,now 1:4.16.0-7 all [installed,automatic]
+login/testing,now 1:4.16.0-2+really2.40.4-2 amd64 [installed,automatic]
+logsave/testing,now 1.47.2-1 amd64 [installed,automatic]
+m4/testing,now 1.4.19-5 amd64 [installed,automatic]
+make/testing,now 4.4.1-1 amd64 [installed]
+manpages-dev/testing,now 6.9.1-1 all [installed,automatic]
+manpages/testing,now 6.9.1-1 all [installed,automatic]
+mawk/testing,now 1.3.4.20240905-1 amd64 [installed,automatic]
+media-types/testing,now 10.1.0 all [installed,automatic]
+mesa-libgallium/testing,now 24.2.8-1 amd64 [installed,automatic]
+mesa-vulkan-drivers/testing,now 24.2.8-1 amd64 [installed,automatic]
+mount/testing,now 2.40.4-2 amd64 [installed,automatic]
+native-architecture/testing,now 0.2.5 all [installed,automatic]
+ncurses-base/testing,now 6.5-2 all [installed,automatic]
+ncurses-bin/testing,now 6.5-2+b1 amd64 [installed,automatic]
+netbase/testing,now 6.4 all [installed,automatic]
+openssh-client/testing,now 1:9.9p1-3 amd64 [installed,automatic]
+openssl-provider-legacy/testing,now 3.4.0-2 amd64 [installed,automatic]
+openssl/testing,now 3.4.0-2 amd64 [installed,automatic]
+pango1.0-tools/testing,now 1.56.1-1 amd64 [installed,automatic]
+passwd/testing,now 1:4.16.0-7 amd64 [installed,automatic]
+patch/testing,now 2.7.6-7 amd64 [installed,automatic]
+perl-base/testing,now 5.40.0-8 amd64 [installed,automatic]
+perl-modules-5.40/testing,now 5.40.0-8 all [installed,automatic]
+perl/testing,now 5.40.0-8 amd64 [installed,automatic]
+pinentry-curses/testing,now 1.3.1-2 amd64 [installed,automatic]
+pkgconf-bin/testing,now 1.8.1-4 amd64 [installed,automatic]
+pkgconf/testing,now 1.8.1-4 amd64 [installed,automatic]
+procps/testing,now 2:4.0.4-7 amd64 [installed,automatic]
+psmisc/testing,now 23.7-1 amd64 [installed,automatic]
+publicsuffix/testing,now 20250108.1153-0.1 all [installed,automatic]
+python3-autocommand/testing,now 2.2.2-3 all [installed,automatic]
+python3-inflect/testing,now 7.3.1-2 all [installed,automatic]
+python3-jaraco.context/testing,now 6.0.0-1 all [installed,automatic]
+python3-jaraco.functools/testing,now 4.1.0-1 all [installed,automatic]
+python3-jaraco.text/testing,now 4.0.0-1 all [installed,automatic]
+python3-mako/testing,now 1.3.8-2 all [installed,automatic]
+python3-markdown/testing,now 3.7-2 all [installed,automatic]
+python3-markupsafe/testing,now 2.1.5-1+b2 amd64 [installed,automatic]
+python3-minimal/testing,now 3.13.1-2 amd64 [installed,automatic]
+python3-more-itertools/testing,now 10.6.0-1 all [installed,automatic]
+python3-packaging/testing,now 24.2-1 all [installed,automatic]
+python3-pkg-resources/testing,now 75.6.0-1 all [installed,automatic]
+python3-pygments/testing,now 2.18.0+dfsg-2 all [installed,automatic]
+python3-setuptools/testing,now 75.6.0-1 all [installed,automatic]
+python3-typeguard/testing,now 4.4.1-1 all [installed,automatic]
+python3-typing-extensions/testing,now 4.12.2-2 all [installed,automatic]
+python3-yaml/testing,now 6.0.2-1+b1 amd64 [installed,automatic]
+python3-zipp/testing,now 3.21.0-1 all [installed,automatic]
+python3.13-minimal/testing,now 3.13.1-3+b1 amd64 [installed,automatic]
+python3.13/testing,now 3.13.1-3+b1 amd64 [installed,automatic]
+python3/testing,now 3.13.1-2 amd64 [installed,automatic]
+readline-common/testing,now 8.2-6 all [installed,automatic]
+rpcsvc-proto/testing,now 1.4.3-1 amd64 [installed,automatic]
+sed/testing,now 4.9-2 amd64 [installed,automatic]
+sensible-utils/testing,now 0.0.24 all [installed,automatic]
+sgml-base/testing,now 1.31 all [installed,automatic]
+shared-mime-info/testing,now 2.4-5+b2 amd64 [installed,automatic]
+sqv/testing,now 1.2.1-5 amd64 [installed,automatic]
+systemd-cryptsetup/testing,now 257.2-3 amd64 [installed,automatic]
+systemd-sysv/testing,now 257.2-3 amd64 [installed,automatic]
+systemd-timesyncd/testing,now 257.2-3 amd64 [installed,automatic]
+systemd/testing,now 257.2-3 amd64 [installed,automatic]
+sysvinit-utils/testing,now 3.13-1 amd64 [installed,automatic]
+tar/testing,now 1.35+dfsg-3.1 amd64 [installed,automatic]
+tcl-expect/testing,now 5.45.4-3+b1 amd64 [installed,automatic]
+tcl8.6/testing,now 8.6.16+dfsg-1 amd64 [installed,automatic]
+tzdata/testing,now 2024b-6 all [installed,automatic]
+util-linux/testing,now 2.40.4-2 amd64 [installed,automatic]
+uuid-dev/testing,now 2.40.4-2 amd64 [installed,automatic]
+wayland-protocols/testing,now 1.39-1 all [installed,automatic]
+wget/testing,now 1.24.5-2+b1 amd64 [installed]
+x11-common/testing,now 1:7.7+24 all [installed,automatic]
+x11-xkb-utils/testing,now 7.7+9 amd64 [installed,automatic]
+x11proto-dev/testing,now 2024.1-1 all [installed,automatic]
+xauth/testing,now 1:1.1.2-1.1 amd64 [installed,automatic]
+xdg-user-dirs/testing,now 0.18-2 amd64 [installed,automatic]
+xkb-data/testing,now 2.42-1 all [installed,automatic]
+xml-core/testing,now 0.19 all [installed,automatic]
+xorg-sgml-doctools/testing,now 1:1.11-1.1 all [installed,automatic]
+xtrans-dev/testing,now 1.4.0-1 all [installed,automatic]
+xz-utils/testing,now 5.6.3-1+b1 amd64 [installed,automatic]
+zlib1g-dev/testing,now 1:1.3.dfsg+really1.3.1-1+b1 amd64 [installed,automatic]
+zlib1g/testing,now 1:1.3.dfsg+really1.3.1-1+b1 amd64 [installed,automatic]
+Errors detected in the build 0
+Warnings detected in the logs 96
+cppcheck defects detected in the logs 28
+TOTAL warnings detected in the logs 124
