@@ -10,9 +10,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libcafekbd 1.24.0\n"
+"Project-Id-Version: libcafekbd 2.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/libcafekbd\n"
-"POT-Creation-Date: 2022-04-14 19:55+0200\n"
+"POT-Creation-Date: 2025-02-06 16:16+0100\n"
 "PO-Revision-Date: 2020-02-14 12:40+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>, 2020\n"
 "Language-Team: Malay (https://www.transifex.com/cafe/teams/13566/ms/)\n"
@@ -22,16 +22,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: libcafekbd/cafekbd-indicator.c:116 libcafekbd/cafekbd-status.c:315
+#: libcafekbd/cafekbd-indicator.c:121 libcafekbd/cafekbd-status.c:316
 #, c-format
 msgid "There was an error loading an image: %s"
 msgstr "Terdapat ralat memuatkan imej: %s"
 
-#: libcafekbd/cafekbd-indicator.c:696 libcafekbd/cafekbd-status.c:651
+#: libcafekbd/cafekbd-indicator.c:707 libcafekbd/cafekbd-status.c:655
 msgid "XKB initialization error"
 msgstr "Ralat pengawalan XKB"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:651
+#: libcafekbd/cafekbd-keyboard-drawing.c:649
 msgid ""
 "Scroll\n"
 "Lock"
@@ -39,11 +39,11 @@ msgstr ""
 "Scroll\n"
 "Lock"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:659
+#: libcafekbd/cafekbd-keyboard-drawing.c:657
 msgid "Sys Rq"
 msgstr "Sys Rq"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:663
+#: libcafekbd/cafekbd-keyboard-drawing.c:661
 msgid ""
 "Page\n"
 "Up"
@@ -51,7 +51,7 @@ msgstr ""
 "Page\n"
 "Up"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:667
+#: libcafekbd/cafekbd-keyboard-drawing.c:665
 msgid ""
 "Page\n"
 "Down"
@@ -59,7 +59,7 @@ msgstr ""
 "Page\n"
 "Down"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:671
+#: libcafekbd/cafekbd-keyboard-drawing.c:669
 msgid ""
 "Num\n"
 "Lock"
@@ -67,156 +67,156 @@ msgstr ""
 "Num\n"
 "Lock"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:675
+#: libcafekbd/cafekbd-keyboard-drawing.c:673
 msgid "Pg Up"
 msgstr "Pg Up"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:679
+#: libcafekbd/cafekbd-keyboard-drawing.c:677
 msgid "Pg Dn"
 msgstr "Pg Dn"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:683
-#: libcafekbd/cafekbd-keyboard-drawing.c:759
+#: libcafekbd/cafekbd-keyboard-drawing.c:681
+#: libcafekbd/cafekbd-keyboard-drawing.c:757
 msgid "Home"
 msgstr "Laman Utama"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:687
-#: libcafekbd/cafekbd-keyboard-drawing.c:764
+#: libcafekbd/cafekbd-keyboard-drawing.c:685
+#: libcafekbd/cafekbd-keyboard-drawing.c:762
 msgid "Left"
 msgstr "Kiri"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:691
-#: libcafekbd/cafekbd-keyboard-drawing.c:784
+#: libcafekbd/cafekbd-keyboard-drawing.c:689
+#: libcafekbd/cafekbd-keyboard-drawing.c:782
 msgid "End"
 msgstr "End"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:695
-#: libcafekbd/cafekbd-keyboard-drawing.c:769
+#: libcafekbd/cafekbd-keyboard-drawing.c:693
+#: libcafekbd/cafekbd-keyboard-drawing.c:767
 msgid "Up"
 msgstr "Naik"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:699
+#: libcafekbd/cafekbd-keyboard-drawing.c:697
 msgid "Begin"
 msgstr "Begin"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:703
-#: libcafekbd/cafekbd-keyboard-drawing.c:774
+#: libcafekbd/cafekbd-keyboard-drawing.c:701
+#: libcafekbd/cafekbd-keyboard-drawing.c:772
 msgid "Right"
 msgstr "Kanan"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:707
+#: libcafekbd/cafekbd-keyboard-drawing.c:705
 msgid "Enter"
 msgstr "Enter"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:711
-#: libcafekbd/cafekbd-keyboard-drawing.c:779
+#: libcafekbd/cafekbd-keyboard-drawing.c:709
+#: libcafekbd/cafekbd-keyboard-drawing.c:777
 msgid "Down"
 msgstr "Down"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:715
+#: libcafekbd/cafekbd-keyboard-drawing.c:713
 msgid "Ins"
 msgstr "Ins"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:719
+#: libcafekbd/cafekbd-keyboard-drawing.c:717
 msgid "Del"
 msgstr "Del"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:724
+#: libcafekbd/cafekbd-keyboard-drawing.c:722
 msgid "ISO_Level3_Shift"
 msgstr "ISO_Level3_Shift"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:729
-#: libcafekbd/cafekbd-keyboard-drawing.c:739
+#: libcafekbd/cafekbd-keyboard-drawing.c:727
+#: libcafekbd/cafekbd-keyboard-drawing.c:737
 msgid "Tab"
 msgstr "Tab"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:734
+#: libcafekbd/cafekbd-keyboard-drawing.c:732
 msgid "BackSpace"
 msgstr "BackSpace"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:744
+#: libcafekbd/cafekbd-keyboard-drawing.c:742
 msgid "Return"
 msgstr "Return"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:749
+#: libcafekbd/cafekbd-keyboard-drawing.c:747
 msgid "Pause"
 msgstr "Jeda"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:754
+#: libcafekbd/cafekbd-keyboard-drawing.c:752
 msgid "Esc"
 msgstr "Esc"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:789
+#: libcafekbd/cafekbd-keyboard-drawing.c:787
 msgid "Print"
 msgstr "Cetak"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:794
+#: libcafekbd/cafekbd-keyboard-drawing.c:792
 msgid "Insert"
 msgstr "Sisip"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:799
+#: libcafekbd/cafekbd-keyboard-drawing.c:797
 msgid "Menu"
 msgstr "Menu"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:804
+#: libcafekbd/cafekbd-keyboard-drawing.c:802
 msgid "F1"
 msgstr "F1"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:809
+#: libcafekbd/cafekbd-keyboard-drawing.c:807
 msgid "F2"
 msgstr "F2"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:814
+#: libcafekbd/cafekbd-keyboard-drawing.c:812
 msgid "F3"
 msgstr "F3"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:819
+#: libcafekbd/cafekbd-keyboard-drawing.c:817
 msgid "F4"
 msgstr "F4"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:824
+#: libcafekbd/cafekbd-keyboard-drawing.c:822
 msgid "F5"
 msgstr "F5"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:829
+#: libcafekbd/cafekbd-keyboard-drawing.c:827
 msgid "F6"
 msgstr "F6"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:834
+#: libcafekbd/cafekbd-keyboard-drawing.c:832
 msgid "F7"
 msgstr "F7"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:839
+#: libcafekbd/cafekbd-keyboard-drawing.c:837
 msgid "F8"
 msgstr "F8"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:844
+#: libcafekbd/cafekbd-keyboard-drawing.c:842
 msgid "F9"
 msgstr "F9"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:849
+#: libcafekbd/cafekbd-keyboard-drawing.c:847
 msgid "F10"
 msgstr "F10"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:854
+#: libcafekbd/cafekbd-keyboard-drawing.c:852
 msgid "F11"
 msgstr "F11"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:859
+#: libcafekbd/cafekbd-keyboard-drawing.c:857
 msgid "F12"
 msgstr "F12"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:864
-#: libcafekbd/cafekbd-keyboard-drawing.c:869
+#: libcafekbd/cafekbd-keyboard-drawing.c:862
+#: libcafekbd/cafekbd-keyboard-drawing.c:867
 msgid "Shift"
 msgstr "Shift"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:874
-#: libcafekbd/cafekbd-keyboard-drawing.c:879
+#: libcafekbd/cafekbd-keyboard-drawing.c:872
+#: libcafekbd/cafekbd-keyboard-drawing.c:877
 msgid "Control"
 msgstr "Control"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:884
+#: libcafekbd/cafekbd-keyboard-drawing.c:882
 msgid ""
 "Caps\n"
 "Lock"
@@ -224,24 +224,24 @@ msgstr ""
 "Caps\n"
 "Lock"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:889
+#: libcafekbd/cafekbd-keyboard-drawing.c:887
 msgid "Meta"
 msgstr "Meta"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:894
+#: libcafekbd/cafekbd-keyboard-drawing.c:892
 msgid "Alt"
 msgstr "Alt"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:899
-#: libcafekbd/cafekbd-keyboard-drawing.c:904
+#: libcafekbd/cafekbd-keyboard-drawing.c:897
+#: libcafekbd/cafekbd-keyboard-drawing.c:902
 msgid "Super"
 msgstr "Super"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:909
+#: libcafekbd/cafekbd-keyboard-drawing.c:907
 msgid "Delete"
 msgstr "Padam"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:973
+#: libcafekbd/cafekbd-keyboard-drawing.c:971
 msgid ""
 "horiz\n"
 "conn"
@@ -249,15 +249,15 @@ msgstr ""
 "horiz\n"
 "conn"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:977
+#: libcafekbd/cafekbd-keyboard-drawing.c:975
 msgid "AltGr"
 msgstr "AltGr"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:981
+#: libcafekbd/cafekbd-keyboard-drawing.c:979
 msgid "Compose"
 msgstr "Compose"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2692
+#: libcafekbd/cafekbd-keyboard-drawing.c:2693
 #, c-format
 msgid ""
 "Keyboard layout \"%s\"\n"
@@ -268,11 +268,11 @@ msgstr ""
 "Hakcipta &#169; penyumbang X.Org Foundation dan XKeyboardConfig\n"
 "Untuk pelesenan lihat data meta pakej"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2774
+#: libcafekbd/cafekbd-keyboard-drawing.c:2775
 msgid "Unknown"
 msgstr "Tidak diketahui"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2820
+#: libcafekbd/cafekbd-keyboard-drawing.c:2821
 #, c-format
 msgid "Keyboard Layout \"%s\""
 msgstr "Bentangan Papan Kekunci \"%s\""

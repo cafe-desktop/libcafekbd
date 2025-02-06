@@ -10,9 +10,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libcafekbd 1.24.0\n"
+"Project-Id-Version: libcafekbd 2.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/libcafekbd\n"
-"POT-Creation-Date: 2022-04-14 19:55+0200\n"
+"POT-Creation-Date: 2025-02-06 16:16+0100\n"
 "PO-Revision-Date: 2020-02-14 12:40+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>, 2020\n"
 "Language-Team: Serbian (https://www.transifex.com/cafe/teams/13566/sr/)\n"
@@ -23,16 +23,16 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: libcafekbd/cafekbd-indicator.c:116 libcafekbd/cafekbd-status.c:315
+#: libcafekbd/cafekbd-indicator.c:121 libcafekbd/cafekbd-status.c:316
 #, c-format
 msgid "There was an error loading an image: %s"
 msgstr "Дошло је до грешке учитавања слике: %s"
 
-#: libcafekbd/cafekbd-indicator.c:696 libcafekbd/cafekbd-status.c:651
+#: libcafekbd/cafekbd-indicator.c:707 libcafekbd/cafekbd-status.c:655
 msgid "XKB initialization error"
 msgstr "Грешка покретања ИксКБ-а"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:651
+#: libcafekbd/cafekbd-keyboard-drawing.c:649
 msgid ""
 "Scroll\n"
 "Lock"
@@ -40,11 +40,11 @@ msgstr ""
 "Закључавање\n"
 "померања"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:659
+#: libcafekbd/cafekbd-keyboard-drawing.c:657
 msgid "Sys Rq"
 msgstr "Рек сист"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:663
+#: libcafekbd/cafekbd-keyboard-drawing.c:661
 msgid ""
 "Page\n"
 "Up"
@@ -52,7 +52,7 @@ msgstr ""
 "Страница\n"
 "горе"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:667
+#: libcafekbd/cafekbd-keyboard-drawing.c:665
 msgid ""
 "Page\n"
 "Down"
@@ -60,7 +60,7 @@ msgstr ""
 "Страница\n"
 "доле"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:671
+#: libcafekbd/cafekbd-keyboard-drawing.c:669
 msgid ""
 "Num\n"
 "Lock"
@@ -68,156 +68,156 @@ msgstr ""
 "Закљ\n"
 "број"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:675
+#: libcafekbd/cafekbd-keyboard-drawing.c:673
 msgid "Pg Up"
 msgstr "Стр. горе"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:679
+#: libcafekbd/cafekbd-keyboard-drawing.c:677
 msgid "Pg Dn"
 msgstr "Стр. доле"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:683
-#: libcafekbd/cafekbd-keyboard-drawing.c:759
+#: libcafekbd/cafekbd-keyboard-drawing.c:681
+#: libcafekbd/cafekbd-keyboard-drawing.c:757
 msgid "Home"
 msgstr "Лична фасцикла"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:687
-#: libcafekbd/cafekbd-keyboard-drawing.c:764
+#: libcafekbd/cafekbd-keyboard-drawing.c:685
+#: libcafekbd/cafekbd-keyboard-drawing.c:762
 msgid "Left"
 msgstr "Лево"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:691
-#: libcafekbd/cafekbd-keyboard-drawing.c:784
+#: libcafekbd/cafekbd-keyboard-drawing.c:689
+#: libcafekbd/cafekbd-keyboard-drawing.c:782
 msgid "End"
 msgstr "Крај"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:695
-#: libcafekbd/cafekbd-keyboard-drawing.c:769
+#: libcafekbd/cafekbd-keyboard-drawing.c:693
+#: libcafekbd/cafekbd-keyboard-drawing.c:767
 msgid "Up"
 msgstr "Горе"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:699
+#: libcafekbd/cafekbd-keyboard-drawing.c:697
 msgid "Begin"
 msgstr "Почетак"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:703
-#: libcafekbd/cafekbd-keyboard-drawing.c:774
+#: libcafekbd/cafekbd-keyboard-drawing.c:701
+#: libcafekbd/cafekbd-keyboard-drawing.c:772
 msgid "Right"
 msgstr "Десно"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:707
+#: libcafekbd/cafekbd-keyboard-drawing.c:705
 msgid "Enter"
 msgstr "Унеси"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:711
-#: libcafekbd/cafekbd-keyboard-drawing.c:779
+#: libcafekbd/cafekbd-keyboard-drawing.c:709
+#: libcafekbd/cafekbd-keyboard-drawing.c:777
 msgid "Down"
 msgstr "Доле"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:715
+#: libcafekbd/cafekbd-keyboard-drawing.c:713
 msgid "Ins"
 msgstr "Умет"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:719
+#: libcafekbd/cafekbd-keyboard-drawing.c:717
 msgid "Del"
 msgstr "Обр"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:724
+#: libcafekbd/cafekbd-keyboard-drawing.c:722
 msgid "ISO_Level3_Shift"
 msgstr "ИСО_Ниво3_Шифт"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:729
-#: libcafekbd/cafekbd-keyboard-drawing.c:739
+#: libcafekbd/cafekbd-keyboard-drawing.c:727
+#: libcafekbd/cafekbd-keyboard-drawing.c:737
 msgid "Tab"
 msgstr "Јез"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:734
+#: libcafekbd/cafekbd-keyboard-drawing.c:732
 msgid "BackSpace"
 msgstr "Повратница"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:744
+#: libcafekbd/cafekbd-keyboard-drawing.c:742
 msgid "Return"
 msgstr "Унеси"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:749
+#: libcafekbd/cafekbd-keyboard-drawing.c:747
 msgid "Pause"
 msgstr "Застани"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:754
+#: libcafekbd/cafekbd-keyboard-drawing.c:752
 msgid "Esc"
 msgstr "Изђ"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:789
+#: libcafekbd/cafekbd-keyboard-drawing.c:787
 msgid "Print"
 msgstr "Штампај"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:794
+#: libcafekbd/cafekbd-keyboard-drawing.c:792
 msgid "Insert"
 msgstr "Уметни"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:799
+#: libcafekbd/cafekbd-keyboard-drawing.c:797
 msgid "Menu"
 msgstr "Изборник"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:804
+#: libcafekbd/cafekbd-keyboard-drawing.c:802
 msgid "F1"
 msgstr "Ф1"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:809
+#: libcafekbd/cafekbd-keyboard-drawing.c:807
 msgid "F2"
 msgstr "Ф2"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:814
+#: libcafekbd/cafekbd-keyboard-drawing.c:812
 msgid "F3"
 msgstr "Ф3"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:819
+#: libcafekbd/cafekbd-keyboard-drawing.c:817
 msgid "F4"
 msgstr "Ф4"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:824
+#: libcafekbd/cafekbd-keyboard-drawing.c:822
 msgid "F5"
 msgstr "Ф5"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:829
+#: libcafekbd/cafekbd-keyboard-drawing.c:827
 msgid "F6"
 msgstr "Ф6"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:834
+#: libcafekbd/cafekbd-keyboard-drawing.c:832
 msgid "F7"
 msgstr "Ф7"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:839
+#: libcafekbd/cafekbd-keyboard-drawing.c:837
 msgid "F8"
 msgstr "Ф8"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:844
+#: libcafekbd/cafekbd-keyboard-drawing.c:842
 msgid "F9"
 msgstr "Ф9"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:849
+#: libcafekbd/cafekbd-keyboard-drawing.c:847
 msgid "F10"
 msgstr "Ф10"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:854
+#: libcafekbd/cafekbd-keyboard-drawing.c:852
 msgid "F11"
 msgstr "Ф11"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:859
+#: libcafekbd/cafekbd-keyboard-drawing.c:857
 msgid "F12"
 msgstr "Ф12"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:864
-#: libcafekbd/cafekbd-keyboard-drawing.c:869
+#: libcafekbd/cafekbd-keyboard-drawing.c:862
+#: libcafekbd/cafekbd-keyboard-drawing.c:867
 msgid "Shift"
 msgstr "Шифт"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:874
-#: libcafekbd/cafekbd-keyboard-drawing.c:879
+#: libcafekbd/cafekbd-keyboard-drawing.c:872
+#: libcafekbd/cafekbd-keyboard-drawing.c:877
 msgid "Control"
 msgstr "Контрол"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:884
+#: libcafekbd/cafekbd-keyboard-drawing.c:882
 msgid ""
 "Caps\n"
 "Lock"
@@ -225,24 +225,24 @@ msgstr ""
 "Закљ\n"
 "слова"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:889
+#: libcafekbd/cafekbd-keyboard-drawing.c:887
 msgid "Meta"
 msgstr "Мета"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:894
+#: libcafekbd/cafekbd-keyboard-drawing.c:892
 msgid "Alt"
 msgstr "Алт"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:899
-#: libcafekbd/cafekbd-keyboard-drawing.c:904
+#: libcafekbd/cafekbd-keyboard-drawing.c:897
+#: libcafekbd/cafekbd-keyboard-drawing.c:902
 msgid "Super"
 msgstr "Супер"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:909
+#: libcafekbd/cafekbd-keyboard-drawing.c:907
 msgid "Delete"
 msgstr "Обриши"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:973
+#: libcafekbd/cafekbd-keyboard-drawing.c:971
 msgid ""
 "horiz\n"
 "conn"
@@ -250,15 +250,15 @@ msgstr ""
 "хориз\n"
 "кон"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:977
+#: libcafekbd/cafekbd-keyboard-drawing.c:975
 msgid "AltGr"
 msgstr "АлтГр"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:981
+#: libcafekbd/cafekbd-keyboard-drawing.c:979
 msgid "Compose"
 msgstr "Састави"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2692
+#: libcafekbd/cafekbd-keyboard-drawing.c:2693
 #, c-format
 msgid ""
 "Keyboard layout \"%s\"\n"
@@ -269,11 +269,11 @@ msgstr ""
 "Ауторска права &#169; Х.Орг Фондација и доприносиоци Подешавања Х тастатуре\n"
 "За услове лиценцирања погледајте метаподатке пакета"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2774
+#: libcafekbd/cafekbd-keyboard-drawing.c:2775
 msgid "Unknown"
 msgstr "Непознато"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2820
+#: libcafekbd/cafekbd-keyboard-drawing.c:2821
 #, c-format
 msgid "Keyboard Layout \"%s\""
 msgstr "Распоред тастатуре „%s“"
