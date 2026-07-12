@@ -2,7 +2,7 @@ dnl ***************************************************************************
 dnl *** configure.in for libcafekbd                                        ***
 dnl ***************************************************************************
 m4_define([libcafekbd_major_version], [2])
-m4_define([libcafekbd_minor_version], [0])
+m4_define([libcafekbd_minor_version], [1])
 m4_define([libcafekbd_micro_version], [0])
 m4_define([libcafekbd_version],[libcafekbd_major_version.libcafekbd_minor_version.libcafekbd_micro_version])
 

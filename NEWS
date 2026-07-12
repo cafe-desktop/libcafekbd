@@ -1,3 +1,11 @@
+### libcafekbd 2.1.0
+
+  * ci: add debian stable build
+  * port from GdkPixbuf to CdkPixbuf
+  * Fix [-Wcast-function-type] warnings
+  * update translations
+
+
 ### libcafekbd 2.0.0
 
   * ci: some improvements
@@ -8,6 +16,7 @@
     - Fix [-Wmissing-prototypes] warnings
     - Fix [-Wstrict-prototypes] warnings
   * update translations
+
   
 ### libcafekbd 1.25.0
 
