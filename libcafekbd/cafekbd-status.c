@@ -245,6 +245,13 @@ cafekbd_status_render_cairo (cairo_t * cr, int group)
 		globals.real_width = globals.current_height;
 }
 
+static void
+pixbuf_data_destroy (guchar  *pixels,
+		     gpointer data G_GNUC_UNUSED)
+{
+	g_free (pixels);
+}
+
 static inline guint8
 convert_color_channel (guint8 src, guint8 alpha)
 {
@@ -374,7 +381,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus *gki G_GNUC_UNUSED,
 						  globals.real_width *
 						  4,
 						  (CdkPixbufDestroyNotify)
-						  g_free, NULL);
+						  pixbuf_data_destroy, NULL);
 		xkl_debug (150,
 			   "Image %d created -> %p[%dx%d], alpha: %d\n",
 			   group, image, cdk_pixbuf_get_width (image),
@@ -557,7 +564,8 @@ cafekbd_status_set_current_page_for_group (CafekbdStatus * gki, int group)
 /* Should be called once for all widgets */
 static CdkFilterReturn
 cafekbd_status_filter_x_evt (CdkXEvent *xev,
-			     CdkEvent  *event G_GNUC_UNUSED)
+			     CdkEvent  *event G_GNUC_UNUSED,
+			     gpointer   user_data G_GNUC_UNUSED)
 {
 	XEvent *xevent = (XEvent *) xev;
 

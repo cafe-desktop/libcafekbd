@@ -608,7 +608,8 @@ cafekbd_indicator_set_current_page_for_group (CafekbdIndicator * gki, int group)
 /* Should be called once for all widgets */
 static CdkFilterReturn
 cafekbd_indicator_filter_x_evt (CdkXEvent *xev,
-				CdkEvent  *event G_GNUC_UNUSED)
+				CdkEvent  *event G_GNUC_UNUSED,
+				gpointer   user_data G_GNUC_UNUSED)
 {
 	XEvent *xevent = (XEvent *) xev;
 

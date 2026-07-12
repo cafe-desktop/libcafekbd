@@ -29,7 +29,7 @@ extern "C" {
 #endif
 #define CAFEKBD_KEYBOARD_DRAWING(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), cafekbd_keyboard_drawing_get_type (), \
                                CafekbdKeyboardDrawing))
-#define CAFEKBD_KEYBOARD_DRAWING_CLASS(clazz) (G_TYPE_CHECK_CLASS_CAST ((clazz), cafekbd_keyboard_drawing_get_type () \
+#define CAFEKBD_KEYBOARD_DRAWING_CLASS(clazz) (G_TYPE_CHECK_CLASS_CAST ((clazz), cafekbd_keyboard_drawing_get_type (), \
                                        CafekbdKeyboardDrawingClass))
 #define CAFEKBD_IS_KEYBOARD_DRAWING(obj) G_TYPE_CHECK_INSTANCE_TYPE ((obj), cafekbd_keyboard_drawing_get_type ())
 typedef struct _CafekbdKeyboardDrawing CafekbdKeyboardDrawing;

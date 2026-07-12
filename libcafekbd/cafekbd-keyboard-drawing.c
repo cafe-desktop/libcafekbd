@@ -2251,8 +2251,11 @@ style_changed (CafekbdKeyboardDrawing * drawing)
 }
 
 static void
-cafekbd_keyboard_drawing_init (CafekbdKeyboardDrawing * drawing)
+cafekbd_keyboard_drawing_init (GTypeInstance *instance,
+			       gpointer       g_class G_GNUC_UNUSED)
 {
+	CafekbdKeyboardDrawing *drawing = CAFEKBD_KEYBOARD_DRAWING (instance);
+
 	gint opcode = 0, error = 0, major = 1, minor = 0;
 	gint mask;
 
@@ -2365,12 +2368,15 @@ cafekbd_keyboard_drawing_new (void)
 }
 
 static void
-cafekbd_keyboard_drawing_class_init (CafekbdKeyboardDrawingClass * klass)
+cafekbd_keyboard_drawing_class_init (gpointer klass,
+				     gpointer class_data G_GNUC_UNUSED)
 {
+	CafekbdKeyboardDrawingClass *drawing_class = CAFEKBD_KEYBOARD_DRAWING_CLASS (klass);
+
 	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 	ctk_widget_class_set_css_name (widget_class, "cafekbd-keyboard-drawing");
 
-	klass->bad_keycode = NULL;
+	drawing_class->bad_keycode = NULL;
 
 	cafekbd_keyboard_drawing_signals[BAD_KEYCODE] =
 	    g_signal_new ("bad-keycode", cafekbd_keyboard_drawing_get_type (),
@@ -2391,12 +2397,12 @@ cafekbd_keyboard_drawing_get_type (void)
 			sizeof (CafekbdKeyboardDrawingClass),
 			NULL,	/* base_init */
 			NULL,	/* base_finalize */
-			(GClassInitFunc) cafekbd_keyboard_drawing_class_init,
+			cafekbd_keyboard_drawing_class_init,
 			NULL,	/* class_finalize */
 			NULL,	/* class_data */
 			sizeof (CafekbdKeyboardDrawing),
 			0,	/* n_preallocs */
-			(GInstanceInitFunc) cafekbd_keyboard_drawing_init,
+			cafekbd_keyboard_drawing_init,
 			NULL	/* *value_table */
 		};
 
