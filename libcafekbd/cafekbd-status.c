@@ -366,7 +366,7 @@ cafekbd_status_prepare_drawing (CafekbdStatus *gki G_GNUC_UNUSED,
 		cairo_surface_destroy (cs);
 
 		image = cdk_pixbuf_new_from_data (pixbuf_data,
-						  GDK_COLORSPACE_RGB,
+						  CDK_COLORSPACE_RGB,
 						  TRUE,
 						  8,
 						  globals.real_width,
@@ -547,7 +547,7 @@ cafekbd_status_set_current_page_for_group (CafekbdStatus * gki, int group)
 	xkl_debug (200, "Revalidating for group %d\n", group);
 
 	ctk_status_icon_set_from_pixbuf (CTK_STATUS_ICON (gki),
-					 GDK_PIXBUF (g_slist_nth_data
+					 CDK_PIXBUF (g_slist_nth_data
 						     (globals.icons,
 						      group)));
 
