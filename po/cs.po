@@ -15,9 +15,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libcafekbd 2.0.0\n"
+"Project-Id-Version: libcafekbd 2.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/libcafekbd\n"
-"POT-Creation-Date: 2025-02-06 16:16+0100\n"
+"POT-Creation-Date: 2026-07-12 18:57+0200\n"
 "PO-Revision-Date: 2020-02-14 12:40+0000\n"
 "Last-Translator: ToMáš Marný, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/cafe/teams/13566/cs/)\n"
@@ -28,12 +28,12 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: libcafekbd/cafekbd-indicator.c:121 libcafekbd/cafekbd-status.c:316
+#: libcafekbd/cafekbd-indicator.c:121 libcafekbd/cafekbd-status.c:323
 #, c-format
 msgid "There was an error loading an image: %s"
 msgstr "Nastala chyba při načítání obrázku: %s"
 
-#: libcafekbd/cafekbd-indicator.c:707 libcafekbd/cafekbd-status.c:655
+#: libcafekbd/cafekbd-indicator.c:708 libcafekbd/cafekbd-status.c:663
 msgid "XKB initialization error"
 msgstr "Chyba při spouštění XKB"
 
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Compose"
 msgstr "Klávesa Compose"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2693
+#: libcafekbd/cafekbd-keyboard-drawing.c:2699
 #, c-format
 msgid ""
 "Keyboard layout \"%s\"\n"
@@ -272,11 +272,11 @@ msgstr ""
 "Copyright &#169; X.Org Foundation a přispívající k XKeyboardConfig\n"
 "Licencování viz metadata balíčku"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2775
+#: libcafekbd/cafekbd-keyboard-drawing.c:2781
 msgid "Unknown"
 msgstr "Neznámo"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2821
+#: libcafekbd/cafekbd-keyboard-drawing.c:2827
 #, c-format
 msgid "Keyboard Layout \"%s\""
 msgstr "Rozložení klávesnice \"%s\""

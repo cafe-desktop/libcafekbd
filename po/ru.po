@@ -14,9 +14,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libcafekbd 2.0.0\n"
+"Project-Id-Version: libcafekbd 2.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/cafe-desktop/libcafekbd\n"
-"POT-Creation-Date: 2025-02-06 16:16+0100\n"
+"POT-Creation-Date: 2026-07-12 18:57+0200\n"
 "PO-Revision-Date: 2020-02-14 12:40+0000\n"
 "Last-Translator: Anna Vyalkova <cybertailor@gmail.com>, 2020\n"
 "Language-Team: Russian (https://www.transifex.com/cafe/teams/13566/ru/)\n"
@@ -28,12 +28,12 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: libcafekbd/cafekbd-indicator.c:121 libcafekbd/cafekbd-status.c:316
+#: libcafekbd/cafekbd-indicator.c:121 libcafekbd/cafekbd-status.c:323
 #, c-format
 msgid "There was an error loading an image: %s"
 msgstr "Произошла ошибка при загрузке изображения: %s"
 
-#: libcafekbd/cafekbd-indicator.c:707 libcafekbd/cafekbd-status.c:655
+#: libcafekbd/cafekbd-indicator.c:708 libcafekbd/cafekbd-status.c:663
 msgid "XKB initialization error"
 msgstr "Ошибка инициализации XKB"
 
@@ -263,7 +263,7 @@ msgstr "AltGr"
 msgid "Compose"
 msgstr "Compose"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2693
+#: libcafekbd/cafekbd-keyboard-drawing.c:2699
 #, c-format
 msgid ""
 "Keyboard layout \"%s\"\n"
@@ -274,11 +274,11 @@ msgstr ""
 "Авторские права © X.Org Foundation и авторы XKeyboardConfig\n"
 "Сведения о лицензировании находятся в метаданных пакета"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2775
+#: libcafekbd/cafekbd-keyboard-drawing.c:2781
 msgid "Unknown"
 msgstr "Неизвестная"
 
-#: libcafekbd/cafekbd-keyboard-drawing.c:2821
+#: libcafekbd/cafekbd-keyboard-drawing.c:2827
 #, c-format
 msgid "Keyboard Layout \"%s\""
 msgstr "Раскладка клавиатуры «%s»"
