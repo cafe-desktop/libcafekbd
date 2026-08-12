@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="https://github.com/cafe-desktop/cafe-icon-theme/raw/master/cafe/16x16/devices/input-keyboard.png" />
+  <title>libcafekbd Code Analyzer results</title>
+</head>
+<body>
+<h1>
+  <a href="https://github.com/cafe-desktop">cafe-desktop</a>/<a href="https://github.com/cafe-desktop/libcafekbd">libcafekbd</a> Static analyzer results
+</h1>
+  <a href="https://github.com/cafe-desktop/libcafekbd" title="Github"><i class="fa fa-github fa-2x"></i>GitHub</a>
+  <a href="https://github.com/cafe-desktop/libcafekbd/actions/workflows/main.yml" title="Gihub Actions"><img src="https://github.com/cafe-desktop/libcafekbd/actions/workflows/main.yml/badge.svg" alt="Build Status" /></a>
+<hr/>
+Commit: <a href="https://github.com/cafe-desktop/libcafekbd/commit/35e2131bedfe2f8d4850401c7f9302ce1c84f3d5">35e2131bedfe2f8d4850401c7f9302ce1c84f3d5</a><br/>
+Compare: <a href="https://github.com/cafe-desktop/libcafekbd/compare/"></a><br/>
+Branch: <a href="https://github.com/cafe-desktop/libcafekbd/tree/devel">devel</a><br/>
+Time: 2026-08-12 15:18:46+00:00<br/>
+Messages:<br/>
+<pre>
+ci: test debs
+</pre>
+<a href="https://cafe-desktop.github.io/libcafekbd/output_35e2131bedfe2f8d4850401c7f9302ce1c84f3d5">Logs</a><br/>
+<br/>
+Warnings: <br/>
+<hr/>
+<ul>
+<li><a href=2026-07-12-174714-3682-cppcheck@04eb63629a06_master title="Release 2.1.0">2026-07-12-174714-3682-cppcheck@04eb63629a06_master</a> <a href="2026-07-12-174714-3682-cppcheck@04eb63629a06_master/output_04eb63629a0630b4fcdf6da06a241cad6ab4d6d0">logs</a> 125</li>
+<li><a href=2026-07-12-174549-14379-1@04eb63629a06_master title="Release 2.1.0">2026-07-12-174549-14379-1@04eb63629a06_master</a> <a href="2026-07-12-174549-14379-1@04eb63629a06_master/output_04eb63629a0630b4fcdf6da06a241cad6ab4d6d0">logs</a> 125</li>
+<li><a href=2026-07-12-173059-0096-cppcheck@04eb63629a06_devel title="Release 2.1.0">2026-07-12-173059-0096-cppcheck@04eb63629a06_devel</a> <a href="2026-07-12-173059-0096-cppcheck@04eb63629a06_devel/output_04eb63629a0630b4fcdf6da06a241cad6ab4d6d0">logs</a> 125</li>
+<li><a href=2026-07-12-172947-14380-1@04eb63629a06_devel title="Release 2.1.0">2026-07-12-172947-14380-1@04eb63629a06_devel</a> <a href="2026-07-12-172947-14380-1@04eb63629a06_devel/output_04eb63629a0630b4fcdf6da06a241cad6ab4d6d0">logs</a> 125</li>
+<li><a href=2026-07-12-172739-8867-cppcheck@cec6fd810b44_devel title="po: update translations for 2.1.0">2026-07-12-172739-8867-cppcheck@cec6fd810b44_devel</a> <a href="2026-07-12-172739-8867-cppcheck@cec6fd810b44_devel/output_cec6fd810b449e1bd20386764e4ab89263a62fac">logs</a> 125</li>
+<li><a href=2026-07-12-172616-14379-1@cec6fd810b44_devel title="po: update translations for 2.1.0">2026-07-12-172616-14379-1@cec6fd810b44_devel</a> <a href="2026-07-12-172616-14379-1@cec6fd810b44_devel/output_cec6fd810b449e1bd20386764e4ab89263a62fac">logs</a> 125</li>
+<li><a href=2026-07-12-172408-7505-cppcheck@b12d43315df1_devel title="update pot file for 2.1.0">2026-07-12-172408-7505-cppcheck@b12d43315df1_devel</a> <a href="2026-07-12-172408-7505-cppcheck@b12d43315df1_devel/output_b12d43315df177f17491aa20ce83ae60b4dcb66d">logs</a> 125</li>
+<li><a href=2026-07-12-172241-14379-1@b12d43315df1_devel title="update pot file for 2.1.0">2026-07-12-172241-14379-1@b12d43315df1_devel</a> <a href="2026-07-12-172241-14379-1@b12d43315df1_devel/output_b12d43315df177f17491aa20ce83ae60b4dcb66d">logs</a> 125</li>
+<li><a href=2026-07-12-170059-2879-cppcheck@3352e24313d0_devel title="Fix [-Wcast-function-type] warnings
+
+Fixes the warnings:
+
+cafekbd-indicator.c:647:38: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *,
+void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-indicator.c:650:32: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-indicator.c:663:41: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-indicator.c:667:14: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+
+cafekbd-status.c:376:51: warning: cast between incompatible function types from 'void (*)(void *)' to 'void (*)(guchar *, void *)' {aka 'void (*)(unsigned char *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:594:38: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:597:32: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:610:41: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:614:14: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+
+cafekbd-keyboard-drawing.c:2394:25: warning: cast between incompatible function types from 'void (*)(CafekbdKeyboardDrawingClass *)' {aka 'void (*)(struct _CafekbdKeyboardDrawingClass *)'} to 'void (*)(void *, void *)' [-Wcast-function-type]
+cafekbd-keyboard-drawing.c:2399:25: warning: cast between incompatible function types from 'void (*)(CafekbdKeyboardDrawing *)' {aka 'void (*)(struct _CafekbdKeyboardDrawing *)'} to 'void (*)(GTypeInstance *, void *)' {aka 'void (*)(struct _GTypeInstance *, void *)'} [-Wcast-function-type]">2026-07-12-170059-2879-cppcheck@3352e24313d0_devel</a> <a href="2026-07-12-170059-2879-cppcheck@3352e24313d0_devel/output_3352e24313d0735a3d4dce2a0d992105afc0506f">logs</a> 125</li>
+<li><a href=2026-07-12-165933-14379-1@3352e24313d0_devel title="Fix [-Wcast-function-type] warnings
+
+Fixes the warnings:
+
+cafekbd-indicator.c:647:38: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *,
+void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-indicator.c:650:32: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-indicator.c:663:41: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-indicator.c:667:14: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+
+cafekbd-status.c:376:51: warning: cast between incompatible function types from 'void (*)(void *)' to 'void (*)(guchar *, void *)' {aka 'void (*)(unsigned char *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:594:38: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:597:32: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:610:41: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:614:14: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+
+cafekbd-keyboard-drawing.c:2394:25: warning: cast between incompatible function types from 'void (*)(CafekbdKeyboardDrawingClass *)' {aka 'void (*)(struct _CafekbdKeyboardDrawingClass *)'} to 'void (*)(void *, void *)' [-Wcast-function-type]
+cafekbd-keyboard-drawing.c:2399:25: warning: cast between incompatible function types from 'void (*)(CafekbdKeyboardDrawing *)' {aka 'void (*)(struct _CafekbdKeyboardDrawing *)'} to 'void (*)(GTypeInstance *, void *)' {aka 'void (*)(struct _GTypeInstance *, void *)'} [-Wcast-function-type]">2026-07-12-165933-14379-1@3352e24313d0_devel</a> <a href="2026-07-12-165933-14379-1@3352e24313d0_devel/output_3352e24313d0735a3d4dce2a0d992105afc0506f">logs</a> 125</li>
+<li><a href=2026-07-12-113454-3192-cppcheck@b5adb73156a5_master title="rename Gdk -> Cdk">2026-07-12-113454-3192-cppcheck@b5adb73156a5_master</a> <a href="2026-07-12-113454-3192-cppcheck@b5adb73156a5_master/output_b5adb73156a53bcfd914a241e75984a626579ad2">logs</a> 136</li>
+<li><a href=2026-07-12-113327-14379-1@b5adb73156a5_master title="rename Gdk -> Cdk">2026-07-12-113327-14379-1@b5adb73156a5_master</a> <a href="2026-07-12-113327-14379-1@b5adb73156a5_master/output_b5adb73156a53bcfd914a241e75984a626579ad2">logs</a> 136</li>
+<li><a href=2026-07-12-112825-4595-cppcheck@2b961246305f_cdkpixbuf title="rename Gdk -> Cdk">2026-07-12-112825-4595-cppcheck@2b961246305f_cdkpixbuf</a> <a href="2026-07-12-112825-4595-cppcheck@2b961246305f_cdkpixbuf/output_2b961246305fd605539dea3c3d1b6f67c94492dc">logs</a> 136</li>
+<li><a href=2026-07-12-112700-14379-1@2b961246305f_cdkpixbuf title="rename Gdk -> Cdk">2026-07-12-112700-14379-1@2b961246305f_cdkpixbuf</a> <a href="2026-07-12-112700-14379-1@2b961246305f_cdkpixbuf/output_2b961246305fd605539dea3c3d1b6f67c94492dc">logs</a> 136</li>
+<li><a href=2025-11-07-115204-9346-cppcheck@11e3bcc74d5d_cimaster title="ci: add debian stable build">2025-11-07-115204-9346-cppcheck@11e3bcc74d5d_cimaster</a> <a href="2025-11-07-115204-9346-cppcheck@11e3bcc74d5d_cimaster/output_11e3bcc74d5de130f641607f1f6e852f1a0605b9">logs</a> 130</li>
+<li><a href=2025-11-07-115038-13918-1@11e3bcc74d5d_cimaster title="ci: add debian stable build">2025-11-07-115038-13918-1@11e3bcc74d5d_cimaster</a> <a href="2025-11-07-115038-13918-1@11e3bcc74d5d_cimaster/output_11e3bcc74d5de130f641607f1f6e852f1a0605b9">logs</a> 130</li>
+<li><a href=2025-08-10-150013-8687-cppcheck@11e3bcc74d5d_master title="ci: add debian stable build">2025-08-10-150013-8687-cppcheck@11e3bcc74d5d_master</a> <a href="2025-08-10-150013-8687-cppcheck@11e3bcc74d5d_master/output_11e3bcc74d5de130f641607f1f6e852f1a0605b9">logs</a> 130</li>
+<li><a href=2025-08-10-145844-14153-1@11e3bcc74d5d_master title="ci: add debian stable build">2025-08-10-145844-14153-1@11e3bcc74d5d_master</a> <a href="2025-08-10-145844-14153-1@11e3bcc74d5d_master/output_11e3bcc74d5de130f641607f1f6e852f1a0605b9">logs</a> 130</li>
+<li><a href=2025-08-10-145450-9149-cppcheck@11e3bcc74d5d_devel title="ci: add debian stable build">2025-08-10-145450-9149-cppcheck@11e3bcc74d5d_devel</a> <a href="2025-08-10-145450-9149-cppcheck@11e3bcc74d5d_devel/output_11e3bcc74d5de130f641607f1f6e852f1a0605b9">logs</a> 130</li>
+<li><a href=2025-08-10-145320-14153-1@11e3bcc74d5d_devel title="ci: add debian stable build">2025-08-10-145320-14153-1@11e3bcc74d5d_devel</a> <a href="2025-08-10-145320-14153-1@11e3bcc74d5d_devel/output_11e3bcc74d5de130f641607f1f6e852f1a0605b9">logs</a> 130</li>
+</ul>
+29M
+</body>
+</html>

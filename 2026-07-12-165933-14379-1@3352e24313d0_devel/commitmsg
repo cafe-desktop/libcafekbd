@@ -1,0 +1,18 @@
+Fix [-Wcast-function-type] warnings
+
+Fixes the warnings:
+
+cafekbd-indicator.c:647:38: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *,
+void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-indicator.c:650:32: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-indicator.c:663:41: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-indicator.c:667:14: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+
+cafekbd-status.c:376:51: warning: cast between incompatible function types from 'void (*)(void *)' to 'void (*)(guchar *, void *)' {aka 'void (*)(unsigned char *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:594:38: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:597:32: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:610:41: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+cafekbd-status.c:614:14: warning: cast between incompatible function types from 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *)'} to 'CdkFilterReturn (*)(CdkXEvent *, CdkEvent *, void *)' {aka 'CdkFilterReturn (*)(void *, union _CdkEvent *, void *)'} [-Wcast-function-type]
+
+cafekbd-keyboard-drawing.c:2394:25: warning: cast between incompatible function types from 'void (*)(CafekbdKeyboardDrawingClass *)' {aka 'void (*)(struct _CafekbdKeyboardDrawingClass *)'} to 'void (*)(void *, void *)' [-Wcast-function-type]
+cafekbd-keyboard-drawing.c:2399:25: warning: cast between incompatible function types from 'void (*)(CafekbdKeyboardDrawing *)' {aka 'void (*)(struct _CafekbdKeyboardDrawing *)'} to 'void (*)(GTypeInstance *, void *)' {aka 'void (*)(struct _GTypeInstance *, void *)'} [-Wcast-function-type]
